@@ -4,38 +4,40 @@
   <meta charset="UTF-8" />
   <title>🔐 Login – 📚PEVE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Desde /app/ subimos un nivel para llegar a /assets/ -->
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body class="theme-dark login-page">
-  
-<header class="topbar">
+
+  <!-- HEADER TIPO PEVE (igual al de la segunda imagen) -->
+  <header class="topbar">
     <div class="topbar-left">
-      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="logo-circle">📚</div>
       <div class="brand-text">
         <span class="brand-name">PEVE</span>
         <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
       </div>
     </div>
+
     <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="index.html" class="nav-link nav-link-active">Inicio</a>
-      <a href="pages/info.html" class="nav-link">Proceso</a>
-      <a href="pages/niveles.html" class="nav-link">Niveles</a>
-      <a href="pages/asignaturas.html" class="nav-link">Asignaturas</a>
-      <a href="pages/perfiles.html" class="nav-link">Perfiles</a>
-      <a href="pages/accesibilidad.html" class="nav-link">Accesibilidad</a>
-      <a href="pages/acerca.html" class="nav-link">Acerca de</a>
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <a href="../pages/proceso.html" class="nav-link">Proceso</a>
+      <a href="../pages/niveles.html" class="nav-link">Niveles</a>
+      <a href="../pages/asignaturas.html" class="nav-link">Asignaturas</a>
+      <span class="nav-link nav-link-active">Perfiles</span>
+      <a href="../pages/accesibilidad.html" class="nav-link">Accesibilidad</a>
+      <a href="../pages/acerca.html" class="nav-link">Acerca de</a>
     </nav>
 
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button id="btn-theme" class="access-btn" title="Cambiar tema claro/oscuro">🌓</button>
-      <button id="btn-font-dec" class="access-btn" title="Letra más pequeña">A−</button>
-      <button id="btn-font-inc" class="access-btn" title="Letra más grande">A+</button>
-      <button id="btn-narrator" class="access-btn" title="Narrador de pantalla">🔊</button>
+    <div class="accessibility-toolbar">
+      <!-- OJO: mantenemos también .btn-icon para que inclusion.js siga funcionando -->
+      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador de la página">🔊</button>
     </div>
   </header>
 
-
+  <!-- CONTENIDO LOGIN CON TARJETAS -->
   <main class="login-layout">
     <div class="login-header-row">
       <a href="../index.html" class="login-back-link">⬅ Volver al inicio</a>
@@ -53,7 +55,7 @@
 
         <form class="login-form">
           <label>
-            Correo 
+            Correo institucional
             <input type="email" placeholder="estudiante@dominio.cl" required />
           </label>
           <label>
