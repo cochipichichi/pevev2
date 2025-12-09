@@ -25,76 +25,87 @@
   </header>
 
   <main class="container container-narrow">
-    <section class="cards-grid cards-grid-2">
-      <article class="card login-card">
-        <h2>👦👧 Soy Estudiante</h2>
-        <p>Accede a tus temarios, materiales y registro de progreso.</p>
-        <form class="login-form">
-          <label>
-            Correo institucional
-            <input type="email" placeholder="estudiante@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="btn primary" type="submit">Ingresar</button>
-        </form>
-      </article>
+<main class="login-layout">
+  <section class="login-grid">
+    <!-- Estudiante -->
+    <article class="login-card">
+      <h2>👦👧 Soy Estudiante</h2>
+      <p>Accede a tus temarios, materiales y registro de progreso.</p>
 
-      <article class="card login-card">
-        <h2>👨‍👩‍👧 Soy Apoderado/a</h2>
-        <p>Revisa el avance y asistencia a evaluaciones de tu pupilo/a.</p>
-        <form class="login-form">
-          <label>
-            Correo
-            <input type="email" placeholder="apoderado@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="btn primary" type="submit">Ingresar</button>
-        </form>
-      </article>
+      <form class="login-form">
+        <label>
+          Correo institucional
+          <input type="email" placeholder="estudiante@dominio.cl" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="********" required />
+        </label>
+        <button class="login-btn" type="submit">Ingresar</button>
+      </form>
+    </article>
 
-      <article class="card login-card">
-        <h2>👩‍🏫 Soy Docente</h2>
-        <p>Gestiona listas, temarios, instrumentos y registro de notas.</p>
-        <form class="login-form">
-          <label>
-            Correo
-            <input type="email" placeholder="docente@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="btn primary" type="submit">Ingresar</button>
-        </form>
-      </article>
+    <!-- Apoderado -->
+    <article class="login-card">
+      <h2>👨‍👩‍👧 Soy Apoderado/a</h2>
+      <p>Revisa el avance y asistencia a evaluaciones de tu pupilo/a.</p>
 
-      <article class="card login-card">
-        <h2>🛠️ Administrador</h2>
-        <p>Gestión avanzada de usuarios, cursos, temarios y reportes.</p>
-        <form class="login-form">
-          <label>
-            Usuario
-            <input type="text" placeholder="admin" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="btn primary" type="submit">Ingresar</button>
-        </form>
-      </article>
-    </section>
+      <form class="login-form">
+        <label>
+          Correo
+          <input type="email" placeholder="apoderado@dominio.cl" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="********" required />
+        </label>
+        <button class="login-btn" type="submit">Ingresar</button>
+      </form>
+    </article>
 
-    <p class="note">
-      ⚠️ Este login es demostrativo (front-end). En una próxima versión se conectará a un backend real
-      (Firebase, Supabase o similar) para manejar sesiones y permisos.
-    </p>
+    <!-- Docente -->
+    <article class="login-card">
+      <h2>👩‍🏫 Soy Docente</h2>
+      <p>Gestiona listas, temarios, instrumentos y registro de notas.</p>
+
+      <form class="login-form">
+        <label>
+          Correo
+          <input type="email" placeholder="docente@dominio.cl" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="********" required />
+        </label>
+        <button class="login-btn" type="submit">Ingresar</button>
+      </form>
+    </article>
+
+    <!-- Administrador -->
+    <article class="login-card login-card-admin">
+      <h2>🛠️ Administrador</h2>
+      <p>Gestión avanzada de usuarios, cursos, temarios y reportes.</p>
+
+      <form class="login-form">
+        <label>
+          Usuario
+          <input type="text" placeholder="admin" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="********" required />
+        </label>
+        <button class="login-btn" type="submit">Ingresar</button>
+      </form>
+    </article>
+  </section>
+
+  <p class="login-note">
+    ⚠️ Este login es demostrativo (front-end). En una próxima versión se conectará a un backend real
+    (Firebase, Supabase o similar) para manejar sesiones y permisos.
+  </p>
+</main>
+
   </main>
 
   <!-- JS de accesibilidad + footer unificado (si los estás usando en el index) -->
