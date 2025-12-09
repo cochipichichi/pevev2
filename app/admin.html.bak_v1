@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — PEVE</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', async()=>{
+  const u = getSession(); if(!u || u.role!=='admin') return location.href='login.html';
+  $('#who').textContent = u.name;
+  const users = await fetch('../data/users.json').then(r=>r.json());
+  const tbody = $('#users-body');
+  users.forEach(x=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${x.id}</td><td>${x.name}</td><td><span class="tag">${x.role}</span></td><td>${x.email||'-'}</td>`;
+    tbody.appendChild(tr);
+  });
+});
+</script>
+<script defer src="../assets/api.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <span class="badge">PEVE</span>
+    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
+  </div>
+  <div class="row">
+    <button class="toggle" data-action="fs-dec">A−</button>
+    <button class="toggle" data-action="fs-inc">A+</button>
+    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
+  </div>
+</header>
+
+<main>
+  <div class="row" style="justify-content:space-between;align-items:center">
+    <h2>🛠️ Administración — <span id="who"></span></h2>
+    <button class="toggle" data-action="logout">Cerrar sesión</button>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Usuarios</h3>
+      <table class="table">
+        <thead><tr><th>ID</th><th>Nombre</th><th>Rol</th><th>Correo</th></tr></thead>
+        <tbody id="users-body"></tbody>
+      </table>
+      <p class="notice">Agregar/editar usuarios requerirá backend real (API o Google Apps Script). Aquí dejamos la UI base.</p>
+    </div>
+    <div class="card">
+      <h3>Asignaturas / Cursos</h3>
+      <div class="row">
+        <a class="btn" href="../pages/curso_biologia_1m.html">➕ Asignar Biología 1M</a>
+      </div>
+      <small>Extiende con más asignaturas (Lenguaje, Matemática, Física, Química, Historia, Inglés).</small>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>➕ Crear usuario</h3>
+      <div class="row">
+        <input id="nu_id" placeholder="id (ej: est2)">
+        <input id="nu_name" placeholder="Nombre">
+        <select id="nu_role">
+          <option value="student">student</option>
+          <option value="guardian">guardian</option>
+          <option value="teacher">teacher</option>
+          <option value="admin">admin</option>
+        </select>
+        <input id="nu_email" placeholder="Correo">
+        <button class="btn green" onclick="createUser()">Crear</button>
+      </div>
+      <small>Se guardará en la hoja <code>users</code> de tu Google Sheets.</small>
+    </div>
+    <div class="card">
+      <h3>📋 Listar usuarios (desde Sheets)</h3>
+      <div class="row"><button class="btn" onclick="loadUsers()">Actualizar</button></div>
+      <table class="table"><thead><tr><th>ID</th><th>Nombre</th><th>Rol</th><th>Correo</th></tr></thead><tbody id="users-remote"></tbody></table>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📚 Cursos/Asignaturas</h3>
+      <div class="row">
+        <input id="c_id" placeholder="ID curso (ej: BIO1M)">
+        <input id="c_name" placeholder="Nombre (Biología 1° Medio)">
+        <input id="c_oas" placeholder="OA separadas por coma (OA2,OA4,OA6,OA8)">
+        <button class="btn green" onclick="createCourse()">Crear/Actualizar</button>
+        <button class="btn" onclick="listCourses()">Listar</button>
+      </div>
+      <div class="row" style="margin:8px 0"><button class="btn" onclick="seedSuggested()">🌱 Sembrar sugeridos</button></div><table class="table"><thead><tr><th>ID</th><th>Nombre</th><th>OA</th></tr></thead><tbody id="courses-body"></tbody></table>
+    </div>
+
+    <div class="card">
+      <h3>👥 Asignación Usuario ↔ Curso</h3>
+      <div class="row">
+        <input id="as_user" placeholder="userId (ej: est1)">
+        <input id="as_course" placeholder="courseId (ej: BIO1M)">
+        <input id="as_oas" placeholder="OA autorizadas (ej: OA2,OA4)">
+        <button class="btn purple" onclick="assignCourse()">Asignar</button>
+        <button class="btn" onclick="listAssignments()">Ver asignaciones</button>
+      </div>
+      <table class="table"><thead><tr><th>userId</th><th>courseId</th><th>OA</th></tr></thead><tbody id="assign-body"></tbody></table>
+    </div>
+  </div>
+</main>
+<script>
+async function createCourse(){
+  const payload = {
+    id: $('#c_id').value.trim(),
+    name: $('#c_name').value.trim(),
+    oas: $('#c_oas').value.split(',').map(s=>s.trim()).filter(Boolean)
+  };
+  if(!payload.id || !payload.name){ return alert('Falta ID/Nombre'); }
+  const r = await PEVE_ADMIN.peveCreateCourse(payload).catch(e=>alert('Error al crear curso'));
+  if(r) alert(r.message||'Curso guardado');
+}
+
+async function listCourses(){
+  const r = await PEVE_ADMIN.peveListCourses().catch(e=>alert('No se pudo listar cursos'));
+  const tb = $('#courses-body'); tb.innerHTML='';
+  (r.rows||[]).forEach(c=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${c.id}</td><td>${c.name}</td><td>${(c.oas||[]).join(', ')}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+async function assignCourse(){
+  const payload = {
+    userId: $('#as_user').value.trim(),
+    courseId: $('#as_course').value.trim(),
+    oas: $('#as_oas').value.split(',').map(s=>s.trim()).filter(Boolean)
+  };
+  if(!payload.userId || !payload.courseId){ return alert('Faltan campos'); }
+  const r = await PEVE_ADMIN.peveAssignCourse(payload).catch(e=>alert('No se pudo asignar'));
+  if(r) alert(r.message||'Asignado');
+}
+
+async function listAssignments(){
+  const r = await PEVE_ADMIN.peveListAssignments({}).catch(e=>alert('No se pudo listar'));
+  const tb = $('#assign-body'); tb.innerHTML='';
+  (r.rows||[]).forEach(a=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${a.userId}</td><td>${a.courseId}</td><td>${(a.oas||[]).join(', ')}</td>`;
+    tb.appendChild(tr);
+  });
+}
+</script>
+
+<script>
+async function createUser(){
+  const payload = {
+    id: $('#nu_id').value, name: $('#nu_name').value,
+    role: $('#nu_role').value, email: $('#nu_email').value
+  };
+  try{
+    const resp = await PEVE_API.pevePost('user_create', payload);
+    alert(resp.message || 'Usuario creado');
+  }catch(e){ alert('No se pudo crear'); }
+}
+async function loadUsers(){
+  try{
+    const resp = await PEVE_API.pevePost('user_list', {});
+    const tb = $('#users-remote'); tb.innerHTML='';
+    (resp.rows||[]).forEach(x=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${x.id}</td><td>${x.name}</td><td><span class="tag">${x.role}</span></td><td>${x.email||'-'}</td>`;
+      tb.appendChild(tr);
+    });
+  }catch(e){ alert('No se pudo obtener usuarios'); }
+}
+</script>
+
+
+<footer class="footer">
+  <div>PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>👩‍🏫 Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+  <div>PEVE - Todos los derechos reservados - Prohibida su reproduccion</div>
+  <div>PEVE - 2025/2026</div>
+</footer>
+
+</body></html>
+
+<script>
+window.addEventListener('DOMContentLoaded', async()=>{
+  try{
+    const s = localStorage.getItem('peve.prefillCourse');
+    if(s){
+      const c = JSON.parse(s);
+      $('#c_id').value = c.id || '';
+      $('#c_name').value = c.name || '';
+      $('#c_oas').value = (c.oas||[]).join(',');
+      localStorage.removeItem('peve.prefillCourse');
+    }
+  }catch(_){}
+});
+
+async function seedSuggested(){
+  const seeds = await fetch('../data/courses_seed.json').then(r=>r.json());
+  for(const c of seeds){ try{ await PEVE_ADMIN.peveCreateCourse(c); }catch(e){} }
+  alert('Cursos sugeridos sembrados en Sheets');
+}
+</script>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Evidencias</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <meta name="theme-color" content="#0b0f14">
+</head>
+<body>
+  <main class="container" style="max-width:1000px;margin:1rem auto;padding:1rem;">
+    <h1>🧾 Evidencias</h1>
+    <p>Adjunta imágenes (JPG/PNG) o PDF. Puedes agregar notas por OA/curso/estudiante y luego exportar un reporte imprimible.</p>
+
+    <section class="card" style="padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:1rem;">
+      <form id="evidence-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <label>Curso<br><input type="text" name="course" placeholder="1° Medio A" required></label>
+          <label>Estudiante<br><input type="text" name="student" placeholder="Nombre Apellido" required></label>
+          <label>OA (Objetivo de Aprendizaje)<br><input type="text" name="oa" placeholder="CN OA2 Evolución" required></label>
+          <label>Fecha<br><input type="date" name="date" required></label>
+        </div>
+        <label style="display:block;margin-top:1rem;">Notas / Observaciones
+          <textarea name="notes" rows="4" placeholder="Describa la evidencia, logros, apoyos PIE, etc."></textarea>
+        </label>
+        <div id="dropzone" style="margin-top:1rem;padding:1.2rem;border:2px dashed rgba(255,255,255,.2);border-radius:1rem;text-align:center;">
+          Arrastra archivos aquí o <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg,.pdf"> 
+        </div>
+        <div id="preview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;margin-top:1rem;"></div>
+        <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+          <button type="button" class="btn" id="export-pdf">🖨️ Exportar PDF</button>
+          <button type="reset" class="btn">🧹 Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../assets/app.js" defer></script>
+  <script src="../assets/evidence.js" defer></script>
+
+  <footer class="footer">
+  <div>📚PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>📚NEOTECH EDULAB SpA. - Todos los derechos reservados - Prohibida su copia y/o reproduccion</div>
+  <div>🛠️Creado por:</div>
+  <div>👩‍🏫Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+ </footer>
+  
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+:root {
+  --bg:#0b0f14; --fg:#e7edf3; --muted:#a8b3bd; --brand:#3ddc97; --accent:#8ab4f8;
+  --card:#131923; --border:#233044; --danger:#ff6b6b; --ok:#00c853; --warn:#ffa000;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;}
+a{color:var(--accent);text-decoration:none}
+.header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);backdrop-filter:saturate(1.2) blur(6px);position:sticky;top:0;background:rgba(11,15,20,0.75)}
+.logo{display:flex;gap:12px;align-items:center}
+.logo .title{font-weight:700;letter-spacing:.2px}
+.badge{padding:4px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+main{padding:24px;max-width:1080px;margin:0 auto}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.card h3{margin:0 0 8px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;border:1px solid var(--border);background:#101623;color:var(--fg);cursor:pointer;font-weight:600}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.btn.green{border-color:#1f3d36}
+.btn.blue{border-color:#1f2a3d}
+.btn.purple{border-color:#2d1f3d}
+.btn.red{border-color:#3d1f1f}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.kbd{padding:2px 6px;border:1px solid var(--border);border-radius:6px;background:#0b121d;color:var(--muted);font-size:12px}
+.footer{margin:48px 0 24px;color:var(--muted);text-align:center}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+.toggle{border:1px solid var(--border);padding:8px 10px;border-radius:10px;cursor:pointer}
+.high-contrast *{background:#000 !important;color:#fff !important;border-color:#fff !important}
+.notice{padding:12px;border:1px dashed var(--border);border-radius:12px;background:#0e1522;color:var(--muted)}
+.tag{font-size:12px;padding:4px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+.table{width:100%;border-collapse:collapse;margin-top:8px}
+.table th,.table td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
+input,select,textarea{background:#0e1522;border:1px solid var(--border);color:var(--fg);padding:10px;border-radius:10px;width:100%}
+label{font-size:12px;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--border);margin:16px 0}
+small{color:var(--muted)}
+.hero{display:grid;grid-template-columns:1fr;gap:16px;margin:16px 0 24px}
+.hero h1{margin:0;font-size:28px}
+code.inline{background:#0e1522;border:1px solid var(--border);padding:2px 6px;border-radius:6px}
+
+
+/* === Topbar universal + Theme menu (v2.1) === */
+.topbar{position:sticky;top:0;z-index:999;display:flex;gap:.5rem;align-items:center;justify-content:space-between;padding:.6rem .8rem;background:var(--bg,#0b0f14);border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar .left, .topbar .right{display:flex;gap:.5rem;align-items:center}
+.topbar button, .topbar .menu-btn{border:none;padding:.5rem .7rem;border-radius:.8rem;cursor:pointer;font-weight:600}
+.topbar .btn{background:var(--btn-bg, #1f2937);color:var(--btn-fg, #fff);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.topbar .btn:focus{outline:3px solid rgba(59,130,246,.6)}
+
+.theme-switcher{position:relative}
+.theme-switcher .menu{position:absolute;right:0;top:120%;min-width:180px;background:var(--bg,#0b0f14);border:1px solid rgba(255,255,255,.12);border-radius:.8rem;padding:.35rem;display:none;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.theme-switcher.open .menu{display:block}
+.theme-switcher .menu button{display:block;width:100%;text-align:left;background:transparent;padding:.5rem .7rem;border-radius:.6rem}
+.theme-switcher .menu button:hover,.theme-switcher .menu button:focus{background:rgba(255,255,255,.08)}
+
+/* Themes (usar con data-theme en :root) */
+:root[data-theme="light"]{--bg:#f7fafc; --fg:#0b0f14; --btn-bg:#e5e7eb; --btn-fg:#111827}
+:root[data-theme="dark"]{--bg:#0b0f14; --fg:#e5e7eb; --btn-bg:#1f2937; --btn-fg:#fff}
+:root[data-theme="high-contrast"]{--bg:#000; --fg:#fff; --btn-bg:#000; --btn-fg:#fff}
+:root[data-theme="sepia"]{--bg:#f4ecd8; --fg:#3b2f1e; --btn-bg:#e9dfc9; --btn-fg:#3b2f1e}
+
+html,body{background:var(--bg); color:var(--fg);}
+a{color:inherit}
+/* === Fin v2.1 === */
+
+
+/* Accessibility additions */
+.skip-link{position:absolute;left:-9999px;top:auto}
+.skip-link:focus{left:12px;top:12px;z-index:1000;background:#000;color:#fff;padding:.5rem .75rem;border-radius:.5rem}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){
+  *{animation: none !important; transition: none !important}
+}
+
+
+/* === Cards + Solid Pulse Buttons (v1) === */
+.card-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:stretch}
+.btn.solid{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.06)), var(--accent); color:#0a0f14; border-color:transparent}
+.btn.pulse{position:relative; overflow:hidden}
+.btn.pulse::after{
+  content:""; position:absolute; inset:-8px; border-radius:16px; 
+  animation:btnPulse 2.1s infinite ease-in-out; 
+  box-shadow:0 0 0 0 rgba(138,180,248,0.0);
+}
+@keyframes btnPulse {
+  0% { box-shadow:0 0 0 0 rgba(138,180,248,.55); }
+  70%{ box-shadow:0 0 0 14px rgba(138,180,248,0); }
+  100%{ box-shadow:0 0 0 0 rgba(138,180,248,0); }
+}
+.card:hover{transform:translateY(-4px) scale(1.01); transition:transform .2s ease, box-shadow .2s ease;}
+.card .card-actions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+/* Subtle press effect */
+.btn:active{transform:translateY(0); box-shadow:0 2px 10px rgba(0,0,0,.2)}
+/* Icon bounce on hover */
+.btn:hover svg, .btn:hover .ico{transform:translateY(-1px); transition:transform .2s ease}
+
+/* === Ripple Effect (v2) === */
+.btn.ripple{position:relative; overflow:hidden}
+.btn .rpl{position:absolute; border-radius:50%; transform:scale(0); opacity:.45; background:currentColor; pointer-events:none; animation:rpl .6s ease-out}
+@keyframes rpl{to{transform:scale(4); opacity:0}}
+
+
+/* === LINK OA BIOLOGIA === */
+.oa-link {
+  color: #4ade80;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.oa-link:hover {
+  text-decoration: underline;
+  color: #bbf7d0;
+}
+
+
+/* Controles inclusivos: etiqueta y modo concentración */
+.topbar .topbar-label{
+  font-size:.85rem;
+  opacity:.8;
+}
+
+body.focus-mode main,
+body.focus-mode #main,
+body.focus-mode #main-content{
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.35);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+body.focus-mode header,
+body.focus-mode footer{
+  opacity:0.5;
+}

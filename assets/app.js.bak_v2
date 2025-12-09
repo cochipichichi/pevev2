@@ -1,0 +1,33 @@
+
+// Simple client-side 'auth' using localStorage (demo only)
+const $ = (s, r=document)=>r.querySelector(s);
+const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
+
+const AUTH_KEY = "peve.session";
+function setSession(user){ localStorage.setItem(AUTH_KEY, JSON.stringify(user)); }
+function getSession(){ try { return JSON.parse(localStorage.getItem(AUTH_KEY)||"null"); } catch(e){ return null } }
+function clearSession(){ localStorage.removeItem(AUTH_KEY); }
+
+function toggleContrast(){
+  document.documentElement.classList.toggle("high-contrast");
+  localStorage.setItem("peve.hc", document.documentElement.classList.contains("high-contrast")?"1":"0");
+}
+function applyContrast(){ if(localStorage.getItem("peve.hc")==="1"){ document.documentElement.classList.add("high-contrast") } }
+applyContrast();
+
+function fontDelta(delta){
+  const size = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fs")||"16");
+  const newSize = Math.max(12, Math.min(22, size + delta));
+  document.documentElement.style.setProperty("--fs", newSize+"px");
+}
+document.addEventListener("click", (e)=>{
+  const t = e.target.closest("[data-action]"); if(!t) return;
+  const a = t.dataset.action;
+  if(a==="contrast"){ toggleContrast(); }
+  if(a==="fs-inc"){ fontDelta(1); }
+  if(a==="fs-dec"){ fontDelta(-1); }
+  if(a==="logout"){ clearSession(); location.href = "/"; }
+});
+
+// PWA
+if("serviceWorker" in navigator){ navigator.serviceWorker.register("/service-worker.js"); }

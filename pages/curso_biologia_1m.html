@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biología 1M — PEVE</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', async()=>{
+  const course = await fetch('../data/courses.json').then(r=>r.json()).then(j=>j["Biología 1M"]);
+  const list = $('#oa-list'); const extracts = $('#oa-extracts');
+  course.oas.forEach(o=>{ 
+    const li = document.createElement('li'); li.textContent = o.code+" — "+o.name; list.appendChild(li);
+    const p = document.createElement('p'); p.innerHTML = `<b>${o.code}</b>: ${o.extract}`; extracts.appendChild(p);
+  });
+});
+</script>
+<meta name="theme-color" content="#0b0f14">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <span class="badge">PEVE</span>
+    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
+  </div>
+  <div class="row">
+    <button class="toggle" data-action="fs-dec">A−</button>
+    <button class="toggle" data-action="fs-inc">A+</button>
+    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
+  </div>
+</header>
+  
+  
+  <div class="accessibility-toolbar">
+    <button id="btn-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+    <button id="btn-font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+    <button id="btn-font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+    <button id="btn-narrator" aria-label="Activar narrador de texto">🔊</button>
+  </div>
+
+
+<main id="main-content">
+  <h2>🧬 Biología 1° Medio</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Objetivos de Aprendizaje</h3>
+      <ul id="oa-list"></ul>
+      <hr/>
+      <div id="oa-extracts"></div>
+    </div>
+    <div class="card">
+      <h3>Recursos</h3>
+      <div class="row">
+        <a class="btn" href="../assets/models/index.html">👁️ Ver en 3D</a>
+        <a class="btn" href="../assets/models/ar.html">📱 Ver en AR</a>
+        <a class="btn" href="../assets/models/vr.html">🥽 Ver en VR</a>
+        <a class="btn" href="quiz_bio1m.html">🧪 Quiz</a>
+        <a class="btn" href="ticket_bio1m.html">🎟️ Ticket</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>👩‍🏫 Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+  <div>PEVE - Todos los derechos reservados - Prohibida su reproduccion</div>
+  <div>PEVE - 2025/2026</div>
+</footer>
+  <script src="../assets/js/accesibilidad.js" defer></script>
+</body></html>

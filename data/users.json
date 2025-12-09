@@ -1,0 +1,36 @@
+[
+  {
+    "id": "admin1",
+    "name": "Admin PEVE",
+    "role": "admin",
+    "email": "admin@peve.local"
+  },
+  {
+    "id": "prof1",
+    "name": "Profe Biología",
+    "role": "teacher",
+    "email": "profe.bio@peve.local",
+    "subjects": [
+      "Biología 1M"
+    ]
+  },
+  {
+    "id": "est1",
+    "name": "Estudiante Demo",
+    "role": "student",
+    "email": "estudiante@peve.local",
+    "grade": "1M",
+    "assigned": [
+      "Biología 1M"
+    ]
+  },
+  {
+    "id": "apo1",
+    "name": "Apoderado Demo",
+    "role": "guardian",
+    "email": "apoderado@peve.local",
+    "wards": [
+      "est1"
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visor 3D — PEVE</title>
+<link rel="stylesheet" href="../style.css">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<main style="padding:24px">
+  <h2>👁️ Visor 3D</h2>
+  <p class="notice">Coloca tus modelos .glb en esta carpeta. Cambia el atributo <code>src</code> para apuntar al archivo real.</p>
+  <model-viewer src="model.glb" alt="Modelo 3D" camera-controls autoplay shadow-intensity="1" style="width:100%;height:70vh; background:#0b0f14;"></model-viewer>
+  
+</main>
+  
+<footer class="footer">
+  <div>PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>👩‍🏫 Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+  <div>PEVE - Todos los derechos reservados - Prohibida su reproduccion</div>
+  <div>PEVE - 2025/2026</div>
+</footer>
+  
+</body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ingresar — PEVE</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <span class="badge">PEVE</span>
+    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
+  </div>
+  <div class="row">
+    <button class="toggle" data-action="fs-dec">A−</button>
+    <button class="toggle" data-action="fs-inc">A+</button>
+    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
+  </div>
+</header>
+
+<main>
+  <h2>🔐 Ingreso</h2>
+  <p class="notice">Demo sin backend: selecciona un perfil para simular acceso.</p>
+  <div class="grid">
+    <div class="card"><h3>🛠️ Administrador</h3><button class="btn red" onclick="setSession({id:'admin1',role:'admin',name:'Admin PEVE'});location.href='admin.html'">Entrar</button></div>
+    <div class="card"><h3>👩‍🏫 Profesor/a</h3><button class="btn" onclick="setSession({id:'prof1',role:'teacher',name:'Profe Biología'});location.href='teacher.html'">Entrar</button></div>
+    <div class="card"><h3>👩‍🎓 Estudiante</h3><button class="btn green" onclick="setSession({id:'est1',role:'student',name:'Estudiante Demo'});location.href='student.html'">Entrar</button></div>
+    <div class="card"><h3>👨‍👩‍👧 Apoderado/a</h3><button class="btn purple" onclick="setSession({id:'apo1',role:'guardian',name:'Apoderado Demo'});location.href='guardian.html'">Entrar</button></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>👩‍🏫 Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+  <div>PEVE - Todos los derechos reservados - Prohibida su reproduccion</div>
+  <div>PEVE - 2025/2026</div>
+</footer>
+
+</body></html>

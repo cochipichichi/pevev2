@@ -1,0 +1,84 @@
+[
+  {
+    "id": "BIO1M",
+    "name": "Biología 1° Medio",
+    "oas": [
+      "OA2",
+      "OA4",
+      "OA6",
+      "OA8"
+    ]
+  },
+  {
+    "id": "LEN1M",
+    "name": "Lengua y Literatura 1° Medio",
+    "oas": [
+      "OA3",
+      "OA5",
+      "OA8",
+      "OA9",
+      "OA10",
+      "OA14"
+    ]
+  },
+  {
+    "id": "MAT1M",
+    "name": "Matemática 1° Medio",
+    "oas": [
+      "OA1",
+      "OA2",
+      "OA3",
+      "OA4",
+      "OA8",
+      "OA10",
+      "OA14"
+    ]
+  },
+  {
+    "id": "FIS1M",
+    "name": "Física 1° Medio",
+    "oas": [
+      "OA10",
+      "OA11",
+      "OA14",
+      "OA16"
+    ]
+  },
+  {
+    "id": "QUI1M",
+    "name": "Química 1° Medio",
+    "oas": [
+      "OA17",
+      "OA20"
+    ]
+  },
+  {
+    "id": "HIS1M",
+    "name": "Historia, Geografía y Cs. Sociales 1° Medio",
+    "oas": [
+      "OA1",
+      "OA3",
+      "OA7",
+      "OA8",
+      "OA10",
+      "OA12",
+      "OA14",
+      "OA15",
+      "OA18",
+      "OA20",
+      "OA23",
+      "OA24",
+      "OA25"
+    ]
+  },
+  {
+    "id": "ING1M",
+    "name": "Inglés 1° Medio",
+    "oas": [
+      "OA9",
+      "OA10",
+      "OA13",
+      "OA16"
+    ]
+  }
+]

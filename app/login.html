@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ingresar — 📚PEVE</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script defer src="../assets/app.js"></script>
+<meta name="theme-color" content="#0b0f14">
+</head>
+<body data-home="../index.html">
+
+<header class="header">
+  <div class="logo">
+    <span class="badge">📚PEVE</span>
+    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
+  </div>
+  <div class="row">
+    <button class="toggle" data-action="fs-dec">A−</button>
+    <button class="toggle" data-action="fs-inc">A+</button>
+    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
+  </div>
+</header>
+
+<main>
+  <h2>🔐 Ingreso</h2>
+  <p class="notice">Selecciona tu perfil para entrar a la plataforma PEVE.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>👩‍🎓 Estudiante</h3>
+      <p>Accede a simulaciones de exámenes, guías y recursos de estudio.</p>
+      <button class="btn" onclick="setRoleAndGo('student','student.html')">Entrar</button>
+    </div>
+    <div class="card">
+      <h3>👨‍👩‍👧 Apoderado/a</h3>
+      <p>Revisa el progreso y recursos para acompañar a tu estudiante.</p>
+      <button class="btn" onclick="setRoleAndGo('guardian','guardian.html')">Entrar</button>
+    </div>
+    <div class="card">
+      <h3>👩‍🏫 Docente</h3>
+      <p>Panel con estadísticas, OA y acceso a recursos docentes.</p>
+      <button class="btn" onclick="setRoleAndGo('teacher','teacher.html')">Entrar</button>
+    </div>
+    <div class="card">
+      <h3>🛠️ Administrador</h3>
+      <p>Configuración avanzada y conexión con Google Sheets (Apps Script).</p>
+      <button class="btn red" onclick="setRoleAndGo('admin','admin.html')">Entrar</button>
+    </div>
+  </div>
+</main>
+<script>
+  async function setRoleAndGo(role, target){
+    // Login DEMO: elige automáticamente un usuario de ejemplo según el rol
+    try{
+      const res = await fetch('../data/users.json');
+      const users = await res.json();
+      let user = users.find(u => u.role === role);
+      if(!user){
+        // Fallback: crea un usuario temporal
+        user = { id: role + '_demo', name: 'Usuario demo ' + role, role, email: '' };
+      }
+      if(typeof setSession === 'function'){
+        setSession(user);
+      }else{
+        localStorage.setItem('peve.session', JSON.stringify(user));
+      }
+    }catch(e){
+      console.warn('No se pudo cargar users.json, usando sesión mínima.', e);
+      const user = { id: role + '_demo', name: 'Usuario demo ' + role, role, email: '' };
+      try{ localStorage.setItem('peve.session', JSON.stringify(user)); }catch(_){}
+    }
+    // Rol actual (por compatibilidad con versiones anteriores)
+    try{ localStorage.setItem('peve.role', role); }catch(e){}
+    location.href = target;
+  }
+</script>
+
+
+<footer class="footer">
+  <div>📚PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>📚NEOTECH EDULAB SpA. - Todos los derechos reservados - Prohibida su copia y/o reproduccion</div>
+  <div>🛠️Creado por:</div>
+  <div>👩‍🏫Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+ </footer>
+
+</body></html>

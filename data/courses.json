@@ -1,0 +1,48 @@
+{
+  "Biología 1M": {
+    "oas": [
+      {
+        "code": "OA2",
+        "name": "Evidencias de la evolución",
+        "extract": "Registro fósil, estructuras homólogas, embriología, secuencias de ADN."
+      },
+      {
+        "code": "OA4",
+        "name": "Niveles e interacciones",
+        "extract": "Individuos, poblaciones, comunidades, ecosistemas e interacciones."
+      },
+      {
+        "code": "OA6",
+        "name": "Ciclos y flujos",
+        "extract": "Ciclos del agua, carbono y nitrógeno; flujo de energía."
+      },
+      {
+        "code": "OA8",
+        "name": "Impacto humano/natural",
+        "extract": "Cambios antrópicos y naturales, mitigación y adaptación."
+      }
+    ],
+    "resources": [
+      {
+        "label": "👁️ Ver en 3D",
+        "href": "../assets/models/index.html"
+      },
+      {
+        "label": "📱 Ver en AR",
+        "href": "../assets/models/ar.html"
+      },
+      {
+        "label": "🥽 Ver en VR",
+        "href": "../assets/models/vr.html"
+      },
+      {
+        "label": "🧪 Quiz",
+        "href": "../pages/quiz_bio1m.html"
+      },
+      {
+        "label": "🎟️ Ticket de salida",
+        "href": "../pages/ticket_bio1m.html"
+      }
+    ]
+  }
+}

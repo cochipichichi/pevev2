@@ -1,0 +1,56 @@
+{
+  "LEN1M": {
+    "OA3": "Narraciones",
+    "OA5": "Textos dramáticos",
+    "OA8": "Interpretación",
+    "OA9": "Argumentación",
+    "OA10": "Medios",
+    "OA14": "Escritura persuasiva"
+  },
+  "MAT1M": {
+    "OA1": "Números racionales",
+    "OA2": "Potencias",
+    "OA3": "Productos notables",
+    "OA4": "Sistemas 2x2",
+    "OA8": "Homotecia",
+    "OA10": "Semejanza y escala",
+    "OA14": "Probabilidad (reglas)"
+  },
+  "BIO1M": {
+    "OA2": "Evidencias de evolución",
+    "OA4": "Niveles e interacciones",
+    "OA6": "Ciclos y flujos",
+    "OA8": "Impacto humano/natural"
+  },
+  "FIS1M": {
+    "OA10": "Sonido",
+    "OA11": "Luz",
+    "OA14": "Sistema Solar",
+    "OA16": "Astronomía en Chile"
+  },
+  "QUI1M": {
+    "OA17": "Reacciones cotidianas",
+    "OA20": "Estequiometría"
+  },
+  "HIS1M": {
+    "OA1": "Liberalismo y republicanismo",
+    "OA3": "Estado-nación",
+    "OA7": "Primera Guerra Mundial",
+    "OA8": "Formación de la República",
+    "OA10": "Inserción de Chile en mercados",
+    "OA12": "Exploración del territorio",
+    "OA14": "Ocupación de la Araucanía",
+    "OA15": "Guerra del Pacífico",
+    "OA18": "Cuestión social",
+    "OA20": "Mercado",
+    "OA23": "Respuestas ideológicas",
+    "OA24": "Pueblos indígenas",
+    "OA25": "Industrialización y medio ambiente"
+  },
+  "ING1M": {
+    "OA9": "Reading ideas generales",
+    "OA10": "Reading textos no literarios",
+    "OA13": "Writing creativo",
+    "OA16": "Writing funciones del lenguaje"
+  }
+}

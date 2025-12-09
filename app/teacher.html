@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Profesor — 📚PEVE</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <meta name="theme-color" content="#0b0f14">
+  <script defer src="../assets/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Panel docente en modo DEMO (sin conexión real a Google Sheets / Apps Script).
+    function $(sel){ return document.querySelector(sel); }
+
+    let chartCourse, chartStudent;
+
+    function renderCourseChart(rows){
+      if (!window.Chart) {
+        alert('Vista demo: falta Chart.js para dibujar el gráfico.');
+        return;
+      }
+      const canvas = document.getElementById('chart-course');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const labels = rows.map(r => r.oa);
+      const dataAvg = rows.map(r => Number(r.promedio));
+      const dataAtt = rows.map(r => Number(r.intentos));
+      if (chartCourse) chartCourse.destroy();
+      chartCourse = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Promedio', data: dataAvg },
+            { label: 'Intentos', data: dataAtt }
+          ]
+        },
+        options: { responsive:true, maintainAspectRatio:false }
+      });
+    }
+
+    function renderStudentChart(rows){
+      if (!window.Chart) {
+        alert('Vista demo: falta Chart.js para dibujar el gráfico.');
+        return;
+      }
+      const canvas = document.getElementById('chart-student');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const labels = rows.map(r => r.courseId + '-' + r.oa);
+      const dataAvg = rows.map(r => Number(r.promedio));
+      if (chartStudent) chartStudent.destroy();
+      chartStudent = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Promedio', data: dataAvg }
+          ]
+        },
+        options: { responsive:true, maintainAspectRatio:false }
+      });
+    }
+
+    async function loadStatsCourse(){
+      // Datos de ejemplo solamente
+      const idInput = document.getElementById('st_course');
+      const id = idInput ? idInput.value.trim() : '';
+      if (!id) {
+        alert('Ingresa courseId (ej: BIO1M) para la simulación.');
+        return;
+      }
+      const rows = [
+        { oa:'OA2', intentos: 12, promedio: 85 },
+        { oa:'OA4', intentos: 9,  promedio: 78 },
+        { oa:'OA6', intentos: 7,  promedio: 91 },
+        { oa:'OA8', intentos: 5,  promedio: 80 }
+      ];
+      const tb = document.querySelector('#stats-course tbody');
+      if (tb) {
+        tb.innerHTML = '';
+        rows.forEach(x => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${x.oa}</td><td>${x.intentos}</td><td>${x.promedio}</td>`;
+          tb.appendChild(tr);
+        });
+      }
+      renderCourseChart(rows);
+      alert('Vista demo: estos datos son simulados. Para conectar datos reales, usa Apps Script (PEVE_ADMIN.peveStatsByCourse).');
+    }
+
+    async function loadStatsStudent(){
+      const idInput = document.getElementById('st_user');
+      const id = idInput ? idInput.value.trim() : '';
+      if (!id) {
+        alert('Ingresa userId (ej: est1) para la simulación.');
+        return;
+      }
+      const rows = [
+        { courseId:'BIO1M', oa:'OA2', intentos:4, promedio:88 },
+        { courseId:'BIO1M', oa:'OA4', intentos:3, promedio:75 },
+        { courseId:'BIO1M', oa:'OA6', intentos:2, promedio:92 }
+      ];
+      const tb = document.querySelector('#stats-student tbody');
+      if (tb) {
+        tb.innerHTML = '';
+        rows.forEach(x => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${x.courseId}</td><td>${x.oa}</td><td>${x.intentos}</td><td>${x.promedio}</td>`;
+          tb.appendChild(tr);
+        });
+      }
+      renderStudentChart(rows);
+      alert('Vista demo: estos datos son simulados. Para conectar datos reales, usa Apps Script (PEVE_ADMIN.peveStatsByStudent).');
+    }
+
+    async function exportPDF(){
+      alert('Vista demo: la exportación a PDF se habilita cuando conectes Apps Script (peveExportPDF).');
+    }
+
+    async function uploadEvidence(){
+      alert('Vista demo: la subida de evidencias se habilita cuando conectes Apps Script / Google Drive (peveUploadEvidence).');
+    }
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        if (typeof getSession === 'function') {
+          const u = getSession();
+          if (!u || u.role !== 'teacher') {
+            // En modo demo puedes comentar la siguiente línea para no forzar login.
+            // location.href = 'login.html';
+          } else {
+            const who = document.getElementById('who');
+            if (who) who.textContent = u.name || u.id || 'Docente';
+          }
+        }
+      } catch (e) {}
+
+      try {
+        const res = await fetch('../data/courses.json');
+        const data = await res.json();
+        const course = data["Biología 1M"];
+        const oaList = document.getElementById('oa');
+        if (course && oaList) {
+          course.oas.forEach(oa => {
+            const li = document.createElement('li');
+            li.textContent = oa.code + ' — ' + oa.name;
+            oaList.appendChild(li);
+          });
+        }
+      } catch (e) {
+        console.warn('No se pudo cargar Biología 1M para el panel docente (demo).', e);
+      }
+    });
+  </script>
+</head></head>
+<body data-home="../index.html">
+
+<header class="header">
+  <div class="logo">
+    <span class="badge">📚PEVE</span>
+    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
+  </div>
+  <div class="row">
+    <button class="toggle" data-action="fs-dec">A−</button>
+    <button class="toggle" data-action="fs-inc">A+</button>
+    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
+  </div>
+</header>
+
+<main>
+  <div class="row" style="justify-content:space-between;align-items:center">
+    <h2>👩‍🏫 Panel Docente — <span id="who"></span></h2>
+    <button class="toggle" data-action="logout">Cerrar sesión</button>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>OA Biología 1M</h3>
+      <ul id="oa"></ul>
+      <div class="row">
+        <a class="btn" href="../pages/quiz_bio1m.html">🧪 Gestionar Quiz</a>
+        <a class="btn" href="../pages/ticket_bio1m.html">🎟️ Ticket de salida</a>
+        <a class="btn purple" href="https://cochipichichi.github.io/OA2_Evidencias_Evolucion_BIO1M_docente/index.html" target="_blank" rel="noopener">📚 Zona Docente OA2</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Dashboard (demo)</h3>
+      <p>Vista rápida de avance (simulada):</p>
+      <table class="table">
+        <tr><th>Estudiante</th><th>Quiz OA2</th><th>Quiz OA4</th><th>Quiz OA6</th><th>Quiz OA8</th></tr>
+        <tr><td>Estudiante Demo</td><td>85%</td><td>70%</td><td>90%</td><td>80%</td></tr>
+      </table>
+      <small>Conectar a Google Sheets o una API para datos reales.</small>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📊 Estadísticas por curso (Sheets)</h3>
+      <div class="row">
+        <input id="st_course" placeholder="courseId (ej: BIO1M)">
+        <button class="btn" onclick="loadStatsCourse()">Cargar</button>
+        <button class="btn" onclick="exportPDF()">Exportar PDF</button>
+      </div>
+      <table class="table" id="stats-course"><thead><tr><th>OA</th><th>Intentos</th><th>Promedio</th></tr></thead><tbody></tbody></table>
+<canvas id="chart-course" style="max-height:320px"></canvas>
+    </div>
+    <div class="card">
+      <h3>👤 Estadísticas por estudiante</h3>
+      <div class="row">
+        <input id="st_user" placeholder="userId (ej: est1)">
+        <button class="btn" onclick="loadStatsStudent()">Cargar</button>
+      </div>
+      <table class="table" id="stats-student"><thead><tr><th>Curso</th><th>OA</th><th>Intentos</th><th>Promedio</th></tr></thead><tbody></tbody></table>
+<canvas id="chart-student" style="max-height:320px"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>📎 Adjuntar evidencia (Drive)</h3>
+      <p>Sube un archivo (PDF/imagen) como evidencia vinculada a un OA.</p>
+      <div class="row">
+        <input id="ev_user" placeholder="userId">
+        <input id="ev_course" placeholder="courseId">
+        <input id="ev_oa" placeholder="OA (ej: OA2)">
+      </div>
+      <input type="file" id="ev_file" accept="image/*,application/pdf">
+      <div class="row"><button class="btn green" onclick="uploadEvidence()">Subir</button></div>
+      <p id="ev_out" class="notice">—</p>
+    </div>
+  </div>
+</main>
+
+
+
+
+<footer class="footer">
+  <div>📚PEVE - Plataforma Exámenes de Validación de Estudios</div>
+  <div>📚NEOTECH EDULAB SpA. - Todos los derechos reservados - Prohibida su copia y/o reproduccion</div>
+  <div>🛠️Creado por:</div>
+  <div>👩‍🏫Belén Acuña Pérez — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+  <div>👨‍💻Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+  <div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+ </footer>
+  
+</body></html>
