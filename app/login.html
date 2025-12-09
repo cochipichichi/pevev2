@@ -49,74 +49,18 @@
       </header>
 
       <section class="login-shell-body">
-        <!-- Etiqueta -->
-        <p class="profile-label">Elige tu perfil</p>
-
-        <!-- PERFILES DESPLEGABLES -->
-        <div class="profile-accordion" aria-label="Elige tu perfil" role="tablist">
-          <!-- Estudiante -->
-          <button class="profile-item active" data-profile="student" role="tab"
-                  aria-selected="true" aria-expanded="true">
-            <div class="profile-item-main">
-              <span class="profile-item-emoji">👦👧</span>
-              <div class="profile-item-text">
-                <span class="profile-item-kicker">Perfil estudiante</span>
-                <span class="profile-item-title">Soy Estudiante</span>
-              </div>
-              <span class="profile-item-chevron">▾</span>
-            </div>
-            <p class="profile-item-desc">
-              Accede a tus temarios, materiales y registro de progreso.
-            </p>
-          </button>
-
-          <!-- Apoderado -->
-          <button class="profile-item" data-profile="guardian" role="tab"
-                  aria-selected="false" aria-expanded="false">
-            <div class="profile-item-main">
-              <span class="profile-item-emoji">👨‍👩‍👧</span>
-              <div class="profile-item-text">
-                <span class="profile-item-kicker">Perfil apoderado/a</span>
-                <span class="profile-item-title">Soy Apoderado/a</span>
-              </div>
-              <span class="profile-item-chevron">▾</span>
-            </div>
-            <p class="profile-item-desc">
-              Revisa el avance y asistencia a evaluaciones de tu pupilo/a.
-            </p>
-          </button>
-
-          <!-- Docente -->
-          <button class="profile-item" data-profile="teacher" role="tab"
-                  aria-selected="false" aria-expanded="false">
-            <div class="profile-item-main">
-              <span class="profile-item-emoji">👩‍🏫</span>
-              <div class="profile-item-text">
-                <span class="profile-item-kicker">Perfil docente</span>
-                <span class="profile-item-title">Soy Docente</span>
-              </div>
-              <span class="profile-item-chevron">▾</span>
-            </div>
-            <p class="profile-item-desc">
-              Gestiona listas, temarios, instrumentos y registro de notas.
-            </p>
-          </button>
-
-          <!-- Administrador -->
-          <button class="profile-item" data-profile="admin" role="tab"
-                  aria-selected="false" aria-expanded="false">
-            <div class="profile-item-main">
-              <span class="profile-item-emoji">🛠️</span>
-              <div class="profile-item-text">
-                <span class="profile-item-kicker">Perfil administrador</span>
-                <span class="profile-item-title">Administrador</span>
-              </div>
-              <span class="profile-item-chevron">▾</span>
-            </div>
-            <p class="profile-item-desc">
-              Gestión avanzada de usuarios, cursos, temarios y reportes.
-            </p>
-          </button>
+        <!-- SELECTOR TIPO COMBOBOX -->
+        <div class="profile-select-group">
+          <label for="profile-select">Perfil</label>
+          <select id="profile-select" name="perfil_visible">
+            <option value="student">👦👧 Estudiante</option>
+            <option value="guardian">👨‍👩‍👧 Apoderado/a</option>
+            <option value="teacher">👩‍🏫 Docente</option>
+            <option value="admin">🛠️ Administrador</option>
+          </select>
+          <small class="profile-hint">
+            Elige el perfil con el que quieres ingresar a 📚PEVE.
+          </small>
         </div>
 
         <!-- FORMULARIO ÚNICO -->
@@ -161,7 +105,7 @@
   <script src="../assets/js/inclusion.js"></script>
   <script src="../assets/js/footer.js"></script>
 
-  <!-- LÓGICA DE PERFILES DESPLEGABLES -->
+  <!-- LÓGICA DEL SELECTOR DE PERFIL -->
   <script>
     (function () {
       const profiles = {
@@ -199,35 +143,31 @@
         },
       };
 
-      const items = document.querySelectorAll(".profile-item");
+      const select = document.getElementById("profile-select");
       const profileInput = document.getElementById("profile-input");
       const summaryEl = document.getElementById("profile-summary");
       const mainLabel = document.getElementById("login-main-label");
       const mainInput = document.getElementById("login-main-input");
 
-      items.forEach((item) => {
-        item.addEventListener("click", () => {
-          const key = item.getAttribute("data-profile");
-          const cfg = profiles[key];
-          if (!cfg) return;
+      function updateProfile(key) {
+        const cfg = profiles[key];
+        if (!cfg) return;
 
-          // activar/desactivar acordeón
-          items.forEach((it) => {
-            const isCurrent = it === item;
-            it.classList.toggle("active", isCurrent);
-            it.setAttribute("aria-selected", isCurrent ? "true" : "false");
-            it.setAttribute("aria-expanded", isCurrent ? "true" : "false");
-          });
+        profileInput.value = key;
+        summaryEl.innerHTML =
+          "<strong>" + cfg.icon + " " + cfg.name + ":</strong> " + cfg.summary;
+        mainLabel.childNodes[0].nodeValue = cfg.label + " ";
+        mainInput.type = cfg.type;
+        mainInput.placeholder = cfg.placeholder;
+        mainInput.value = "";
+      }
 
-          // actualizar formulario
-          profileInput.value = key;
-          summaryEl.innerHTML =
-            "<strong>" + cfg.icon + " " + cfg.name + ":</strong> " + cfg.summary;
-          mainLabel.childNodes[0].nodeValue = cfg.label + " ";
-          mainInput.type = cfg.type;
-          mainInput.placeholder = cfg.placeholder;
-          mainInput.value = "";
-        });
+      // estado inicial
+      updateProfile(select.value);
+
+      // cambia al seleccionar otro perfil
+      select.addEventListener("change", function () {
+        updateProfile(this.value);
       });
     })();
   </script>
