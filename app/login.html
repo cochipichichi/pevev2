@@ -8,7 +8,7 @@
 </head>
 <body class="theme-dark login-page">
 
-  <!-- HEADER TIPO PEVE (igual al de la segunda imagen) -->
+  <!-- HEADER PEVE (igual al resto del sitio) -->
   <header class="topbar">
     <div class="topbar-left">
       <div class="logo-circle">📚</div>
@@ -29,7 +29,6 @@
     </nav>
 
     <div class="accessibility-toolbar">
-      <!-- OJO: mantenemos también .btn-icon para que inclusion.js siga funcionando -->
       <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
       <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
       <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
@@ -37,106 +36,156 @@
     </div>
   </header>
 
-  <!-- CONTENIDO LOGIN CON TARJETAS -->
+  <!-- CARD ÚNICA CON SELECTOR DE PERFIL -->
   <main class="login-layout">
-    <div class="login-header-row">
-      <a href="../index.html" class="login-back-link">⬅ Volver al inicio</a>
-      <span class="login-badge">Versión demo · Front-end</span>
+    <div class="login-shell">
+      <header class="login-shell-header">
+        <p class="login-kicker">Acceso seguro</p>
+        <h1>Elige tu perfil para ingresar</h1>
+        <p class="login-sub">
+          Selecciona un perfil y luego escribe tus credenciales. Esta versión es demostrativa
+          (front-end) y aún no está conectada a un backend real.
+        </p>
+      </header>
+
+      <section class="login-shell-body">
+        <!-- Selector de perfil -->
+        <div class="profile-selector" aria-label="Seleccionar perfil" role="tablist">
+          <button class="profile-chip active" data-profile="student" role="tab" aria-selected="true">
+            <span class="profile-emoji">👦👧</span>
+            <span class="profile-text">
+              <span class="profile-title">Soy Estudiante</span>
+              <span class="profile-caption">Accede a tus temarios</span>
+            </span>
+          </button>
+
+          <button class="profile-chip" data-profile="guardian" role="tab" aria-selected="false">
+            <span class="profile-emoji">👨‍👩‍👧</span>
+            <span class="profile-text">
+              <span class="profile-title">Soy Apoderado/a</span>
+              <span class="profile-caption">Revisa el avance de tu pupilo/a</span>
+            </span>
+          </button>
+
+          <button class="profile-chip" data-profile="teacher" role="tab" aria-selected="false">
+            <span class="profile-emoji">👩‍🏫</span>
+            <span class="profile-text">
+              <span class="profile-title">Soy Docente</span>
+              <span class="profile-caption">Gestiona cursos y temarios</span>
+            </span>
+          </button>
+
+          <button class="profile-chip" data-profile="admin" role="tab" aria-selected="false">
+            <span class="profile-emoji">🛠️</span>
+            <span class="profile-text">
+              <span class="profile-title">Administrador</span>
+              <span class="profile-caption">Configuración avanzada</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Formulario dinámico -->
+        <form class="login-form-single" id="peve-login-form">
+          <input type="hidden" name="perfil" id="profile-input" value="student" />
+
+          <div class="profile-summary" id="profile-summary">
+            <strong>👦👧 Estudiante:</strong>
+            Accede a tus temarios, materiales y registro de progreso.
+          </div>
+
+          <div class="login-field-group">
+            <label id="login-main-label">
+              Correo institucional
+              <input
+                type="email"
+                id="login-main-input"
+                placeholder="estudiante@dominio.cl"
+                required
+              />
+            </label>
+
+            <label>
+              Contraseña
+              <input type="password" id="login-password" placeholder="********" required />
+            </label>
+          </div>
+
+          <button class="login-btn" type="submit">
+            Ingresar
+          </button>
+        </form>
+      </section>
     </div>
-
-    <section class="login-grid">
-      <!-- Estudiante -->
-      <article class="login-card">
-        <header class="login-card-header">
-          <span class="login-pill login-pill-student">Perfil estudiante</span>
-          <h2>👦👧 Soy Estudiante</h2>
-        </header>
-        <p>Accede a tus temarios, materiales y registro de progreso.</p>
-
-        <form class="login-form">
-          <label>
-            Correo institucional
-            <input type="email" placeholder="estudiante@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="login-btn" type="submit">Ingresar</button>
-        </form>
-      </article>
-
-      <!-- Apoderado -->
-      <article class="login-card">
-        <header class="login-card-header">
-          <span class="login-pill login-pill-guardian">Perfil apoderado/a</span>
-          <h2>👨‍👩‍👧 Soy Apoderado/a</h2>
-        </header>
-        <p>Revisa el avance y asistencia a evaluaciones de tu pupilo/a.</p>
-
-        <form class="login-form">
-          <label>
-            Correo
-            <input type="email" placeholder="apoderado@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="login-btn" type="submit">Ingresar</button>
-        </form>
-      </article>
-
-      <!-- Docente -->
-      <article class="login-card">
-        <header class="login-card-header">
-          <span class="login-pill login-pill-teacher">Perfil docente</span>
-          <h2>👩‍🏫 Soy Docente</h2>
-        </header>
-        <p>Gestiona listas, temarios, instrumentos y registro de notas.</p>
-
-        <form class="login-form">
-          <label>
-            Correo
-            <input type="email" placeholder="docente@dominio.cl" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="login-btn" type="submit">Ingresar</button>
-        </form>
-      </article>
-
-      <!-- Administrador -->
-      <article class="login-card login-card-admin">
-        <header class="login-card-header">
-          <span class="login-pill login-pill-admin">Perfil administrador</span>
-          <h2>🛠️ Administrador</h2>
-        </header>
-        <p>Gestión avanzada de usuarios, cursos, temarios y reportes.</p>
-
-        <form class="login-form">
-          <label>
-            Usuario
-            <input type="text" placeholder="admin" required />
-          </label>
-          <label>
-            Contraseña
-            <input type="password" placeholder="********" required />
-          </label>
-          <button class="login-btn" type="submit">Ingresar</button>
-        </form>
-      </article>
-    </section>
 
     <p class="login-note">
       ⚠️ Este login es demostrativo (front-end). En una próxima versión se conectará a un backend real
-      (Firebase, Supabase o similar) para manejar sesiones y permisos.
+      (Firebase, Supabase u otro) para manejar sesiones y permisos por perfil.
     </p>
   </main>
 
   <script src="../assets/js/inclusion.js"></script>
   <script src="../assets/js/footer.js"></script>
+
+  <!-- Micro-interacciones del selector de perfil -->
+  <script>
+    (function () {
+      const profiles = {
+        student: {
+          summary: "👦👧 Estudiante: Accede a tus temarios, materiales y registro de progreso.",
+          label: "Correo institucional",
+          type: "email",
+          placeholder: "estudiante@dominio.cl",
+        },
+        guardian: {
+          summary: "👨‍👩‍👧 Apoderado/a: Revisa el avance y asistencia a evaluaciones de tu pupilo/a.",
+          label: "Correo electrónico",
+          type: "email",
+          placeholder: "apoderado@dominio.cl",
+        },
+        teacher: {
+          summary: "👩‍🏫 Docente: Gestiona listas, temarios, instrumentos y registro de notas.",
+          label: "Correo institucional",
+          type: "email",
+          placeholder: "docente@dominio.cl",
+        },
+        admin: {
+          summary: "🛠️ Administrador: Gestión avanzada de usuarios, cursos, temarios y reportes.",
+          label: "Usuario",
+          type: "text",
+          placeholder: "admin",
+        },
+      };
+
+      const chips = document.querySelectorAll(".profile-chip");
+      const profileInput = document.getElementById("profile-input");
+      const summaryEl = document.getElementById("profile-summary");
+      const mainLabel = document.getElementById("login-main-label");
+      const mainInput = document.getElementById("login-main-input");
+
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const key = chip.getAttribute("data-profile");
+          const cfg = profiles[key];
+          if (!cfg) return;
+
+          // activar chip
+          chips.forEach((c) => {
+            c.classList.remove("active");
+            c.setAttribute("aria-selected", "false");
+          });
+          chip.classList.add("active");
+          chip.setAttribute("aria-selected", "true");
+
+          // actualizar resumen y campos
+          profileInput.value = key;
+          summaryEl.innerHTML = "<strong>" + cfg.summary.split(":")[0] + ":</strong> " + cfg.summary.split(":")[1].trim();
+          mainLabel.childNodes[0].nodeValue = cfg.label + " ";
+          mainInput.type = cfg.type;
+          mainInput.placeholder = cfg.placeholder;
+          mainInput.value = "";
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
