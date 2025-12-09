@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔐 Login – PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="theme-dark">
+  <header class="main-header">
+    <div class="brand">
+      <img src="../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <h1>🔐 Acceso PEVE</h1>
+        <p>Selecciona tu perfil para ingresar</p>
+      </div>
+    </div>
+    <div class="inclusive-toolbar">
+      <button class="btn-icon" data-action="toggle-theme">🌓</button>
+      <button class="btn-icon" data-action="font-inc">A+</button>
+      <button class="btn-icon" data-action="font-dec">A−</button>
+      <button class="btn-icon" data-action="narrator">🔊</button>
+    </div>
+  </header>
+
+  <main class="container container-narrow">
+    <section class="cards-grid cards-grid-2">
+      <article class="card login-card">
+        <h2>👦👧 Soy Estudiante</h2>
+        <p>Accede a tus temarios, materiales y registro de progreso.</p>
+        <form class="login-form">
+          <label>
+            Correo institucional
+            <input type="email" placeholder="estudiante@dominio.cl" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" placeholder="********" required />
+          </label>
+          <button class="btn primary" type="submit">Ingresar</button>
+        </form>
+      </article>
+
+      <article class="card login-card">
+        <h2>👨‍👩‍👧 Soy Apoderado/a</h2>
+        <p>Revisa el avance y asistencia a evaluaciones de tu pupilo/a.</p>
+        <form class="login-form">
+          <label>
+            Correo
+            <input type="email" placeholder="apoderado@dominio.cl" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" placeholder="********" required />
+          </label>
+          <button class="btn primary" type="submit">Ingresar</button>
+        </form>
+      </article>
+
+      <article class="card login-card">
+        <h2>👩‍🏫 Soy Docente</h2>
+        <p>Gestiona listas, temarios, instrumentos y registro de notas.</p>
+        <form class="login-form">
+          <label>
+            Correo
+            <input type="email" placeholder="docente@dominio.cl" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" placeholder="********" required />
+          </label>
+          <button class="btn primary" type="submit">Ingresar</button>
+        </form>
+      </article>
+
+      <article class="card login-card">
+        <h2>🛠️ Administrador</h2>
+        <p>Gestión avanzada de usuarios, cursos, temarios y reportes.</p>
+        <form class="login-form">
+          <label>
+            Usuario
+            <input type="text" placeholder="admin" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" placeholder="********" required />
+          </label>
+          <button class="btn primary" type="submit">Ingresar</button>
+        </form>
+      </article>
+    </section>
+
+    <p class="note">
+      ⚠️ Este login es demostrativo (front-end). En una próxima versión se conectará a un backend real
+      (Firebase, Supabase o similar) para manejar sesiones y permisos.
+    </p>
+  </main>
+
+  <script src="../assets/js/inclusion.js"></script>
+  <script src="../assets/js/footer.js"></script>
+</body>
+</html>
