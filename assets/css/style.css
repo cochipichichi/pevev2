@@ -969,3 +969,140 @@ body.theme-light .note {
   }
 }
 
+/* ===========================
+   NAVBAR PEVE (HEADER GLOBAL)
+   =========================== */
+
+.peve-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%),
+    linear-gradient(to right, #020617, #020617 35%, #020617 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(18px);
+}
+
+.peve-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Marca PEVE */
+.peve-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.peve-brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background:
+    conic-gradient(from 180deg, #4f46e5, #22c55e, #06b6d4, #f97316, #4f46e5);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+}
+
+.peve-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.peve-brand-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.peve-brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Menú */
+.peve-nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.peve-link {
+  position: relative;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.peve-link:hover {
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.peve-link-active {
+  color: #e5f0ff;
+  border-color: rgba(56, 189, 248, 0.6);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.22), rgba(15, 23, 42, 0.95));
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.5);
+}
+
+.peve-link-active::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #22d3ee, #38bdf8);
+}
+
+/* Acciones (botones inclusivos) */
+.peve-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .peve-nav-inner {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+
+  .peve-nav-menu {
+    order: 3;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .peve-nav-menu::-webkit-scrollbar {
+    height: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .peve-brand-subtitle {
+    display: none;
+  }
+}
+
