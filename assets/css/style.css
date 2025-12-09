@@ -1363,3 +1363,46 @@ body.theme-light .note {
     padding-inline: 0.75rem;
   }
 }
+
+/* ===== LOGIN – Selector de perfil tipo combo ===== */
+
+.profile-select-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.profile-select-group label {
+  font-weight: 500;
+}
+
+#profile-select {
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.9);
+  padding: 0.5rem 0.9rem;
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617);
+  color: var(--text-main-dark);
+  font-size: 0.86rem;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.85);
+  outline: none;
+}
+
+/* quitamos estilos nativos lo justo para que se vea más limpio */
+#profile-select:hover {
+  border-color: var(--accent-strong);
+}
+
+#profile-select:focus {
+  border-color: var(--accent-strong);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.8),
+              0 14px 32px rgba(15, 23, 42, 0.9);
+}
+
+.profile-hint {
+  font-size: 0.75rem;
+  color: var(--text-soft-dark);
+  opacity: 0.9;
+}
+
