@@ -754,3 +754,218 @@ body.theme-light .note {
   opacity: 0.85;
 }
 
+/* ===========================
+   LOGIN PAGE – PEVE
+   =========================== */
+
+.login-page {
+  /* Fondo un poquito más futurista solo en login */
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+    radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+}
+
+/* Contenedor general del login */
+.login-layout {
+  max-width: 1120px;
+  margin: 2.4rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+/* Fila superior: volver + badge */
+.login-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.login-back-link {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.login-back-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.login-badge {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.85);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Grid de tarjetas */
+.login-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
+
+/* Tarjeta base */
+.login-card {
+  position: relative;
+  background: rgba(9, 12, 26, 0.98);
+  border-radius: 22px;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.8);
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.33), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.login-card:hover::before {
+  opacity: 1;
+}
+
+.login-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.3rem;
+}
+
+.login-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.login-card p {
+  margin: 0 0 1rem;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+/* Admin a lo ancho en desktop, pero compacto en móvil */
+.login-card-admin {
+  grid-column: 1 / -1;
+  max-width: 380px;
+}
+
+/* Pills de perfil */
+.login-pill {
+  align-self: flex-start;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.login-pill-student {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.login-pill-guardian {
+  background: rgba(251, 191, 36, 0.16);
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.login-pill-teacher {
+  background: rgba(96, 165, 250, 0.18);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.login-pill-admin {
+  background: rgba(244, 114, 182, 0.2);
+  border-color: rgba(244, 114, 182, 0.55);
+}
+
+/* Formulario dentro de la tarjeta */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  gap: 0.25rem;
+}
+
+.login-form input {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  padding: 0.55rem 0.9rem;
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text);
+}
+
+.login-form input::placeholder {
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.login-form input:focus {
+  outline: 2px solid rgba(129, 140, 248, 0.8);
+  outline-offset: 1px;
+}
+
+/* Botón “Ingresar” */
+.login-btn {
+  margin-top: 0.7rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  box-shadow: 0 18px 38px rgba(79, 70, 229, 0.8);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 22px 46px rgba(79, 70, 229, 0.95);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 26px rgba(79, 70, 229, 0.85);
+}
+
+/* Nota inferior */
+.login-note {
+  margin-top: 1.6rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .login-card-admin {
+    max-width: 100%;
+  }
+
+  .login-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
