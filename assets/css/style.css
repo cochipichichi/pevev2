@@ -1265,3 +1265,101 @@ body.theme-light .note {
   }
 }
 
+/* ===== LOGIN – Etiqueta y acordeón de perfiles ===== */
+
+.profile-label {
+  font-size: 0.85rem;
+  margin: 0 0 0.35rem;
+  color: var(--text-soft-dark);
+}
+
+/* contenedor vertical */
+.profile-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* cada perfil desplegable */
+.profile-item {
+  width: 100%;
+  border-radius: 16px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.65);
+  background: rgba(15, 23, 42, 0.95);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease,
+    transform 0.16s ease;
+}
+
+.profile-item-main {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-item-emoji {
+  font-size: 1.2rem;
+}
+
+.profile-item-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.profile-item-kicker {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+}
+
+.profile-item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.profile-item-chevron {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* descripción que se despliega */
+.profile-item-desc {
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-soft-dark);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.22s ease, opacity 0.22s ease;
+}
+
+/* estado activo */
+.profile-item.active {
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.22), rgba(15, 23, 42, 0.98));
+  border-color: rgba(56, 189, 248, 0.9);
+  box-shadow: 0 18px 36px rgba(56, 189, 248, 0.6);
+  transform: translateY(-1px);
+}
+
+.profile-item.active .profile-item-desc {
+  max-height: 80px;
+  opacity: 1;
+}
+
+.profile-item.active .profile-item-chevron {
+  transform: rotate(180deg);
+}
+
+/* móvil */
+@media (max-width: 640px) {
+  .profile-item {
+    padding-inline: 0.75rem;
+  }
+}
