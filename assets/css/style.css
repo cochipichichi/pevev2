@@ -1425,3 +1425,12 @@ body.theme-light .note {
   opacity: 0.9;
 }
 
+.report-tag {
+  cursor: pointer;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.report-tag.report-tag-active {
+  border-color: rgba(56, 189, 248, 0.9);
+  background: rgba(56, 189, 248, 0.22);
+}
