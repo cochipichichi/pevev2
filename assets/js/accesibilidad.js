@@ -2,11 +2,30 @@
   const body = document.body;
   const html = document.documentElement;
 
-  const themeBtn = document.getElementById("btn-theme");
-  const fontIncBtn = document.getElementById("btn-font-inc");
-  const fontDecBtn = document.getElementById("btn-font-dec");
-  const narratorBtn = document.getElementById("btn-narrator");
-  const mainContent = document.getElementById("main-content");
+  // 1) Soporta dos patrones:
+  //    a) IDs:    #btn-theme, #btn-font-inc, #btn-font-dec, #btn-narrator
+  //    b) data-*: [data-action="toggle-theme"|"font-inc"|"font-dec"|"narrator"]
+  const themeBtn =
+    document.getElementById("btn-theme") ||
+    document.querySelector('[data-action="toggle-theme"]');
+
+  const fontIncBtn =
+    document.getElementById("btn-font-inc") ||
+    document.querySelector('[data-action="font-inc"]');
+
+  const fontDecBtn =
+    document.getElementById("btn-font-dec") ||
+    document.querySelector('[data-action="font-dec"]');
+
+  const narratorBtn =
+    document.getElementById("btn-narrator") ||
+    document.querySelector('[data-action="narrator"]');
+
+  // Área a leer por el narrador:
+  // 1º busca #main-content; si no existe, usa el primer <main>.
+  const mainContent =
+    document.getElementById("main-content") ||
+    document.querySelector("main");
 
   // THEME
   function applyStoredTheme() {
@@ -53,7 +72,7 @@
     applyFontSize(getCurrentFontSize() - 1);
   }
 
-  // NARRATOR
+  // NARRADOR
   let isReading = false;
 
   function speak(text) {
@@ -87,11 +106,11 @@
     }
   }
 
-  // Init
+  // INIT
   applyStoredTheme();
   applyFontSize(getCurrentFontSize());
 
-  if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+  if (themeBtn)   themeBtn.addEventListener("click", toggleTheme);
   if (fontIncBtn) fontIncBtn.addEventListener("click", increaseFont);
   if (fontDecBtn) fontDecBtn.addEventListener("click", decreaseFont);
   if (narratorBtn) narratorBtn.addEventListener("click", toggleNarrator);
