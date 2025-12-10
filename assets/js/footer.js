@@ -4,7 +4,11 @@
     <div class="footer-inner">
       <div class="footer-bar">
         <div class="logo">
-          <img src="${(location.pathname.includes('/pages/') || location.pathname.includes('/app/')) ? '../assets/logo.svg' : 'assets/logo.svg'}"
+         <img src="${(
+  location.pathname.includes('/pages/') || 
+  location.pathname.includes('/app/')
+) ? '../assets/logo.svg' : 'assets/logo.svg'}"
+
                alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
           <div class="footer-text-main">
             <strong>Neotech EduLab</strong> – Educación Inmersiva
