@@ -13,7 +13,7 @@
         lastNameM: "Palavecino",
         email: "gianella.sepulveda.p@liceosannicolas.cl",
         password: "PEVE2025-Gia01", // Contraseña DEMO
-        level: "2° Medio",
+        level: "1° Medio",
         call: "2025 · 1° llamado",
         packageName: "PEVE 1° Medio Completo 2024",
         estadoCuenta: "activa"
@@ -106,3 +106,4 @@
     setupStudentLogin();
   }
 })();
+
