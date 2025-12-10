@@ -14,7 +14,6 @@
       try {
         const isAdmin = sessionStorage.getItem("adminLogged") === "1";
         if (!isAdmin) {
-          // Si no está logueado como admin, volver al login general
           window.location.href = "./login.html";
         }
       } catch (e) {
@@ -54,7 +53,7 @@
       <div class="section-header">
         <h1>Panel administrador</h1>
         <p class="page-lead">
-          Gestiona usuarios PEVE, envía credenciales y accede al módulo de informes (resultados, DIA y KPSI).
+          Gestiona usuarios PEVE, credenciales de acceso e informes de resultados (PEVE, DIA y KPSI) para estudiantes, apoderados, docentes y UTP.
         </p>
       </div>
 
@@ -78,9 +77,9 @@
         <article class="card">
           <h3>📊 Informes y resultados</h3>
           <p class="note">
-            Visualiza resultados por curso, asignatura, DIA y KPSI desde el módulo de informes.
+            Genera y comparte informes PEVE (resultados, DIA, KPSI) desde este panel o en el módulo detallado de <strong>Informes</strong>.
           </p>
-          <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes</a>
+          <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes detallados</a>
         </article>
       </div>
 
@@ -90,6 +89,7 @@
           <h2>Gestión de usuarios PEVE</h2>
           <p>
             Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de Google Sheets).
+            Selecciona un estudiante para trabajar informes y credenciales.
           </p>
         </div>
 
@@ -116,6 +116,136 @@
           </table>
         </div>
       </section>
+
+      <!-- MÓDULO DE INFORMES RÁPIDOS (PEVE + DIA + KPSI) -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Informes rápidos PEVE · DIA · KPSI</h2>
+          <p>
+            A partir del estudiante seleccionado puedes generar un informe breve para distintos destinatarios:
+            estudiante, apoderado, docente o UTP / Equipo PIE. PEVE integra resultados de exámenes,
+            información de ingreso (DIA) y KPSI inicio / fin como insumos para el seguimiento.
+          </p>
+        </div>
+
+        <article class="card">
+          <div class="login-header-row">
+            <div>
+              <p class="note">
+                1️⃣ Selecciona un estudiante en la tabla superior ·
+                2️⃣ Elige tipo de informe y destinatario ·
+                3️⃣ Ajusta el mensaje si lo deseas ·
+                4️⃣ Envía por correo o WhatsApp.
+              </p>
+              <p class="note">
+                Por ahora el contenido es una plantilla demostrativa. Más adelante podrás inyectar
+                resultados reales de PEVE, DIA y KPSI desde tus hojas de cálculo.
+              </p>
+            </div>
+            <div class="login-badge">
+              Informe rápido · Borrador editable
+            </div>
+          </div>
+
+          <!-- FILTROS BÁSICOS DE INFORME -->
+          <div class="dashboard-grid">
+            <div>
+              <label class="note" for="report-student-label">
+                Estudiante seleccionado
+              </label>
+              <p id="report-student-label">
+                <strong>Sin selección</strong> · selecciona una fila en la tabla de usuarios.
+              </p>
+
+              <div class="progress-group" style="margin-top:0.75rem;">
+                <label for="report-type-select">Tipo de informe</label>
+                <select id="report-type-select" class="login-form-input" style="width:100%; max-width:320px; border-radius:999px; padding:0.45rem 0.85rem; background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb;">
+                  <option value="resumen-peve">Resumen PEVE (exámenes + avance)</option>
+                  <option value="dia">Informe de ingreso (DIA)</option>
+                  <option value="kpsi">Informe KPSI inicio / fin</option>
+                  <option value="mixto">Informe mixto (PEVE + DIA + KPSI)</option>
+                </select>
+              </div>
+
+              <div class="progress-group">
+                <label for="report-target-select">Destinatario principal</label>
+                <select id="report-target-select" class="login-form-input" style="width:100%; max-width:320px; border-radius:999px; padding:0.45rem 0.85rem; background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb;">
+                  <option value="estudiante">Estudiante</option>
+                  <option value="apoderado">Apoderado / tutor / cuidador</option>
+                  <option value="docente">Docente</option>
+                  <option value="utp">UTP / Equipo PIE</option>
+                </select>
+              </div>
+
+              <div class="hero-meta" style="margin-top:0.75rem;">
+                <span class="meta-pill">DIA · línea de base</span>
+                <span class="meta-pill">KPSI inicio / fin</span>
+                <span class="meta-pill">Resultados por curso y asignatura</span>
+              </div>
+            </div>
+
+            <!-- PREVIEW DEL INFORME -->
+            <div>
+              <label class="note" for="report-preview">
+                Vista previa del informe (puedes editar el texto antes de enviar)
+              </label>
+              <textarea
+                id="report-preview"
+                rows="10"
+                style="width:100%; margin-top:0.4rem; border-radius:18px; padding:0.75rem 0.9rem; background:rgba(15,23,42,0.96); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb; font-size:0.85rem; resize:vertical;"
+              >
+[INFORME DEMO PEVE – COMPLETAR]
+
+Estimada familia / equipo,
+
+A continuación se presenta un borrador de informe del estudiante [NOMBRE_ESTUDIANTE], curso [CURSO_2025], llamado [LLAMADO]:
+
+1. Información de ingreso (DIA)
+   - Línea de base de aprendizaje al momento de ingresar a PEVE.
+   - Principales fortalezas y necesidades detectadas.
+
+2. Progreso en PEVE (por curso y asignatura)
+   - Avance en revisión de temarios oficiales.
+   - Resultados de evaluaciones realizadas en la plataforma.
+   - Trayectoria y ritmo de estudio.
+
+3. KPSI inicio / KPSI fin
+   - Percepción inicial del estudiante respecto a los Objetivos de Aprendizaje.
+   - Cambios en la percepción al cierre del proceso (mayor seguridad / autonomía).
+
+Este informe es una síntesis para apoyar el trabajo conjunto entre estudiante, familia, docentes y UTP/PIE. Próximas versiones incluirán gráficas y detalles cuantitativos a partir de los registros de la plataforma.
+
+Atentamente,
+Equipo PEVE – Liceo San Nicolás / Neotech EduLab
+              </textarea>
+
+              <p class="note" style="margin-top:0.45rem;">
+                Más adelante este texto se generará automáticamente en base a resultados reales
+                (PEVE, DIA, KPSI y evaluaciones por asignatura).
+              </p>
+            </div>
+          </div>
+
+          <!-- BOTONES DE ENVÍO -->
+          <div class="hero-cta-group" style="margin-top:1.1rem;">
+            <button type="button" class="btn btn-solid pulse" id="btn-report-email">
+              📩 Enviar informe por correo
+            </button>
+            <button type="button" class="btn btn-outline pulse" id="btn-report-whatsapp">
+              📱 Enviar informe por WhatsApp
+            </button>
+            <a href="./informes.html" class="btn btn-ghost btn-card">
+              Ver módulo de informes completo
+            </a>
+          </div>
+
+          <p class="note" style="margin-top:0.4rem;">
+            Estos botones podrían usar el correo / teléfono del apoderado, docente o contacto UTP asociado
+            al estudiante seleccionado en la tabla. La lógica fina se implementará en <code>admin.js</code>
+            a medida que se integren los datos reales de resultados.
+          </p>
+        </article>
+      </section>
     </section>
   </main>
 
@@ -123,25 +253,5 @@
   <script src="../assets/js/accesibilidad.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
   <script src="../assets/js/admin.js" defer></script>
-
-<footer class="footer small">
-    <div class="footer-inner">
- <div class="footer-bar">
-    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
-          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
-          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
-        </p>
-      </div>
-    </div>
-  </footer>
-  </body>
+</body>
 </html>
