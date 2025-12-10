@@ -1605,3 +1605,14 @@ body.theme-light .admin-report-textarea {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Fila seleccionada en la tabla admin */
+.admin-row-selected {
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.admin-row-selected td {
+  border-bottom-color: rgba(56, 189, 248, 0.7);
+}
+
