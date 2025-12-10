@@ -31,7 +31,7 @@
       correo_institucional: "gianella.sepulveda.p@liceosannicolas.cl",
       password_plataforma: "PEVE2025-Gia01",
       perfil: "estudiante",
-      curso_2025: "2° Medio",
+      curso_2025: "1° Medio",
       paquete_comprado: "PEVE 1° Medio Completo 2024",
       llamado: "2025 · 1° llamado",
       estado_cuenta: "activa",
@@ -276,4 +276,5 @@
     init();
   }
 })();
+
 
