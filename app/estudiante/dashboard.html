@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>👦👧 Panel Estudiante – 📚PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body class="theme-dark">
+
+  <!-- HEADER GLOBAL PEVE -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link">Inicio</a>
+      <a href="../../pages/proceso.html" class="nav-link">Proceso</a>
+      <a href="../../pages/niveles.html" class="nav-link">Niveles</a>
+      <a href="../../pages/asignaturas.html" class="nav-link">Asignaturas</a>
+      <span class="nav-link nav-link-active">Estudiante</span>
+      <a href="../../pages/accesibilidad.html" class="nav-link">Accesibilidad</a>
+      <a href="../../pages/acerca.html" class="nav-link">Acerca de</a>
+    </nav>
+
+    <div class="accessibility-toolbar">
+      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador de la página">🔊</button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="page">
+
+    <!-- ENCABEZADO / BREADCRUMB -->
+    <header class="page-header">
+      <p class="page-kicker">Perfil estudiante</p>
+      <h1>Hola, <span id="student-name">Nombre Estudiante</span> 👋</h1>
+      <p class="page-lead">
+        Aquí podrás revisar tus asignaturas, tu progreso de estudio y los próximos hitos de tus
+        exámenes libres.
+      </p>
+    </header>
+
+    <!-- SECCIÓN 1: RESUMEN RÁPIDO -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Resumen rápido</h2>
+        <p>Información general de tu proceso PEVE.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Card: Nivel y llamado -->
+        <article class="card">
+          <h3>🧩 Nivel y llamado</h3>
+          <p class="note">
+            <!-- TODO: reemplazar por nivel real -->
+            Estás inscrito en <strong id="student-level">1° Medio</strong>, llamado
+            <strong id="student-call">2025 · 1° llamado</strong>.
+          </p>
+        </article>
+
+        <!-- Card: Estado general de preparación -->
+        <article class="card">
+          <h3>📊 Estado general</h3>
+          <div class="progress-group">
+            <label>Progreso global estimado</label>
+            <div class="progress-bar">
+              <!-- TODO: ajustar width según avance real -->
+              <span style="width: 40%;" id="student-progress-bar"></span>
+            </div>
+            <p class="note">
+              Has revisado aproximadamente <strong id="student-progress-text">40%</strong> de los
+              Objetivos de Aprendizaje de tus asignaturas.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card: Próximo hito -->
+        <article class="card">
+          <h3>⏰ Próximo hito</h3>
+          <p class="note">
+            <!-- TODO: definir lógica de fechas / próximos exámenes -->
+            Tu próximo examen tentativo es:
+          </p>
+          <ul class="bullet-list small">
+            <li><strong>Asignatura:</strong> Biología 1° Medio</li>
+            <li><strong>Fecha:</strong> Por definir con MINEDUC / establecimiento</li>
+            <li><strong>Recomendación:</strong> Completa primero los OA de “Evidencias de evolución”.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: MIS ASIGNATURAS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Mis asignaturas</h2>
+        <p>Selecciona una asignatura para ver temarios, materiales y simulacros.</p>
+      </div>
+
+      <div class="card-grid card-grid-wide">
+        <!-- BIOLOGÍA -->
+        <article class="card">
+          <h3>🧬 Biología 1° Medio (BIO1M)</h3>
+          <p class="note">
+            Temarios oficiales MINEDUC, OA por unidad y simulacros de examen
+            de Biología 1° Medio.
+          </p>
+          <a href="./asignatura-bio1m.html" class="btn btn-solid btn-card pulse">
+            Ver Biología 1° Medio
+          </a>
+        </article>
+
+        <!-- LENGUAJE -->
+        <article class="card">
+          <h3>📖 Lenguaje y Comunicación 1° Medio</h3>
+          <p class="note">
+            Lectura, escritura y comprensión lectora alineadas al temario oficial
+            de exámenes libres.
+          </p>
+          <!-- TODO: ajustar link cuando exista la página -->
+          <a href="#" class="btn btn-outline btn-card">
+            Ver Lenguaje 1° Medio
+          </a>
+        </article>
+
+        <!-- MATEMÁTICA -->
+        <article class="card">
+          <h3>🧮 Matemática 1° Medio</h3>
+          <p class="note">
+            Contenidos de números, álgebra, geometría y datos, según OA del temario MINEDUC.
+          </p>
+          <!-- TODO: ajustar link cuando exista la página -->
+          <a href="#" class="btn btn-outline btn-card">
+            Ver Matemática 1° Medio
+          </a>
+        </article>
+
+        <!-- OTRA ASIGNATURA -->
+        <article class="card">
+          <h3>🌎 Historia, Geografía y Cs. Sociales 1° Medio</h3>
+          <p class="note">
+            Procesos históricos, territorio y ciudadanía para tu examen de Historia.
+          </p>
+          <!-- TODO: ajustar link cuando exista la página -->
+          <a href="#" class="btn btn-outline btn-card">
+            Ver Historia 1° Medio
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: MI PROGRESO -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Mi progreso</h2>
+        <p>Vista general de cómo avanzas en cada asignatura.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Progreso por asignatura -->
+        <article class="card">
+          <h3>📚 Progreso por asignatura</h3>
+
+          <div class="progress-group">
+            <label>Biología 1° Medio</label>
+            <div class="progress-bar">
+              <span style="width: 35%;"></span>
+            </div>
+            <p class="note">OA revisados: 35% (ejemplo, editable).</p>
+          </div>
+
+          <div class="progress-group">
+            <label>Lenguaje</label>
+            <div class="progress-bar">
+              <span style="width: 20%;"></span>
+            </div>
+            <p class="note">OA revisados: 20%.</p>
+          </div>
+
+          <div class="progress-group">
+            <label>Matemática</label>
+            <div class="progress-bar">
+              <span style="width: 10%;"></span>
+            </div>
+            <p class="note">OA revisados: 10%.</p>
+          </div>
+        </article>
+
+        <!-- Resumen + llamado a la acción -->
+        <article class="card">
+          <h3>✅ Próximo paso recomendado</h3>
+          <p class="note">
+            <!-- TODO: aquí puedes aplicar lógica simple de recomendación -->
+            Te sugerimos continuar con:
+          </p>
+          <ul class="bullet-list small">
+            <li>Biología 1° Medio — OA2: Evidencias de evolución.</li>
+            <li>Realizar un simulacro corto de 10 preguntas sobre ese OA.</li>
+            <li>Registrar tus resultados para ver tu progreso en este panel.</li>
+          </ul>
+
+          <!-- Botón a futuro: simulacros -->
+          <a href="#" class="btn btn-solid btn-card pulse">
+            Ir a simulacros de Biología
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: PRÓXIMOS HITOS Y ACCESOS RÁPIDOS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Fechas e instrumentos</h2>
+        <p>Fechas importantes y herramientas clave para tu proceso.</p>
+      </div>
+
+      <div class="card-grid">
+        <!-- Fechas / hitos -->
+        <article class="card">
+          <h3>📅 Fechas importantes</h3>
+          <ul class="bullet-list small">
+            <li><strong>Inscripción exámenes:</strong> Por definir (ejemplo).</li>
+            <li><strong>Ventana de rendición:</strong> Segundo semestre 2025.</li>
+            <li><strong>Plazo sugerido de estudio:</strong> Al menos 8 semanas por asignatura.</li>
+          </ul>
+        </article>
+
+        <!-- Accesos rápidos -->
+        <article class="card">
+          <h3>⚙️ Accesos rápidos</h3>
+          <div class="hero-cta-group">
+            <a href="../../pages/temarios.html" class="btn btn-solid btn-card pulse">
+              📄 Ver temarios oficiales
+            </a>
+            <a href="#" class="btn btn-outline btn-card">
+              🧪 Simulacro general
+            </a>
+            <a href="#" class="btn btn-ghost btn-card">
+              ⬇ Descargar ficha de estudio (PDF)
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../../assets/js/inclusion.js"></script>
+  <script src="../../assets/js/footer.js"></script>
+
+  <!-- OPCIONAL: ejemplo de cómo podrías leer datos almacenados en sessionStorage -->
+  <script>
+    (function () {
+      // Ejemplo: si desde login guardas estos datos...
+      const name = sessionStorage.getItem("studentName");
+      const level = sessionStorage.getItem("studentLevel");
+      const call  = sessionStorage.getItem("studentCall");
+      const progress = sessionStorage.getItem("studentProgress"); // 0-100
+
+      if (name) {
+        document.getElementById("student-name").textContent = name;
+      }
+      if (level) {
+        document.getElementById("student-level").textContent = level;
+      }
+      if (call) {
+        document.getElementById("student-call").textContent = call;
+      }
+      if (progress) {
+        const pct = `${progress}%`;
+        const bar = document.getElementById("student-progress-bar");
+        const txt = document.getElementById("student-progress-text");
+        if (bar) bar.style.width = pct;
+        if (txt) txt.textContent = pct;
+      }
+    })();
+  </script>
+</body>
+</html>
