@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>📊 Mi progreso – Estudiante – 📚PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body class="theme-dark">
+
+  <!-- HEADER GLOBAL PEVE -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link">Inicio</a>
+      <a href="../../pages/proceso.html" class="nav-link">Proceso</a>
+      <a href="../../pages/niveles.html" class="nav-link">Niveles</a>
+      <a href="../../pages/asignaturas.html" class="nav-link">Asignaturas</a>
+      <span class="nav-link nav-link-active">Estudiante</span>
+      <a href="../../pages/accesibilidad.html" class="nav-link">Accesibilidad</a>
+      <a href="../../pages/acerca.html" class="nav-link">Acerca de</a>
+    </nav>
+
+    <div class="accessibility-toolbar">
+      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador de la página">🔊</button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="page">
+
+    <!-- ENCABEZADO -->
+    <header class="page-header">
+      <p class="page-kicker">Perfil estudiante</p>
+      <h1>Mi progreso</h1>
+      <p class="page-lead">
+        Aquí puedes ver tu avance estimado en cada asignatura, los OA trabajados y un historial
+        simple de simulacros o evaluaciones formativas que vayas realizando.
+      </p>
+    </header>
+
+    <!-- SUBNAV INTERNA DEL PERFIL ESTUDIANTE -->
+    <section class="section">
+      <div class="hero-cta-group">
+        <a href="./dashboard.html" class="btn btn-outline btn-card">
+          ⬅ Volver al panel
+        </a>
+        <a href="./asignaturas.html" class="btn btn-outline btn-card">
+          📚 Mis asignaturas
+        </a>
+        <span class="btn btn-ghost btn-card">
+          📊 Mi progreso (vista actual)
+        </span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: RESUMEN GLOBAL -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Resumen global</h2>
+        <p>Vista general de cómo avanzas en tu preparación PEVE.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Progreso global -->
+        <article class="card">
+          <h3>📈 Progreso global PEVE</h3>
+          <div class="progress-group">
+            <label>Todos los OA de tus asignaturas</label>
+            <div class="progress-bar">
+              <!-- Este width se puede actualizar con datos reales -->
+              <span id="progress-global-bar" style="width: 40%;"></span>
+            </div>
+            <p class="note">
+              Has trabajado aproximadamente
+              <strong id="progress-global-text">40%</strong> de los Objetivos de Aprendizaje
+              asociados a tus exámenes libres (dato de ejemplo).
+            </p>
+          </div>
+        </article>
+
+        <!-- Nivel y estado -->
+        <article class="card">
+          <h3>🧩 Nivel y estado</h3>
+          <ul class="bullet-list small">
+            <li>
+              <strong>Nivel:</strong>
+              <span id="progress-level-label">1° Medio (ejemplo)</span>
+            </li>
+            <li>
+              <strong>Llamado:</strong>
+              <span id="progress-call-label">2025 · 1° llamado (ejemplo)</span>
+            </li>
+            <li>
+              <strong>Asignaturas inscritas:</strong> Biología, Lenguaje, Matemática, Historia.
+            </li>
+          </ul>
+          <p class="note">
+            En una versión conectada a backend, estos datos se cargarán de tu ficha real de
+            inscripción PEVE.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: PROGRESO POR ASIGNATURA -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Progreso por asignatura</h2>
+        <p>Porcentaje de OA trabajados y simulacros realizados en cada asignatura.</p>
+      </div>
+
+      <div class="card-grid card-grid-wide">
+        <!-- Biología -->
+        <article class="card">
+          <h3>🧬 Biología 1° Medio (BIO1M)</h3>
+          <div class="progress-group">
+            <label>OA revisados</label>
+            <div class="progress-bar">
+              <span style="width: 35%;"></span>
+            </div>
+          </div>
+          <p class="note">
+            Has avanzado en OA relacionados con evidencias de evolución (OA2) y otras unidades
+            básicas de Biología. (Dato de ejemplo, editable).
+          </p>
+          <a href="./asignatura-bio1m.html" class="btn btn-solid btn-card pulse">
+            Ver detalles Biología
+          </a>
+        </article>
+
+        <!-- Lenguaje -->
+        <article class="card">
+          <h3>📖 Lenguaje y Comunicación 1° Medio</h3>
+          <div class="progress-group">
+            <label>OA revisados</label>
+            <div class="progress-bar">
+              <span style="width: 20%;"></span>
+            </div>
+          </div>
+          <p class="note">
+            Has trabajado textos narrativos y comprensión lectora básica. (Ejemplo).
+          </p>
+          <a href="#" class="btn btn-outline btn-card">
+            Ver detalles Lenguaje
+          </a>
+        </article>
+
+        <!-- Matemática -->
+        <article class="card">
+          <h3>🧮 Matemática 1° Medio</h3>
+          <div class="progress-group">
+            <label>OA revisados</label>
+            <div class="progress-bar">
+              <span style="width: 10%;"></span>
+            </div>
+          </div>
+          <p class="note">
+            Estás iniciando el estudio de números y álgebra. (Ejemplo).
+          </p>
+          <a href="#" class="btn btn-outline btn-card">
+            Ver detalles Matemática
+          </a>
+        </article>
+
+        <!-- Historia -->
+        <article class="card">
+          <h3>🌎 Historia, Geografía y Cs. Sociales 1° Medio</h3>
+          <div class="progress-group">
+            <label>OA revisados</label>
+            <div class="progress-bar">
+              <span style="width: 0%;"></span>
+            </div>
+          </div>
+          <p class="note">
+            Aún no registras actividades en esta asignatura. (Ejemplo).
+          </p>
+          <a href="#" class="btn btn-outline btn-card">
+            Ver detalles Historia
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: HISTORIAL SIMPLIFICADO DE EVALUACIONES / QUIZ -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Historial de evaluaciones formativas y simulacros</h2>
+        <p>
+          Registro simple de intentos de quiz o simulacros (dato ilustrativo). Más adelante se puede
+          conectar con Google Sheets o backend.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="temario-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Asignatura</th>
+              <th>Actividad</th>
+              <th>Resultado</th>
+              <th>Detalle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-03-10</td>
+              <td>Biología 1° Medio</td>
+              <td>Quiz OA2 – Evidencias de evolución</td>
+              <td>70% correcto (ejemplo)</td>
+              <td><span class="note">Detectadas dudas en selección natural y fósiles.</span></td>
+            </tr>
+            <tr>
+              <td>2025-03-15</td>
+              <td>Biología 1° Medio</td>
+              <td>Evaluación formativa OA2</td>
+              <td>80% correcto (ejemplo)</td>
+              <td><span class="note">Mejoría en interpretación de evidencias.</span></td>
+            </tr>
+            <tr>
+              <td>2025-03-20</td>
+              <td>Lenguaje 1° Medio</td>
+              <td>Simulacro comprensión lectora</td>
+              <td>60% correcto (ejemplo)</td>
+              <td><span class="note">Reforzar tipos de textos y conectores.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: RECOMENDACIONES Y SIGUIENTES PASOS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Recomendaciones para tu estudio</h2>
+        <p>Basadas en tu avance estimado (aún modo demo, pero ya deja clara la lógica).</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="card">
+          <h3>✅ Próximos pasos sugeridos</h3>
+          <ul class="bullet-list small">
+            <li>Completar todas las actividades del OA2 de Biología antes de seguir al OA siguiente.</li>
+            <li>Reforzar comprensión lectora en Lenguaje con un nuevo simulacro corto.</li>
+            <li>Iniciar al menos un OA de Matemática y registrar tu avance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>🧠 Estrategias de estudio</h3>
+          <ul class="bullet-list small">
+            <li>Establecer bloques de estudio de 25 minutos por asignatura (técnica Pomodoro).</li>
+            <li>Usar la guía de estudio PEVE y marcar los OA que sientas más débiles.</li>
+            <li>Realizar al menos un quiz a la semana en la plataforma.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- NOTA FINAL -->
+    <section class="section">
+      <div class="callout callout-secondary">
+        <strong>Importante:</strong>
+        Esta vista es un prototipo. En la implementación con backend, el progreso, los porcentajes y
+        el historial de evaluaciones se llenarán automáticamente según tus actividades reales en la
+        plataforma y en los recursos de la carpeta <code>content</code>.
+      </div>
+    </section>
+  </main>
+
+ 	 <script src="../../assets/js/inclusion.js"></script>
+  			<script src="../../assets/js/footer.js"></script>
+ 		   <script src="assets/js/accesibilidad.js" defer></script>
+  		   <script src="assets/js/main.js" defer></script>
+
+  <!-- OPCIONAL: usar sessionStorage para rellenar algunos campos si vienes desde login -->
+  <script>
+    (function () {
+      const level = sessionStorage.getItem("studentLevel");
+      const call  = sessionStorage.getItem("studentCall");
+      const globalProgress = sessionStorage.getItem("studentProgress"); // 0-100, si lo seteas
+
+      if (level) {
+        const el = document.getElementById("progress-level-label");
+        if (el) el.textContent = level;
+      }
+      if (call) {
+        const el = document.getElementById("progress-call-label");
+        if (el) el.textContent = call;
+      }
+      if (globalProgress) {
+        const pct = `${globalProgress}%`;
+        const bar = document.getElementById("progress-global-bar");
+        const txt = document.getElementById("progress-global-text");
+        if (bar) bar.style.width = pct;
+        if (txt) txt.textContent = pct;
+      }
+    })();
+  </script>
+
+<footer class="footer small">
+    <div class="footer-inner">
+
+      <!-- <div class="footer-logo"> -->
+
+ <div class="footer-bar">
+    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+      <small>🛠️Prohibida su copia y/o reproducción</small>
+    </div>
+        
+      </div>
+      <div class="footer-text">
+	<!-- <img src="assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+        <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+</body>
+</html>
