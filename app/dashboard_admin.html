@@ -2,52 +2,146 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <title>🛠️ Panel Administrador – 📚PEVE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel Admin – PEVE</title>
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body class="theme-dark">
-  <header class="site-header">
-    <div class="logo-wrap">
-      <img src="../assets/logo.svg" alt="PEVE" class="logo-img" onerror="this.style.display='none'">
-      <div>
-        <h1>Panel administrador/a</h1>
-        <p>Versión demo – configuración de la plataforma</p>
+
+  <!-- GUARDIA DE SESIÓN ADMIN -->
+  <script>
+    (function () {
+      try {
+        const isAdmin = sessionStorage.getItem("adminLogged") === "1";
+        if (!isAdmin) {
+          // Si no está logueado como admin, volver al login general
+          window.location.href = "./login.html";
+        }
+      } catch (e) {
+        window.location.href = "./login.html";
+      }
+    })();
+  </script>
+
+  <!-- HEADER GLOBAL -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Panel de administración</span>
       </div>
     </div>
-    <nav>
-      <a href="../index.html" class="btn-ghost">🏠 Inicio</a>
-      <a href="login.html" class="btn-ghost">🔐 Cambiar perfil</a>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <a href="../pages/asignaturas.html" class="nav-link">Asignaturas</a>
+      <span class="nav-link nav-link-active">Administrador</span>
+      <a href="./informes.html" class="nav-link">Informes</a>
     </nav>
+
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador">🔊</button>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2>Configuración y administración PEVE</h2>
-      <p>Espacio reservado para la administración general de la plataforma PEVE.</p>
-    </section>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="main-content" class="page">
+    <section class="section">
+      <div class="section-header">
+        <h1>Panel administrador</h1>
+        <p class="page-lead">
+          Gestiona usuarios PEVE, envía credenciales y accede al módulo de informes (resultados, DIA y KPSI).
+        </p>
+      </div>
 
-    <section class="grid mt-lg">
-      
-<article class="card card-highlight">
-  <h3>👥 Gestión de usuarios</h3>
-  <p>Alta, baja y modificación de perfiles de usuario de la plataforma.</p>
-  <button class="btn-disabled" disabled>Próximamente</button>
-</article>
+      <!-- RESUMEN SUPERIOR -->
+      <div class="dashboard-grid">
+        <article class="card">
+          <h3>👥 Usuarios PEVE</h3>
+          <p class="note">
+            Total de estudiantes cargados desde la hoja <code>PEVE_Usuarios</code>.
+          </p>
+          <p><strong id="admin-total-users">–</strong> estudiante(s)</p>
+        </article>
 
-<article class="card">
-  <h3>⚙️ Configuración general</h3>
-  <p>Ajustes de cursos, asignaturas, periodos y parámetros globales.</p>
-  <button class="btn-disabled" disabled>Próximamente</button>
-</article>
+        <article class="card">
+          <h3>📩 Envío de credenciales</h3>
+          <p class="note">
+            Selecciona un estudiante en la tabla y utiliza los botones para enviar las credenciales por correo o WhatsApp al apoderado.
+          </p>
+        </article>
 
+        <article class="card">
+          <h3>📊 Informes y resultados</h3>
+          <p class="note">
+            Visualiza resultados por curso, asignatura, DIA y KPSI desde el módulo de informes.
+          </p>
+          <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes</a>
+        </article>
+      </div>
+
+      <!-- TABLA DE USUARIOS PEVE -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Gestión de usuarios PEVE</h2>
+          <p>
+            Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de Google Sheets).
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="temario-table" id="admin-users-table">
+            <thead>
+              <tr>
+                <th>ID PEVE</th>
+                <th>Estudiante</th>
+                <th>RUT</th>
+                <th>Curso 2025</th>
+                <th>Llamado</th>
+                <th>Correo estudiante</th>
+                <th>Apoderado</th>
+                <th>Correo apoderado</th>
+                <th>Teléfono apoderado</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filas dinámicas desde admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
     </section>
   </main>
 
-  <footer class="footer small">
+  <!-- FOOTER + JS -->
+  <script src="../assets/js/accesibilidad.js" defer></script>
+  <script src="../assets/js/footer.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+
+<footer class="footer small">
     <div class="footer-inner">
-      <p>Vista demo de panel – sin backend aún. Pensado para iterar más adelante.</p>
+ <div class="footer-bar">
+    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+      <small>🛠️Prohibida su copia y/o reproducción</small>
+    </div>
+        
+      </div>
+      <div class="footer-text">
+
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
     </div>
   </footer>
-</body>
+  </body>
 </html>
