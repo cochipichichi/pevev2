@@ -281,12 +281,12 @@
   </main>
 
   <!-- SCRIPTS -->
-  <script src="../../assets/js/accesibilidad.js" defer></script>
-  <script src="../../assets/js/main.js" defer></script>
-  <script src="../../assets/js/footer.js"></script>
+   <script src="../../assets/js/accesibilidad.js" defer></script>
+   <script src="../../assets/js/footer.js" defer></script>
+   <script src="../../assets/js/student-context.js" defer></script>
 
   <!-- OPCIONAL: usar sessionStorage para rellenar algunos campos si vienes desde login -->
-  <script>
+  <!--<script>
     (function () {
       const level = sessionStorage.getItem("studentLevel");
       const call  = sessionStorage.getItem("studentCall");
@@ -308,6 +308,32 @@
         if (txt) txt.textContent = pct;
       }
     })();
-  </script>
+  </script> -->
+
+<footer class="footer small">
+    <div class="footer-inner">
+
+      <!-- <div class="footer-logo"> -->
+
+ <div class="footer-bar">
+    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+      <small>🛠️Prohibida su copia y/o reproducción</small>
+    </div>
+        
+      </div>
+      <div class="footer-text">
+	<!-- <img src="assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+        <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
+    </div>
+  </footer>
+  
 </body>
 </html>
+
