@@ -1,15 +1,28 @@
 // assets/js/admin.js
-// Panel administrador PEVE:
-// - Carga usuarios desde la Web App de Google Apps Script (PEVE_Usuarios)
-// - Permite enviar credenciales (correo / WhatsApp)
-// - Permite seleccionar estudiante activo y generar informes rápidos (PEVE + DIA + KPSI)
+// Autenticación administrador + carga de usuarios desde Google Sheets (PEVE_Usuarios)
+// + generación de informes rápidos PEVE · DIA · KPSI
 
 (function () {
-  // URL de tu Web App (ya publicada) para la hoja PEVE_Usuarios
+  // 1) Cuentas admin permitidas (login.html)
+  const ADMIN_ACCOUNTS = [
+    {
+      email: "neotechedulab@gmail.com",
+      password: "PEVENeoTechEdulab2025*",
+      name: "Admin Neotech",
+    },
+    {
+      email: "cochipichichi@gmail.com",
+      password: "PEVENeoTechEdulab2025*",
+      name: "Admin Pancho",
+    },
+  ];
+
+  // 2) URL de la API (Apps Script Web App)
+  // YA CON TU URL REAL
   const USERS_API_URL =
     "https://script.google.com/macros/s/AKfycbyiDATOy7Rt0zkI-TUziPe8PrGJmi1e8ffWWfgTGsfNtPdX9H7Tt9vvuKTyYHB2fMUVhw/exec";
 
-  // Fallback demo por si la API falla
+  // 3) Datos DEMO por si la API falla
   const DEMO_USERS = [
     {
       id_peve: "STU-2025-0001",
@@ -24,564 +37,455 @@
       paquete_comprado: "PEVE 1° Medio Completo 2024",
       llamado: "2025 · 1° llamado",
       estado_cuenta: "activa",
-      fecha_alta: "2024-12-26T03:00:00.000Z",
+      fecha_alta: "26/12/2024",
       correo_apoderado: "belen.acpe@gmail.com",
       nombre_apoderado: "Belen Acuña Perez",
-      telefono_apoderado: 56962664960,
+      telefono_apoderado: "56962664960",
       colegio_procedencia: "arboleda",
-      observaciones: "Crisis de pánico. Coordinar apoyos PIE."
-    }
+      observaciones: "Crisis de pánico. Coordinar apoyos PIE.",
+    },
   ];
 
-  // Estado de trabajo en memoria
-  let students = [];
-  let currentStudent = null;
-  let lastSelectedRow = null;
+  // 4) Estado interno
+  let selectedIndex = null; // índice del usuario seleccionado en la tabla
 
-  // ------------- HELPERS DE NORMALIZACIÓN -------------
-
-  function normalizeUser(raw) {
-    if (!raw) return null;
-
-    const fullName =
-      (raw.nombre_estudiante || "") +
-      " " +
-      (raw.apellido_paterno || "") +
-      " " +
-      (raw.apellido_materno || "");
-
-    return {
-      idPeve: raw.id_peve || "",
-      fullName: fullName.trim(),
-      run: raw.run_estudiante || "",
-      curso: raw.curso_2025 || "",
-      llamado: raw.llamado || "",
-      correoEstudiante: raw.correo_institucional || "",
-      correoApoderado: raw.correo_apoderado || "",
-      nombreApoderado: raw.nombre_apoderado || "",
-      telefonoApoderado: raw.telefono_apoderado || "",
-      estadoCuenta: raw.estado_cuenta || "",
-      password: raw.password_plataforma || "",
-      paquete: raw.paquete_comprado || "",
-      observaciones: raw.observaciones || "",
-      perfil: raw.perfil || ""
-    };
+  function q(selector) {
+    return document.querySelector(selector);
   }
 
-  async function fetchUsersFromApi() {
+  function showSection(id, visible) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = visible ? "" : "none";
+  }
+
+  // ========================
+  // 5) LOGIN ADMIN (login.html)
+  // ========================
+  function setupAdminLogin() {
+    const form = document.getElementById("admin-login-form");
+    if (!form) return; // este JS también se carga en dashboard_admin
+
+    const errorEl = document.getElementById("admin-login-error");
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (errorEl) errorEl.textContent = "";
+
+      const emailInput = form.querySelector('input[name="email"]');
+      const passInput = form.querySelector('input[name="password"]');
+
+      const email = (emailInput?.value || "").trim().toLowerCase();
+      const password = (passInput?.value || "").trim();
+
+      if (!email || !password) {
+        if (errorEl) errorEl.textContent = "Completa correo y contraseña.";
+        return;
+      }
+
+      const match = ADMIN_ACCOUNTS.find(
+        (acc) => acc.email.toLowerCase() === email && acc.password === password
+      );
+
+      if (!match) {
+        if (errorEl)
+          errorEl.textContent = "Correo o contraseña no válidos para administrador.";
+        return;
+      }
+
+      // Guarda sesión admin y redirige al dashboard
+      try {
+        sessionStorage.setItem("adminLogged", "1");
+        sessionStorage.setItem("adminName", match.name);
+      } catch (e) {}
+
+      window.location.href = "./dashboard_admin.html";
+    });
+  }
+
+  // ==============================================
+  // 6) CARGA DE USUARIOS (dashboard_admin.html)
+  // ==============================================
+  async function loadUsersIntoTable() {
+    const tableBody = q("#admin-users-table tbody");
+    const totalEl = document.getElementById("admin-total-users");
+    if (!tableBody) return;
+
+    let users = [];
     try {
-      if (!USERS_API_URL) {
-        console.warn("USERS_API_URL vacío. Usando DEMO_USERS.");
-        return DEMO_USERS.map(normalizeUser).filter(Boolean);
+      if (USERS_API_URL && !USERS_API_URL.includes("XXXXX")) {
+        const resp = await fetch(USERS_API_URL);
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        users = await resp.json();
+      } else {
+        users = DEMO_USERS;
       }
+    } catch (e) {
+      console.warn("No se pudo cargar desde la API, usando DEMO_USERS:", e);
+      users = DEMO_USERS;
+    }
 
-      const res = await fetch(USERS_API_URL, {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache"
+    window.PEVE_ADMIN_USERS = users;
+    tableBody.innerHTML = "";
+
+    users.forEach((u, idx) => {
+      const fullName = `${u.nombre_estudiante || ""} ${
+        u.apellido_paterno || ""
+      } ${u.apellido_materno || ""}`.trim();
+
+      const tr = document.createElement("tr");
+      tr.dataset.index = String(idx);
+      tr.innerHTML = `
+        <td>${u.id_peve || ""}</td>
+        <td>${fullName}</td>
+        <td>${u.run_estudiante || ""}</td>
+        <td>${u.curso_2025 || ""}</td>
+        <td>${u.llamado || ""}</td>
+        <td>${u.correo_institucional || ""}</td>
+        <td>${u.nombre_apoderado || ""}</td>
+        <td>${u.correo_apoderado || ""}</td>
+        <td>${u.telefono_apoderado || ""}</td>
+        <td>${u.estado_cuenta || ""}</td>
+        <td>
+          <button class="btn btn-card btn-outline" data-action="send-email" data-index="${idx}">📩 Correo</button>
+          <button class="btn btn-card btn-outline" data-action="send-whatsapp" data-index="${idx}">📱 WhatsApp</button>
+        </td>
+      `;
+      tableBody.appendChild(tr);
+    });
+
+    if (totalEl) totalEl.textContent = users.length.toString();
+
+    // Delegación de eventos: selección + acciones
+    tableBody.addEventListener("click", function (ev) {
+      const btn = ev.target.closest("button[data-action]");
+      if (btn) {
+        const action = btn.getAttribute("data-action");
+        const index = parseInt(btn.getAttribute("data-index"), 10);
+        const user = window.PEVE_ADMIN_USERS[index];
+        if (!user) return;
+
+        if (action === "send-email") {
+          openEmailForUser(user);
+        } else if (action === "send-whatsapp") {
+          openWhatsForUser(user);
         }
-      });
-
-      if (!res.ok) {
-        console.warn(
-          "Respuesta no OK desde la API (" + res.status + "). Usando DEMO_USERS."
-        );
-        return DEMO_USERS.map(normalizeUser).filter(Boolean);
+        return;
       }
 
-      const json = await res.json();
-
-      if (!Array.isArray(json)) {
-        console.warn(
-          "La API no devolvió un arreglo. Formato inesperado. Usando DEMO_USERS.",
-          json
-        );
-        return DEMO_USERS.map(normalizeUser).filter(Boolean);
-      }
-
-      return json.map(normalizeUser).filter(Boolean);
-    } catch (err) {
-      console.error("Error al consultar la API de usuarios PEVE:", err);
-      return DEMO_USERS.map(normalizeUser).filter(Boolean);
-    }
+      // Si hizo clic en la fila (no en botón), seleccionar estudiante
+      const row = ev.target.closest("tr[data-index]");
+      if (!row) return;
+      const idxRow = parseInt(row.dataset.index, 10);
+      setSelectedUser(idxRow);
+    });
   }
 
-  // ------------- CONSTRUCCIÓN DE TABLA -------------
-
-  function buildRow(user, index) {
-    const tr = document.createElement("tr");
-
-    // Guardar índice y datos útiles en data-attributes
-    tr.dataset.index = String(index);
-    tr.dataset.studentName = user.fullName;
-    tr.dataset.course = user.curso;
-    tr.dataset.call = user.llamado;
-    tr.dataset.studentEmail = user.correoEstudiante;
-    tr.dataset.guardianEmail = user.correoApoderado;
-    tr.dataset.guardianName = user.nombreApoderado;
-    tr.dataset.guardianPhone = user.telefonoApoderado;
-    tr.dataset.password = user.password;
-    tr.dataset.perfil = user.perfil || "estudiante";
-
-    tr.innerHTML = `
-      <td>${user.idPeve || "–"}</td>
-      <td>${user.fullName || "–"}</td>
-      <td>${user.run || "–"}</td>
-      <td>${user.curso || "–"}</td>
-      <td>${user.llamado || "–"}</td>
-      <td>${user.correoEstudiante || "–"}</td>
-      <td>${user.nombreApoderado || "–"}</td>
-      <td>${user.correoApoderado || "–"}</td>
-      <td>${user.telefonoApoderado || "–"}</td>
-      <td>${user.estadoCuenta || "–"}</td>
-      <td>
-        <button type="button" class="btn btn-card" data-action="email">
-          📩 Credenciales
-        </button>
-        <button type="button" class="btn btn-card" data-action="whatsapp">
-          📱 Credenciales
-        </button>
-      </td>
-    `;
-    return tr;
-  }
-
-  // ------------- INFORME RÁPIDO: GENERACIÓN -------------
-
-  function getReportTypeLabel(type) {
-    switch (type) {
-      case "resumen-peve":
-        return "Resumen PEVE (exámenes + avance)";
-      case "dia":
-        return "Informe de ingreso (DIA)";
-      case "kpsi":
-        return "Informe KPSI inicio / fin";
-      case "mixto":
-        return "Informe mixto (PEVE + DIA + KPSI)";
-      default:
-        return "Informe PEVE";
-    }
-  }
-
-  function getTargetLabel(target) {
-    switch (target) {
-      case "estudiante":
-        return "estudiante";
-      case "apoderado":
-        return "apoderado / tutor / cuidador";
-      case "docente":
-        return "docente";
-      case "utp":
-        return "equipo UTP / PIE";
-      default:
-        return "destinatario";
-    }
-  }
-
-  function buildReportText(student, type, target) {
-    const nombre = student?.fullName || "[NOMBRE_ESTUDIANTE]";
-    const curso = student?.curso || "[CURSO_2025]";
-    const llamado = student?.llamado || "[LLAMADO]";
-    const tipoLabel = getReportTypeLabel(type);
-
-    let saludo = "Estimada familia / equipo,";
-    if (target === "estudiante") {
-      saludo = `Estimado/a ${nombre},`;
-    } else if (target === "apoderado") {
-      saludo = `Estimada familia / apoderado(a) de ${nombre},`;
-    } else if (target === "docente") {
-      saludo = `Estimado/a docente de ${nombre},`;
-    } else if (target === "utp") {
-      saludo = `Estimado equipo UTP / PIE,`;
-    }
-
-    const lineas = [];
-
-    lineas.push(`[${tipoLabel.toUpperCase()} – DEMO]`);
-    lineas.push("");
-    lineas.push(saludo);
-    lineas.push("");
-    lineas.push(
-      `A continuación se presenta un borrador de informe del estudiante ${nombre}, ` +
-        `curso ${curso}, llamado ${llamado}:`
-    );
-    lineas.push("");
-
-    if (type === "dia" || type === "mixto") {
-      lineas.push("1. Información de ingreso (DIA)");
-      lineas.push(
-        "   - Línea de base de aprendizaje al momento de ingresar a PEVE."
-      );
-      lineas.push(
-        "   - Principales fortalezas y necesidades detectadas (por completar con datos del informe DIA)."
-      );
-      lineas.push("");
-    }
-
-    if (type === "resumen-peve" || type === "mixto") {
-      lineas.push(
-        type === "mixto" ? "2. Progreso en PEVE (por curso y asignatura)" : "1. Progreso en PEVE (por curso y asignatura)"
-      );
-      lineas.push("   - Avance en revisión de temarios oficiales.");
-      lineas.push(
-        "   - Resultados de evaluaciones realizadas en la plataforma (por completar)."
-      );
-      lineas.push("   - Trayectoria y ritmo de estudio.");
-      lineas.push("");
-    }
-
-    if (type === "kpsi" || type === "mixto") {
-      const n = type === "mixto" ? "3" : "1";
-      lineas.push(`${n}. KPSI inicio / KPSI fin`);
-      lineas.push(
-        "   - Percepción inicial del estudiante respecto a los Objetivos de Aprendizaje."
-      );
-      lineas.push(
-        "   - Cambios en la percepción al cierre del proceso (seguridad, autonomía, autoconfianza)."
-      );
-      lineas.push("");
-    }
-
-    lineas.push(
-      "Este informe es una síntesis para apoyar el trabajo conjunto entre estudiante, familia,"
-    );
-    lineas.push(
-      "docentes y UTP/PIE. Próximas versiones incluirán gráficas y detalles cuantitativos a partir"
-    );
-    lineas.push("de los registros reales de la plataforma.");
-    lineas.push("");
-    lineas.push("Atentamente,");
-    lineas.push("Equipo PEVE – Liceo San Nicolás / Neotech EduLab");
-
-    return lineas.join("\n");
-  }
-
-  function updateReportPreview() {
+  // ==============================
+  // 7) SELECCIÓN & INFORME RÁPIDO
+  // ==============================
+  function setSelectedUser(index) {
+    const users = window.PEVE_ADMIN_USERS || [];
+    const user = users[index];
     const label = document.getElementById("report-student-label");
-    const textarea = document.getElementById("report-preview");
-    const typeSelect = document.getElementById("report-type-select");
-    const targetSelect = document.getElementById("report-target-select");
-
-    const type = typeSelect ? typeSelect.value : "resumen-peve";
-    const target = targetSelect ? targetSelect.value : "apoderado";
-
-    if (!label || !textarea) return;
-
-    if (!currentStudent) {
-      label.innerHTML =
-        "<strong>Sin selección</strong> · selecciona una fila en la tabla de usuarios.";
-      // no machaco el texto que ya escriba el admin
+    const tbody = q("#admin-users-table tbody");
+    if (!tbody || !label || !user) {
+      if (label)
+        label.textContent =
+          "Sin selección · selecciona una fila en la tabla de usuarios.";
+      selectedIndex = null;
       return;
     }
 
-    label.innerHTML = `
-      <strong>${currentStudent.fullName}</strong> ·
-      ${currentStudent.curso || "Curso sin asignar"} ·
-      ${currentStudent.llamado || "Llamado sin registrar"}
-    `;
-
-    // Generar texto de informe base
-    const texto = buildReportText(currentStudent, type, target);
-    textarea.value = texto;
-  }
-
-  // ------------- ENVÍO DE INFORMES (CORREO / WHATSAPP) -------------
-
-  function getDestEmailAndPhone(target) {
-    if (!currentStudent) return { email: "", phone: "" };
-
-    const estMail = currentStudent.correoEstudiante || "";
-    const apoMail = currentStudent.correoApoderado || "";
-    const apoPhone = String(currentStudent.telefonoApoderado || "").replace(
-      /\D/g,
-      ""
-    );
-
-    // Por ahora reutilizamos estos campos como demo.
-    switch (target) {
-      case "estudiante":
-        return {
-          email: estMail || apoMail,
-          phone: apoPhone
-        };
-      case "apoderado":
-        return {
-          email: apoMail || estMail,
-          phone: apoPhone
-        };
-      case "docente":
-        // Futuro: correo docente por curso / asignatura
-        return {
-          email: apoMail || estMail,
-          phone: apoPhone
-        };
-      case "utp":
-        // Futuro: correo UTP institucional
-        return {
-          email: apoMail || estMail,
-          phone: apoPhone
-        };
-      default:
-        return {
-          email: apoMail || estMail,
-          phone: apoPhone
-        };
-    }
-  }
-
-  function setupReportButtons() {
-    const btnEmail = document.getElementById("btn-report-email");
-    const btnWhats = document.getElementById("btn-report-whatsapp");
-    const typeSelect = document.getElementById("report-type-select");
-    const targetSelect = document.getElementById("report-target-select");
-    const textarea = document.getElementById("report-preview");
-
-    if (typeSelect) {
-      typeSelect.addEventListener("change", function () {
-        updateReportPreview();
-      });
-    }
-
-    if (targetSelect) {
-      targetSelect.addEventListener("change", function () {
-        updateReportPreview();
-      });
-    }
-
-    if (btnEmail) {
-      btnEmail.addEventListener("click", function () {
-        if (!currentStudent) {
-          alert("Primero selecciona un estudiante en la tabla de usuarios.");
-          return;
-        }
-        const type = typeSelect ? typeSelect.value : "resumen-peve";
-        const target = targetSelect ? targetSelect.value : "apoderado";
-        const dest = getDestEmailAndPhone(target);
-
-        if (!dest.email) {
-          alert(
-            "No se encontró un correo válido para este informe. Revisa los datos del estudiante."
-          );
-          return;
-        }
-
-        const subject =
-          getReportTypeLabel(type) + " – " + (currentStudent.fullName || "");
-        const body = textarea ? textarea.value : "";
-
-        const mailtoUrl =
-          "mailto:" +
-          encodeURIComponent(dest.email) +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          encodeURIComponent(body);
-
-        window.location.href = mailtoUrl;
-      });
-    }
-
-    if (btnWhats) {
-      btnWhats.addEventListener("click", function () {
-        if (!currentStudent) {
-          alert("Primero selecciona un estudiante en la tabla de usuarios.");
-          return;
-        }
-        const target = targetSelect ? targetSelect.value : "apoderado";
-        const dest = getDestEmailAndPhone(target);
-
-        if (!dest.phone) {
-          alert(
-            "No se encontró un teléfono válido para este informe. Revisa los datos del estudiante."
-          );
-          return;
-        }
-
-        const phoneWithCountry = dest.phone.startsWith("56")
-          ? dest.phone
-          : "56" + dest.phone;
-
-        const msg = textarea ? textarea.value : "";
-
-        const waUrl =
-          "https://wa.me/" +
-          phoneWithCountry +
-          "?text=" +
-          encodeURIComponent(msg);
-
-        window.open(waUrl, "_blank");
-      });
-    }
-  }
-
-
-    function setupReportTags() {
-    const tags = document.querySelectorAll(".report-tag");
-    const typeSelect = document.getElementById("report-type-select");
-
-    if (!tags.length || !typeSelect) return;
-
-    tags.forEach(tag => {
-      tag.addEventListener("click", () => {
-        const reportType = tag.dataset.reportType;
-
-        // Quitar estado activo de todas las tags
-        tags.forEach(t => t.classList.remove("report-tag-active"));
-
-        // Marcar la tag actual
-        tag.classList.add("report-tag-active");
-
-        // Sincronizar con el <select> de tipo de informe
-        if (reportType) {
-          typeSelect.value = reportType;
-          updateReportPreview();
-        }
-      });
+    // Resaltar fila seleccionada
+    Array.from(tbody.querySelectorAll("tr")).forEach((tr) => {
+      tr.classList.toggle(
+        "admin-row-selected",
+        tr.dataset.index === String(index)
+      );
     });
 
-    // Estado inicial (por defecto el "resumen PEVE")
-    const defaultTag = document.querySelector(
-      '.report-tag[data-report-type="resumen-peve"]'
-    );
-    if (defaultTag) {
-      defaultTag.classList.add("report-tag-active");
-    }
+    const fullName = `${user.nombre_estudiante || ""} ${
+      user.apellido_paterno || ""
+    } ${user.apellido_materno || ""}`.trim();
+    const curso = user.curso_2025 || "Curso 2025";
+    const llamado = user.llamado || "";
+
+    label.textContent = `${fullName} · ${curso}${
+      llamado ? " · " + llamado : ""
+    }`;
+    selectedIndex = index;
+
+    updateReportPreview(); // refresca el texto del informe
   }
 
+  function buildReportTemplate(user, type, dest) {
+    const fullName = `${user.nombre_estudiante || ""} ${
+      user.apellido_paterno || ""
+    } ${user.apellido_materno || ""}`.trim();
+    const curso = user.curso_2025 || "Curso 2025";
+    const llamado = user.llamado || "";
+    const nombreApoderado = user.nombre_apoderado || "";
 
-  // ------------- INTERACCIÓN CON LA TABLA -------------
+    const saludo =
+      dest === "estudiante"
+        ? `Estimado/a ${fullName},`
+        : `Estimada familia / apoderado(a) de ${fullName}${
+            nombreApoderado ? ` (${nombreApoderado})` : ""
+          },`;
 
-  function attachTableInteractions(tbody) {
-    tbody.addEventListener("click", function (ev) {
-      const btn = ev.target.closest("button[data-action]");
-      const tr = ev.target.closest("tr");
-      if (!tr) return;
+    let titulo;
+    if (type === "dia") {
+      titulo = "[INFORME PEVE – DIA · línea de base]";
+    } else if (type === "kpsi") {
+      titulo = "[INFORME PEVE – KPSI inicio / fin]";
+    } else if (type === "curso") {
+      titulo = "[INFORME PEVE – Resultados por curso y asignatura]";
+    } else {
+      titulo = "[RESUMEN PEVE (EXÁMENES + AVANCE)]";
+    }
 
-      const index = parseInt(tr.dataset.index || "-1", 10);
-      if (!Number.isNaN(index) && students[index]) {
-        // Marcar como fila seleccionada
-        if (lastSelectedRow && lastSelectedRow !== tr) {
-          lastSelectedRow.classList.remove("row-selected");
+    const intro = `A continuación se presenta un borrador de informe del estudiante ${fullName}, curso ${curso}${
+      llamado ? `, llamado ${llamado}` : ""
+    }.`;
+    const cuerpoBase = [
+      "1. Información de ingreso (DIA)",
+      "   - Línea de base de aprendizaje al momento de ingresar a PEVE.",
+      "",
+      "2. Resultados en PEVE (por curso y asignatura)",
+      "   - Avance en revisión de temarios oficiales.",
+      "   - Resultados de evaluaciones realizadas en la plataforma (por completar).",
+      "",
+      "3. KPSI inicio / fin",
+      "   - Percepción inicial y final del nivel de dominio de los Objetivos de Aprendizaje.",
+      "",
+      "Este informe es una síntesis para apoyar el trabajo conjunto entre estudiante, familia,",
+      "docentes y UTP/PIE. Próximas versiones incluirán datos cuantitativos y gráficas,",
+      "a partir de los registros reales de PEVE, DIA y KPSI.",
+      "",
+      "Atentamente,",
+      "Equipo PEVE – Liceo San Nicolás / Neotech EduLab",
+    ];
+
+    return [titulo, "", saludo, "", intro, "", ...cuerpoBase].join("\n");
+  }
+
+  function updateReportPreview() {
+    const preview = document.getElementById("report-preview");
+    const typeSel = document.getElementById("report-type");
+    const destSel = document.getElementById("report-dest");
+    if (!preview || !typeSel || !destSel) return;
+
+    const users = window.PEVE_ADMIN_USERS || [];
+    const user = users[selectedIndex];
+
+    if (!user) {
+      preview.value =
+        "[Selecciona primero un estudiante en la tabla de usuarios para generar el informe.]";
+      return;
+    }
+
+    const type = typeSel.value || "resumen";
+    const dest = destSel.value || "estudiante";
+    preview.value = buildReportTemplate(user, type, dest);
+  }
+
+  function handleReportEmail() {
+    const users = window.PEVE_ADMIN_USERS || [];
+    const user = users[selectedIndex];
+    const preview = document.getElementById("report-preview");
+    const destSel = document.getElementById("report-dest");
+    if (!user || !preview || !destSel) {
+      alert("Primero selecciona un estudiante en la tabla.");
+      return;
+    }
+
+    const dest = destSel.value || "estudiante";
+    const fullName = `${user.nombre_estudiante || ""} ${
+      user.apellido_paterno || ""
+    } ${user.apellido_materno || ""}`.trim();
+    const curso = user.curso_2025 || "";
+    let to = "";
+
+    if (dest === "estudiante") {
+      to = user.correo_institucional || user.correo_apoderado || "";
+    } else if (dest === "apoderado") {
+      to = user.correo_apoderado || "";
+    } else {
+      // Docente / UTP · placeholder (reemplazar por correos reales de UTP/PIE)
+      to = "utp@liceosannicolas.cl";
+    }
+
+    if (!to) {
+      alert("No hay correo configurado para este destinatario.");
+      return;
+    }
+
+    const subject = `[Informe PEVE] ${fullName} – ${curso}`;
+    const body = encodeURIComponent(preview.value || "");
+    window.location.href = `mailto:${encodeURIComponent(
+      to
+    )}?subject=${encodeURIComponent(subject)}&body=${body}`;
+  }
+
+  function handleReportWhatsApp() {
+    const users = window.PEVE_ADMIN_USERS || [];
+    const user = users[selectedIndex];
+    const preview = document.getElementById("report-preview");
+    const destSel = document.getElementById("report-dest");
+    if (!user || !preview || !destSel) {
+      alert("Primero selecciona un estudiante en la tabla.");
+      return;
+    }
+
+    const dest = destSel.value || "estudiante";
+    let phone = "";
+
+    if (dest === "estudiante") {
+      phone = user.telefono_apoderado || "";
+    } else if (dest === "apoderado") {
+      phone = user.telefono_apoderado || "";
+    } else {
+      // Placeholder teléfono UTP / PIE
+      phone = "56900000000";
+    }
+
+    const digits = (phone || "").replace(/\D+/g, "");
+    if (!digits) {
+      alert("No hay teléfono disponible para WhatsApp.");
+      return;
+    }
+
+    const normalized = "56" + digits.replace(/^56/, "");
+    const text = encodeURIComponent(preview.value || "");
+    window.open(`https://wa.me/${normalized}?text=${text}`, "_blank");
+  }
+
+  // Reuso para enviar SOLO credenciales (botones de la tabla)
+  function openEmailForUser(user) {
+    const nombreEst = `${user.nombre_estudiante || ""} ${
+      user.apellido_paterno || ""
+    } ${user.apellido_materno || ""}`.trim();
+    const correoEst = user.correo_institucional || "";
+    const pass = user.password_plataforma || "";
+    const curso = user.curso_2025 || "";
+    const llamado = user.llamado || "";
+
+    const to = user.correo_apoderado || correoEst || "";
+    if (!to) {
+      alert("No hay correo del apoderado/estudiante.");
+      return;
+    }
+
+    const subject = `Credenciales PEVE – ${nombreEst}`;
+    const bodyLines = [
+      `Estimada familia / apoderado(a),`,
+      ``,
+      `Le compartimos las credenciales de acceso a la plataforma 📚PEVE para ${nombreEst}:`,
+      ``,
+      `• Curso 2025: ${curso}`,
+      `• Llamado: ${llamado}`,
+      ``,
+      `Correo institucional: ${correoEst}`,
+      `Contraseña temporal PEVE: ${pass}`,
+      ``,
+      `Link de ingreso: https://cochipichichi.github.io/pevev2/app/login.html`,
+      ``,
+      `Una vez que ingrese, recomendamos cambiar la contraseña (esta opción estará disponible en la próxima versión de la plataforma).`,
+      ``,
+      `Atentamente,`,
+      `Equipo PEVE – Neotech EduLab / Liceo San Nicolás`,
+    ];
+
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    window.location.href = `mailto:${encodeURIComponent(
+      to
+    )}?subject=${encodeURIComponent(subject)}&body=${body}`;
+  }
+
+  function openWhatsForUser(user) {
+    const phone = user.telefono_apoderado || "";
+    const digits = phone.replace(/\D+/g, "");
+    if (!digits) {
+      alert("No hay teléfono del apoderado para WhatsApp.");
+      return;
+    }
+    const normalized = "56" + digits.replace(/^56/, "");
+
+    const nombreEst = `${user.nombre_estudiante || ""} ${
+      user.apellido_paterno || ""
+    } ${user.apellido_materno || ""}`.trim();
+    const correoEst = user.correo_institucional || "";
+    const pass = user.password_plataforma || "";
+    const curso = user.curso_2025 || "";
+    const llamado = user.llamado || "";
+
+    const textLines = [
+      `Hola, te compartimos las credenciales PEVE de ${nombreEst}:`,
+      ``,
+      `Curso 2025: ${curso}`,
+      `Llamado: ${llamado}`,
+      ``,
+      `Correo institucional: ${correoEst}`,
+      `Contraseña temporal: ${pass}`,
+      ``,
+      `Link: https://cochipichichi.github.io/pevev2/app/login.html`,
+    ];
+
+    const text = encodeURIComponent(textLines.join("\n"));
+    window.open(`https://wa.me/${normalized}?text=${text}`, "_blank");
+  }
+
+  // ====================
+  // 8) INIT GENERAL
+  // ====================
+  function init() {
+    const isDashboard = !!document.getElementById("admin-users-table");
+    const isLogin = !!document.getElementById("admin-login-form");
+
+    if (isLogin) {
+      setupAdminLogin();
+    }
+
+    if (isDashboard) {
+      // Guardia de sesión admin
+      const isAdmin = (() => {
+        try {
+          return sessionStorage.getItem("adminLogged") === "1";
+        } catch (e) {
+          return false;
         }
-        tr.classList.add("row-selected");
-        lastSelectedRow = tr;
+      })();
 
-        currentStudent = students[index];
-        updateReportPreview();
+      if (!isAdmin) {
+        window.location.href = "./login.html";
+        return;
       }
 
-      // Si el clic fue en botón de acciones (credenciales)
-      if (btn) {
-        const action = btn.dataset.action;
-        const studentName = tr.dataset.studentName || "";
-        const course = tr.dataset.course || "";
-        const call = tr.dataset.call || "";
-        const correoEst = tr.dataset.studentEmail || "";
-        const correoApo = tr.dataset.guardianEmail || "";
-        const nombreApo = tr.dataset.guardianName || "";
-        const fonoApo = (tr.dataset.guardianPhone || "").replace(/\D/g, "");
-        const password = tr.dataset.password || "";
+      loadUsersIntoTable();
 
-        if (action === "email") {
-          if (!correoApo) {
-            alert("Este registro no tiene correo de apoderado asignado.");
-            return;
-          }
+      const typeSel = document.getElementById("report-type");
+      const destSel = document.getElementById("report-dest");
+      const btnEmail = document.getElementById("btn-report-email");
+      const btnWhats = document.getElementById("btn-report-whatsapp");
 
-          const subject = `Credenciales de acceso 📚PEVE – ${studentName}`;
-          const bodyLines = [
-            `Estimada ${nombreApo || ""},`,
-            ``,
-            `Le compartimos las credenciales de acceso a la plataforma 📚PEVE para ${studentName}:`,
-            ``,
-            `• Curso 2025: ${course}`,
-            `• Llamado: ${call}`,
-            ``,
-            `Correo institucional del estudiante: ${correoEst}`,
-            `Contraseña temporal PEVE: ${password}`,
-            ``,
-            `Link de ingreso: https://cochipichichi.github.io/pevev2/app/login.html`,
-            ``,
-            `Una vez que ingrese, le recomendamos cambiar la contraseña (esta opción estará disponible en la próxima versión de la plataforma).`,
-            ``,
-            `Atentamente,`,
-            `Equipo PEVE – Neotech EduLab / Liceo San Nicolás`
-          ];
+      if (typeSel) typeSel.addEventListener("change", updateReportPreview);
+      if (destSel) destSel.addEventListener("change", updateReportPreview);
+      if (btnEmail) btnEmail.addEventListener("click", handleReportEmail);
+      if (btnWhats) btnWhats.addEventListener("click", handleReportWhatsApp);
 
-          const mailtoUrl =
-            "mailto:" +
-            encodeURIComponent(correoApo) +
-            "?subject=" +
-            encodeURIComponent(subject) +
-            "&body=" +
-            encodeURIComponent(bodyLines.join("\n"));
-
-          window.location.href = mailtoUrl;
-          return;
-        }
-
-        if (action === "whatsapp") {
-          if (!fonoApo) {
-            alert("Este registro no tiene teléfono de apoderado válido.");
-            return;
-          }
-
-          const phoneWithCountry = fonoApo.startsWith("56")
-            ? fonoApo
-            : "56" + fonoApo;
-
-          const msgLines = [
-            `Estimada ${nombreApo || ""},`,
-            ``,
-            `Le compartimos las credenciales PEVE para ${studentName}:`,
-            ``,
-            `Curso 2025: ${course}`,
-            `Llamado: ${call}`,
-            ``,
-            `Correo estudiante: ${correoEst}`,
-            `Contraseña temporal: ${password}`,
-            ``,
-            `Ingreso: https://cochipichichi.github.io/pevev2/app/login.html`
-          ];
-
-          const waUrl =
-            "https://wa.me/" +
-            phoneWithCountry +
-            "?text=" +
-            encodeURIComponent(msgLines.join("\n"));
-
-          window.open(waUrl, "_blank");
-          return;
-        }
+      // Etiqueta inicial del informe
+      const label = document.getElementById("report-student-label");
+      if (label) {
+        label.textContent =
+          "Sin selección · selecciona una fila en la tabla de usuarios.";
       }
-    });
-  }
-
-  // ------------- INICIALIZACIÓN GENERAL -------------
-
-    async function initAdminPanel() {
-    const table = document.getElementById("admin-users-table");
-    if (!table) return;
-
-    const tbody = table.querySelector("tbody");
-    const totalEl = document.getElementById("admin-total-users");
-
-    students = await fetchUsersFromApi();
-
-    tbody.innerHTML = "";
-    students.forEach(function (u, idx) {
-      const tr = buildRow(u, idx);
-      tbody.appendChild(tr);
-    });
-
-    if (totalEl) {
-      totalEl.textContent = String(students.length);
     }
-
-    attachTableInteractions(tbody);
-    setupReportButtons();
-    setupReportTags();   // ← NUEVO
   }
 
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
-
