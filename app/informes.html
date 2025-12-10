@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>📊 Informes PEVE – Resultados, DIA y KPSI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="theme-dark">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Informes y resultados</span>
+      </div>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <a href="../app/admin.html" class="nav-link">Administrador</a>
+      <span class="nav-link nav-link-active">Informes</span>
+    </nav>
+
+    <div class="accessibility-toolbar">
+      <button class="access-btn btn-icon" data-action="toggle-theme">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator">🔊</button>
+    </div>
+  </header>
+
+  <main id="main-content" class="page">
+    <header class="page-header">
+      <p class="page-kicker">Informes PEVE</p>
+      <h1>Resultados, DIA y KPSI</h1>
+      <p class="page-lead">
+        Vista integrada para estudiantes, apoderados, docentes y UTP. Aquí se consolidan resultados
+        de pruebas PEVE, diagnóstico DIA y KPSI (inicio/fin) por curso y asignatura.
+      </p>
+    </header>
+
+    <!-- SECCIÓN: VISTA ESTUDIANTE / APODERADO -->
+    <section class="section">
+      <div class="section-header">
+        <h2>👦👧 Vista estudiante / apoderado</h2>
+        <p>
+          Resumen de resultados por asignatura, con DIA y KPSI para un estudiante específico.
+          (En una versión conectada, esta vista se filtrará por RUT o ID PEVE).
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>📌 Perfil del estudiante</h3>
+          <ul class="bullet-list small">
+            <li><strong>Nombre:</strong> Gianella Patricia Sepúlveda Palavecino (ejemplo)</li>
+            <li><strong>Curso 2025:</strong> 2° Medio</li>
+            <li><strong>Paquete PEVE:</strong> 1° Medio completo</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>📊 Resumen general de resultados</h3>
+          <ul class="bullet-list small">
+            <li><strong>Promedio global PEVE:</strong> 5,8 (ejemplo)</li>
+            <li><strong>Promedio DIA (ingreso):</strong> 5,0 (ejemplo)</li>
+            <li><strong>Progreso esperado:</strong> Aumentar 0,5 puntos o más entre inicio y fin.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="temario-table">
+          <thead>
+            <tr>
+              <th>Asignatura</th>
+              <th>Resultados PEVE</th>
+              <th>DIA (inicio)</th>
+              <th>DIA (fin)</th>
+              <th>KPSI inicio</th>
+              <th>KPSI fin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Biología 1° Medio</td>
+              <td>Quiz OA2: 80% · Evaluación OA2: 5,8</td>
+              <td>50% logros (ej.)</td>
+              <td>70% logros (ej.)</td>
+              <td>“Me cuesta mucho” (2,1 promedio)</td>
+              <td>“Lo entiendo bien” (3,8 promedio)</td>
+            </tr>
+            <tr>
+              <td>Lenguaje 1° Medio</td>
+              <td>Simulacro lectura: 60% (ej.)</td>
+              <td>45% logros (ej.)</td>
+              <td>65% logros (ej.)</td>
+              <td>Baja confianza inicial</td>
+              <td>Mejora moderada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: VISTA DOCENTE / UTP POR CURSO -->
+    <section class="section">
+      <div class="section-header">
+        <h2>👩‍🏫 Vista docente / UTP por curso</h2>
+        <p>
+          Resultados agrupados por curso, asignatura y estudiante. Incluye una mirada rápida a DIA y
+          KPSI como herramientas de seguimiento.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>📚 Curso seleccionado</h3>
+          <p class="note">
+            Ejemplo: 1° Medio – PEVE 2024 (Biología). En producción, esta selección vendría de un
+            filtro desplegable (curso/asignatura).
+          </p>
+          <ul class="bullet-list small">
+            <li><strong>Asignatura:</strong> Biología 1° Medio (BIO1M)</li>
+            <li><strong>Docente responsable:</strong> (Nombre docente)</li>
+            <li><strong>Número de estudiantes:</strong> 25 (ejemplo)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>📈 Indicadores clave (ejemplo)</h3>
+          <ul class="bullet-list small">
+            <li>Promedio curso PEVE OA2: 5,5</li>
+            <li>Promedio DIA ingreso vs fin: +15 puntos porcentuales</li>
+            <li>25% de estudiantes con alza significativa en KPSI fin</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="temario-table">
+          <thead>
+            <tr>
+              <th>Estudiante</th>
+              <th>RUT</th>
+              <th>Resultado PEVE Biología (ej. OA2)</th>
+              <th>DIA inicial</th>
+              <th>DIA final</th>
+              <th>KPSI inicio</th>
+              <th>KPSI fin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gianella Sepúlveda</td>
+              <td>23225367-3</td>
+              <td>OA2: 5,8 (80% ítems)</td>
+              <td>50% logros</td>
+              <td>70% logros</td>
+              <td>2,1 (baja confianza)</td>
+              <td>3,8 (buena confianza)</td>
+            </tr>
+            <tr>
+              <td>Estudiante 2</td>
+              <td>11.111.111-1</td>
+              <td>OA2: 4,8</td>
+              <td>45%</td>
+              <td>60%</td>
+              <td>2,5</td>
+              <td>3,2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-secondary">
+        <strong>Nota:</strong>
+        En la implementación final, esta tabla se completará con datos que provengan de la
+        plataforma PEVE (resultados de pruebas por curso y asignatura), del informe DIA y de los
+        formularios KPSI de inicio/fin. La idea es que UTP pueda:
+        <ul class="bullet-list small">
+          <li>Comparar el ingreso (DIA/KPSI inicio) con los resultados finales PEVE.</li>
+          <li>Detectar estudiantes que requieran apoyos adicionales.</li>
+          <li>Generar reportes por curso/asignatura para compartir con directivos y equipos externos.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/accesibilidad.js" defer></script>
+  <script src="../assets/js/footer.js" defer></script>
+</body>
+</html>
