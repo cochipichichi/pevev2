@@ -7,12 +7,12 @@
     student: [
       {
         idPeve: "STU-2025-0001",
-        run: "23225367-3",
-        firstName: "Gianella Patricia",
-        lastNameP: "Sepúlveda",
-        lastNameM: "Palavecino",
-        email: "gianella.sepulveda.p@liceosannicolas.cl",
-        password: "PEVE2025-Gia01", // Contraseña DEMO
+        run: "17757302-7",
+        firstName: "Belen",
+        lastNameP: "Acuña",
+        lastNameM: "Perez",
+        email: "belen.acpe@gmail.com",
+        password: "PEVE2025-Belen01", // Contraseña DEMO
         level: "1° Medio",
         call: "2025 · 1° llamado",
         packageName: "PEVE 1° Medio Completo 2024",
@@ -135,3 +135,4 @@
     setupPeveLogin();
   }
 })();
+
