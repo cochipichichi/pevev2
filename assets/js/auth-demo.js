@@ -1,12 +1,12 @@
 // assets/js/auth-demo.js
-// Prototipo local de autenticación para PEVE con el nuevo peve-login-form
+// Login unificado para PEVE (estudiante + administrador) usando peve-login-form
 
 (function () {
-  // "Base de datos" demo
+  // "Base de datos" demo estudiantes
   const demoUsers = {
     student: [
       {
-        idPeve: "STU-2025-0001",
+         idPeve: "STU-2025-0001",
         run: "17757302-7",
         firstName: "Belen",
         lastNameP: "Acuña",
@@ -19,18 +19,29 @@
         estadoCuenta: "activa"
       }
     ]
-    // Más adelante podrás agregar guardian, teacher, admin con otros arrays
   };
 
+  // Cuentas admin autorizadas
+  const adminAccounts = [
+    {
+      email: "neotechedulab@gmail.com",
+      password: "PEVENeoTechEdulab2025*",
+      name: "Neotech EduLab – Admin"
+    },
+    {
+      email: "cochipichichi@gmail.com",
+      password: "PEVENeoTechEdulab2025*",
+      name: "Pancho Pinto – Admin"
+    }
+  ];
+
   function findErrorElement() {
-    // Intenta usar un contenedor existente para errores
     let el = document.getElementById("login-error");
     if (el) return el;
 
     el = document.querySelector(".login-error");
     if (el) return el;
 
-    // Como fallback, lo crea al final del formulario
     const form = document.getElementById("peve-login-form");
     if (form) {
       const p = document.createElement("p");
@@ -45,7 +56,7 @@
 
   function setupPeveLogin() {
     const form = document.getElementById("peve-login-form");
-    if (!form) return; // esta página no tiene el nuevo formulario
+    if (!form) return;
 
     const errorEl = findErrorElement();
 
@@ -53,13 +64,16 @@
       ev.preventDefault();
       if (errorEl) errorEl.textContent = "";
 
-      // Perfil seleccionado (student, guardian, teacher, admin)
       const perfilInput = form.querySelector('input[name="perfil"]');
       const profile = (perfilInput?.value || "student").toLowerCase();
 
-      // Campos de entrada
-      const mainInput = document.getElementById("login-main-input") || form.querySelector('input[name="email"]');
-      const passInput = document.getElementById("login-password") || form.querySelector('input[name="password"]');
+      const mainInput =
+        document.getElementById("login-main-input") ||
+        form.querySelector('input[name="email"]');
+
+      const passInput =
+        document.getElementById("login-password") ||
+        form.querySelector('input[name="password"]');
 
       const mainValue = (mainInput?.value || "").trim();
       const password = (passInput?.value || "").trim();
@@ -71,68 +85,95 @@
         return;
       }
 
-      // Por ahora solo implementamos lógica real para estudiante
-      if (profile !== "student") {
-        if (errorEl) {
-          errorEl.textContent =
-            "Por ahora este perfil está en modo demostrativo. La conexión real se habilitará en próximas versiones.";
+      // 1) LOGIN ESTUDIANTE
+      if (profile === "student") {
+        const users = demoUsers.student || [];
+        const user = users.find(
+          (u) => u.email.toLowerCase() === mainValue.toLowerCase()
+        );
+
+        if (!user) {
+          if (errorEl) {
+            errorEl.textContent =
+              "Correo o contraseña incorrectos. Verifica tus datos.";
+          }
+          return;
         }
+
+        if (user.estadoCuenta !== "activa") {
+          if (errorEl) {
+            errorEl.textContent =
+              "Tu cuenta PEVE está inactiva. Contacta a administración.";
+          }
+          return;
+        }
+
+        if (user.password !== password) {
+          if (errorEl) {
+            errorEl.textContent =
+              "Correo o contraseña incorrectos. Verifica tus datos.";
+          }
+          return;
+        }
+
+        const fullName = `${user.firstName} ${user.lastNameP} ${user.lastNameM}`;
+
+        try {
+          sessionStorage.setItem("studentProfile", "estudiante");
+          sessionStorage.setItem("studentId", user.idPeve);
+          sessionStorage.setItem("studentRun", user.run);
+          sessionStorage.setItem("studentName", fullName);
+          sessionStorage.setItem("studentEmail", user.email);
+          sessionStorage.setItem("studentLevel", user.level);
+          sessionStorage.setItem("studentCall", user.call);
+          sessionStorage.setItem("studentPackage", user.packageName);
+          // Opcional: progreso inicial
+          // sessionStorage.setItem("studentProgress", "40");
+        } catch (e) {
+          console.warn("No se pudo usar sessionStorage:", e);
+        }
+
+        window.location.href = "./estudiante/dashboard.html";
         return;
       }
 
-      // LOGIN DEMO ESTUDIANTE
-      const users = demoUsers.student || [];
-      const user = users.find(
-        (u) => u.email.toLowerCase() === mainValue.toLowerCase()
-      );
+      // 2) LOGIN ADMINISTRADOR
+      if (profile === "admin") {
+        const admin = adminAccounts.find(
+          (a) => a.email.toLowerCase() === mainValue.toLowerCase()
+        );
 
-      if (!user) {
-        if (errorEl) {
-          errorEl.textContent = "Correo o contraseña incorrectos. Verifica tus datos.";
+        if (!admin || admin.password !== password) {
+          if (errorEl) {
+            errorEl.textContent =
+              "Credenciales de administrador incorrectas. Verifica correo y contraseña.";
+          }
+          return;
         }
+
+        try {
+          sessionStorage.setItem("adminLogged", "1");
+          sessionStorage.setItem("adminEmail", admin.email);
+          sessionStorage.setItem("adminName", admin.name);
+        } catch (e) {
+          console.warn("No se pudo usar sessionStorage para admin:", e);
+        }
+
+        window.location.href = "./dashboard_admin.html";
         return;
       }
 
-      if (user.estadoCuenta !== "activa") {
-        if (errorEl) {
-          errorEl.textContent = "Tu cuenta PEVE está inactiva. Contacta a administración.";
-        }
-        return;
+      // 3) OTROS PERFILES (guardian / teacher) → demo por ahora
+      if (errorEl) {
+        errorEl.textContent =
+          "Por ahora este perfil está en modo demostrativo. La conexión real se habilitará en próximas versiones.";
       }
-
-      if (user.password !== password) {
-        if (errorEl) {
-          errorEl.textContent = "Correo o contraseña incorrectos. Verifica tus datos.";
-        }
-        return;
-      }
-
-      // LOGIN OK → guardar datos en sessionStorage
-      const fullName = `${user.firstName} ${user.lastNameP} ${user.lastNameM}`;
-
-      try {
-        sessionStorage.setItem("studentProfile", "estudiante");
-        sessionStorage.setItem("studentId", user.idPeve);
-        sessionStorage.setItem("studentRun", user.run);
-        sessionStorage.setItem("studentName", fullName);
-        sessionStorage.setItem("studentEmail", user.email);
-        sessionStorage.setItem("studentLevel", user.level);
-        sessionStorage.setItem("studentCall", user.call);
-        sessionStorage.setItem("studentPackage", user.packageName);
-      } catch (e) {
-        console.warn("No se pudo usar sessionStorage:", e);
-      }
-
-      // Redirigir al panel de estudiante
-      window.location.href = "./estudiante/dashboard.html";
     });
   }
 
-  // Inicializar cuando el DOM esté listo
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", setupPeveLogin);
   } else {
     setupPeveLogin();
   }
 })();
-
