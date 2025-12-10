@@ -414,6 +414,41 @@
     }
   }
 
+
+    function setupReportTags() {
+    const tags = document.querySelectorAll(".report-tag");
+    const typeSelect = document.getElementById("report-type-select");
+
+    if (!tags.length || !typeSelect) return;
+
+    tags.forEach(tag => {
+      tag.addEventListener("click", () => {
+        const reportType = tag.dataset.reportType;
+
+        // Quitar estado activo de todas las tags
+        tags.forEach(t => t.classList.remove("report-tag-active"));
+
+        // Marcar la tag actual
+        tag.classList.add("report-tag-active");
+
+        // Sincronizar con el <select> de tipo de informe
+        if (reportType) {
+          typeSelect.value = reportType;
+          updateReportPreview();
+        }
+      });
+    });
+
+    // Estado inicial (por defecto el "resumen PEVE")
+    const defaultTag = document.querySelector(
+      '.report-tag[data-report-type="resumen-peve"]'
+    );
+    if (defaultTag) {
+      defaultTag.classList.add("report-tag-active");
+    }
+  }
+
+
   // ------------- INTERACCIÓN CON LA TABLA -------------
 
   function attachTableInteractions(tbody) {
@@ -524,7 +559,7 @@
 
   // ------------- INICIALIZACIÓN GENERAL -------------
 
-  async function initAdminPanel() {
+    async function initAdminPanel() {
     const table = document.getElementById("admin-users-table");
     if (!table) return;
 
@@ -545,11 +580,8 @@
 
     attachTableInteractions(tbody);
     setupReportButtons();
+    setupReportTags();   // ← NUEVO
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initAdminPanel);
-  } else {
-    initAdminPanel();
-  }
 })();
+
