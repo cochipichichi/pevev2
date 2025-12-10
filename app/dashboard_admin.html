@@ -49,15 +49,17 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main id="main-content" class="page">
+
+    <!-- RESUMEN SUPERIOR -->
     <section class="section">
       <div class="section-header">
         <h1>Panel administrador</h1>
         <p class="page-lead">
-          Gestiona usuarios PEVE, credenciales de acceso e informes de resultados (PEVE, DIA y KPSI) para estudiantes, apoderados, docentes y UTP.
+          Gestiona usuarios PEVE, credenciales de acceso e informes de resultados (PEVE, DIA y KPSI) para estudiantes,
+          apoderados, docentes y UTP.
         </p>
       </div>
 
-      <!-- RESUMEN SUPERIOR -->
       <div class="dashboard-grid">
         <article class="card">
           <h3>👥 Usuarios PEVE</h3>
@@ -70,174 +72,157 @@
         <article class="card">
           <h3>📩 Envío de credenciales</h3>
           <p class="note">
-            Selecciona un estudiante en la tabla y utiliza los botones para enviar las credenciales por correo o WhatsApp al apoderado.
+            Selecciona un estudiante en la tabla y utiliza los botones para enviar las credenciales por correo o
+            WhatsApp al apoderado.
           </p>
         </article>
 
         <article class="card">
           <h3>📊 Informes y resultados</h3>
           <p class="note">
-            Genera y comparte informes PEVE (resultados, DIA, KPSI) desde este panel o en el módulo detallado de <strong>Informes</strong>.
+            Genera y comparte informes PEVE (resultados, DIA, KPSI) desde este panel o en el módulo detallado de
+            <strong>Informes</strong>.
           </p>
           <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes detallados</a>
         </article>
       </div>
+    </section>
 
-      <!-- TABLA DE USUARIOS PEVE -->
-      <section class="section">
-        <div class="section-header">
-          <h2>Gestión de usuarios PEVE</h2>
-          <p>
-            Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de Google Sheets).
-            Selecciona un estudiante para trabajar informes y credenciales.
-          </p>
-        </div>
+    <!-- TABLA DE USUARIOS PEVE -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Gestión de usuarios PEVE</h2>
+        <p>
+          Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de
+          Google Sheets). Selecciona un estudiante para trabajar informes y credenciales.
+        </p>
+      </div>
 
-        <div class="table-wrapper">
-          <table class="temario-table" id="admin-users-table">
-            <thead>
-              <tr>
-                <th>ID PEVE</th>
-                <th>Estudiante</th>
-                <th>RUT</th>
-                <th>Curso 2025</th>
-                <th>Llamado</th>
-                <th>Correo estudiante</th>
-                <th>Apoderado</th>
-                <th>Correo apoderado</th>
-                <th>Teléfono apoderado</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Filas dinámicas desde admin.js -->
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <div class="table-wrapper">
+        <table class="temario-table" id="admin-users-table">
+          <thead>
+            <tr>
+              <th>ID PEVE</th>
+              <th>Estudiante</th>
+              <th>RUT</th>
+              <th>Curso 2025</th>
+              <th>Llamado</th>
+              <th>Correo estudiante</th>
+              <th>Apoderado</th>
+              <th>Correo apoderado</th>
+              <th>Teléfono apoderado</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filas dinámicas desde admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-      <!-- MÓDULO DE INFORMES RÁPIDOS (PEVE + DIA + KPSI) -->
-      <section class="section">
-        <div class="section-header">
-          <h2>Informes rápidos PEVE · DIA · KPSI</h2>
-          <p>
-            A partir del estudiante seleccionado puedes generar un informe breve para distintos destinatarios:
-            estudiante, apoderado, docente o UTP / Equipo PIE. PEVE integra resultados de exámenes,
-            información de ingreso (DIA) y KPSI inicio / fin como insumos para el seguimiento.
-          </p>
-        </div>
+    <!-- INFORMES RÁPIDOS PEVE · DIA · KPSI -->
+    <section class="section admin-report-section">
+      <div class="section-header">
+        <h2>Informes rápidos PEVE · DIA · KPSI</h2>
+        <p class="page-lead">
+          A partir del estudiante seleccionado puedes generar un informe breve para distintos destinatarios:
+          estudiante, apoderado, docente o UTP / Equipo PIE. PEVE integra resultados de exámenes, información de
+          ingreso (DIA) y KPSI inicio / fin como insumos para el seguimiento.
+        </p>
+      </div>
 
-        <article class="card">
-          <div class="login-header-row">
-            <div>
-              <p class="note">
-                1️⃣ Selecciona un estudiante en la tabla superior ·
-                2️⃣ Elige tipo de informe y destinatario ·
-                3️⃣ Ajusta el mensaje si lo deseas ·
-                4️⃣ Envía por correo o WhatsApp.
-              </p>
-              <p class="note">
-                Por ahora el contenido es una plantilla demostrativa. Más adelante podrás inyectar
-                resultados reales de PEVE, DIA y KPSI desde tus hojas de cálculo.
-              </p>
-            </div>
-            <div class="login-badge">
-              Informe rápido · Borrador editable
-            </div>
+      <div class="admin-report-steps callout-secondary">
+        <p>
+          <strong>Flujo sugerido:</strong>
+          1️⃣ Selecciona un estudiante en la tabla superior ·
+          2️⃣ Elige tipo de informe y destinatario ·
+          3️⃣ Ajusta el texto si lo deseas ·
+          4️⃣ Envía por correo o WhatsApp.
+        </p>
+        <p class="note">
+          Por ahora el contenido es una plantilla demostrativa. Más adelante podrás inyectar resultados reales de
+          PEVE, DIA y KPSI desde tus hojas de cálculo.
+        </p>
+      </div>
+
+      <div class="admin-report-grid">
+        <!-- Columna izquierda: configuración + texto del informe -->
+        <article class="card admin-report-main">
+          <header class="admin-report-header">
+            <span class="page-kicker">Informe rápido · Borrador editable</span>
+            <h3>Configuración del informe</h3>
+          </header>
+
+          <div class="admin-report-student">
+            <span class="admin-report-label">Estudiante seleccionado</span>
+            <p id="report-student-label" class="admin-report-student-name">
+              Sin selección · selecciona una fila en la tabla de usuarios.
+            </p>
           </div>
 
-          <!-- FILTROS BÁSICOS DE INFORME -->
-          <div class="dashboard-grid">
-            <div>
-              <label class="note" for="report-student-label">
-                Estudiante seleccionado
-              </label>
-              <p id="report-student-label">
-                <strong>Sin selección</strong> · selecciona una fila en la tabla de usuarios.
-              </p>
+          <div class="admin-report-form">
+            <div class="admin-report-field">
+              <label for="report-type-select">Tipo de informe</label>
+              <select id="report-type-select" class="admin-report-select">
+                <option value="resumen-peve">Resumen PEVE (exámenes + avance)</option>
+                <option value="dia">Informe de ingreso (DIA)</option>
+                <option value="kpsi">Informe KPSI inicio / fin</option>
+                <option value="mixto">Informe mixto (PEVE + DIA + KPSI)</option>
+              </select>
+            </div>
 
-              <div class="progress-group" style="margin-top:0.75rem;">
-                <label for="report-type-select">Tipo de informe</label>
-                <select id="report-type-select" class="login-form-input" style="width:100%; max-width:320px; border-radius:999px; padding:0.45rem 0.85rem; background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb;">
-                  <option value="resumen-peve">Resumen PEVE (exámenes + avance)</option>
-                  <option value="dia">Informe de ingreso (DIA)</option>
-                  <option value="kpsi">Informe KPSI inicio / fin</option>
-                  <option value="mixto">Informe mixto (PEVE + DIA + KPSI)</option>
-                </select>
-              </div>
+            <div class="admin-report-field">
+              <label for="report-target-select">Destinatario principal</label>
+              <select id="report-target-select" class="admin-report-select">
+                <option value="estudiante">Estudiante</option>
+                <option value="apoderado">Apoderado / tutor / cuidador</option>
+                <option value="docente">Docente</option>
+                <option value="utp">UTP / Equipo PIE</option>
+              </select>
+            </div>
 
-              <div class="progress-group">
-                <label for="report-target-select">Destinatario principal</label>
-                <select id="report-target-select" class="login-form-input" style="width:100%; max-width:320px; border-radius:999px; padding:0.45rem 0.85rem; background:rgba(15,23,42,0.9); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb;">
-                  <option value="estudiante">Estudiante</option>
-                  <option value="apoderado">Apoderado / tutor / cuidador</option>
-                  <option value="docente">Docente</option>
-                  <option value="utp">UTP / Equipo PIE</option>
-                </select>
-              </div>
+            <div class="admin-report-tags">
+              <button type="button" class="report-tag" data-report-type="dia">
+                DIA · línea de base
+              </button>
+              <button type="button" class="report-tag" data-report-type="kpsi">
+                KPSI inicio / fin
+              </button>
+              <button type="button" class="report-tag" data-report-type="resumen-peve">
+                Resultados por curso y asignatura
+              </button>
+              <button type="button" class="report-tag" data-report-type="mixto">
+                Informe mixto (PEVE + DIA + KPSI)
+              </button>
+            </div>
 
-             <div class="hero-meta" style="margin-top:0.75rem;">
-            <button type="button" class="meta-pill report-tag" data-report-type="dia">
-              DIA · línea de base
-            </button>
-            <button type="button" class="meta-pill report-tag" data-report-type="kpsi">
-              KPSI inicio / fin
-            </button>
-            <button type="button" class="meta-pill report-tag" data-report-type="resumen-peve">
-              Resultados por curso y asignatura
-            </button>
-          </div>
-
-
-            <!-- PREVIEW DEL INFORME -->
-            <div>
-              <label class="note" for="report-preview">
+            <div class="admin-report-field">
+              <label for="report-preview">
                 Vista previa del informe (puedes editar el texto antes de enviar)
               </label>
-              <textarea
-                id="report-preview"
-                rows="10"
-                style="width:100%; margin-top:0.4rem; border-radius:18px; padding:0.75rem 0.9rem; background:rgba(15,23,42,0.96); border:1px solid rgba(148,163,184,0.6); color:#e5e7eb; font-size:0.85rem; resize:vertical;"
-              >
-[INFORME DEMO PEVE – COMPLETAR]
-
-Estimada familia / equipo,
-
-A continuación se presenta un borrador de informe del estudiante [NOMBRE_ESTUDIANTE], curso [CURSO_2025], llamado [LLAMADO]:
-
-1. Información de ingreso (DIA)
-   - Línea de base de aprendizaje al momento de ingresar a PEVE.
-   - Principales fortalezas y necesidades detectadas.
-
-2. Progreso en PEVE (por curso y asignatura)
-   - Avance en revisión de temarios oficiales.
-   - Resultados de evaluaciones realizadas en la plataforma.
-   - Trayectoria y ritmo de estudio.
-
-3. KPSI inicio / KPSI fin
-   - Percepción inicial del estudiante respecto a los Objetivos de Aprendizaje.
-   - Cambios en la percepción al cierre del proceso (mayor seguridad / autonomía).
-
-Este informe es una síntesis para apoyar el trabajo conjunto entre estudiante, familia, docentes y UTP/PIE. Próximas versiones incluirán gráficas y detalles cuantitativos a partir de los registros de la plataforma.
-
-Atentamente,
-Equipo PEVE – Liceo San Nicolás / Neotech EduLab
-              </textarea>
-
-              <p class="note" style="margin-top:0.45rem;">
-                Más adelante este texto se generará automáticamente en base a resultados reales
-                (PEVE, DIA, KPSI y evaluaciones por asignatura).
-              </p>
+              <textarea id="report-preview"
+                        rows="14"
+                        class="admin-report-textarea"></textarea>
             </div>
           </div>
+        </article>
 
-          <!-- BOTONES DE ENVÍO -->
-          <div class="hero-cta-group" style="margin-top:1.1rem;">
-            <button type="button" class="btn btn-solid pulse" id="btn-report-email">
+        <!-- Columna derecha: tips + acciones de envío -->
+        <aside class="card admin-report-side">
+          <h3>Uso de este informe</h3>
+          <ul class="bullet-list small">
+            <li>Ajusta el tono y el detalle según el destinatario (estudiante, familia, docente o UTP / PIE).</li>
+            <li>Puedes copiar el texto para informes DIA, actas de reunión o fichas de seguimiento interno.</li>
+            <li>A futuro se incorporarán datos reales de PEVE, DIA y KPSI (gráficos, porcentajes, etc.).</li>
+          </ul>
+
+          <div class="admin-report-actions">
+            <button id="btn-report-email" type="button" class="btn btn-solid">
               📩 Enviar informe por correo
             </button>
-            <button type="button" class="btn btn-outline pulse" id="btn-report-whatsapp">
+            <button id="btn-report-whatsapp" type="button" class="btn btn-outline">
               📱 Enviar informe por WhatsApp
             </button>
             <a href="./informes.html" class="btn btn-ghost btn-card">
@@ -245,17 +230,16 @@ Equipo PEVE – Liceo San Nicolás / Neotech EduLab
             </a>
           </div>
 
-          <p class="note" style="margin-top:0.4rem;">
-            Estos botones podrían usar el correo / teléfono del apoderado, docente o contacto UTP asociado
-            al estudiante seleccionado en la tabla. La lógica fina se implementará en <code>admin.js</code>
-            a medida que se integren los datos reales de resultados.
+          <p class="note admin-report-note">
+            Estos botones usan el correo / teléfono del estudiante o apoderado asociado al registro seleccionado
+            en la tabla. Más adelante podrás integrar correos de docentes y UTP específicos por curso.
           </p>
-        </article>
-      </section>
+        </aside>
+      </div>
     </section>
   </main>
 
-  <!-- FOOTER + JS -->
+  <!-- JS GLOBAL -->
   <script src="../assets/js/accesibilidad.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
   <script src="../assets/js/admin.js" defer></script>
