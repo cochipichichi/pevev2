@@ -105,13 +105,34 @@
       </div>
     </section>
 
+
+    <!-- CONEXIÓN LIVE (Apps Script) -->
+    <section class="section">
+      <div class="card">
+        <h2 data-i18n="informes.connectTitle">Conexión a Google Sheets (Apps Script)</h2>
+        <p class="note" data-i18n="informes.connectNote">
+          Pega la URL de tu Web App (termina en <code>/exec</code>). Se guarda en este navegador (localStorage).
+        </p>
+
+        <div class="hero-cta-group" style="align-items:flex-end; gap:10px; flex-wrap:wrap;">
+          <label>
+            <span style="font-size:0.8rem;" data-i18n="informes.endpointLabel">Endpoint /exec</span>
+            <input id="script-url" class="input" placeholder="https://script.google.com/macros/s/.../exec" style="min-width:340px; max-width:100%;">
+          </label>
+
+          <button id="btn-save-script" class="btn" type="button" data-i18n="informes.saveLoad">Guardar y cargar</button>
+          <small id="script-status" class="note" style="margin:0;">—</small>
+          <small id="live-status" class="note" style="margin:0;">—</small>
+        </div>
+      </div>
+    </section>
+
     <!-- RESUMEN EJECUTIVO -->
     <section class="section">
       <div class="section-header">
         <h2>Resumen ejecutivo del curso</h2>
         <p class="page-lead">
-          Indicadores rápidos para reuniones de ciclo, UTP o informes con dirección. Los valores son
-          demostrativos y se reemplazarán con datos reales más adelante.
+          Indicadores rápidos para reuniones de ciclo, UTP o informes con dirección. Con el endpoint configurado, estos valores se calculan desde tus hojas PEVE/DIA/KPSI.
         </p>
       </div>
 
@@ -137,12 +158,26 @@
         <article class="card">
           <h3>📊 Promedios PEVE / DIA</h3>
           <ul class="bullet-list small">
-            <li><strong>Promedio PEVE asignatura:</strong> 5,8 (ejemplo)</li>
-            <li><strong>Promedio DIA ingreso:</strong> 5,0 (ejemplo)</li>
-            <li><strong>Meta:</strong> Subir al menos 0,5 puntos entre ingreso y cierre.</li>
+            <li><strong data-i18n="informes.avgPeveLabel">Promedio PEVE asignatura:</strong> <span id="kpi-prom-peve">—</span></li>
+            <li><strong data-i18n="informes.avgDiaLabel">Promedio DIA ingreso:</strong> <span id="kpi-prom-dia-ingreso">—</span></li>
+            <li><strong data-i18n="informes.goalLabel">Meta:</strong> <span data-i18n="informes.goalText">Subir al menos 0,5 puntos entre ingreso y cierre.</span></li>
           </ul>
         </article>
       </div>
+      <div class="grid-2" style="margin-top:14px;">
+        <div class="chart-card">
+          <h3 data-i18n="informes.chartAsigTitle">📌 Resumen por asignatura</h3>
+          <p class="note" data-i18n="informes.chartAsigNote">Promedio PEVE por asignatura (según filtros).</p>
+          <canvas id="chart-asignaturas" class="chart-canvas"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3 data-i18n="informes.chartTrendTitle">🗓️ Tendencia</h3>
+          <p class="note" data-i18n="informes.chartTrendNote">Evolución de promedio PEVE (por mes, si hay fechas).</p>
+          <canvas id="chart-trend" class="chart-canvas"></canvas>
+        </div>
+      </div>
+
+
     </section>
 
     <!-- TABLA DETALLE POR ESTUDIANTE -->
@@ -173,54 +208,14 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Filas de demostración; luego se podrán generar desde resultados reales -->
-            <tr>
-              <td>Gianella Sepúlveda</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>85 %</td>
-              <td>6,0</td>
-              <td>4,8</td>
-              <td>5,5</td>
-              <td>Medio</td>
-              <td>Alto</td>
-              <td>Requiere seguimiento PIE</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Belen Acuña</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>72 %</td>
-              <td>5,5</td>
-              <td>5,0</td>
-              <td>5,8</td>
-              <td>Bajo</td>
-              <td>Medio</td>
-              <td>Sin alerta</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Pancho Pinto</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>60 %</td>
-              <td>5,0</td>
-              <td>4,5</td>
-              <td>5,0</td>
-              <td>Bajo</td>
-              <td>Medio</td>
-              <td>Refuerzo en Biología / Matemática</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
+            <!-- Filas generadas automáticamente desde Sheets -->
           </tbody>
         </table>
+
+        <div class="table-controls">
+          <button id="btn-export-csv" class="btn small" type="button" data-i18n="informes.exportCsv">Exportar CSV</button>
+          <div id="table-pager" class="pager"></div>
+        </div>
       </div>
 
       <div class="hero-meta" style="margin-top:0.8rem;">
@@ -345,6 +340,9 @@ Equipo PEVE – Liceo San Nicolás / Neotech EduLab</textarea>
 
   <!-- JS COMÚN -->
   <script src="../assets/js/accesibilidad.js" defer></script>
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/charts-mini.js" defer></script>
+  <script src="../assets/js/informes.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
 </body>
 </html>
