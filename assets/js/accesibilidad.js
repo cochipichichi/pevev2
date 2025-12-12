@@ -208,7 +208,20 @@
       "nav.acerca": "Acerca de",
       "nav.admin": "Administrador",
       "nav.informes": "Informes",
-    },
+      "informes.connectTitle": "Conexión a Google Sheets (Apps Script)",
+      "informes.connectNote": "Pega la URL de tu Web App (termina en /exec). Se guarda en este navegador (localStorage).",
+      "informes.endpointLabel": "Endpoint /exec",
+      "informes.saveLoad": "Guardar y cargar",
+      "informes.avgPeveLabel": "Promedio PEVE asignatura:",
+      "informes.avgDiaLabel": "Promedio DIA ingreso:",
+      "informes.goalLabel": "Meta:",
+      "informes.goalText": "Subir al menos 0,5 puntos entre ingreso y cierre.",
+      "informes.chartAsigTitle": "📌 Resumen por asignatura",
+      "informes.chartAsigNote": "Promedio PEVE por asignatura (según filtros).",
+      "informes.chartTrendTitle": "🗓️ Tendencia",
+      "informes.chartTrendNote": "Evolución de promedio PEVE (por mes, si hay fechas).",
+      "informes.exportCsv": "Exportar CSV",
+},
     en: {
       "nav.inicio": "Home",
       "nav.proceso": "Process",
@@ -219,7 +232,20 @@
       "nav.acerca": "About",
       "nav.admin": "Admin",
       "nav.informes": "Reports",
-    },
+      "informes.connectTitle": "Connect to Google Sheets (Apps Script)",
+      "informes.connectNote": "Paste your Web App URL (ends with /exec). Saved in this browser (localStorage).",
+      "informes.endpointLabel": "Endpoint /exec",
+      "informes.saveLoad": "Save and load",
+      "informes.avgPeveLabel": "PEVE subject average:",
+      "informes.avgDiaLabel": "DIA entry average:",
+      "informes.goalLabel": "Goal:",
+      "informes.goalText": "Increase at least 0.5 points between entry and closing.",
+      "informes.chartAsigTitle": "📌 By-subject summary",
+      "informes.chartAsigNote": "PEVE average by subject (based on filters).",
+      "informes.chartTrendTitle": "🗓️ Trend",
+      "informes.chartTrendNote": "PEVE average over time (monthly, if dates exist).",
+      "informes.exportCsv": "Export CSV",
+},
     fr: {
       "nav.inicio": "Accueil",
       "nav.proceso": "Processus",
@@ -230,7 +256,84 @@
       "nav.acerca": "À propos",
       "nav.admin": "Administration",
       "nav.informes": "Rapports",
+      "informes.connectTitle": "Connexion à Google Sheets (Apps Script)",
+      "informes.connectNote": "Collez l’URL de votre Web App (se termine par /exec). Enregistré dans ce navigateur (localStorage).",
+      "informes.endpointLabel": "Point de terminaison /exec",
+      "informes.saveLoad": "Enregistrer et charger",
+      "informes.avgPeveLabel": "Moyenne PEVE (matière) :",
+      "informes.avgDiaLabel": "Moyenne DIA (entrée) :",
+      "informes.goalLabel": "Objectif :",
+      "informes.goalText": "Augmenter d’au moins 0,5 point entre l’entrée et la clôture.",
+      "informes.chartAsigTitle": "📌 Résumé par matière",
+      "informes.chartAsigNote": "Moyenne PEVE par matière (selon filtres).",
+      "informes.chartTrendTitle": "🗓️ Tendance",
+      "informes.chartTrendNote": "Moyenne PEVE dans le temps (mensuel, si dates).",
+      "informes.exportCsv": "Exporter CSV",
+},
+
+  /* =========================
+     🌐 AUTO-I18N (fallback)
+     Traduce textos cortos comunes sin necesidad de data-i18n.
+     - No intenta traducir contenido largo/temarios.
+     ========================= */
+
+  const AUTO_I18N = {
+    en: {
+      "Actualizar vista": "Refresh view",
+      "Filtros de informe": "Report filters",
+      "Resumen ejecutivo del curso": "Executive summary",
+      "Conexión a Google Sheets (Apps Script)": "Connect to Google Sheets (Apps Script)",
+      "Guardar y cargar": "Save and load",
+      "Exportar CSV": "Export CSV",
+      "Todos": "All",
+      "Curso 2025": "Grade 2025",
+      "Asignatura": "Subject",
+      "Llamado": "Session",
+      "Informes": "Reports",
     },
+    fr: {
+      "Actualizar vista": "Mettre à jour",
+      "Filtros de informe": "Filtres du rapport",
+      "Resumen ejecutivo del curso": "Résumé exécutif",
+      "Conexión a Google Sheets (Apps Script)": "Connexion à Google Sheets (Apps Script)",
+      "Guardar y cargar": "Enregistrer et charger",
+      "Exportar CSV": "Exporter CSV",
+      "Todos": "Tous",
+      "Curso 2025": "Niveau 2025",
+      "Asignatura": "Matière",
+      "Llamado": "Session",
+      "Informes": "Rapports",
+    },
+  };
+
+  function autoI18n(lang) {
+    const dict = AUTO_I18N[lang];
+    const candidates = doc.querySelectorAll("button, a, h1, h2, h3, h4, p, span, small, li, label");
+    candidates.forEach((el) => {
+      if (el.closest("code, pre, script, style")) return;
+      if (el.hasAttribute("data-i18n")) return;
+      if (el.children && el.children.length > 0) return;
+
+      const txt = (el.textContent || "").trim();
+      if (!txt) return;
+
+      if (!el.hasAttribute("data-i18n-orig")) {
+        el.setAttribute("data-i18n-orig", txt);
+      }
+      const orig = el.getAttribute("data-i18n-orig") || txt;
+
+      if (lang === "es") {
+        el.textContent = orig;
+        return;
+      }
+
+      if (!dict) return;
+      const translated = dict[orig];
+      if (translated) el.textContent = translated;
+      else el.textContent = orig;
+    });
+  }
+
   };
 
   let currentLang = (function initLang() {
