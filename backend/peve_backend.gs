@@ -17,6 +17,7 @@
 
 function doGet(e) {
   var type = (e && e.parameter && e.parameter.type) || 'usuarios';
+  var callback = (e && e.parameter && e.parameter.callback) || '';
 
   var map = {
     usuarios: 'PEVE_Usuarios',
@@ -30,16 +31,13 @@ function doGet(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(sheetName);
   if (!sheet) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ error: 'Hoja no encontrada: ' + sheetName }))
-      .setMimeType(ContentService.MimeType.JSON);
+    var err = JSON.stringify({ error: 'Hoja no encontrada: ' + sheetName });
+    return _output_(err, callback);
   }
 
   var data = sheet.getDataRange().getValues();
   if (!data || data.length < 2) {
-    return ContentService
-      .createTextOutput(JSON.stringify([]))
-      .setMimeType(ContentService.MimeType.JSON);
+    return _output_(JSON.stringify([]), callback);
   }
 
   var headers = data.shift();
@@ -47,16 +45,24 @@ function doGet(e) {
     .filter(function (r) { return r.join('').trim() !== ''; })
     .map(function (row) {
       var obj = {};
-      headers.forEach(function (h, i) {
-        obj[h] = row[i];
-      });
+      headers.forEach(function (h, i) { obj[h] = row[i]; });
       return obj;
     });
 
+  return _output_(JSON.stringify(rows), callback);
+}
+
+function _output_(json, callback) {
+  if (callback) {
+    return ContentService
+      .createTextOutput(callback + '(' + json + ');')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
   return ContentService
-    .createTextOutput(JSON.stringify(rows))
+    .createTextOutput(json)
     .setMimeType(ContentService.MimeType.JSON);
 }
+
 
 /**
  * Menú simple para enviar credenciales desde la hoja PEVE_Usuarios.
