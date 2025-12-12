@@ -1616,3 +1616,93 @@ body.theme-light .admin-report-textarea {
   border-bottom-color: rgba(56, 189, 248, 0.7);
 }
 
+
+
+/* Bloque de accesibilidad común */
+.accessibility-card {
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.accessibility-card::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.accessibility-card:hover::after {
+  opacity: 1;
+}
+
+.accessibility-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.accessibility-card p {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+
+/* === PEVE accesibilidad extendida: guía y búsqueda === */
+.peve-search-highlight {
+  outline: 2px solid var(--accent-strong);
+  border-radius: 0.9rem;
+  background: rgba(56, 189, 248, 0.09);
+  transition: background-color 0.4s ease, outline-color 0.4s ease;
+}
+
+.peve-guide-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.peve-guide-modal {
+  position: relative;
+  max-width: 460px;
+  width: calc(100% - 2.5rem);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 1.35rem 1.5rem 1.1rem;
+  box-shadow: var(--shadow-soft);
+  font-size: 0.9rem;
+}
+
+.peve-guide-modal h2 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+}
+
+.peve-guide-modal ul {
+  margin: 0.35rem 0 0.25rem;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+}
+
+.peve-guide-modal li + li {
+  margin-top: 0.25rem;
+}
+
+.peve-guide-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
