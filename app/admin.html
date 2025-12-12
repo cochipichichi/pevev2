@@ -19,17 +19,21 @@
     </div>
 
     <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link">Inicio</a>
-      <a href="../pages/asignaturas.html" class="nav-link">Asignaturas</a>
-      <span class="nav-link nav-link-active">Administrador</span>
-      <a href="./informes.html" class="nav-link">Informes</a>
+      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <span class="nav-link nav-link-active" data-i18n="nav.admin">Administrador</span>
+      <a href="./informes.html" class="nav-link" data-i18n="nav.informes">Informes</a>
     </nav>
 
     <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador">🔊</button>
+      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
     </div>
   </header>
 
@@ -136,7 +140,19 @@
         </div>
       </section>
     </section>
-  </main>
+  
+<!-- Bloque de accesibilidad común PEVE -->
+<section class="section">
+  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
+    <h2>🧩 Accesibilidad</h2>
+    <p class="note">
+      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
+      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
+    </p>
+  </article>
+</section>
+
+</main>
 
   <!-- FOOTER + JS -->
   <script src="../assets/js/accesibilidad.js" defer></script>
