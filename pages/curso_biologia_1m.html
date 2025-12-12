@@ -31,12 +31,16 @@ window.addEventListener('DOMContentLoaded', async()=>{
 </header>
   
   
-  <div class="accessibility-toolbar">
-    <button id="btn-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
-    <button id="btn-font-dec" aria-label="Disminuir tamaño de letra">A−</button>
-    <button id="btn-font-inc" aria-label="Aumentar tamaño de letra">A+</button>
-    <button id="btn-narrator" aria-label="Activar narrador de texto">🔊</button>
-  </div>
+  <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
 
 
 <main id="main-content">
@@ -59,6 +63,18 @@ window.addEventListener('DOMContentLoaded', async()=>{
       </div>
     </div>
   </div>
+
+<!-- Bloque de accesibilidad común PEVE -->
+<section class="section">
+  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
+    <h2>🧩 Accesibilidad</h2>
+    <p class="note">
+      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
+      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
+    </p>
+  </article>
+</section>
+
 </main>
 
 <footer class="footer">

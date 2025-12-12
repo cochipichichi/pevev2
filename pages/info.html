@@ -16,22 +16,26 @@
       </div>
     </div>
     <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link">Inicio</a>
-      <a href="info.html" class="nav-link nav-link-active">Proceso</a>
-      <a href="niveles.html" class="nav-link">Niveles</a>
-      <a href="asignaturas.html" class="nav-link">Asignaturas</a>
-      <a href="perfiles.html" class="nav-link">Perfiles</a>
-      <a href="accesibilidad.html" class="nav-link">Accesibilidad</a>
-      <a href="acerca.html" class="nav-link">Acerca de</a>
+      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="info.html" class="nav-link nav-link-active" data-i18n="nav.proceso">Proceso</a>
+      <a href="niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
     </nav>
     
   
-  <div class="accessibility-toolbar">
-    <button id="btn-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
-    <button id="btn-font-dec" aria-label="Disminuir tamaño de letra">A−</button>
-    <button id="btn-font-inc" aria-label="Aumentar tamaño de letra">A+</button>
-    <button id="btn-narrator" aria-label="Activar narrador de texto">🔊</button>
-  </div>
+  <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
   </header>
 
   <main id="main-content" class="page">
@@ -135,7 +139,19 @@
         </p>
       </div>
     </section>
-  </main>
+  
+<!-- Bloque de accesibilidad común PEVE -->
+<section class="section">
+  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
+    <h2>🧩 Accesibilidad</h2>
+    <p class="note">
+      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
+      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
+    </p>
+  </article>
+</section>
+
+</main>
 
   <footer class="footer small">
     <div class="footer-inner">
