@@ -2,192 +2,348 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>📊 Informes PEVE – Resultados, DIA y KPSI</title>
+  <title>📊 Informes PEVE · DIA · KPSI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body class="theme-dark">
+
+  <!-- HEADER GLOBAL PEVE -->
   <header class="topbar">
     <div class="topbar-left">
       <div class="logo-circle">📚</div>
       <div class="brand-text">
         <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Informes y resultados</span>
+        <span class="brand-subtitle">Módulo de informes</span>
       </div>
     </div>
 
     <nav class="topbar-nav" aria-label="Navegación principal">
       <a href="../index.html" class="nav-link">Inicio</a>
-      <a href="../app/admin.html" class="nav-link">Administrador</a>
+      <a href="../pages/info.html" class="nav-link">Proceso</a>
+      <a href="../pages/niveles.html" class="nav-link">Niveles</a>
+      <a href="../pages/asignaturas.html" class="nav-link">Asignaturas</a>
+      <a href="./dashboard.html" class="nav-link">Estudiante</a>
+      <a href="./dashboard_admin.html" class="nav-link">Administrador</a>
       <span class="nav-link nav-link-active">Informes</span>
     </nav>
 
-    <div class="accessibility-toolbar">
-      <button class="access-btn btn-icon" data-action="toggle-theme">🌓</button>
-      <button class="access-btn btn-icon" data-action="font-dec">A−</button>
-      <button class="access-btn btn-icon" data-action="font-inc">A+</button>
-      <button class="access-btn btn-icon" data-action="narrator">🔊</button>
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador de la página">🔊</button>
     </div>
   </header>
 
+  <!-- CONTENIDO PRINCIPAL -->
   <main id="main-content" class="page">
     <header class="page-header">
-      <p class="page-kicker">Informes PEVE</p>
-      <h1>Resultados, DIA y KPSI</h1>
+      <p class="page-kicker">Seguimiento académico</p>
+      <h1>Informes PEVE · DIA · KPSI</h1>
       <p class="page-lead">
-        Vista integrada para estudiantes, apoderados, docentes y UTP. Aquí se consolidan resultados
-        de pruebas PEVE, diagnóstico DIA y KPSI (inicio/fin) por curso y asignatura.
+        Este módulo permite a UTP, PIE y docentes revisar resultados por curso y asignatura, combinando
+        información de PEVE (exámenes y temarios), DIA (Diagnóstico Integral de Aprendizajes) y KPSI
+        (inicio / fin) para tomar decisiones pedagógicas.
       </p>
     </header>
 
-    <!-- SECCIÓN: VISTA ESTUDIANTE / APODERADO -->
+    <!-- FILTROS SUPERIORES -->
     <section class="section">
-      <div class="section-header">
-        <h2>👦👧 Vista estudiante / apoderado</h2>
-        <p>
-          Resumen de resultados por asignatura, con DIA y KPSI para un estudiante específico.
-          (En una versión conectada, esta vista se filtrará por RUT o ID PEVE).
+      <div class="card">
+        <h2>Filtros de informe</h2>
+        <p class="note">
+          Selecciona curso, asignatura y llamado para actualizar la vista. Por ahora los datos son de
+          demostración; más adelante se conectarán a hojas como <code>PEVE_Resultados</code>,
+          <code>DIA_Resultados</code> y <code>KPSI_Resultados</code>.
         </p>
-      </div>
 
-      <div class="card-grid">
-        <article class="card">
-          <h3>📌 Perfil del estudiante</h3>
-          <ul class="bullet-list small">
-            <li><strong>Nombre:</strong> Gianella Patricia Sepúlveda Palavecino (ejemplo)</li>
-            <li><strong>Curso 2025:</strong> 2° Medio</li>
-            <li><strong>Paquete PEVE:</strong> 1° Medio completo</li>
-          </ul>
-        </article>
+        <form class="hero-cta-group" id="filters-form">
+          <label>
+            <span style="font-size:0.8rem;">Curso 2025</span>
+            <select id="filter-curso" class="btn btn-ghost" style="min-width:150px;">
+              <option>1° Medio</option>
+              <option>2° Medio</option>
+              <option>3° Medio</option>
+              <option>4° Medio</option>
+            </select>
+          </label>
 
-        <article class="card">
-          <h3>📊 Resumen general de resultados</h3>
-          <ul class="bullet-list small">
-            <li><strong>Promedio global PEVE:</strong> 5,8 (ejemplo)</li>
-            <li><strong>Promedio DIA (ingreso):</strong> 5,0 (ejemplo)</li>
-            <li><strong>Progreso esperado:</strong> Aumentar 0,5 puntos o más entre inicio y fin.</li>
-          </ul>
-        </article>
-      </div>
+          <label>
+            <span style="font-size:0.8rem;">Asignatura</span>
+            <select id="filter-asignatura" class="btn btn-ghost" style="min-width:180px;">
+              <option>Biología 1° Medio (BIO1M)</option>
+              <option>Lengua y Literatura</option>
+              <option>Matemática</option>
+              <option>Historia y Cs. Sociales</option>
+            </select>
+          </label>
 
-      <div class="table-wrapper">
-        <table class="temario-table">
-          <thead>
-            <tr>
-              <th>Asignatura</th>
-              <th>Resultados PEVE</th>
-              <th>DIA (inicio)</th>
-              <th>DIA (fin)</th>
-              <th>KPSI inicio</th>
-              <th>KPSI fin</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Biología 1° Medio</td>
-              <td>Quiz OA2: 80% · Evaluación OA2: 5,8</td>
-              <td>50% logros (ej.)</td>
-              <td>70% logros (ej.)</td>
-              <td>“Me cuesta mucho” (2,1 promedio)</td>
-              <td>“Lo entiendo bien” (3,8 promedio)</td>
-            </tr>
-            <tr>
-              <td>Lenguaje 1° Medio</td>
-              <td>Simulacro lectura: 60% (ej.)</td>
-              <td>45% logros (ej.)</td>
-              <td>65% logros (ej.)</td>
-              <td>Baja confianza inicial</td>
-              <td>Mejora moderada</td>
-            </tr>
-          </tbody>
-        </table>
+          <label>
+            <span style="font-size:0.8rem;">Llamado</span>
+            <select id="filter-llamado" class="btn btn-ghost" style="min-width:170px;">
+              <option>2025 · 1° llamado</option>
+              <option>2025 · 2° llamado</option>
+              <option>2026 · 1° llamado</option>
+            </select>
+          </label>
+
+          <label>
+            <span style="font-size:0.8rem;">Tipo de informe</span>
+            <select id="filter-tipo" class="btn btn-ghost" style="min-width:190px;">
+              <option>PEVE (exámenes / temarios)</option>
+              <option>DIA (ingreso / cierre)</option>
+              <option>KPSI (inicio / fin)</option>
+              <option>Mixto (PEVE + DIA + KPSI)</option>
+            </select>
+          </label>
+
+          <button type="button" class="btn btn-solid pulse" id="btn-actualizar">
+            Actualizar vista
+          </button>
+        </form>
       </div>
     </section>
 
-    <!-- SECCIÓN: VISTA DOCENTE / UTP POR CURSO -->
+    <!-- RESUMEN EJECUTIVO -->
     <section class="section">
       <div class="section-header">
-        <h2>👩‍🏫 Vista docente / UTP por curso</h2>
-        <p>
-          Resultados agrupados por curso, asignatura y estudiante. Incluye una mirada rápida a DIA y
-          KPSI como herramientas de seguimiento.
+        <h2>Resumen ejecutivo del curso</h2>
+        <p class="page-lead">
+          Indicadores rápidos para reuniones de ciclo, UTP o informes con dirección. Los valores son
+          demostrativos y se reemplazarán con datos reales más adelante.
         </p>
       </div>
 
-      <div class="card-grid">
+      <div class="dashboard-grid">
         <article class="card">
-          <h3>📚 Curso seleccionado</h3>
-          <p class="note">
-            Ejemplo: 1° Medio – PEVE 2024 (Biología). En producción, esta selección vendría de un
-            filtro desplegable (curso/asignatura).
-          </p>
-          <ul class="bullet-list small">
-            <li><strong>Asignatura:</strong> Biología 1° Medio (BIO1M)</li>
-            <li><strong>Docente responsable:</strong> (Nombre docente)</li>
-            <li><strong>Número de estudiantes:</strong> 25 (ejemplo)</li>
-          </ul>
+          <h3>👥 Estudiantes del curso</h3>
+          <p class="note">Total de estudiantes que rinden PEVE en el curso seleccionado.</p>
+          <p><strong id="kpi-total-estudiantes">28</strong> estudiante(s)</p>
         </article>
 
         <article class="card">
-          <h3>📈 Indicadores clave (ejemplo)</h3>
+          <h3>✅ Avance en PEVE</h3>
+          <p class="note">Porcentaje que completó todos los temarios y evaluaciones clave.</p>
+          <p><strong id="kpi-avance-completo">68 %</strong> con avance completo (demo)</p>
+        </article>
+
+        <article class="card">
+          <h3>📈 Mejora KPSI</h3>
+          <p class="note">Estudiantes que muestran mejora entre KPSI inicio y KPSI fin.</p>
+          <p><strong id="kpi-kpsi-mejora">74 %</strong> con mejora positiva (demo)</p>
+        </article>
+
+        <article class="card">
+          <h3>📊 Promedios PEVE / DIA</h3>
           <ul class="bullet-list small">
-            <li>Promedio curso PEVE OA2: 5,5</li>
-            <li>Promedio DIA ingreso vs fin: +15 puntos porcentuales</li>
-            <li>25% de estudiantes con alza significativa en KPSI fin</li>
+            <li><strong>Promedio PEVE asignatura:</strong> 5,8 (ejemplo)</li>
+            <li><strong>Promedio DIA ingreso:</strong> 5,0 (ejemplo)</li>
+            <li><strong>Meta:</strong> Subir al menos 0,5 puntos entre ingreso y cierre.</li>
           </ul>
         </article>
       </div>
+    </section>
+
+    <!-- TABLA DETALLE POR ESTUDIANTE -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Detalle por estudiante</h2>
+        <p class="page-lead">
+          Tabla pensada para reuniones de curso, trabajo con PIE y análisis de brechas. Puedes exportarla
+          a CSV o imprimirla en versión resumida.
+        </p>
+      </div>
 
       <div class="table-wrapper">
-        <table class="temario-table">
+        <table class="temario-table" id="tabla-informes">
           <thead>
             <tr>
               <th>Estudiante</th>
-              <th>RUT</th>
-              <th>Resultado PEVE Biología (ej. OA2)</th>
-              <th>DIA inicial</th>
-              <th>DIA final</th>
+              <th>Curso</th>
+              <th>Llamado</th>
+              <th>% avance PEVE</th>
+              <th>Resultado PEVE</th>
+              <th>DIA ingreso</th>
+              <th>DIA cierre</th>
               <th>KPSI inicio</th>
               <th>KPSI fin</th>
+              <th>Alertas</th>
+              <th>Informe</th>
             </tr>
           </thead>
           <tbody>
+            <!-- Filas de demostración; luego se podrán generar desde resultados reales -->
             <tr>
               <td>Gianella Sepúlveda</td>
-              <td>23225367-3</td>
-              <td>OA2: 5,8 (80% ítems)</td>
-              <td>50% logros</td>
-              <td>70% logros</td>
-              <td>2,1 (baja confianza)</td>
-              <td>3,8 (buena confianza)</td>
+              <td>1° Medio</td>
+              <td>2025 · 1° llamado</td>
+              <td>85 %</td>
+              <td>6,0</td>
+              <td>4,8</td>
+              <td>5,5</td>
+              <td>Medio</td>
+              <td>Alto</td>
+              <td>Requiere seguimiento PIE</td>
+              <td>
+                <button class="btn btn-ghost btn-card">Ver informe individual</button>
+              </td>
             </tr>
             <tr>
-              <td>Estudiante 2</td>
-              <td>11.111.111-1</td>
-              <td>OA2: 4,8</td>
-              <td>45%</td>
-              <td>60%</td>
-              <td>2,5</td>
-              <td>3,2</td>
+              <td>Belen Acuña</td>
+              <td>1° Medio</td>
+              <td>2025 · 1° llamado</td>
+              <td>72 %</td>
+              <td>5,5</td>
+              <td>5,0</td>
+              <td>5,8</td>
+              <td>Bajo</td>
+              <td>Medio</td>
+              <td>Sin alerta</td>
+              <td>
+                <button class="btn btn-ghost btn-card">Ver informe individual</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Pancho Pinto</td>
+              <td>1° Medio</td>
+              <td>2025 · 1° llamado</td>
+              <td>60 %</td>
+              <td>5,0</td>
+              <td>4,5</td>
+              <td>5,0</td>
+              <td>Bajo</td>
+              <td>Medio</td>
+              <td>Refuerzo en Biología / Matemática</td>
+              <td>
+                <button class="btn btn-ghost btn-card">Ver informe individual</button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="callout callout-secondary">
-        <strong>Nota:</strong>
-        En la implementación final, esta tabla se completará con datos que provengan de la
-        plataforma PEVE (resultados de pruebas por curso y asignatura), del informe DIA y de los
-        formularios KPSI de inicio/fin. La idea es que UTP pueda:
+      <div class="hero-meta" style="margin-top:0.8rem;">
+        <button class="btn btn-outline btn-card">Exportar CSV (para UTP)</button>
+        <button class="btn btn-outline btn-card">Versión para imprimir / PDF</button>
+      </div>
+    </section>
+
+    <!-- PANEL DE INFORME INDIVIDUAL (BORRADOR EDITABLE) -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Informe individual PEVE · DIA · KPSI</h2>
+        <p class="page-lead">
+          Borrador editable para compartir con familias, docentes o equipos externos. Más adelante este
+          texto se podrá generar automáticamente desde los resultados reales del estudiante.
+        </p>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="card">
+          <h3>Configuración rápida del informe</h3>
+          <p class="note">
+            1) Selecciona un estudiante en la tabla · 2) Ajusta el tipo de informe y destinatario ·
+            3) Edita el texto si lo necesitas · 4) Envía por correo o WhatsApp.
+          </p>
+
+          <div class="progress-group">
+            <label>Estudiante seleccionado</label>
+            <p id="report-student-label"><em>Sin selección · usa la tabla de arriba.</em></p>
+          </div>
+
+          <div class="progress-group">
+            <label for="report-type">Tipo de informe</label>
+            <select id="report-type" class="btn btn-ghost" style="width:100%;">
+              <option>Resumen PEVE (exámenes + avance)</option>
+              <option>DIA · línea de base</option>
+              <option>KPSI inicio / fin</option>
+              <option>Resultados por curso y asignatura</option>
+            </select>
+          </div>
+
+          <div class="progress-group">
+            <label for="report-target">Destinatario principal</label>
+            <select id="report-target" class="btn btn-ghost" style="width:100%;">
+              <option>Estudiante</option>
+              <option>Apoderado / familia</option>
+              <option>Docente</option>
+              <option>UTP / Equipo PIE</option>
+            </select>
+          </div>
+
+          <div class="hero-meta" style="margin-top:1rem;">
+            <button class="btn btn-solid pulse" id="btn-report-email">📩 Enviar por correo</button>
+            <button class="btn btn-outline" id="btn-report-whatsapp">📱 Enviar por WhatsApp</button>
+          </div>
+
+          <p class="note" style="margin-top:0.6rem;">
+            Estos botones podrán utilizar el correo / teléfono del apoderado, docente o UTP
+            asociados al estudiante seleccionado en la tabla de arriba. La lógica fina se
+            implementará en <code>admin.js</code> cuando conectemos resultados reales.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Vista previa del informe (editable)</h3>
+          <p class="note">
+            Puedes editar libremente este texto antes de enviarlo. Más adelante se generará
+            automáticamente con datos PEVE · DIA · KPSI.
+          </p>
+          <textarea
+            id="report-preview"
+            style="width:100%;min-height:280px;border-radius:14px;border:1px solid rgba(148,163,184,0.6);background:rgba(15,23,42,0.96);color:#e5e7eb;padding:0.8rem;font-size:0.82rem;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;"
+          >[INFORME DEMO PEVE – COMPLETAR]
+
+Estimada familia / equipo,
+
+A continuación se presenta un borrador de informe del estudiante [NOMBRE_ESTUDIANTE],
+curso [CURSO_2025], llamado [LLAMADO]:
+
+1. Información de ingreso (DIA)
+   - Línea de base de aprendizaje al momento de ingresar a PEVE.
+   - Principales fortalezas y necesidades detectadas.
+
+2. Progreso en PEVE
+   - Avance en revisión de temarios y materiales.
+   - Resultados de evaluaciones realizadas en la plataforma.
+   - Ritmo de estudio y participación en las actividades propuestas.
+
+3. KPSI inicio / fin
+   - Percepción de dominio al inicio del proceso.
+   - Cambios en la autopercepción al cierre del período.
+
+Este informe es una síntesis para apoyar el trabajo conjunto entre estudiante, familia,
+docentes y UTP / PIE. Próximas versiones incluirán gráficas y detalles cuantitativos a
+partir de los registros reales de la plataforma.
+
+Atentamente,
+Equipo PEVE – Liceo San Nicolás / Neotech EduLab</textarea>
+        </article>
+      </div>
+    </section>
+
+    <!-- NOTA FINAL -->
+    <section class="section">
+      <div class="callout-secondary callout">
+        <h3>¿Cómo se integran PEVE, DIA y KPSI en la práctica?</h3>
+        <p class="note">
+          La intención del módulo de informes es que el liceo pueda conectar:
+        </p>
         <ul class="bullet-list small">
-          <li>Comparar el ingreso (DIA/KPSI inicio) con los resultados finales PEVE.</li>
-          <li>Detectar estudiantes que requieran apoyos adicionales.</li>
-          <li>Generar reportes por curso/asignatura para compartir con directivos y equipos externos.</li>
+          <li>Resultados de exámenes PEVE por curso y asignatura.</li>
+          <li>Información de ingreso y cierre del DIA (MINEDUC).</li>
+          <li>KPSI de inicio / fin como indicador de percepción de logro.</li>
         </ul>
+        <p class="note">
+          Con esa triada, UTP y PIE pueden identificar estudiantes que requieren apoyos,
+          monitorear avances y generar informes claros para familias y redes externas.
+        </p>
       </div>
     </section>
   </main>
 
+  <!-- JS COMÚN -->
   <script src="../assets/js/accesibilidad.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
 </body>
