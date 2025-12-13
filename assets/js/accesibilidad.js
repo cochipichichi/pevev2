@@ -1,7 +1,9 @@
 
-// accesibilidad.js
+// accesibilidad.js (v3.0)
 // Controles globales de accesibilidad para 📚PEVE
 // 🏠 home · 🗣️ narrador · 🌓 tema · A+/A− tamaño · 🌐 idioma · 🧠 guía · 🔍 búsqueda
+//
+// Este módulo NO reemplaza seguridad real (Access / backend). Es UX/accesibilidad.
 
 (function () {
   const doc = document;
@@ -12,190 +14,13 @@
   const THEME_KEY = "peve-theme";
   const FONT_KEY = "peve-font-scale";
   const LANG_KEY = "peve-lang";
+  const CONTRAST_KEY = "peve-contrast";
 
   const LANGS = ["es", "en", "fr"];
 
-  // Utilidad simple
-  const $ = (sel) => doc.querySelector(sel);
-
-  // Botones (soporta versiones antiguas por id y nuevas por data-action)
-  const btnTheme =
-    $("#btn-theme") || doc.querySelector('[data-action="toggle-theme"]');
-  const btnFontInc =
-    $("#btn-font-inc") || doc.querySelector('[data-action="font-inc"]');
-  const btnFontDec =
-    $("#btn-font-dec") || doc.querySelector('[data-action="font-dec"]');
-  const btnNarrator =
-    $("#btn-narrator") || doc.querySelector('[data-action="narrator"]');
-  const btnHome =
-    $("#btn-home") || doc.querySelector('[data-action="home"]');
-  const btnLang =
-    $("#btn-lang") || doc.querySelector('[data-action="lang"]');
-  const btnGuide =
-    $("#btn-guide") || doc.querySelector('[data-action="guide"]');
-  const btnSearch =
-    $("#btn-search") || doc.querySelector('[data-action="search"]');
-
-  /* =========================
-     TEMA CLARO / OSCURO
-     ========================= */
-
-  function applyTheme(theme) {
-    const isLight = theme === "light";
-    body.classList.toggle("theme-light", isLight);
-    body.classList.toggle("theme-dark", !isLight);
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch (e) {
-      // ignore
-    }
-  }
-
-  function toggleTheme() {
-    const current =
-      body.classList.contains("theme-light") ? "light" : "dark";
-    applyTheme(current === "light" ? "dark" : "light");
-  }
-
-  // Inicializar tema desde localStorage
-  (function initTheme() {
-    let theme = "dark";
-    try {
-      const stored = localStorage.getItem(THEME_KEY);
-      if (stored === "light" || stored === "dark") theme = stored;
-    } catch (e) {
-      // ignore
-    }
-    applyTheme(theme);
-  })();
-
-  if (btnTheme) {
-    btnTheme.addEventListener("click", toggleTheme);
-  }
-
-  /* =========================
-     TAMAÑO DE FUENTE
-     ========================= */
-
-  let fontScale = 1;
-
-  function applyFontScale(scale) {
-    fontScale = Math.min(1.3, Math.max(0.85, scale));
-    // Ajusta el tamaño base del html para escalar todo el sitio
-    const base = 16; // px
-    html.style.fontSize = base * fontScale + "px";
-    try {
-      localStorage.setItem(FONT_KEY, String(fontScale));
-    } catch (e) {
-      // ignore
-    }
-  }
-
-  (function initFont() {
-    let storedScale = 1;
-    try {
-      const raw = localStorage.getItem(FONT_KEY);
-      if (raw) {
-        const n = parseFloat(raw);
-        if (!isNaN(n)) storedScale = n;
-      }
-    } catch (e) {
-      // ignore
-    }
-    applyFontScale(storedScale);
-  })();
-
-  function increaseFont() {
-    applyFontScale(fontScale + 0.06);
-  }
-
-  function decreaseFont() {
-    applyFontScale(fontScale - 0.06);
-  }
-
-  if (btnFontInc) btnFontInc.addEventListener("click", increaseFont);
-  if (btnFontDec) btnFontDec.addEventListener("click", decreaseFont);
-
-  /* =========================
-     NARRADOR – LEE EL CONTENIDO
-     ========================= */
-
-  let narratorActive = false;
-
-  function getPageText() {
-    const main =
-      doc.getElementById("main-content") || doc.querySelector("main") || body;
-    // Elimina texto de navegación y footer para que sea más limpio
-    const clone = main.cloneNode(true);
-    clone
-      .querySelectorAll("nav, header .topbar, footer, script, style")
-      .forEach((el) => el.remove());
-    return clone.textContent.replace(/\s+/g, " ").trim();
-  }
-
-  function speak(text, lang) {
-    if (!("speechSynthesis" in win)) {
-      alert(
-        "Tu navegador no soporta la lectura en voz alta. Puedes probar en Chrome o Edge."
-      );
-      return;
-    }
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = lang || (html.getAttribute("lang") || "es-ES");
-    utter.rate = 1;
-    utter.pitch = 1;
-    win.speechSynthesis.cancel();
-    win.speechSynthesis.speak(utter);
-  }
-
-  function toggleNarrator() {
-    if (!("speechSynthesis" in win)) {
-      alert(
-        "Tu navegador no soporta la lectura en voz alta. Puedes probar en Chrome o Edge."
-      );
-      return;
-    }
-
-    if (narratorActive) {
-      win.speechSynthesis.cancel();
-      narratorActive = false;
-      return;
-    }
-
-    const text = getPageText();
-    if (!text) return;
-    narratorActive = true;
-    speak(text);
-  }
-
-  if (btnNarrator) {
-    btnNarrator.addEventListener("click", toggleNarrator);
-  }
-
-  /* =========================
-     BOTÓN 🏠 IR AL INICIO
-     ========================= */
-
-  function goHome() {
-    const attr =
-      (btnHome && btnHome.getAttribute("data-home")) ||
-      html.getAttribute("data-home");
-    if (attr) {
-      win.location.href = attr;
-    } else {
-      // fallback: raíz del proyecto
-      win.location.href = "/pevev2/index.html";
-    }
-  }
-
-  if (btnHome) {
-    btnHome.addEventListener("click", goHome);
-  }
-
-  /* =========================
-     🌐 IDIOMAS ES / EN / FR
-     Versión simple: cambia textos con data-i18n
-     ========================= */
+  // =========================
+  // i18n (UI + traducción automática limitada)
+  // =========================
 
   const I18N = {
     es: {
@@ -206,22 +31,28 @@
       "nav.perfiles": "Perfiles",
       "nav.accesibilidad": "Accesibilidad",
       "nav.acerca": "Acerca de",
-      "nav.admin": "Administrador",
-      "nav.informes": "Informes",
-      "informes.connectTitle": "Conexión a Google Sheets (Apps Script)",
-      "informes.connectNote": "Pega la URL de tu Web App (termina en /exec). Se guarda en este navegador (localStorage).",
-      "informes.endpointLabel": "Endpoint /exec",
-      "informes.saveLoad": "Guardar y cargar",
-      "informes.avgPeveLabel": "Promedio PEVE asignatura:",
-      "informes.avgDiaLabel": "Promedio DIA ingreso:",
-      "informes.goalLabel": "Meta:",
-      "informes.goalText": "Subir al menos 0,5 puntos entre ingreso y cierre.",
-      "informes.chartAsigTitle": "📌 Resumen por asignatura",
-      "informes.chartAsigNote": "Promedio PEVE por asignatura (según filtros).",
-      "informes.chartTrendTitle": "🗓️ Tendencia",
-      "informes.chartTrendNote": "Evolución de promedio PEVE (por mes, si hay fechas).",
-      "informes.exportCsv": "Exportar CSV",
-},
+      "btn.home": "Ir al inicio",
+      "btn.narrator": "Leer el contenido de la página",
+      "btn.theme": "Cambiar tema claro/oscuro",
+      "btn.fontPlus": "Aumentar tamaño de letra",
+      "btn.fontMinus": "Disminuir tamaño de letra",
+      "btn.lang": "Cambiar idioma ES/EN/FR",
+      "btn.guide": "Abrir guía paso a paso",
+      "btn.search": "Buscar en esta página",
+      "search.prompt": "¿Qué quieres buscar en esta página?",
+      "search.notFound": "No se encontró",
+      "speech.unsupported": "Tu navegador no soporta la lectura en voz alta. Prueba Chrome o Edge.",
+      "guide.title": "🧠 Guía rápida para usar 📚PEVE",
+      "guide.close": "Cerrar guía",
+      "guide.p1": "Usa la barra superior para activar accesibilidad: narrador, alto contraste, tamaño de letra y traducción.",
+      "guide.p2": "En cada sección encontrarás temarios, actividades y tu progreso.",
+      "guide.p3": "Si necesitas apoyo, solicita ayuda a tu docente o equipo PIE.",
+      "toast.lang": "Idioma",
+      "toast.theme": "Tema",
+      "toast.contrast": "Contraste",
+      "toast.on": "Activado",
+      "toast.off": "Desactivado",
+    },
     en: {
       "nav.inicio": "Home",
       "nav.proceso": "Process",
@@ -230,22 +61,28 @@
       "nav.perfiles": "Profiles",
       "nav.accesibilidad": "Accessibility",
       "nav.acerca": "About",
-      "nav.admin": "Admin",
-      "nav.informes": "Reports",
-      "informes.connectTitle": "Connect to Google Sheets (Apps Script)",
-      "informes.connectNote": "Paste your Web App URL (ends with /exec). Saved in this browser (localStorage).",
-      "informes.endpointLabel": "Endpoint /exec",
-      "informes.saveLoad": "Save and load",
-      "informes.avgPeveLabel": "PEVE subject average:",
-      "informes.avgDiaLabel": "DIA entry average:",
-      "informes.goalLabel": "Goal:",
-      "informes.goalText": "Increase at least 0.5 points between entry and closing.",
-      "informes.chartAsigTitle": "📌 By-subject summary",
-      "informes.chartAsigNote": "PEVE average by subject (based on filters).",
-      "informes.chartTrendTitle": "🗓️ Trend",
-      "informes.chartTrendNote": "PEVE average over time (monthly, if dates exist).",
-      "informes.exportCsv": "Export CSV",
-},
+      "btn.home": "Go to home",
+      "btn.narrator": "Read this page aloud",
+      "btn.theme": "Toggle light/dark theme",
+      "btn.fontPlus": "Increase font size",
+      "btn.fontMinus": "Decrease font size",
+      "btn.lang": "Switch language ES/EN/FR",
+      "btn.guide": "Open step-by-step guide",
+      "btn.search": "Search on this page",
+      "search.prompt": "What do you want to search on this page?",
+      "search.notFound": "Not found",
+      "speech.unsupported": "Your browser does not support text-to-speech. Try Chrome or Edge.",
+      "guide.title": "🧠 Quick guide to use 📚PEVE",
+      "guide.close": "Close guide",
+      "guide.p1": "Use the top bar to enable accessibility: reader, high contrast, font size and translation.",
+      "guide.p2": "In each section you will find official topics, activities and your progress.",
+      "guide.p3": "If you need support, ask your teacher or the PIE team.",
+      "toast.lang": "Language",
+      "toast.theme": "Theme",
+      "toast.contrast": "Contrast",
+      "toast.on": "On",
+      "toast.off": "Off",
+    },
     fr: {
       "nav.inicio": "Accueil",
       "nav.proceso": "Processus",
@@ -254,131 +91,493 @@
       "nav.perfiles": "Profils",
       "nav.accesibilidad": "Accessibilité",
       "nav.acerca": "À propos",
-      "nav.admin": "Administration",
-      "nav.informes": "Rapports",
-      "informes.connectTitle": "Connexion à Google Sheets (Apps Script)",
-      "informes.connectNote": "Collez l’URL de votre Web App (se termine par /exec). Enregistré dans ce navigateur (localStorage).",
-      "informes.endpointLabel": "Point de terminaison /exec",
-      "informes.saveLoad": "Enregistrer et charger",
-      "informes.avgPeveLabel": "Moyenne PEVE (matière) :",
-      "informes.avgDiaLabel": "Moyenne DIA (entrée) :",
-      "informes.goalLabel": "Objectif :",
-      "informes.goalText": "Augmenter d’au moins 0,5 point entre l’entrée et la clôture.",
-      "informes.chartAsigTitle": "📌 Résumé par matière",
-      "informes.chartAsigNote": "Moyenne PEVE par matière (selon filtres).",
-      "informes.chartTrendTitle": "🗓️ Tendance",
-      "informes.chartTrendNote": "Moyenne PEVE dans le temps (mensuel, si dates).",
-      "informes.exportCsv": "Exporter CSV",
-},
-
-  /* =========================
-     🌐 AUTO-I18N (fallback)
-     Traduce textos cortos comunes sin necesidad de data-i18n.
-     - No intenta traducir contenido largo/temarios.
-     ========================= */
-
-  const AUTO_I18N = {
-    en: {
-      "Actualizar vista": "Refresh view",
-      "Filtros de informe": "Report filters",
-      "Resumen ejecutivo del curso": "Executive summary",
-      "Conexión a Google Sheets (Apps Script)": "Connect to Google Sheets (Apps Script)",
-      "Guardar y cargar": "Save and load",
-      "Exportar CSV": "Export CSV",
-      "Todos": "All",
-      "Curso 2025": "Grade 2025",
-      "Asignatura": "Subject",
-      "Llamado": "Session",
-      "Informes": "Reports",
-    },
-    fr: {
-      "Actualizar vista": "Mettre à jour",
-      "Filtros de informe": "Filtres du rapport",
-      "Resumen ejecutivo del curso": "Résumé exécutif",
-      "Conexión a Google Sheets (Apps Script)": "Connexion à Google Sheets (Apps Script)",
-      "Guardar y cargar": "Enregistrer et charger",
-      "Exportar CSV": "Exporter CSV",
-      "Todos": "Tous",
-      "Curso 2025": "Niveau 2025",
-      "Asignatura": "Matière",
-      "Llamado": "Session",
-      "Informes": "Rapports",
+      "btn.home": "Aller à l’accueil",
+      "btn.narrator": "Lire cette page à voix haute",
+      "btn.theme": "Basculer thème clair/sombre",
+      "btn.fontPlus": "Augmenter la taille du texte",
+      "btn.fontMinus": "Diminuer la taille du texte",
+      "btn.lang": "Changer la langue ES/EN/FR",
+      "btn.guide": "Ouvrir le guide pas à pas",
+      "btn.search": "Rechercher sur cette page",
+      "search.prompt": "Que voulez-vous rechercher sur cette page ?",
+      "search.notFound": "Introuvable",
+      "speech.unsupported": "Votre navigateur ne prend pas en charge la synthèse vocale. Essayez Chrome ou Edge.",
+      "guide.title": "🧠 Guide rapide pour utiliser 📚PEVE",
+      "guide.close": "Fermer le guide",
+      "guide.p1": "Utilisez la barre supérieure pour activer l’accessibilité : lecteur, contraste élevé, taille du texte et traduction.",
+      "guide.p2": "Dans chaque section, vous trouverez les contenus officiels, des activités et votre progression.",
+      "guide.p3": "Si vous avez besoin de soutien, demandez à votre enseignant ou à l’équipe PIE.",
+      "toast.lang": "Langue",
+      "toast.theme": "Thème",
+      "toast.contrast": "Contraste",
+      "toast.on": "Activé",
+      "toast.off": "Désactivé",
     },
   };
 
-  function autoI18n(lang) {
-    const dict = AUTO_I18N[lang];
-    const candidates = doc.querySelectorAll("button, a, h1, h2, h3, h4, p, span, small, li, label");
-    candidates.forEach((el) => {
-      if (el.closest("code, pre, script, style")) return;
-      if (el.hasAttribute("data-i18n")) return;
-      if (el.children && el.children.length > 0) return;
+  // Traducción automática limitada por coincidencia exacta (UI y textos frecuentes).
+  // Si un texto no existe, se mantiene en ES (para no romper contenido curricular).
+  const AUTO_TEXT = {
+    en: {
+      "Panel de apoderado/a": "Guardian dashboard",
+      "Panel Docente": "Teacher dashboard",
+      "Panel de docente": "Teacher dashboard",
+      "Versión demo – vista para acompañar a tu estudiante": "Demo version – view to support your student",
+      "Versión demo – vista para acompañar a tu estudiante.": "Demo version – view to support your student.",
+      "Versión demo – vista para acompañar a tu estudiante": "Demo version – view to support your student",
+      "Módulo de informes": "Reports module",
+      "Informes": "Reports",
+      "Accesibilidad": "Accessibility",
+      "🧩 Accesibilidad": "🧩 Accessibility",
+      "Controles de accesibilidad": "Accessibility controls",
+      "Ir al inicio": "Go to home",
+      "Leer el contenido de la página": "Read this page aloud",
+      "Cambiar tema claro/oscuro": "Toggle light/dark theme",
+      "Aumentar tamaño de letra": "Increase font size",
+      "Disminuir tamaño de letra": "Decrease font size",
+      "Cambiar idioma ES/EN/FR": "Switch language ES/EN/FR",
+      "Buscar": "Search",
+      "Buscar en esta página": "Search on this page",
+      "Guía": "Guide",
+      "Guía rápida": "Quick guide",
+      "Cerrar": "Close",
+      "Inicio": "Home",
+      "Proceso": "Process",
+      "Niveles": "Levels",
+      "Asignaturas": "Subjects",
+      "Perfiles": "Profiles",
+      "Acerca de": "About",
+      "Familias": "Families",
+      "Docente": "Teacher",
+      "Apoderado / familia": "Guardian / family",
+      "Estudiante": "Student",
+      "Enviar por correo": "Send by email",
+      "Enviar por WhatsApp": "Send via WhatsApp",
+      "Descargar PDF": "Download PDF",
+      "Ver temarios": "View official topics",
+      "Temarios oficiales": "Official topics",
+      "Próximamente": "Coming soon",
+      "Cerrar sesión": "Sign out",
+      "Ingresar": "Sign in",
+      "Administrador": "Administrator",
+      "Correo": "Email",
+      "Contraseña": "Password",
+      "Volver": "Back",
+      "Continuar": "Continue",
+      "Aceptar": "Accept",
+      "Cancelar": "Cancel",
+      "Buscar estudiante": "Search student",
+      "Selecciona": "Select",
+      "Resultados": "Results",
+    },
+    fr: {
+      "Panel de apoderado/a": "Tableau parent/tuteur",
+      "Panel Docente": "Tableau enseignant",
+      "Panel de docente": "Tableau enseignant",
+      "Versión demo – vista para acompañar a tu estudiante": "Version démo – vue pour accompagner votre élève",
+      "Versión demo – vista para acompañar a tu estudiante.": "Version démo – vue pour accompagner votre élève.",
+      "Módulo de informes": "Module de rapports",
+      "Informes": "Rapports",
+      "Accesibilidad": "Accessibilité",
+      "🧩 Accesibilidad": "🧩 Accessibilité",
+      "Controles de accesibilidad": "Contrôles d’accessibilité",
+      "Ir al inicio": "Aller à l’accueil",
+      "Leer el contenido de la página": "Lire la page à voix haute",
+      "Cambiar tema claro/oscuro": "Basculer thème clair/sombre",
+      "Aumentar tamaño de letra": "Augmenter la taille du texte",
+      "Disminuir tamaño de letra": "Diminuer la taille du texte",
+      "Cambiar idioma ES/EN/FR": "Changer la langue ES/EN/FR",
+      "Buscar": "Rechercher",
+      "Buscar en esta página": "Rechercher sur cette page",
+      "Guía": "Guide",
+      "Guía rápida": "Guide rapide",
+      "Cerrar": "Fermer",
+      "Inicio": "Accueil",
+      "Proceso": "Processus",
+      "Niveles": "Niveaux",
+      "Asignaturas": "Matières",
+      "Perfiles": "Profils",
+      "Acerca de": "À propos",
+      "Familias": "Familles",
+      "Docente": "Enseignant",
+      "Apoderado / familia": "Parent / famille",
+      "Estudiante": "Élève",
+      "Enviar por correo": "Envoyer par e-mail",
+      "Enviar por WhatsApp": "Envoyer via WhatsApp",
+      "Descargar PDF": "Télécharger PDF",
+      "Ver temarios": "Voir les contenus",
+      "Temarios oficiales": "Contenus officiels",
+      "Próximamente": "Bientôt",
+      "Cerrar sesión": "Se déconnecter",
+      "Ingresar": "Se connecter",
+      "Administrador": "Administrateur",
+      "Correo": "E-mail",
+      "Contraseña": "Mot de passe",
+      "Volver": "Retour",
+      "Continuar": "Continuer",
+      "Aceptar": "Accepter",
+      "Cancelar": "Annuler",
+      "Buscar estudiante": "Rechercher un élève",
+      "Selecciona": "Sélectionner",
+      "Resultados": "Résultats",
+    },
+  };
 
-      const txt = (el.textContent || "").trim();
-      if (!txt) return;
+  function t(key) {
+    const lang = getLang();
+    return (I18N[lang] && I18N[lang][key]) || (I18N.es && I18N.es[key]) || key;
+  }
 
-      if (!el.hasAttribute("data-i18n-orig")) {
-        el.setAttribute("data-i18n-orig", txt);
-      }
-      const orig = el.getAttribute("data-i18n-orig") || txt;
+  // =========================
+  // Utilidades
+  // =========================
 
-      if (lang === "es") {
-        el.textContent = orig;
-        return;
-      }
+  function toast(msg) {
+    let el = doc.getElementById("peve-toast");
+    if (!el) {
+      el = doc.createElement("div");
+      el.id = "peve-toast";
+      el.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:99999;background:rgba(2,6,23,.92);color:#fff;border:1px solid rgba(255,255,255,.12);padding:.55rem .75rem;border-radius:999px;font-size:.92rem;backdrop-filter:blur(10px);max-width:min(92vw,520px);text-align:center;opacity:0;transition:opacity .18s ease;";
+      doc.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.opacity = "1";
+    clearTimeout(el.__t);
+    el.__t = setTimeout(() => (el.style.opacity = "0"), 1400);
+  }
 
-      if (!dict) return;
-      const translated = dict[orig];
-      if (translated) el.textContent = translated;
-      else el.textContent = orig;
+  function norm(s) {
+    return String(s || "").replace(/\s+/g, " ").trim();
+  }
+
+  // =========================
+  // Toolbar: asegurar existencia + binding por data-action
+  // =========================
+
+  function ensureToolbar() {
+    if (doc.querySelector(".accessibility-toolbar")) return;
+
+    // intenta insertar en topbar si existe
+    const topbar = doc.querySelector(".topbar");
+    const toolbar = doc.createElement("div");
+    toolbar.className = "accessibility-toolbar";
+    toolbar.setAttribute("aria-label", "Controles de accesibilidad");
+    toolbar.innerHTML = `
+      <button class="access-btn" data-action="home" title="${t("btn.home")}" aria-label="${t("btn.home")}">🏠</button>
+      <button class="access-btn" data-action="narrator" title="${t("btn.narrator")}" aria-label="${t("btn.narrator")}">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="${t("btn.theme")}" aria-label="${t("btn.theme")}">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="${t("btn.fontPlus")}" aria-label="${t("btn.fontPlus")}">A+</button>
+      <button class="access-btn" data-action="font-dec" title="${t("btn.fontMinus")}" aria-label="${t("btn.fontMinus")}">A−</button>
+      <button class="access-btn" data-action="lang" title="${t("btn.lang")}" aria-label="${t("btn.lang")}">🌐</button>
+      <button class="access-btn" data-action="guide" title="${t("btn.guide")}" aria-label="${t("btn.guide")}">🧠</button>
+      <button class="access-btn" data-action="search" title="${t("btn.search")}" aria-label="${t("btn.search")}">🔍</button>
+    `;
+    if (topbar) topbar.appendChild(toolbar);
+    else doc.body.insertBefore(toolbar, doc.body.firstChild);
+  }
+
+  function findButtonsByAction(action) {
+    return Array.from(doc.querySelectorAll('.access-btn[data-action], [data-action]')).filter((b) => {
+      const a = (b.getAttribute("data-action") || "").toLowerCase();
+      return a === action;
     });
   }
 
-  };
+  function actionAliases(a) {
+    const x = String(a || "").toLowerCase();
+    const map = {
+      "toggle-theme": "toggle-theme",
+      "theme": "toggle-theme",
+      "contrast": "toggle-theme",
 
-  let currentLang = (function initLang() {
-    let lang =
-      (html.getAttribute("lang") || "es").toLowerCase().slice(0, 2) || "es";
+      "font-inc": "font-inc",
+      "fontplus": "font-inc",
+      "fs-inc": "font-inc",
+      "a+": "font-inc",
+
+      "font-dec": "font-dec",
+      "fontminus": "font-dec",
+      "fs-dec": "font-dec",
+      "a-": "font-dec",
+
+      "guide": "guide",
+      "brain": "guide",
+      "help": "guide",
+
+      "lang": "lang",
+      "language": "lang",
+      "idioma": "lang",
+
+      "search": "search",
+      "lupa": "search",
+
+      "home": "home",
+      "inicio": "home",
+
+      "narrator": "narrator",
+      "leer": "narrator",
+      "read": "narrator",
+    };
+    return map[x] || x;
+  }
+
+  function bindToolbar() {
+    const btns = Array.from(doc.querySelectorAll(".access-btn[data-action], [data-action]"));
+    if (!btns.length) return;
+    btns.forEach((btn) => {
+      btn.addEventListener("click", (ev) => {
+        const raw = btn.getAttribute("data-action") || "";
+        const act = actionAliases(raw);
+        switch (act) {
+          case "home": goHome(btn); break;
+          case "narrator": toggleNarrator(); break;
+          case "toggle-theme": toggleTheme(); break;
+          case "font-inc": changeFontScale(+0.1); break;
+          case "font-dec": changeFontScale(-0.1); break;
+          case "lang": cycleLang(); break;
+          case "guide": openGuide(); break;
+          case "search": triggerSearch(); break;
+          default: break;
+        }
+      });
+    });
+  }
+
+  // =========================
+  // THEME + CONTRAST
+  // =========================
+
+  function applyTheme(theme) {
+    body.classList.remove("theme-dark", "theme-light");
+    body.classList.add(theme === "light" ? "theme-light" : "theme-dark");
+    try { localStorage.setItem(THEME_KEY, theme); } catch(e){}
+  }
+
+  function toggleTheme() {
+    const current = body.classList.contains("theme-light") ? "light" : "dark";
+    const next = current === "light" ? "dark" : "light";
+    applyTheme(next);
+    toast(`${t("toast.theme")}: ${next === "light" ? "Light" : "Dark"}`);
+  }
+
+  function applyContrast(on) {
+    body.classList.toggle("peve-contrast", !!on);
+    try { localStorage.setItem(CONTRAST_KEY, on ? "1" : "0"); } catch(e){}
+    toast(`${t("toast.contrast")}: ${on ? t("toast.on") : t("toast.off")}`);
+  }
+
+  (function initTheme() {
+    let theme = "dark";
     try {
-      const stored = localStorage.getItem(LANG_KEY);
-      if (stored && LANGS.includes(stored)) lang = stored;
-    } catch (e) {
-      // ignore
-    }
-    applyLang(lang);
-    return lang;
+      const stored = localStorage.getItem(THEME_KEY);
+      if (stored === "light" || stored === "dark") theme = stored;
+    } catch (e) {}
+    applyTheme(theme);
+
+    try {
+      const c = localStorage.getItem(CONTRAST_KEY);
+      if (c === "1") body.classList.add("peve-contrast");
+    } catch(e){}
   })();
+
+  // =========================
+  // FONT SCALE
+  // =========================
+
+  let fontScale = 1;
+
+  function applyFontScale(scale) {
+    fontScale = Math.max(0.85, Math.min(1.35, scale));
+    html.style.fontSize = `${fontScale * 100}%`;
+    try { localStorage.setItem(FONT_KEY, String(fontScale)); } catch(e){}
+  }
+
+  function changeFontScale(delta) {
+    applyFontScale(fontScale + delta);
+  }
+
+  (function initFontScale() {
+    try {
+      const stored = parseFloat(localStorage.getItem(FONT_KEY) || "1");
+      if (stored && !isNaN(stored)) applyFontScale(stored);
+      else applyFontScale(1);
+    } catch (e) {
+      applyFontScale(1);
+    }
+  })();
+
+  // =========================
+  // NARRATOR (Speech Synthesis)
+  // =========================
+
+  let speaking = false;
+
+  function getReadableText() {
+    const main = doc.querySelector("main") || body;
+    const clone = main.cloneNode(true);
+    clone.querySelectorAll("nav, header, footer, script, style, .accessibility-toolbar").forEach((el) => el.remove());
+    return norm(clone.textContent);
+  }
+
+  function speak(text, lang) {
+    if (!("speechSynthesis" in win)) {
+      alert(t("speech.unsupported"));
+      return;
+    }
+    win.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang === "fr" ? "fr-FR" : (lang === "en" ? "en-US" : "es-CL");
+    utter.rate = 1;
+    utter.pitch = 1;
+    utter.onend = () => (speaking = false);
+    win.speechSynthesis.speak(utter);
+    speaking = true;
+  }
+
+  function toggleNarrator() {
+    if (!("speechSynthesis" in win)) {
+      alert(t("speech.unsupported"));
+      return;
+    }
+    if (speaking) {
+      win.speechSynthesis.cancel();
+      speaking = false;
+      return;
+    }
+    const lang = getLang();
+    const text = getReadableText();
+    if (!text) return;
+    speak(text, lang);
+  }
+
+  // =========================
+  // i18n apply
+  // =========================
+
+  let __autoCollected = false;
+  const __textNodes = [];
+  const __attrNodes = [];
+
+  function collectAutoTranslatables() {
+    if (__autoCollected) return;
+    __autoCollected = true;
+
+    // Text nodes (TreeWalker)
+    const walker = doc.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        if (!node || !node.parentElement) return NodeFilter.FILTER_REJECT;
+        const tag = node.parentElement.tagName;
+        if (["SCRIPT","STYLE","NOSCRIPT"].includes(tag)) return NodeFilter.FILTER_REJECT;
+        const v = node.nodeValue;
+        if (!v || !norm(v)) return NodeFilter.FILTER_REJECT;
+        // evita traducir códigos cortos tipo OA2, RUN, etc.
+        const n = norm(v);
+        if (n.length <= 2) return NodeFilter.FILTER_REJECT;
+        if (/^(OA|RUN|ID|DIA|KPSI)\b/i.test(n)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      __textNodes.push({ node, src: node.nodeValue });
+    }
+
+    // Attribute nodes
+    const attrs = ["title","placeholder","aria-label","alt"];
+    doc.querySelectorAll("*").forEach((el) => {
+      attrs.forEach((a) => {
+        const v = el.getAttribute(a);
+        if (!v) return;
+        __attrNodes.push({ el, attr: a, src: v });
+      });
+    });
+  }
+
+  function translateString(lang, src) {
+    if (lang === "es") return src;
+    const n = norm(src);
+    const map = (AUTO_TEXT[lang] || {});
+    const rep = map[n];
+    if (!rep) return src;
+    // conserva espacios
+    const lead = (src.match(/^\s+/) || [""])[0];
+    const tail = (src.match(/\s+$/) || [""])[0];
+    return lead + rep + tail;
+  }
 
   function applyLang(lang) {
     html.setAttribute("lang", lang);
-    try {
-      localStorage.setItem(LANG_KEY, lang);
-    } catch (e) {
-      // ignore
-    }
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
+
+    // Traducción por keys (data-i18n)
     const map = I18N[lang];
-    if (!map) return;
-    Object.keys(map).forEach((key) => {
-      doc
-        .querySelectorAll('[data-i18n="' + key + '"]')
-        .forEach((el) => (el.textContent = map[key]));
-    });
+    if (map) {
+      Object.keys(map).forEach((key) => {
+        doc.querySelectorAll('[data-i18n="' + key + '"]').forEach((el) => (el.textContent = map[key]));
+      });
+    }
+
+    // Actualiza tooltips/aria de toolbar si existe
+    doc.querySelectorAll('.access-btn[data-action="home"]').forEach((b)=>{ b.title=t("btn.home"); b.setAttribute("aria-label",t("btn.home")); });
+    doc.querySelectorAll('.access-btn[data-action="narrator"]').forEach((b)=>{ b.title=t("btn.narrator"); b.setAttribute("aria-label",t("btn.narrator")); });
+    doc.querySelectorAll('.access-btn[data-action="toggle-theme"], .access-btn[data-action="theme"], .access-btn[data-action="contrast"]').forEach((b)=>{ b.title=t("btn.theme"); b.setAttribute("aria-label",t("btn.theme")); });
+    doc.querySelectorAll('.access-btn[data-action="font-inc"]').forEach((b)=>{ b.title=t("btn.fontPlus"); b.setAttribute("aria-label",t("btn.fontPlus")); });
+    doc.querySelectorAll('.access-btn[data-action="font-dec"]').forEach((b)=>{ b.title=t("btn.fontMinus"); b.setAttribute("aria-label",t("btn.fontMinus")); });
+    doc.querySelectorAll('.access-btn[data-action="lang"]').forEach((b)=>{ b.title=t("btn.lang"); b.setAttribute("aria-label",t("btn.lang")); });
+    doc.querySelectorAll('.access-btn[data-action="guide"]').forEach((b)=>{ b.title=t("btn.guide"); b.setAttribute("aria-label",t("btn.guide")); });
+    doc.querySelectorAll('.access-btn[data-action="search"]').forEach((b)=>{ b.title=t("btn.search"); b.setAttribute("aria-label",t("btn.search")); });
+
+    // Auto translation
+    collectAutoTranslatables();
+    __textNodes.forEach((r) => { r.node.nodeValue = translateString(lang, r.src); });
+    __attrNodes.forEach((r) => { r.el.setAttribute(r.attr, translateString(lang, r.src)); });
+
+    toast(`${t("toast.lang")}: ${lang.toUpperCase()}`);
+  }
+
+  function getLang() {
+    try {
+      const stored = localStorage.getItem(LANG_KEY);
+      if (stored && LANGS.includes(stored)) return stored;
+    } catch (e) {}
+    return "es";
   }
 
   function cycleLang() {
-    const idx = LANGS.indexOf(currentLang);
+    const current = getLang();
+    const idx = LANGS.indexOf(current);
     const next = LANGS[(idx + 1) % LANGS.length];
-    currentLang = next;
     applyLang(next);
   }
 
-  if (btnLang) {
-    btnLang.addEventListener("click", cycleLang);
+  // =========================
+  // Home navigation
+  // =========================
+
+  function goHome(btn) {
+    // 1) data-home explícito
+    const explicit = btn && btn.getAttribute && btn.getAttribute("data-home");
+    if (explicit) {
+      win.location.href = explicit;
+      return;
+    }
+    // 2) intenta encontrar link a index en nav
+    const navIndex = doc.querySelector('a[href$="index.html"], a[href$="/index.html"]');
+    if (navIndex && navIndex.getAttribute("href")) {
+      win.location.href = navIndex.getAttribute("href");
+      return;
+    }
+    // 3) heurística por profundidad
+    const path = win.location.pathname || "";
+    const depth = path.split("/").filter(Boolean).length;
+    const prefix = depth <= 1 ? "" : "../".repeat(depth - 1);
+    win.location.href = prefix + "index.html";
   }
 
-  /* =========================
-     🧠 GUÍA PASO A PASO
-     ========================= */
+  // =========================
+  // Guide modal
+  // =========================
 
   function ensureGuideModal() {
     if (doc.getElementById("peve-guide-overlay")) return;
@@ -388,88 +587,61 @@
     overlay.className = "peve-guide-backdrop";
     overlay.innerHTML = `
       <div class="peve-guide-modal">
-        <button class="peve-guide-close" aria-label="Cerrar guía">✕</button>
-        <h2>🧠 Guía rápida para usar 📚PEVE</h2>
-        <p>Esta guía te orienta sobre cómo moverte por la plataforma:</p>
-        <ul>
-          <li>🏠 <strong>Inicio:</strong> vuelve al inicio de la plataforma.</li>
-          <li>🗣️ <strong>Lectura:</strong> activa el narrador para leer la página.</li>
-          <li>🌓 <strong>Tema:</strong> cambia entre modo claro y oscuro.</li>
-          <li>A+/A− <strong>Tamaño:</strong> ajusta el tamaño de la letra.</li>
-          <li>🌐 <strong>Idiomas:</strong> alterna entre Español, Inglés y Francés (nav principal).</li>
-          <li>🔍 <strong>Búsqueda:</strong> busca una palabra o frase dentro de la página.</li>
-        </ul>
-        <p class="note" style="margin-top:0.8rem;">
-          Próximas versiones integrarán también ayudas específicas para estudiantes, apoderados y docentes.
-        </p>
+        <button class="peve-guide-close" aria-label="${t("guide.close")}">✕</button>
+        <h2>${t("guide.title")}</h2>
+        <p>${t("guide.p1")}</p>
+        <p>${t("guide.p2")}</p>
+        <p>${t("guide.p3")}</p>
+        <div style="display:flex; gap:.5rem; justify-content:flex-end; margin-top:1rem;">
+          <button class="btn btn-ghost peve-guide-ok">${t("guide.close")}</button>
+        </div>
       </div>
     `;
-    doc.body.appendChild(overlay);
 
-    const close = overlay.querySelector(".peve-guide-close");
-    close.addEventListener("click", () => {
-      overlay.remove();
-    });
-    overlay.addEventListener("click", (ev) => {
-      if (ev.target === overlay) overlay.remove();
-    });
+    doc.body.appendChild(overlay);
+    overlay.querySelector(".peve-guide-close").addEventListener("click", () => overlay.remove());
+    overlay.querySelector(".peve-guide-ok").addEventListener("click", () => overlay.remove());
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.remove(); });
   }
 
   function openGuide() {
     ensureGuideModal();
   }
 
-  if (btnGuide) {
-    btnGuide.addEventListener("click", openGuide);
-  }
-
-  /* =========================
-     🔍 BÚSQUEDA SIMPLE EN LA PÁGINA
-     ========================= */
+  // =========================
+  // Search
+  // =========================
 
   function triggerSearch() {
-    const term = win.prompt(
-      "¿Qué palabra o frase quieres buscar en esta página?"
-    );
+    const term = win.prompt(t("search.prompt"));
     if (!term) return;
-
-    const walker = doc.createTreeWalker(
-      doc.body,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
-    let node;
     const lowerTerm = term.toLowerCase();
-    let targetNode = null;
 
-    while ((node = walker.nextNode())) {
-      if (
-        node.parentElement &&
-        !["SCRIPT", "STYLE"].includes(node.parentElement.tagName)
-      ) {
-        const idx = node.textContent.toLowerCase().indexOf(lowerTerm);
-        if (idx !== -1) {
-          targetNode = node.parentElement;
-          break;
-        }
-      }
+    const nodes = Array.from(doc.querySelectorAll("main, .container, body *"));
+    let targetNode = null;
+    for (const node of nodes) {
+      if (!node || !node.textContent) continue;
+      const txt = node.textContent.toLowerCase();
+      if (txt.includes(lowerTerm)) { targetNode = node; break; }
     }
 
     if (!targetNode) {
-      win.alert("No se encontró \"" + term + "\" en esta página.");
+      win.alert(`${t("search.notFound")} "${term}"`);
       return;
     }
 
     targetNode.scrollIntoView({ behavior: "smooth", block: "center" });
     targetNode.classList.add("peve-search-highlight");
-    setTimeout(
-      () => targetNode.classList.remove("peve-search-highlight"),
-      2200
-    );
+    setTimeout(() => targetNode.classList.remove("peve-search-highlight"), 2200);
   }
 
-  if (btnSearch) {
-    btnSearch.addEventListener("click", triggerSearch);
-  }
+  // =========================
+  // Bootstrap
+  // =========================
+
+  doc.addEventListener("DOMContentLoaded", () => {
+    ensureToolbar();
+    bindToolbar();
+    applyLang(getLang());
+  });
 })();

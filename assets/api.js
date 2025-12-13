@@ -12,7 +12,13 @@ function peveWarn(msg){
 
 async function peveConfig(){
   if(!window.__peve_cfg){
-    window.__peve_cfg = await fetch("./data/config.json").then(r=>r.json()).catch(()=>({scriptUrl:null, timezone:'America/Santiago'}));
+    window.__peve_cfg = await (await (async function(){
+      const tries = ["./data/config.json","../data/config.json","../../data/config.json","../../../data/config.json"];
+      for(const t of tries){
+        try{ const r = await fetch(t, {cache:"no-store"}); if(r.ok) return r; }catch(e){}
+      }
+      throw new Error("No se encontró data/config.json");
+    })()).then(r=>r.json()).catch(()=>({scriptUrl:null, timezone:'America/Santiago'}));
   }
   if(!window.__peve_cfg.scriptUrl || /REEMPLAZA_CON_TU_WEBAPP_ID/.test(window.__peve_cfg.scriptUrl)){ peveWarn('Configura data/config.json → scriptUrl para habilitar envíos y dashboard'); } return window.__peve_cfg;
 }

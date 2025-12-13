@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>📊 Informes Apoderado/a – 📚PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+</head>
+<body class="theme-dark">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Informes para apoderado/a</span>
+      </div>
+    </div>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../dashboard_apoderado.html" class="nav-link">Panel Apoderado/a</a>
+      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+    </nav>
+
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Abrir guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>📊 Informe de avance (Apoderado/a)</h1>
+      <p class="note">
+        Este módulo está pensado para que el apoderado/a pueda revisar un resumen del avance del estudiante y exportarlo a PDF.
+        Si el sistema está conectado a Google Sheets (Apps Script), podrás traer datos reales. Si no, verás un modo demo.
+      </p>
+
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
+        <div class="card">
+          <h3>👤 Estudiante</h3>
+          <label class="small" for="g-run">RUN del estudiante</label>
+          <input id="g-run" class="input" placeholder="Ej: 12.345.678-9" />
+          <label class="small" for="g-idpeve" style="margin-top:.5rem;">ID PEVE (opcional)</label>
+          <input id="g-idpeve" class="input" placeholder="Ej: STU-2025-0001" />
+          <button class="btn btn-solid" id="g-load" style="margin-top:.75rem;width:100%;">🔄 Cargar informe</button>
+          <p class="small note" id="g-status" style="margin-top:.6rem;">Listo.</p>
+        </div>
+
+        <div class="card">
+          <h3>📌 Resumen</h3>
+          <div class="small">Última actualización</div>
+          <div id="r-updated" style="font-weight:700;margin:.25rem 0 0;">—</div>
+          <div class="small" style="margin-top:.65rem;">Progreso estimado</div>
+          <div class="progress-bar" style="margin-top:.35rem;">
+            <div class="progress-fill" id="r-progress" style="width:0%;"></div>
+          </div>
+          <div class="small" id="r-progress-text" style="margin-top:.35rem;">0%</div>
+          <button class="btn btn-ghost" id="r-print" style="margin-top:.75rem;width:100%;">🖨️ Exportar a PDF</button>
+        </div>
+
+        <div class="card">
+          <h3>✅ Indicadores</h3>
+          <ul class="list">
+            <li><strong>PEVE:</strong> <span id="k-peve">—</span></li>
+            <li><strong>DIA:</strong> <span id="k-dia">—</span></li>
+            <li><strong>KPSI:</strong> <span id="k-kpsi">—</span></li>
+          </ul>
+          <p class="small note">Estos indicadores se completan cuando el Apps Script provee datos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="card">
+        <h2>📄 Detalle (modo demo / real)</h2>
+        <div class="note small">Si estás en modo demo, este contenido muestra un ejemplo. Si estás conectado, se reemplaza con datos reales.</div>
+        <div id="r-detail" style="margin-top:1rem;">
+          <div class="note">No hay datos cargados aún.</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
+        <h2>🧩 Accesibilidad</h2>
+        <p class="note">🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra · 🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer small"></footer>
+
+  <script src="../../assets/api.js"></script>
+  <script src="../../assets/js/accesibilidad.js"></script>
+  <script src="../../assets/js/footer.js"></script>
+  <script>
+    (function(){
+      const status = document.getElementById('g-status');
+      const detail = document.getElementById('r-detail');
+      const updated = document.getElementById('r-updated');
+      const progressFill = document.getElementById('r-progress');
+      const progressText = document.getElementById('r-progress-text');
+      const kpeve = document.getElementById('k-peve');
+      const kdia = document.getElementById('k-dia');
+      const kkpsi = document.getElementById('k-kpsi');
+
+      function setDemo(){
+        const now = new Date();
+        updated.textContent = now.toLocaleString();
+        const pct = 42;
+        progressFill.style.width = pct+'%';
+        progressText.textContent = pct+'%';
+        kpeve.textContent = 'En curso';
+        kdia.textContent = 'Pendiente';
+        kkpsi.textContent = 'Inicial';
+        detail.innerHTML = `
+          <div class="card" style="margin-top:.75rem;">
+            <h3>📌 Recomendación (demo)</h3>
+            <p>Avanza con rutinas cortas (15–25 min), repasa temarios oficiales y registra progreso semanal. Si hay ansiedad o barreras de acceso, coordina apoyos con PIE.</p>
+          </div>
+          <div class="card" style="margin-top:.75rem;">
+            <h3>🧾 Próximos pasos</h3>
+            <ol>
+              <li>Revisar temarios del curso del estudiante.</li>
+              <li>Practicar con evaluaciones formativas (DIA) si corresponde.</li>
+              <li>Registrar KPSI inicial y comparar en 4 semanas.</li>
+            </ol>
+          </div>
+        `;
+      }
+
+      async function loadReal(run, idpeve){
+        // acción sugerida para Apps Script (puedes implementarla en tu backend)
+        // action: "guardianReport"
+        const payload = { run, idPeve: idpeve };
+        const res = await pevePost("guardianReport", payload);
+        // Espera un formato flexible:
+        // { ok:true, updated:"...", progress:0-100, k:{peve,dia,kpsi}, detailHtml:"..." }
+        if(!res || !res.ok) throw new Error(res && res.error ? res.error : "Respuesta inválida");
+        updated.textContent = res.updated || new Date().toLocaleString();
+        const pct = Math.max(0, Math.min(100, Number(res.progress||0)));
+        progressFill.style.width = pct+'%';
+        progressText.textContent = pct+'%';
+        kpeve.textContent = (res.k && res.k.peve) || '—';
+        kdia.textContent = (res.k && res.k.dia) || '—';
+        kkpsi.textContent = (res.k && res.k.kpsi) || '—';
+        detail.innerHTML = res.detailHtml || '<div class="note">Sin detalle.</div>';
+      }
+
+      document.getElementById('g-load').addEventListener('click', async ()=>{
+        const run = document.getElementById('g-run').value.trim();
+        const idp = document.getElementById('g-idpeve').value.trim();
+        status.textContent = 'Cargando...';
+        try{
+          if(!run && !idp){
+            status.textContent = 'Ingresa RUN o ID PEVE.';
+            return;
+          }
+          await loadReal(run, idp);
+          status.textContent = 'Informe cargado.';
+        }catch(e){
+          status.textContent = 'Modo demo: ' + (e && e.message ? e.message : 'No hay conexión');
+          setDemo();
+        }
+      });
+
+      document.getElementById('r-print').addEventListener('click', ()=> window.print());
+    })();
+  </script>
+</body>
+</html>

@@ -1,65 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel Apoderado – PEVE</title>
-  <link rel="stylesheet" href="../style.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel Apoderado – PEVE</title>
+<link href="../assets/css/style.css" rel="stylesheet"/>
 </head>
 <body class="theme-dark">
-  <header class="site-header">
-    <div class="logo-wrap">
-      <img src="../assets/logo.svg" alt="PEVE" class="logo-img" onerror="this.style.display='none'">
-      <div>
-        <h1>Panel de apoderado/a</h1>
-        <p>Versión demo – vista para acompañar a tu estudiante</p>
-      </div>
-    </div>
-    <nav>
-      <a href="../index.html" class="btn-ghost">🏠 Inicio</a>
-      <a href="login.html" class="btn-ghost">🔐 Cambiar perfil</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2>Seguimiento de exámenes libres</h2>
-      <p>En futuras versiones podrás monitorear el avance de tu estudiante y recibir alertas importantes.</p>
-    </section>
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name">PEVE</span>
+<span class="brand-subtitle">Versión demo – vista para acompañar a tu estudiante</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../pages/info.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../pages/accesibilidad.html">Accesibilidad</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar">
+<button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" title="Abrir guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+</div>
+</header>
 
-    <section class="grid mt-lg">
-      
+<main class="container">
+<section class="hero">
+<h2>Seguimiento de exámenes libres</h2>
+<p>En futuras versiones podrás monitorear el avance de tu estudiante y recibir alertas importantes.</p>
+</section>
+<section class="grid mt-lg">
 <article class="card card-highlight">
-  <h3>📊 Resumen de exámenes</h3>
-  <p>Visualiza un resumen de los exámenes rendidos y pendientes de tu estudiante.</p>
-  <button class="btn-disabled" disabled>Próximamente</button>
+<h3>📊 Resumen de exámenes</h3>
+<p>Visualiza un resumen de los exámenes rendidos y pendientes de tu estudiante.</p>
+<button class="btn-disabled" disabled="">Próximamente</button>
 </article>
-
 <article class="card">
-  <h3>📚 Temarios oficiales</h3>
-  <p>Consulta los temarios que está estudiando tu estudiante.</p>
-  <a class="btn-outline" href="../pages/educacion_media.html">Ver temarios</a>
+<h3>📚 Temarios oficiales</h3>
+<p>Consulta los temarios que está estudiando tu estudiante.</p>
+<a class="btn-outline" href="../pages/educacion_media.html">Ver temarios</a>
 </article>
-
-    </section>
-  
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
+<h2>🧩 Accesibilidad</h2>
+<p class="note">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
 
+<article class="card">
+<h3>📊 Informes por rol (Apoderado/a)</h3>
+<p>Genera un reporte simple (PEVE/DIA/KPSI) para acompañar el avance del estudiante. Incluye opción de exportar a PDF.</p>
+<a class="btn-outline" href="apoderado/informes_apoderado.html">Abrir informes de apoderado/a</a>
+</article>
 </main>
-
-  <footer class="footer small">
-    <div class="footer-inner">
-      <p>Vista demo de panel – sin backend aún. Pensado para iterar más adelante.</p>
-    </div>
-  </footer>
-</body>
+<footer class="footer small">
+<div class="footer-inner">
+<p>Vista demo de panel – sin backend aún. Pensado para iterar más adelante.</p>
+</div>
+</footer>
+<script src="../assets/js/accesibilidad.js"></script><script src="../assets/js/footer.js"></script></body>
 </html>
