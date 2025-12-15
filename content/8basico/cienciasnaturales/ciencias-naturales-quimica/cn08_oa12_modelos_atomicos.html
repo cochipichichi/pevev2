@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CN08 OA12 — Modelos atómicos y estructura de la materia</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero">
+    <h1>CN08 OA12 — Modelos atómicos y estructura de la materia</h1>
+    <p>
+      Describir la estructura de la materia utilizando diferentes modelos atómicos, reconociendo
+      sus aportes y limitaciones.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+    <h2>🧩 De Dalton a Thomson</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Modelo de Dalton</h3>
+        <ul>
+          <li>La materia está formada por partículas muy pequeñas e indivisibles llamadas <strong>átomos</strong>.</li>
+          <li>Los átomos de un mismo elemento son iguales entre sí.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Modelo de Thomson</h3>
+        <ul>
+          <li>Propone el famoso modelo del <strong>“budín de pasas”</strong>.</li>
+          <li>Los <strong>electrones</strong> (cargas negativas) están incrustados en una masa de carga positiva.</li>
+          <li>Fue el primer modelo con evidencia experimental (rayos catódicos).</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🎯 Rutherford y el núcleo atómico</h2>
+    <p>
+      En su experimento con láminas de oro y partículas alfa, Rutherford observó que la mayoría de las partículas
+      atravesaban la lámina, pero algunas se desviaban o rebotaban.
+    </p>
+    <ul>
+      <li>Concluyó que el átomo tiene un <strong>núcleo pequeño, denso y con carga positiva</strong>.</li>
+      <li>La mayor parte del átomo es <strong>espacio vacío</strong>.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🌌 Modelo de Bohr y niveles de energía</h2>
+    <ul>
+      <li>Los <strong>electrones</strong> giran alrededor del núcleo en <strong>órbitas o niveles de energía</strong> definidos.</li>
+      <li>En esas órbitas <strong>no irradian energía</strong>.</li>
+      <li>Al <strong>absorber</strong> energía, un electrón salta a un nivel más alto (se excita).</li>
+      <li>Al <strong>emitir</strong> energía, un electrón vuelve a un nivel más bajo.</li>
+    </ul>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn">⬅ Volver a Química 8°</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>

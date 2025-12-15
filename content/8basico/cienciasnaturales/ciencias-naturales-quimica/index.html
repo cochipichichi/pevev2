@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ciencias Naturales 8° Básico — Química PEVE (CN08 OA12, OA14)</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1>Ciencias Naturales 8° Básico — Química PEVE</h1>
+    <p>
+      Módulo de estudio basado en el banco de preguntas PEVE para los OA de Química:
+      <strong>CN08 OA12</strong> (estructura de la materia y modelos atómicos) y
+      <strong>CN08 OA14</strong> (sustancias, elementos, compuestos y enlaces).
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#mapa">🧠 Mapa de preguntas</a>
+      <a class="btn" href="cn08_oa12_modelos_atomicos.html">🧩 CN08 OA12 — Modelos atómicos y estructura de la materia</a>
+      <a class="btn" href="cn08_oa14_sustancias_enlaces.html">⚗️ CN08 OA14 — Sustancias, elementos y enlaces químicos</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="mapa">
+    <h2>🧠 Mapa de temas según banco de preguntas PEVE</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🧩 Modelos atómicos (CN08 OA12)</h3>
+        <ul>
+          <li>Modelos de Dalton, Thomson, Rutherford y Bohr.</li>
+          <li>Experimento de la lámina de oro y núcleo pequeño y denso.</li>
+          <li>Niveles de energía y saltos electrónicos.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>⚗️ Estructura atómica y número atómico/másico</h3>
+        <ul>
+          <li>Protones, neutrones y electrones.</li>
+          <li>Número atómico (Z) y número másico (A).</li>
+          <li>Átomos neutros e iones.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🧪 Sustancias, elementos y enlaces (CN08 OA14)</h3>
+        <ul>
+          <li>Diferencia entre <strong>elementos</strong> y <strong>compuestos</strong>.</li>
+          <li>Enlaces covalentes (simples, dobles, triples) e iónicos.</li>
+          <li>Propiedades típicas de sustancias metálicas e iónicas.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="descargas-qui">
+    <h2>📥 Descargas PEVE Química 8°</h2>
+    <p>Banco de preguntas y orientaciones de respuesta en formato original PEVE/MINEDUC.</p>
+    <div class="btn-row">
+      <a class="btn" href="PEVE-8VO-BASICO-CN-QUIMICA-Preguntas.docx" download>⬇ Banco de preguntas PEVE Química (docx)</a>
+      <a class="btn" href="PEVE-8VO-BASICO-CN-QUIMICA-Respuestas.docx" download>⬇ Sugerencias de respuestas Química (docx)</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>
