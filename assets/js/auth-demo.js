@@ -6,7 +6,7 @@
   const demoUsers = {
     student: [
       {
-         idPeve: "STU-2025-0001",
+         idPeve: "STU-2025-0005",
         run: "17757302-7",
         firstName: "Belen",
         lastNameP: "Acuña",
@@ -16,6 +16,23 @@
         level: "1° Medio",
         call: "2025 · 1° llamado",
         packageName: "PEVE 1° Medio Completo 2024",
+        estadoCuenta: "activa"
+      }
+    ]
+  };
+
+   student: [
+      {
+         idPeve: "STU-2025-0001",
+        run: "15677733-1",
+        firstName: "martin",
+        lastNameP: "Acuña",
+        lastNameM: "Perez",
+        email: "estudiante8@peve.cl",
+        password: "Peve8basico*", // Contraseña DEMO
+        level: "8° Basico",
+        call: "2025 · 1° llamado",
+        packageName: "PEVE 8° Basico Completo 2024",
         estadoCuenta: "activa"
       }
     ]
@@ -177,3 +194,4 @@
     setupPeveLogin();
   }
 })();
+
