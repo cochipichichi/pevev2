@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1>CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</h1>
+    <p>
+      Explicar el movimiento de las placas tectónicas y su relación con la formación de montañas, sismos,
+      volcanes y cambios en la corteza terrestre, usando modelos y evidencias.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#placas">🌎 Placas y límites</a>
+      <a class="btn" href="#sismos">🌋 Sismos y epicentro</a>
+      <a class="btn" href="#cambios">⛰️ Cambios en la superficie terrestre</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="placas">
+    <h2>🌎 Placas tectónicas y sus límites</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🔁 ¿Por qué se mueven las placas?</h3>
+        <p>
+          Según el banco PEVE, el movimiento de las placas se explica por las
+          <strong>corrientes de convección del manto</strong>: el material caliente asciende, se enfría y desciende,
+          arrastrando las placas de la litosfera.fileciteturn6file0turn6file1
+        </p>
+      </article>
+      <article class="card">
+        <h3>🧩 Tipos de límites</h3>
+        <ul>
+          <li><strong>Divergente:</strong> las placas se separan y asciende magma, formando corteza nueva (dorsales oceánicas).</li>
+          <li><strong>Convergente:</strong> las placas se acercan y una puede hundirse bajo la otra (subducción).</li>
+          <li><strong>Transformante:</strong> las placas se deslizan horizontalmente una junto a la otra (falla de San Andrés).</li>
+        </ul>
+        <p class="note">
+          En los límites convergentes se destruye parte de la corteza oceánica, mientras que en los divergentes se crea
+          corteza nueva.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🌍 Deriva continental</h3>
+        <ul>
+          <li>Wegener observó que los continentes “calzan” como un rompecabezas.</li>
+          <li>El concepto de <strong>Pangea</strong> explica que antes estaban unidos.</li>
+          <li>La distribución de fósiles similares en continentes hoy separados refuerza esta idea.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="sismos">
+    <h2>🌋 Sismos, epicentro e hipocentro</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>📍 Foco, hipocentro y epicentro</h3>
+        <ul>
+          <li><strong>Foco o hipocentro:</strong> punto al interior de la Tierra donde se inicia el sismo.</li>
+          <li><strong>Epicentro:</strong> punto de la superficie directamente sobre el hipocentro.</li>
+          <li>Las ondas sísmicas se propagan desde allí en todas direcciones.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>🇨🇱 Contexto de Chile</h3>
+        <p>
+          A lo largo de la costa de Chile, la <strong>placa de Nazca</strong> subduce bajo la
+          <strong>placa Sudamericana</strong>, generando frecuentes sismos y actividad volcánica, tal como se describe
+          en las preguntas del banco PEVE.
+        </p>
+      </article>
+      <article class="card">
+        <h3>🧪 Preguntas tipo PEVE</h3>
+        <ul>
+          <li>Identificar el tipo de límite de placas según esquemas (divergente, convergente, transformante).</li>
+          <li>Elegir la descripción correcta del punto que corresponde al epicentro.</li>
+          <li>Reconocer qué fenómenos se explican por el movimiento de placas (por ejemplo, sismos).</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="cambios">
+    <h2>⛰️ Cambios en la superficie terrestre: capas y erosión</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🔥 Capas de la Tierra</h3>
+        <p>
+          Un gráfico del banco PEVE muestra que a mayor profundidad aumentan tanto la <strong>temperatura</strong>
+          como la <strong>densidad</strong> del material. Esto explica por qué el interior de la Tierra es tan dinámico.fileciteturn6file0
+        </p>
+      </article>
+      <article class="card">
+        <h3>💨 Erosión y “edad” de las montañas</h3>
+        <p>
+          Otra pregunta compara montañas puntiagudas con montañas redondeadas: las más <strong>antiguas</strong> son
+          las redondeadas, porque han sido erosionadas durante más tiempo por viento, agua y hielo.
+        </p>
+      </article>
+    </div>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn">⬅ Volver al módulo Física 7° PEVE</a>
+      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE Física</a>
+      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CN07 OA09 — Movimiento y rapidez</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1>CN07 OA09 — Movimiento y rapidez</h1>
+    <p>
+      Describir y representar diferentes tipos de movimiento, distinguiendo entre movimiento rectilíneo uniforme (MRU)
+      y movimiento uniformemente acelerado (MUA), y aplicando la relación entre distancia, tiempo y rapidez.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#tipos">🚗 Tipos de movimiento</a>
+      <a class="btn" href="#mru-mua">📈 MRU vs MUA</a>
+      <a class="btn" href="#formula">🧮 Rapidez = distancia / tiempo</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="tipos">
+    <h2>🚗 Tipos de movimiento</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>📍 Movimiento rectilíneo</h3>
+        <ul>
+          <li>El objeto se mueve en una línea recta.</li>
+          <li>La velocidad puede ser constante o cambiar con el tiempo.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>⚖️ MRU (Movimiento Rectilíneo Uniforme)</h3>
+        <ul>
+          <li>La rapidez es constante: en iguales tiempos recorre iguales distancias.</li>
+          <li>En un gráfico distancia-tiempo, la línea es recta y con pendiente constante.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>📈 MUA (Movimiento Uniformemente Acelerado)</h3>
+        <ul>
+          <li>La rapidez cambia de manera constante (la aceleración es constante).</li>
+          <li>En un gráfico velocidad-tiempo, la línea es recta; en posición-tiempo, es curva.</li>
+        </ul>
+      </article>
+    </div>
+    <p class="note">
+      Uno de los ítems PEVE pide identificar correctamente qué gráfico representa al MRU y al MUA comparando
+      distintas opciones de gráficos.fileciteturn6file0
+    </p>
+  </section>
+
+  <section class="section" id="mru-mua">
+    <h2>📈 ¿Cómo reconocer MRU y MUA en gráficos?</h2>
+    <ul>
+      <li><strong>MRU:</strong> gráfica posición-tiempo es una línea recta que sube de forma constante.</li>
+      <li><strong>MUA:</strong> gráfica posición-tiempo se curva (cada vez recorre más distancia en el mismo tiempo).</li>
+      <li>La inclinación (pendiente) de la recta en un gráfico distancia-tiempo indica la rapidez.</li>
+    </ul>
+    <p>
+      Para trabajar con tus estudiantes o para estudiar individualmente, puedes dibujar tus propias gráficas con
+      datos sencillos (por ejemplo, auto que recorre 10 m cada 2 segundos).
+    </p>
+  </section>
+
+  <section class="section" id="formula">
+    <h2>🧮 Uso de la fórmula rapidez = distancia / tiempo</h2>
+    <p>
+      En otra pregunta PEVE se trabaja con una tabla donde una bolita recorre distintas distancias en diferentes
+      tiempos, con movimiento rectilíneo uniforme.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>📏 Fórmula básica</h3>
+        <p>
+          Si un objeto recorre una distancia <strong>d</strong> en un tiempo <strong>t</strong>, su rapidez
+          promedio es:
+        </p>
+        <p class="formula">
+          <strong>v = d / t</strong>
+        </p>
+        <p>
+          Donde v es la rapidez (por ejemplo, en m/s), d la distancia (m) y t el tiempo (s).
+        </p>
+      </article>
+      <article class="card">
+        <h3>🧪 Actividad tipo PEVE</h3>
+        <ol>
+          <li>Completa una tabla donde falten datos de rapidez usando v = d / t.</li>
+          <li>Compara qué trayecto tiene mayor rapidez y explica por qué.</li>
+          <li>Inventar una nueva fila para la tabla con un ejemplo propio.</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn">⬅ Volver al módulo Física 7° PEVE</a>
+      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE Física</a>
+      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>

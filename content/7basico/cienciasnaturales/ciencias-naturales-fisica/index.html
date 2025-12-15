@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ciencias Naturales 7° Básico — Física PEVE (CN07 OA07, OA09, OA11)</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1
+      data-i18n-es="Ciencias Naturales 7° Básico — Física PEVE"
+      data-i18n-en="Natural Sciences 7th grade — Physics PEVE"
+    >
+      Ciencias Naturales 7° Básico — Física PEVE (Banco de preguntas)
+    </h1>
+    <p
+      data-i18n-es="Módulo de estudio basado en el banco de preguntas PEVE para CN07 OA07, OA09 y OA11."
+      data-i18n-en="Study module based on the PEVE question bank for CN07 OA07, OA09 and OA11."
+    >
+      Módulo de estudio basado en el banco de preguntas PEVE para CN07 OA07, OA09 y OA11, integrando fuerza, movimiento
+      y fenómenos geológicos asociados al movimiento de placas tectónicas.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#mapa">🧠 Mapa de preguntas</a>
+      <a class="btn" href="cn07_oa07_fuerza.html">💪 CN07 OA07 — Fuerza y efectos</a>
+      <a class="btn" href="cn07_oa09_movimiento.html">🚗 CN07 OA09 — Movimiento y rapidez</a>
+      <a class="btn" href="cn07_oa11_tectonica.html">🌎 CN07 OA11 — Placas tectónicas y sismos</a>
+      <a class="btn" href="quiz/quiz.html">🧪 Quiz PEVE Física</a>
+      <a class="btn" href="ticket/ticket.html">🎟️ Ticket de salida</a>
+    </div>
+    <p class="note">
+      Este módulo organiza las <strong>preguntas reales de PEVE 7° básico Física</strong> en bloques de estudio, con
+      lenguaje simple, ejemplos cotidianos y apoyos visuales.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="mapa">
+    <h2>🧠 Mapa de temas según banco de preguntas PEVE</h2>
+    <p>
+      A partir del documento <strong>PEVE-7MO-BÁSICO-CN-FÍSICA</strong> (CN07 OA07, OA09, OA11), se identifican
+      los siguientes grandes bloques de trabajo:
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3>💪 Fuerza y efectos (CN07 OA07)</h3>
+        <ul>
+          <li>Levantar objetos de igual masa: la fuerza aplicada depende de la <strong>masa</strong>, no de la forma.</li>
+          <li>Ejemplos de <strong>fuerza de gravedad</strong> (manzana que cae, paracaidista).</li>
+          <li><strong>Fuerza de roce</strong>: estático (libro sobre la mesa) y dinámico.</li>
+          <li><strong>Ley de Hooke</strong> y uso del dinamómetro para medir peso y elongación del resorte.</li>
+        </ul>
+        <p class="note">
+          Varios ítems del banco trabajan con experimentos de resorte, paracaidistas y ejemplos de roce.fileciteturn6file0
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>🚗 Movimiento y rapidez (CN07 OA09)</h3>
+        <ul>
+          <li>Diferenciar <strong>MRU</strong> (movimiento rectilíneo uniforme) y <strong>MUA</strong> (uniformemente acelerado).</li>
+          <li>Leer y comparar gráficos de posición-tiempo y velocidad-tiempo.</li>
+          <li>Usar la fórmula <strong>rapidez = distancia / tiempo</strong> en tablas de datos.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🌎 Placas tectónicas y sismos (CN07 OA11)</h3>
+        <ul>
+          <li>Tipos de límites de placas: <strong>convergente, divergente, transformante</strong>.</li>
+          <li>Corrientes de convección en el manto como motor del movimiento de placas.</li>
+          <li><strong>Deriva continental</strong>, Pangea y fósiles como evidencia.</li>
+          <li><strong>Epicentro, hipocentro</strong> y origen de los sismos en Chile.fileciteturn6file1</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>⛰️ Cambios en la superficie terrestre</h3>
+        <ul>
+          <li>Erosión y envejecimiento de montañas.</li>
+          <li>Capas internas de la Tierra: variación de temperatura y densidad con la profundidad.</li>
+          <li>Dorsales oceánicas y renovación de la corteza.</li>
+        </ul>
+      </article>
+
+      <article class="card accessibility-card">
+        <h3>🧩 Accesibilidad PEVE</h3>
+        <p class="note">
+          Usa la barra inclusiva: 🏠 inicio · 🗣️ narrador · 🌓 alto contraste · A+ / A− tamaño de letra ·
+          🌐 ES/EN · 🧠 guía · 🔍 regla de lectura.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📌 Estrategia de estudio sugerida</h2>
+    <ol>
+      <li>Elige un bloque (fuerza, movimiento o placas tectónicas).</li>
+      <li>Revisa las preguntas del banco PEVE de ese bloque y subraya palabras clave.</li>
+      <li>Dibuja un esquema o modelo sencillo para representar la situación física.</li>
+      <li>Resuelve el 🧪 Quiz PEVE Física y revisa tus errores.</li>
+      <li>Completa el 🎟️ Ticket de salida para conectar lo aprendido con la realidad de Chile.</li>
+    </ol>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>
