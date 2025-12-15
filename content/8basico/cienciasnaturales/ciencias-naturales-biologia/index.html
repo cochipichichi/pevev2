@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ciencias Naturales 8° Básico — Banco PEVE Biología (CN08 OA 02, 04, 05, 07)</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- model-viewer 3D/AR -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+<header class="header">
+  <div class="hero" id="intro">
+    <h1
+      data-i18n-es="Ciencias Naturales 8° Básico — Biología PEVE"
+      data-i18n-en="Natural Sciences 8th grade — Biology PEVE"
+    >
+      Ciencias Naturales 8° Básico — Biología PEVE (Banco de preguntas)
+    </h1>
+    <p
+      data-i18n-es="Módulo de estudio basado en el banco de preguntas PEVE para CN08 OA 02, OA 04, OA 05 y OA 07."
+      data-i18n-en="Study module based on the PEVE question bank for CN08 OA 02, OA 04, OA 05 and OA 07."
+    >
+      Módulo de estudio basado en el banco de preguntas PEVE para CN08 OA 02, OA 04, OA 05 y OA 07.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#mapa">🧠 Mapa de preguntas</a>
+      <a class="btn" href="#modelos">👁️ Modelos 3D/AR</a>
+      <a class="btn" href="quiz/quiz.html">🧪 Quiz desde preguntas PEVE</a>
+      <a class="btn" href="ticket/ticket.html">🎟️ Ticket de salida</a>
+    </div>
+    <p class="note">
+      Este módulo toma directamente las <strong>preguntas reales de PEVE 8° básico Biología</strong> y las organiza
+      en temas de estudio con apoyos visuales, accesibilidad y práctica autocorregible.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="mapa">
+    <h2>🧠 Mapa de temas según banco de preguntas PEVE</h2>
+    <p>
+      Todas las actividades se construyen desde el documento <strong>PEVE - 8VO BÁSICO Biología</strong>, alineado a
+      CN08 OA 02, CN08 OA 04, CN08 OA 05 y CN08 OA 07.
+    </p>
+    <div class="grid">
+
+      <article class="card">
+        <h3>🧬 Célula y organelos (CN08 OA 02)</h3>
+        <p>Ítems del banco PEVE que trabajas en este bloque:</p>
+        <ul>
+          <li><strong>Organelo principal en hepatocitos:</strong> detoxificación y retículo endoplásmico liso.</li>
+          <li><strong>Organelo principal en células del páncreas:</strong> síntesis de proteínas y RER.</li>
+          <li><strong>Mitocondria:</strong> cese de la respiración celular y “central energética” de la célula.</li>
+          <li><strong>Cloroplastos:</strong> absorber energía lumínica y fabricar nutrientes.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🦠 Tipos celulares y membranas (CN08 OA 02, OA 04)</h3>
+        <p>Ítems centrados en comparación de células y transporte:</p>
+        <ul>
+          <li><strong>Procariontes vs eucariontes:</strong> mayor compartimentación en células eucariontes.</li>
+          <li><strong>Bacterias:</strong> células procariontes con ADN disperso y pared celular.</li>
+          <li><strong>Bicapa lipídica:</strong> organelos membranosos como lisosomas.</li>
+          <li><strong>Osmosis:</strong> experimento con bolsa de celofán que aumenta de volumen (membrana semipermeable).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🌿 Plantas, fotosíntesis y transpiración (CN08 OA 05)</h3>
+        <p>Ítems sobre células vegetales y función de las hojas:</p>
+        <ul>
+          <li><strong>Vacuola central:</strong> almacenamiento de agua y turgencia.</li>
+          <li><strong>Diferencias animal/vegetal:</strong> pared celular y cloroplastos.</li>
+          <li><strong>Transpiración:</strong> mayor pérdida de agua en hojas expuestas al aire y sol.</li>
+          <li><strong>Estomas:</strong> función análoga a fosas nasales en transporte de gases.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🫁 Sistemas del cuerpo humano (CN08 OA 07)</h3>
+        <p>Ítems sobre respiración, digestión, excreción y circulación:</p>
+        <ul>
+          <li><strong>Intercambio gaseoso:</strong> ocurre en los alvéolos pulmonares.</li>
+          <li><strong>Digestión:</strong> formación del quilo cuando el quimo se mezcla con jugos pancreático, intestinal y bilis.</li>
+          <li><strong>Nefrona:</strong> glomérulo, cápsula de Bowman, asa de Henle y túbulo colector.</li>
+          <li><strong>Transporte de gases:</strong> rol de la hemoglobina en la sangre.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🍽️ Nutrición, salud y actividad física</h3>
+        <p>Ítems que conectan biología, alimentación y estilo de vida:</p>
+        <ul>
+          <li><strong>Colesterol:</strong> parte de membranas y precursor de hormonas esteroidales.</li>
+          <li><strong>Modelo del plato seccionado:</strong> reemplaza a la pirámide por confusiones de interpretación.</li>
+          <li><strong>Grasas saludables:</strong> preferencia por grasas insaturadas.</li>
+          <li><strong>Lactancia materna:</strong> protección frente a varias enfermedades.</li>
+        </ul>
+      </article>
+
+      <article class="card accessibility-card">
+        <h3>🧩 Accesibilidad PEVE</h3>
+        <p class="note">
+          Usa la barra inclusiva: 🏠 inicio · 🗣️ narrador · 🌓 alto contraste · A+ / A− tamaño de letra ·
+          🌐 ES/EN · 🧠 guía · 🔍 regla de lectura.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="modelos">
+    <h2>👁️📱 Modelos 3D/AR de células</h2>
+    <p>
+      Apoya las preguntas sobre organelos (hepatocitos, páncreas, células vegetales y bacterias)
+      usando estos modelos simples:
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>🧬 Célula animal</h3>
+        <p>Relaciona núcleo, mitocondrias, RER y otros organelos con las preguntas del banco.</p>
+        <div class="btn-row">
+          <button class="btn" onclick="location.href='assets/cell.html#animal'">👁️ 3D</button>
+          <button class="btn" onclick="location.href='assets/cell.html#animal-ar'">📱 AR</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>🌿 Célula vegetal</h3>
+        <p>Observa pared celular, cloroplastos y gran vacuola central para responder ítems de plantas.</p>
+        <div class="btn-row">
+          <button class="btn" onclick="location.href='assets/cell.html#vegetal'">👁️ 3D</button>
+          <button class="btn" onclick="location.href='assets/cell.html#vegetal-ar'">📱 AR</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>🦠 Célula procarionte</h3>
+        <p>Apoya los ítems que describen bacterias, pared celular y cápsula.</p>
+        <div class="btn-row">
+          <button class="btn" onclick="location.href='assets/cell.html#procarionte'">👁️ 3D</button>
+          <button class="btn" onclick="location.href='assets/cell.html#procarionte-ar'">📱 AR</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📌 Estrategia de estudio sugerida</h2>
+    <ol>
+      <li>Elige un bloque de preguntas (célula, plantas, sistemas, nutrición).</li>
+      <li>Lee los enunciados del banco PEVE y subraya palabras clave.</li>
+      <li>Relaciona cada pregunta con un modelo 3D o un esquema.</li>
+      <li>Resuelve el 🧪 Quiz basado en estas mismas preguntas.</li>
+      <li>Completa el 🎟️ Ticket conectando lo aprendido con tu propia salud y entorno.</li>
+    </ol>
+  </section>
+
+
+  <section class="section" id="descargas-bio">
+    <h2>📥 Descargas PEVE Biología 8°</h2>
+    <p>Banco de preguntas y orientaciones de respuesta en formato original PEVE/MINEDUC.</p>
+    <div class="btn-row">
+      <a class="btn" href="PEVE - 8VO- BASICO-Preguntas.docx" download>⬇ Banco de preguntas PEVE (docx)</a>
+      <a class="btn" href="PEVE - 8VO- BASICO-Respuestas.docx" download>⬇ Sugerencias de respuestas (docx)</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>

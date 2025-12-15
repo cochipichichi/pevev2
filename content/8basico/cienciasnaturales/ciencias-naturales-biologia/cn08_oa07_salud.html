@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CN08 OA07 — Salud, actividad física y autocuidado</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1
+      data-i18n-es="CN08 OA07 — Salud, actividad física y autocuidado"
+      data-i18n-en="CN08 OA07 — Health, physical activity and self-care"
+    >
+      CN08 OA07 — Salud, actividad física y autocuidado
+    </h1>
+    <p
+      data-i18n-es="Relacionar la alimentación y la actividad física con la prevención de enfermedades y el cuidado integral del cuerpo."
+      data-i18n-en="Relate nutrition and physical activity with disease prevention and comprehensive body care."
+    >
+      Relacionar la alimentación y la actividad física con la prevención de enfermedades y el cuidado integral
+      del cuerpo, analizando riesgos y factores protectores presentes en la vida cotidiana.
+    </p>
+
+    <div class="btn-row">
+      <a class="btn" href="#factores">⚖️ Factores de riesgo y protectores</a>
+      <a class="btn" href="#actividad">🏃‍♀️ Actividad física y salud</a>
+      <a class="btn" href="#peve">🧪 Conexión con preguntas PEVE</a>
+    </div>
+    <p class="note">
+      Varios ítems del banco PEVE se relacionan con este OA: colesterol y sistema cardiovascular, tipo de grasas,
+      modelos de alimentación y consecuencias para la salud.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="factores">
+    <h2>⚖️ Factores de riesgo y factores protectores</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>⚠️ Factores de riesgo</h3>
+        <ul>
+          <li>Consumo excesivo de <strong>grasas saturadas y trans</strong>.</li>
+          <li>Alto consumo de sal y azúcar.</li>
+          <li>Sedentarismo (poca actividad física).</li>
+          <li>Tabaquismo y consumo de alcohol.</li>
+          <li>Estrés sostenido y falta de sueño adecuado.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>🛡️ Factores protectores</h3>
+        <ul>
+          <li>Alimentación equilibrada basada en <strong>plato seccionado</strong>.</li>
+          <li>Preferir <strong>grasas insaturadas</strong> y disminuir las saturadas/trans.</li>
+          <li>Realizar actividad física de forma regular.</li>
+          <li>Mantener controles de salud y descansar bien.</li>
+          <li>Lactancia materna en la primera etapa de la vida, que protege frente a varias enfermedades.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="actividad">
+    <h2>🏃‍♀️ Actividad física y salud del sistema cardiovascular</h2>
+    <p>
+      El sistema cardiovascular (corazón y vasos sanguíneos) se ve muy afectado por nuestro estilo de vida.
+      Los hábitos que favorecen la salud de este sistema también ayudan a prevenir enfermedades como la hipertensión
+      o los infartos.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>❤️ ¿Qué aporta la actividad física?</h3>
+        <ul>
+          <li>Fortalece el corazón y mejora la circulación.</li>
+          <li>Ayuda a controlar el peso corporal.</li>
+          <li>Reduce el colesterol LDL (“malo”) y aumenta el HDL (“bueno”).</li>
+          <li>Disminuye el riesgo de enfermedades cardiovasculares.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>📊 Relación con los contenidos PEVE</h3>
+        <p>
+          Las preguntas sobre <strong>colesterol</strong> y <strong>tipos de grasas</strong> del banco PEVE se conectan
+          directamente con la salud del sistema cardiovascular. Entender estas relaciones ayuda a tomar decisiones
+          informadas sobre alimentación y ejercicio.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="peve">
+    <h2>🧪 Conexión con preguntas PEVE</h2>
+    <ol>
+      <li>
+        Identifica, dentro del banco PEVE, las preguntas que mencionan <strong>colesterol</strong>, <strong>tipos de grasas</strong>
+        y <strong>modelos de alimentación</strong>.
+      </li>
+      <li>
+        Explica qué riesgos podrían aparecer si las personas mantienen una dieta alta en grasas saturadas y trans.
+      </li>
+      <li>
+        Diseña un pequeño plan semanal que incluya:
+        <ul>
+          <li>Tipos de alimentos (según el plato seccionado).</li>
+          <li>Momentos de actividad física.</li>
+          <li>Acciones de autocuidado (descanso, hidratación, recreación).</li>
+        </ul>
+      </li>
+      <li>
+        Relaciona al menos una pregunta PEVE con una decisión concreta que tú podrías tomar para cuidar tu salud.
+      </li>
+      <li>
+        Registra tus conclusiones en el <a href="ticket/ticket.html">🎟️ Ticket de salida</a>.
+      </li>
+    </ol>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn">⬅ Volver al módulo Biología 8° PEVE</a>
+      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE</a>
+      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>
