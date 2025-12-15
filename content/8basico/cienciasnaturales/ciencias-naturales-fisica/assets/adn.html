@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta content="#0c0f10" name="theme-color"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>🧬 Secuencias de ADN — 3D/AR</title>
+<link href="../style.css" rel="stylesheet"/>
+<!-- model-viewer (CDN) -->
+<script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+<style>model-viewer{width:100%;height:70vh;background:#0b1320;border-radius:1rem;border:1px solid #1f2a37}</style>
+</head>
+<body>
+<nav class="controls">
+<span class="control-title">🛠️ Controles:</span>
+<a class="control-btn" href="../index.html">🏠</a>
+<button class="control-btn" onclick="handleSpeak()">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button class="control-btn" onclick="fontDelta(1)">A+</button>
+<button class="control-btn" onclick="fontDelta(-1)">A−</button>
+<button class="control-btn" onclick="toggleLang(this)">🌐</button>
+<button class="control-btn" onclick="toggleGuide(true)">🧠</button>
+<button class="control-btn" onclick="toggleRuler(this)">🔍</button>
+<span class="spacer"></span>
+<button class="control-btn" onclick="handleStop()">⏹</button>
+</nav>
+<main class="section" id="intro">
+<h1>🧬 🧬 Secuencias de ADN — 3D / AR</h1>
+<p>Visualiza un modelo de ADN y discute evidencia molecular de parentesco.</p>
+<div class="card">
+<model-viewer ar="" ar-modes="webxr scene-viewer quick-look" camera-controls="" environment-image="neutral" exposure="0.9" poster="../assets/img/poster_adn.png" shadow-intensity="1" src="../assets/models/adn.glb" touch-action="pan-y">
+<div class="badge" slot="ar-button">📱 Ver en AR</div>
+</model-viewer>
+<div class="btn-row" style="margin-top:1rem">
+<button class="btn" onclick="document.querySelector('model-viewer').enterAR()">📱 Entrar en AR</button>
+<a class="btn" href="../index.html">⬅️ Volver</a>
+</div>
+</div>
+<!-- Bloque de accesibilidad común PEVE -->
+<section class="section">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
+<h2>🧩 Accesibilidad</h2>
+<p class="note">
+      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
+      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
+    </p>
+</article>
+</section>
+</main>
+<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3>🧠 Guía</h3><p>Usa el dedo o mouse para rotar/zoom. En móvil compatible, toca “Ver en AR”.</p></div></div>
+<div class="ruler" id="ruler"></div>
+<script src="../js/script.js"></script>
+<script src="../../../../../assets/js/accesibilidad.js"></script></body>
+</html>

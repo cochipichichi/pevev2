@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>CN08 OA11 — Electricidad, circuitos y gasto energético</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero">
+    <h1>CN08 OA11 — Electricidad, circuitos y gasto energético</h1>
+    <p>
+      Analizar y aplicar conceptos de corriente eléctrica, voltaje, resistencia y potencia, diferenciando
+      circuitos en serie y en paralelo y estimando el gasto energético de artefactos eléctricos.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+    <h2>⚡ Conceptos básicos</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Corriente e intensidad</h3>
+        <ul>
+          <li><strong>Corriente eléctrica</strong>: flujo de cargas eléctricas a través de un conductor.</li>
+          <li><strong>Intensidad de corriente</strong>: cantidad de carga que pasa por un punto del conductor
+              en un cierto tiempo; se mide en <strong>ampere (A)</strong> con un <strong>amperímetro</strong>.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Voltaje, resistencia y potencia</h3>
+        <ul>
+          <li><strong>Voltaje (V):</strong> “empuje” eléctrico que hace circular la corriente.</li>
+          <li><strong>Resistencia (R):</strong> oposición al paso de la corriente; se mide en <strong>ohmios (Ω)</strong>.</li>
+          <li><strong>Potencia eléctrica (P):</strong> rapidez con que un artefacto consume energía; se mide en <strong>watt (W)</strong>.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🔗 Circuitos en serie y en paralelo</h2>
+    <ul>
+      <li>En un <strong>circuito en serie</strong>, la corriente es la misma por todos los componentes;
+          el voltaje se reparte.</li>
+      <li>En un <strong>circuito en paralelo</strong>, el voltaje es el mismo en cada rama;
+          la corriente se reparte entre las ramas.</li>
+      <li>Varios ítems PEVE piden <strong>distinguir</strong> estos tipos de circuito según un esquema.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>💡 Potencia, energía y cuentas de luz</h2>
+    <p>
+      El gasto energético de un artefacto se calcula con:
+    </p>
+    <p class="formula">
+      <strong>E (kWh) = Potencia (kW) × Tiempo (h)</strong>
+    </p>
+    <p>
+      Ejemplo clásico PEVE: una ampolleta de 100 W encendida por 8 h:
+    </p>
+    <ul>
+      <li>100 W = 0,1 kW</li>
+      <li>E = 0,1 kW × 8 h = 0,8 kWh</li>
+      <li>Si el costo de 1 kWh es CLP$ 10.000, el gasto será 0,8 × 10.000 = CLP$ 8.000.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>🔌 Circuito domiciliario</h2>
+    <ul>
+      <li>Los <strong>cables</strong> permiten el traslado de la energía eléctrica por todo el circuito.</li>
+      <li>El <strong>interruptor</strong> abre o cierra el circuito.</li>
+      <li>El <strong>automático</strong> protege el sistema frente a sobrecargas.</li>
+    </ul>
+
+    <div class="btn-row">
+      <a href="index.html" class="btn">⬅ Volver a Física 8°</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>

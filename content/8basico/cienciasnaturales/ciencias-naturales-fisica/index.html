@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ciencias Naturales 8° Básico — Física PEVE (CN08 OA10, OA11)</title>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="pwa/manifest.webmanifest"/>
+  <link rel="icon" href="assets/img/favicon.png"/>
+  <link rel="preload" href="style.css" as="style"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav aria-label="Barra de controles" class="controls" role="navigation">
+<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<div class="theme-switcher">
+<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
+<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+</div>
+</div>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<span class="spacer"></span>
+<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+</nav>
+
+<header class="header">
+  <div class="hero" id="intro">
+    <h1>Ciencias Naturales 8° Básico — Física PEVE</h1>
+    <p>
+      Módulo de estudio basado en el banco de preguntas PEVE para los OA de Física:
+      <strong>CN08 OA10</strong> (calor y temperatura) y <strong>CN08 OA11</strong> (electricidad y circuitos).
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#mapa">🧠 Mapa de preguntas</a>
+      <a class="btn" href="cn08_oa10_calor.html">🔥 CN08 OA10 — Calor, temperatura y equilibrio térmico</a>
+      <a class="btn" href="cn08_oa11_electricidad.html">⚡ CN08 OA11 — Electricidad, circuitos y gasto energético</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="section" id="mapa">
+    <h2>🧠 Mapa de temas según banco de preguntas PEVE</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🔥 Calor, temperatura y equilibrio térmico (CN08 OA10)</h3>
+        <ul>
+          <li>Diferencia entre <strong>calor</strong> (energía en tránsito) y <strong>temperatura</strong>.</li>
+          <li>Escalas <strong>Celsius</strong> y <strong>Kelvin</strong> y relación entre ambas.</li>
+          <li>Concepto de <strong>equilibrio térmico</strong> y transferencia de energía entre cuerpos.</li>
+          <li>Comportamiento de las moléculas cuando el cuerpo se calienta o se enfría.</li>
+          <li>Materiales <strong>conductores</strong> y <strong>aislantes</strong> del calor.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>⚡ Electricidad en la vida cotidiana (CN08 OA11)</h3>
+        <ul>
+          <li>Conceptos de <strong>corriente</strong>, <strong>intensidad</strong>, <strong>voltaje</strong> y <strong>resistencia</strong>.</li>
+          <li>Diferencias entre <strong>circuitos en serie</strong> y <strong>paralelo</strong>.</li>
+          <li><strong>Potencia eléctrica</strong> y cálculo de <strong>gasto energético</strong> (kWh).</li>
+          <li>Componentes de un circuito domiciliario: cables, enchufes, interruptores, automáticos.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>🧪 Pensamiento científico</h3>
+        <ul>
+          <li>Identificación de <strong>variables</strong> en experimentos de calor y temperatura.</li>
+          <li>Interpretación de <strong>gráficos</strong> de cambio de temperatura en el tiempo.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="descargas-fis">
+    <h2>📥 Descargas PEVE Física 8°</h2>
+    <p>Banco de preguntas y orientaciones de respuesta en formato original PEVE/MINEDUC.</p>
+    <div class="btn-row">
+      <a class="btn" href="PEVE-8VO-BASICO-CN-FISICA-Preguntas.docx" download>⬇ Banco de preguntas PEVE Física (docx)</a>
+      <a class="btn" href="PEVE-8VO-BASICO-CN-FISICA-Respuestas.docx" download>⬇ Sugerencias de respuestas Física (docx)</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+<script src="../../../../assets/js/accesibilidad.js"></script>
+</body>
+</html>
