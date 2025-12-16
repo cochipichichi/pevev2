@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎟️ Ticket de salida — Biología PEVE 8° Básico</title>
+  <title>🎟️ Ticket de salida Biología 8° – PEVE (OA2)</title>
   <link rel="stylesheet" href="../../../../../assets/css/style.css">
   <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
   <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
   <script src="../../../../../assets/js/accessibility.js" defer></script>
+  <script src="../../../../../assets/js/config.js" defer></script>
+  <script src="../../../../../assets/js/peve-backend.js" defer></script>
 </head>
 <body class="theme-dark">
 
@@ -41,7 +43,62 @@
     </div>
   </header>
 
-<main id="main-content" class="page-main"></main>
+<main id="main-content" class="page-main">
+  <section class="section">
+    <header class="section-header">
+      <h1>🎟️ Ticket de salida – Biología 8° básico (OA2)</h1>
+      <p>
+        Completa este ticket al finalizar tu estudio o práctica sobre
+        <strong>estructura y función de la célula</strong>. Puedes copiar tus respuestas
+        y enviarlas por correo a tus profesores.
+      </p>
+    </header>
+
+    <form id="ticket-form" class="ticket-form">
+      <div class="ticket-meta">
+        <div class="field-group">
+          <label for="t-name">Nombre estudiante</label>
+          <input id="t-name" type="text" placeholder="Tu nombre">
+        </div>
+        <div class="field-group">
+          <label for="t-course">Curso / Nivel</label>
+          <input id="t-course" type="text" value="8° básico">
+        </div>
+      </div>
+
+      <label>
+        1. Hoy aprendí que la célula...
+        <textarea id="t-q1" rows="3" required></textarea>
+      </label>
+
+      <label>
+        2. Un concepto sobre orgánulos o funciones celulares que todavía me cuesta es...
+        <textarea id="t-q2" rows="3" required></textarea>
+      </label>
+
+      <label>
+        3. Un ejemplo de cómo se relacionan células, tejidos, órganos y sistemas es...
+        <textarea id="t-q3" rows="3" required></textarea>
+      </label>
+
+      <label>
+        4. ¿Qué estrategia me ayudó más a aprender hoy? (lectura guiada, imágenes, quiz, etc.)
+        <textarea id="t-q4" rows="3"></textarea>
+      </label>
+
+      <div class="ticket-actions">
+        <button type="button" class="btn btn-solid" id="copy-ticket">📋 Copiar ticket</button>
+        <a id="mail-ticket" class="btn btn-outline" href="#">✉ Abrir correo con ticket</a>
+      </div>
+
+      <p class="ticket-note">
+        Sugerencia: envía tu ticket a
+        <strong>belenacuna@liceosannicolas.cl</strong> y
+        <strong>franciscopinto@liceosannicolas.cl</strong> o al correo que acuerden en clase.
+      </p>
+    </form>
+  </section>
+</main>
 
   <footer class="footer small">
     <div class="footer-inner">
@@ -61,5 +118,75 @@
       </div>
     </div>
   </footer>
+
+<script>
+function buildBody() {
+  const name = document.getElementById("t-name").value || "";
+  const course = document.getElementById("t-course").value || "8° básico";
+  const q1 = document.getElementById("t-q1").value || "";
+  const q2 = document.getElementById("t-q2").value || "";
+  const q3 = document.getElementById("t-q3").value || "";
+  const q4 = document.getElementById("t-q4").value || "";
+
+  return [
+    "Ticket de salida – Biología 8° básico (OA2)",
+    "",
+    "Nombre: " + name,
+    "Curso: " + course,
+    "",
+    "1. Hoy aprendí que la célula...",
+    q1,
+    "",
+    "2. Un concepto sobre orgánulos o funciones celulares que todavía me cuesta es...",
+    q2,
+    "",
+    "3. Un ejemplo de cómo se relacionan células, tejidos, órganos y sistemas es...",
+    q3,
+    "",
+    "4. Estrategia que más me ayudó hoy:",
+    q4
+  ].join("\n");
+}
+
+document.getElementById("copy-ticket").addEventListener("click", () => {
+  const body = buildBody();
+  navigator.clipboard.writeText(body).then(
+    () => alert("Ticket copiado al portapapeles."),
+    () => alert("No se pudo copiar el ticket. Intenta seleccionando y copiando manualmente.")
+  );
+});
+
+document.getElementById("mail-ticket").addEventListener("click", (e) => {
+  const body = encodeURIComponent(buildBody());
+  const subject = encodeURIComponent("Ticket de salida Biología 8° – PEVE (OA2)");
+  const to = "belenacuna@liceosannicolas.cl,franciscopinto@liceosannicolas.cl";
+  e.currentTarget.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+  if (window.PEVE_BACKEND) {
+    const name = document.getElementById("t-name").value || "";
+    const course = document.getElementById("t-course").value || "8° básico";
+    const learned = document.getElementById("t-q1").value || "";
+    const doubt = document.getElementById("t-q2").value || "";
+    const example = document.getElementById("t-q3").value || "";
+    window.PEVE_BACKEND.sendTicket({
+      userName: name,
+      course,
+      module: "Ciencias Naturales 8° – Biología OA2 – Ticket salida",
+      learned,
+      doubt,
+      example
+    }).then((res) => {
+      if (res && res.status === "ok") {
+        console.log("[PEVE] Ticket Biología OA2 enviado a Sheets");
+      } else {
+        console.warn("[PEVE] No se pudo enviar ticket Biología OA2 a Sheets", res);
+      }
+    }).catch((err) => {
+      console.warn("[PEVE] Error al enviar ticket Biología OA2 a Sheets", err);
+    });
+  }
+});
+</script>
+
 </body>
 </html>

@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🧪 Quiz Biología PEVE — 8° Básico</title>
-  <link rel="stylesheet" href="../../../../../assets/css/style.css">
-  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
-  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧪 Quiz Biología PEVE — 8° Básico (OA2)</title>
+  <link rel="stylesheet" href="../../../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css" />
+  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg" />
   <script src="../../../../../assets/js/accessibility.js" defer></script>
+  <script src="../../../../../assets/js/config.js" defer></script>
+  <script src="../../../../../assets/js/peve-backend.js" defer></script>
 </head>
 <body class="theme-dark">
-
   <header class="topbar">
     <div class="topbar-left">
-      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="logo-circle" aria-hidden="true">🧬</div>
       <div class="brand-text">
         <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+        <span class="brand-subtitle">
+          Plataforma de Exámenes de Validación de Estudios
+        </span>
       </div>
     </div>
     <nav class="topbar-nav" aria-label="Navegación principal">
@@ -41,25 +44,305 @@
     </div>
   </header>
 
-<main id="main-content" class="page-main"></main>
+  <main id="main-content" class="page-main">
+    <section class="section">
+      <header class="section-header">
+        <h1>🧪 Quiz de práctica – Biología 8° básico (OA2)</h1>
+        <p>
+          Responde estas preguntas de opción múltiple sobre
+          <strong>estructura y función de la célula</strong> (OA2). Al final podrás
+          ver tu puntaje y qué ítems necesitas revisar.
+        </p>
+      </header>
+
+      <form id="quiz-form" class="quiz-form">
+        <div class="quiz-meta">
+          <div class="field-group">
+            <label for="student-name">Nombre estudiante (opcional)</label>
+            <input
+              id="student-name"
+              name="studentName"
+              type="text"
+              placeholder="Se completará automáticamente si vienes del login"
+            />
+          </div>
+          <div class="field-group">
+            <label for="student-course">Curso / Nivel</label>
+            <input
+              id="student-course"
+              name="studentCourse"
+              type="text"
+              value="8° Básico"
+            />
+          </div>
+        </div>
+
+        <div id="quiz-items" class="quiz-items">
+          <!-- Preguntas via JS -->
+        </div>
+
+        <div class="quiz-actions">
+          <button type="submit" class="btn btn-solid">✅ Enviar respuestas</button>
+          <button type="button" class="btn btn-outline" id="reset-quiz">
+            ♻ Limpiar intento
+          </button>
+        </div>
+      </form>
+
+      <section id="quiz-results" class="quiz-results" hidden>
+        <h2>Resultados</h2>
+        <p id="score-text"></p>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>OA / Tema</th>
+              <th>Tu respuesta</th>
+              <th>Correcta</th>
+            </tr>
+          </thead>
+          <tbody id="results-body"></tbody>
+        </table>
+      </section>
+    </section>
+  </main>
 
   <footer class="footer small">
     <div class="footer-inner">
       <div class="footer-bar">
         <div class="logo">
-          <img src="../../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <img
+            src="../../../../../assets/logo.svg"
+            alt="Neotech EduLab"
+            class="logo-img"
+            onerror="this.style.display='none'"
+          />
           <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
           <small>🛠️Prohibida su copia y/o reproducción</small>
         </div>
       </div>
       <div class="footer-text">
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p>
+          © 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de
+          Estudios · Hecho con ❤️ y enfoque inclusivo.
+        </p>
         <p class="footer-note">
-          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
-          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y
+          certificación de Exámenes Libres depende exclusivamente del Ministerio de
+          Educación de Chile y sus canales oficiales.
         </p>
       </div>
     </div>
   </footer>
+
+  <script>
+    const QUESTIONS = [
+      {
+        id: 1,
+        oa: "OA2 – Célula como unidad básica",
+        prompt:
+          "¿Por qué se dice que la célula es la unidad básica de los seres vivos?",
+        options: [
+          "Porque todas las células son visibles a simple vista.",
+          "Porque todas las funciones vitales ocurren en las células.",
+          "Porque solo las plantas tienen células.",
+          "Porque las células solo sirven para reproducirse."
+        ],
+        answer: 1
+      },
+      {
+        id: 2,
+        oa: "OA2 – Orgánulos celulares",
+        prompt:
+          "¿Qué orgánulo se asocia principalmente con la producción de energía (ATP) en la célula?",
+        options: [
+          "Cloroplasto",
+          "Núcleo",
+          "Mitocondria",
+          "Ribosoma"
+        ],
+        answer: 2
+      },
+      {
+        id: 3,
+        oa: "OA2 – Célula vegetal vs animal",
+        prompt:
+          "¿Cuál de las siguientes estructuras está presente solo en las células vegetales?",
+        options: [
+          "Membrana plasmática",
+          "Pared celular",
+          "Mitocondria",
+          "Núcleo"
+        ],
+        answer: 1
+      },
+      {
+        id: 4,
+        oa: "OA2 – Membrana plasmática",
+        prompt:
+          "La membrana plasmática se caracteriza por ser semipermeable. Esto significa que:",
+        options: [
+          "Deja pasar todas las sustancias sin control.",
+          "No deja pasar ninguna sustancia.",
+          "Permite el paso de algunas sustancias y regula su entrada y salida.",
+          "Solo deja pasar sustancias sólidas."
+        ],
+        answer: 2
+      },
+      {
+        id: 5,
+        oa: "OA2 – Niveles de organización",
+        prompt:
+          "El orden correcto desde lo más pequeño a lo más complejo es:",
+        options: [
+          "Tejido → Célula → Órgano → Sistema",
+          "Célula → Tejido → Órgano → Sistema",
+          "Órgano → Sistema → Célula → Tejido",
+          "Sistema → Órgano → Tejido → Célula"
+        ],
+        answer: 1
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz-items");
+    const form = document.getElementById("quiz-form");
+    const resultsSection = document.getElementById("quiz-results");
+    const resultsBody = document.getElementById("results-body");
+    const scoreText = document.getElementById("score-text");
+    const resetBtn = document.getElementById("reset-quiz");
+
+    function getStudentContext() {
+      const nameFromSession = sessionStorage.getItem("studentName") || "";
+      const levelFromSession = sessionStorage.getItem("studentLevel") || "8° Básico";
+      return {
+        name: nameFromSession,
+        level: levelFromSession
+      };
+    }
+
+    function renderQuiz() {
+      const ctx = getStudentContext();
+      const nameInput = document.getElementById("student-name");
+      const courseInput = document.getElementById("student-course");
+      if (ctx.name && nameInput && !nameInput.value) nameInput.value = ctx.name;
+      if (ctx.level && courseInput && !courseInput.value) courseInput.value = ctx.level;
+
+      quizContainer.innerHTML = "";
+      QUESTIONS.forEach((q, idx) => {
+        const block = document.createElement("article");
+        block.className = "quiz-item";
+        block.innerHTML = `
+          <h3>Pregunta ${idx + 1} <small>(${q.oa})</small></h3>
+          <p>${q.prompt}</p>
+          <div class="quiz-options">
+            ${q.options
+              .map(
+                (opt, i) => `
+              <label class="quiz-option">
+                <input type="radio" name="q${q.id}" value="${i}" required />
+                <span>${opt}</span>
+              </label>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+        quizContainer.appendChild(block);
+      });
+    }
+
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      const formData = new FormData(form);
+      const ctx = getStudentContext();
+
+      const nameInput = document.getElementById("student-name");
+      const courseInput = document.getElementById("student-course");
+      const name =
+        (nameInput && nameInput.value.trim()) || ctx.name || "Estudiante PEVE";
+      const course =
+        (courseInput && courseInput.value.trim()) || ctx.level || "8° Básico";
+
+      let correct = 0;
+      resultsBody.innerHTML = "";
+
+      QUESTIONS.forEach((q, idx) => {
+        const userAnswerStr = formData.get(`q${q.id}`);
+        const userAnswer = userAnswerStr !== null ? parseInt(userAnswerStr, 10) : -1;
+        const isCorrect = userAnswer === q.answer;
+        if (isCorrect) correct++;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${idx + 1}</td>
+          <td>${q.oa}</td>
+          <td>${userAnswer >= 0 ? q.options[userAnswer] : "Sin respuesta"}</td>
+          <td>${q.options[q.answer]}</td>
+        `;
+        if (!isCorrect) row.classList.add("row-incorrect");
+        resultsBody.appendChild(row);
+      });
+
+      const scorePercent = Math.round((correct / QUESTIONS.length) * 100);
+      scoreText.textContent = `Obtuviste ${correct} de ${
+        QUESTIONS.length
+      } respuestas correctas (${scorePercent}%).`;
+      resultsSection.hidden = false;
+
+      const payload = {
+        name,
+        course,
+        score: correct,
+        max: QUESTIONS.length,
+        scorePercent,
+        ts: new Date().toISOString()
+      };
+
+      try {
+        const key = "peve_biologia8_oa2_quiz";
+        const prev = JSON.parse(localStorage.getItem(key) || "[]");
+        prev.push(payload);
+        localStorage.setItem(key, JSON.stringify(prev));
+      } catch (err) {
+        console.warn("No se pudo guardar en localStorage", err);
+      }
+
+      if (window.PEVE_BACKEND) {
+        window.PEVE_BACKEND
+          .sendQuizResult({
+            userName: name,
+            course: course,
+            module: "Ciencias Naturales 8° – Biología OA2",
+            score: correct,
+            max: QUESTIONS.length,
+            q1: "Biología 8°",
+            q2: "OA2 – Estructura y función celular"
+          })
+          .then((res) => {
+            if (res && res.status === "ok") {
+              console.log("[PEVE] Quiz Biología OA2 enviado a Sheets");
+            } else {
+              console.warn(
+                "[PEVE] No se pudo enviar quiz Biología OA2 a Sheets",
+                res
+              );
+            }
+          })
+          .catch((err) => {
+            console.warn(
+              "[PEVE] Error al enviar quiz Biología OA2 a Sheets",
+              err
+            );
+          });
+      }
+    });
+
+    resetBtn.addEventListener("click", () => {
+      form.reset();
+      resultsSection.hidden = true;
+    });
+
+    renderQuiz();
+  </script>
 </body>
 </html>
