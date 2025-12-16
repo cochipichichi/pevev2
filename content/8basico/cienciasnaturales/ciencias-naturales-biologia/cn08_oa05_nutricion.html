@@ -1,183 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CN08 OA05 — Nutrición y funcionamiento del organismo</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="pwa/manifest.webmanifest"/>
-  <link rel="icon" href="assets/img/favicon.png"/>
-  <link rel="preload" href="style.css" as="style"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+  <script src="../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
-<div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
-</div>
-</div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
-<span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
-</nav>
+<body class="theme-dark">
 
-<header class="header">
-  <div class="hero" id="intro">
-    <h1
-      data-i18n-es="CN08 OA05 — Nutrición y funcionamiento del organismo"
-      data-i18n-en="CN08 OA05 — Nutrition and body functioning"
-    >
-      CN08 OA05 — Nutrición y funcionamiento del organismo
-    </h1>
-    <p
-      data-i18n-es="Explicar, a partir de modelos y situaciones cotidianas, cómo la alimentación se relaciona con el funcionamiento coordinado de los sistemas digestivo, circulatorio y excretor."
-      data-i18n-en="Explain, using models and everyday situations, how nutrition relates to the coordinated functioning of the digestive, circulatory and excretory systems."
-    >
-      Explicar, a partir de modelos y situaciones cotidianas, cómo la alimentación se relaciona con el
-      funcionamiento coordinado de los sistemas digestivo, circulatorio y excretor, vinculando nutrientes,
-      transporte de sustancias y eliminación de desechos.
-    </p>
-
-    <div class="btn-row">
-      <a class="btn" href="#sistemas">🧠 Sistemas y funciones</a>
-      <a class="btn" href="#nutrientes">🍽️ Nutrientes y modelos de alimentación</a>
-      <a class="btn" href="#peve">🧪 Conexión con preguntas PEVE</a>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
     </div>
-    <p class="note">
-      Este OA se apoya en ítems del banco PEVE sobre quimo/quilo, colesterol, tipos de grasas, lactancia materna
-      y modelo de plato seccionado.
-    </p>
-  </div>
-</header>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
 
-<main>
-
-  <section class="section" id="sistemas">
-    <h2>🧠 Sistemas digestivo, circulatorio y excretor</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🧪 Sistema digestivo</h3>
-        <ul>
-          <li>Transforma los alimentos en moléculas más pequeñas (nutrientes).</li>
-          <li>En el estómago se forma el <strong>quimo</strong> (mezcla de alimento y jugo gástrico).</li>
-          <li>En el intestino delgado, el quimo se mezcla con jugos pancreáticos, intestinales y bilis,
-              formando el <strong>quilo</strong>, rico en nutrientes listos para absorber.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>🩸 Sistema circulatorio</h3>
-        <ul>
-          <li>Transporta oxígeno, nutrientes y desechos por todo el cuerpo.</li>
-          <li>El <strong>plasma sanguíneo</strong> lleva glucosa, lípidos, aminoácidos, hormonas, etc.</li>
-          <li>Los <strong>capilares</strong> realizan el intercambio de sustancias con los tejidos.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>🚽 Sistema excretor</h3>
-        <ul>
-          <li>Los <strong>riñones</strong> filtran la sangre, eliminan sustancias de desecho y regulan agua y sales.</li>
-          <li>La orina transporta los desechos fuera del cuerpo.</li>
-          <li>Este sistema mantiene el equilibrio interno (homeostasis) junto al sistema circulatorio.</li>
-        </ul>
-      </article>
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
     </div>
-  </section>
+  </header>
 
-  <section class="section" id="nutrientes">
-    <h2>🍽️ Nutrientes, colesterol y tipos de grasas</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🔬 Colesterol</h3>
-        <ul>
-          <li>Forma parte de las <strong>membranas celulares</strong>.</li>
-          <li>Es precursor de <strong>hormonas esteroidales</strong> (como algunas hormonas sexuales).</li>
-          <li>En exceso, se asocia a problemas cardiovasculares.</li>
-        </ul>
-        <p class="note">
-          En el banco PEVE se pregunta qué funciones cumple el colesterol: el foco está en membranas e
-          <strong>hormonas esteroidales</strong>, no en entregar energía directa.
+<main id="main-content" class="page-main"></main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </article>
-
-      <article class="card">
-        <h3>🥑 Tipos de grasas</h3>
-        <ul>
-          <li><strong>Grasas saturadas:</strong> en exceso aumentan el riesgo de enfermedades cardiovasculares.</li>
-          <li><strong>Grasas trans:</strong> muy poco saludables, suelen aparecer en productos ultraprocesados.</li>
-          <li><strong>Grasas insaturadas:</strong> se consideran las más saludables (aceite de oliva, frutos secos, pescado).</li>
-        </ul>
-        <p class="note">
-          El ítem PEVE sobre nutrición resalta que las <strong>grasas insaturadas</strong> son las más saludables
-          para el organismo.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>🍽️ Modelo del plato seccionado</h3>
-        <ul>
-          <li>Reemplaza la antigua <strong>pirámide alimentaria</strong> en Chile.</li>
-          <li>Ordena mejor las porciones de verduras, frutas, cereales integrales y proteínas.</li>
-          <li>Se cambió porque la pirámide generaba <strong>confusión y errores de interpretación</strong>.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>👶 Lactancia materna</h3>
-        <ul>
-          <li>Es un alimento completo para los primeros meses de vida.</li>
-          <li>Aporta anticuerpos que protegen frente a varias enfermedades.</li>
-          <li>Favorece el vínculo afectivo entre madre y bebé.</li>
-        </ul>
-      </article>
+      </div>
     </div>
-  </section>
-
-  <section class="section" id="peve">
-    <h2>🧪 Conexión con preguntas PEVE</h2>
-    <ol>
-      <li>
-        Revisa las preguntas del banco PEVE que hablan de <strong>quimo, quilo, colesterol, tipo de grasas y plato seccionado</strong>.
-      </li>
-      <li>
-        Para cada pregunta, identifica qué sistema participa (digestivo, circulatorio o excretor).
-      </li>
-      <li>
-        Dibuja un esquema simple donde se vea: alimento → digestión → absorción de nutrientes → transporte en la sangre
-        → filtración en el riñón.
-      </li>
-      <li>
-        Resuelve el <a href="quiz/quiz.html">🧪 Quiz Biología PEVE</a> y ubica cuáles ítems reflejan este OA05.
-      </li>
-      <li>
-        Completa el <a href="ticket/ticket.html">🎟️ Ticket de salida</a> explicando una decisión saludable que tomarías
-        sobre tu alimentación a partir de estas preguntas.
-      </li>
-    </ol>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn">⬅ Volver al módulo Biología 8° PEVE</a>
-      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE</a>
-      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
-    </div>
-  </section>
-
-</main>
-
-<script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script>
+  </footer>
 </body>
 </html>

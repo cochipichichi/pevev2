@@ -1,120 +1,65 @@
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta content="#0c0f10" name="theme-color"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>🎟️ Ticket de salida — Biología PEVE 8° Básico</title>
-<link href="../style.css" rel="stylesheet"/>
-<script defer="" src="../../../../../assets/app.js"></script>
-<script defer="" src="../../../../../assets/api.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎟️ Ticket de salida — Biología PEVE 8° Básico</title>
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
+  <script src="../../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-<nav class="controls">
-<span class="control-title">🛠️ Controles:</span>
-<a class="control-btn" href="../index.html">🏠</a>
-<button class="control-btn" onclick="handleSpeak()">🗣️</button>
-<div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
-</div>
-</div>
-<button class="control-btn" onclick="fontDelta(1)">A+</button>
-<button class="control-btn" onclick="fontDelta(-1)">A−</button>
-<button class="control-btn" onclick="toggleLang(this)">🌐</button>
-<button class="control-btn" onclick="toggleGuide(true)">🧠</button>
-<button class="control-btn" onclick="toggleRuler(this)">🔍</button>
-<span class="spacer"></span>
-<button class="control-btn" onclick="handleStop()">⏹</button>
-</nav>
-<main class="section" id="intro">
-<h1>🎟️ Ticket de salida — Biología PEVE 8° Básico</h1>
-<div class="card">
-<ol>
-<li>Describe una pregunta del banco PEVE que te haya ayudado a comprender mejor la célula y sus organelos. Explica por qué.</li>
-<li>Menciona una pregunta PEVE sobre plantas (transpiración, estomas o fotosíntesis) y explica qué aprendiste con ella.</li>
-<li>Relata una pregunta PEVE sobre sistemas del cuerpo humano o nutrición y relaciónala con una acción concreta para cuidar tu salud.</li>
-</ol>
-<p><em>Tip:</em> puedes copiar tus respuestas y pegarlas en Google Classroom o imprimir esta página.</p>
-<div class="ticket-form">
-<h2>✏️ Escribe tus respuestas</h2>
-<label>
-          1) Evidencia que apoya la evolución
-          <textarea id="t_learned" placeholder="Escribe aquí tu respuesta..." rows="3"></textarea>
-</label>
-<label>
-          2) Variable de la simulación que te ayudó a entender la selección natural
-          <textarea id="t_doubt" placeholder="Escribe aquí tu respuesta..." rows="3"></textarea>
-</label>
-<label>
-          3) Idea clave de Darwin/Wallace
-          <textarea id="t_example" placeholder="Escribe aquí tu respuesta..." rows="3"></textarea>
-</label>
-<p class="note">
-          Si estás trabajando con 📚PEVE y has iniciado sesión como estudiante, puedes guardar este ticket en tu registro.
+<body class="theme-dark">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
+    </div>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
+
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
+
+<main id="main-content" class="page-main"></main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-</div>
-</div>
-<div class="btn-row" style="margin-top:1rem">
-<button class="btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
-<a class="btn" href="../index.html">⬅️ Volver</a>
-<button class="btn" onclick="saveTicket()">💾 Guardar en PEVE</button>
-</div>
-<!-- Bloque de accesibilidad común PEVE -->
-<section class="section">
-<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
-<h2>🧩 Accesibilidad</h2>
-<p class="note">
-      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
-      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
-    </p>
-</article>
-</section>
-</main>
-<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3>🧠 Guía</h3><p>Responde con frases breves y ejemplos concretos.</p></div></div>
-<div class="ruler" id="ruler"></div>
-<script src="../js/script.js"></script>
-<script>
-    async function saveTicket(){
-      const learned = document.getElementById('t_learned')?.value.trim() || '';
-      const doubt   = document.getElementById('t_doubt')?.value.trim() || '';
-      const example = document.getElementById('t_example')?.value.trim() || '';
-      if(!learned && !doubt && !example){
-        alert('Escribe al menos una respuesta antes de guardar el ticket.');
-        return;
-      }
-      try{
-        const u = (typeof getSession === 'function') ? getSession() : null;
-        if(!u || !u.id){
-          alert('Para guardar el ticket en PEVE, primero ingresa por el panel de Estudiante.');
-          return;
-        }
-        if(!window.PEVE_API || typeof PEVE_API.pevePost !== 'function'){
-          alert('La API de PEVE no está configurada (revisa data/config.json y assets/api.js).');
-          return;
-        }
-        await PEVE_API.pevePost('ticket_submit', {
-          timestamp: new Date().toISOString(),
-          userId: u.id,
-          userName: u.name || '',
-          course: 'Biología 1M',
-          module: 'OA2',
-          learned,
-          doubt,
-          example
-        });
-        alert('Ticket guardado en tu registro PEVE (Google Sheets).');
-      }catch(err){
-        console.warn('No se pudo enviar el ticket a Sheets (ticket_submit).', err);
-        alert('Ocurrió un problema al enviar el ticket. Inténtalo más tarde.');
-      }
-    }
-  </script>
-<script src="../../../../../assets/js/accesibilidad.js"></script></body>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

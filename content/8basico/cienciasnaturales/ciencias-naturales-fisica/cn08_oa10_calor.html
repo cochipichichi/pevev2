@@ -1,122 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CN08 OA10 — Calor, temperatura y equilibrio térmico</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="pwa/manifest.webmanifest"/>
-  <link rel="icon" href="assets/img/favicon.png"/>
-  <link rel="preload" href="style.css" as="style"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+  <script src="../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
-<div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
-</div>
-</div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
-<span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
-</nav>
+<body class="theme-dark">
 
-<header class="header">
-  <div class="hero">
-    <h1>CN08 OA10 — Calor, temperatura y equilibrio térmico</h1>
-    <p>
-      Explicar que el calor es <strong>energía en tránsito</strong> entre cuerpos a distinta temperatura,
-      reconocer su efecto en los materiales y aplicar el concepto de equilibrio térmico en situaciones cotidianas.
-    </p>
-  </div>
-</header>
-
-<main>
-
-  <section class="section">
-    <h2>🌡️ Temperatura vs. calor</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>¿Qué es la temperatura?</h3>
-        <ul>
-          <li>Es una medida de <strong>qué tan caliente o frío</strong> está un cuerpo.</li>
-          <li>Se mide habitualmente en grados <strong>Celsius (°C)</strong> o <strong>Kelvin (K)</strong>.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>¿Qué es el calor?</h3>
-        <ul>
-          <li>Es <strong>energía</strong> que se transfiere entre cuerpos debido a una diferencia de temperatura.</li>
-          <li>Siempre fluye desde el cuerpo de <strong>mayor temperatura</strong> al de <strong>menor temperatura</strong>.</li>
-        </ul>
-      </article>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
     </div>
-  </section>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
 
-  <section class="section">
-    <h2>🌡️ Escalas Celsius y Kelvin</h2>
-    <p>
-      En varias preguntas PEVE se trabaja la relación entre °C y K. Recuerda:
-    </p>
-    <p class="formula">
-      <strong>T(K) = T(°C) + 273</strong>
-    </p>
-    <ul>
-      <li>Un cambio de <strong>1 °C</strong> equivale a un cambio de <strong>1 K</strong>.</li>
-      <li>0 °C corresponde aproximadamente a 273 K.</li>
-      <li>La escala Kelvin parte en el <strong>cero absoluto</strong>, la temperatura más baja posible.</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>⚖️ Equilibrio térmico</h2>
-    <p>
-      Cuando se ponen en contacto dos cuerpos o porciones de agua a distinta temperatura,
-      el calor se transfiere hasta que <strong>ambos alcanzan la misma temperatura</strong>.
-      A este estado se le llama <strong>equilibrio térmico</strong>.
-    </p>
-    <ul>
-      <li>Calor cedido por el cuerpo más caliente = calor absorbido por el cuerpo más frío.</li>
-      <li>En mezclas simples de agua, si las masas son iguales, la temperatura final es el promedio.</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>🧊 ¿Qué ocurre con las moléculas cuando se enfría un cuerpo?</h2>
-    <ul>
-      <li>Al disminuir la temperatura, las moléculas <strong>reducen su velocidad de movimiento</strong>.</li>
-      <li>Esto se refleja en las preguntas PEVE sobre acción del calor sobre las moléculas de un líquido.</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>🥶 Conductores y aislantes del calor</h2>
-    <ul>
-      <li>Los <strong>metales</strong> son buenos conductores del calor (y de la electricidad).</li>
-      <li>Materiales como <strong>plástico, goma o vidrio</strong> son aislantes.</li>
-      <li>En los ítems PEVE se pide identificar el mejor conductor de la lista: normalmente el metal.</li>
-    </ul>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn">⬅ Volver a Física 8°</a>
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
     </div>
-  </section>
+  </header>
 
-</main>
+<main id="main-content" class="page-main"></main>
 
-<script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script>
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

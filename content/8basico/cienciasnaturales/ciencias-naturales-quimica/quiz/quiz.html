@@ -1,203 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz PEVE — Química 8° Básico</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="../pwa/manifest.webmanifest"/>
-  <link rel="icon" href="../assets/img/favicon.png"/>
-  <link rel="preload" href="../style.css" as="style"/>
-  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
+  <script src="../../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-  <header class="header">
-    <div class="hero">
-      <h1>Quiz PEVE — Química 8° Básico</h1>
-      <p>Preguntas inspiradas en el banco oficial PEVE (CN08 OA12 y OA14).</p>
+<body class="theme-dark">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
+    </div>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
+
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
     </div>
   </header>
 
-  <main class="section">
-    <div id="quiz-container" class="quiz-container"></div>
-    <div class="btn-row">
-      <button id="checkBtn" class="btn">✅ Revisar respuestas</button>
-      <button id="resetBtn" class="btn">🔄 Reiniciar</button>
-      <a href="../index.html" class="btn">⬅ Volver a Química 8°</a>
+<main id="main-content" class="page-main"></main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
     </div>
-    <p id="score" class="note"></p>
-  </main>
-
-  <script>
-  const questions = [
-    {{
-      id: 1,
-      text: "¿Qué tienen en común los modelos atómicos de Thomson, Rutherford y Bohr?",
-      options: [
-        "Incluyen protones dentro de un núcleo.",
-        "Muestran que el átomo posee cargas eléctricas negativas.",
-        "Muestran que las órbitas de los electrones son elípticas.",
-        "Representan al átomo como completamente lleno de materia."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 2,
-      text: "En el experimento de la lámina de oro de Rutherford, el hecho de que la mayoría de las partículas atravesaran la lámina indica que:",
-      options: [
-        "Los electrones eran muy pequeños.",
-        "Los átomos tenían órbitas sin carga.",
-        "Los núcleos ocupan casi todo el volumen del átomo.",
-        "La mayor parte del átomo es espacio vacío."
-      ],
-      correct: 3
-    }},
-    {{
-      id: 3,
-      text: "¿Cuál de los siguientes postulados corresponde al modelo de Bohr?",
-      options: [
-        "Los electrones se distribuyen uniformemente en una nube positiva.",
-        "Los electrones giran en órbitas de energía definidas sin irradiar energía.",
-        "Los electrones están fijos en el núcleo.",
-        "El átomo es indivisible."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 4,
-      text: "Cuando un electrón de un átomo absorbe energía, lo más probable es que:",
-      options: [
-        "Disminuya su velocidad.",
-        "Salte desde un nivel superior a uno inferior.",
-        "Salte desde un nivel inferior a uno superior.",
-        "Se quede en el mismo nivel."
-      ],
-      correct: 2
-    }},
-    {{
-      id: 5,
-      text: "Un átomo neutro con número atómico 7 y número másico 14 tiene en su núcleo:",
-      options: [
-        "7 protones y 14 neutrones.",
-        "7 protones y 7 neutrones.",
-        "7 electrones y 7 neutrones.",
-        "14 protones y 7 neutrones."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 6,
-      text: "El número másico de un átomo corresponde a:",
-      options: [
-        "La suma de protones y neutrones.",
-        "El número de protones del núcleo.",
-        "El número de electrones de la nube electrónica.",
-        "La suma de protones, neutrones y electrones."
-      ],
-      correct: 0
-    }},
-    {{
-      id: 7,
-      text: "Un nuevo elemento tiene número atómico 44 y masa atómica 89. ¿Cuántos electrones tiene el átomo neutro?",
-      options: [
-        "44",
-        "45",
-        "88",
-        "89"
-      ],
-      correct: 0
-    }},
-    {{
-      id: 8,
-      text: "¿Cuál de las siguientes sustancias es un elemento químico?",
-      options: [
-        "El agua.",
-        "Una mezcla de sal y agua.",
-        "El oxígeno gaseoso (O₂).",
-        "El dióxido de carbono (CO₂)."
-      ],
-      correct: 2
-    }},
-    {{
-      id: 9,
-      text: "¿Cuál de los siguientes compuestos presenta un triple enlace entre dos de sus átomos?",
-      options: [
-        "HCN",
-        "CH₄",
-        "CO₂",
-        "H₂O"
-      ],
-      correct: 0
-    }},
-    {{
-      id: 10,
-      text: "Una sustancia con alto punto de fusión, aspecto cristalino y que conduce la electricidad al disolverse en agua es probablemente:",
-      options: [
-        "Un metal puro.",
-        "Un compuesto iónico.",
-        "Un gas noble.",
-        "Un compuesto covalente molecular."
-      ],
-      correct: 1
-    }}
-  ];
-
-  function renderQuiz() {{
-    const container = document.getElementById('quiz-container');
-    container.innerHTML = '';
-    questions.forEach((q, idx) => {{
-      const card = document.createElement('article');
-      card.className = 'card quiz-card';
-      const h3 = document.createElement('h3');
-      h3.textContent = `Pregunta ${idx + 1}`;
-      const p = document.createElement('p');
-      p.textContent = q.text;
-      card.appendChild(h3);
-      card.appendChild(p);
-
-      q.options.forEach((opt, i) => {{
-        const label = document.createElement('label');
-        label.className = 'quiz-option';
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'q' + q.id;
-        input.value = i;
-        label.appendChild(input);
-        const span = document.createElement('span');
-        span.textContent = opt;
-        label.appendChild(span);
-        card.appendChild(label);
-      }});
-
-      container.appendChild(card);
-    }});
-  }}
-
-  function checkAnswers() {{
-    let correctCount = 0;
-    questions.forEach(q => {{
-      const selected = document.querySelector('input[name="q' + q.id + '"]:checked');
-      if (selected && Number(selected.value) === q.correct) {{
-        correctCount++;
-      }}
-    }});
-    const scoreEl = document.getElementById('score');
-    scoreEl.textContent = `Acertaste ${correctCount} de ${questions.length} preguntas.`;
-  }}
-
-  function resetQuiz() {{
-    document.querySelectorAll('#quiz-container input[type="radio"]').forEach(i => i.checked = false);
-    document.getElementById('score').textContent = '';
-  }}
-
-  document.addEventListener('DOMContentLoaded', () => {{
-    renderQuiz();
-    document.getElementById('checkBtn').addEventListener('click', checkAnswers);
-    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
-  }});
-  </script>
-
-  <script src="../js/script.js"></script>
-  <script src="../../../../assets/js/accesibilidad.js"></script>
+  </footer>
 </body>
 </html>

@@ -1,265 +1,65 @@
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta content="#0c0f10" name="theme-color"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>🧪 Quiz Biología PEVE — 8° Básico</title>
-<link href="../style.css" rel="stylesheet"/>
-<script defer="" src="../../../../../assets/app.js"></script>
-<script defer="" src="../../../../../assets/api.js"></script>
-<script type="module">
-    import { SHEETS_WRITE_ENDPOINT } from "../js/config.js";
-    window.__SHEETS_ENDPOINT = SHEETS_WRITE_ENDPOINT;
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 Quiz Biología PEVE — 8° Básico</title>
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
+  <script src="../../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-<nav class="controls">
-<span class="control-title">🛠️ Controles:</span>
-<a class="control-btn" href="../index.html">🏠</a>
-<button class="control-btn" onclick="handleSpeak()">🗣️</button>
-<div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
-</div>
-</div>
-<button class="control-btn" onclick="fontDelta(1)">A+</button>
-<button class="control-btn" onclick="fontDelta(-1)">A−</button>
-<button class="control-btn" onclick="toggleLang(this)">🌐</button>
-<button class="control-btn" onclick="toggleGuide(true)">🧠</button>
-<button class="control-btn" onclick="toggleRuler(this)">🔍</button>
-<span class="spacer"></span>
-<button class="control-btn" onclick="handleStop()">⏹</button>
-</nav>
-<main class="section" id="intro">
-<h1>🧪 Quiz OA2</h1>
-<p>Selecciona la alternativa correcta. Al terminar, revisa tu puntaje.</p>
-<div class="card" id="quizBox"></div>
-<div class="btn-row" style="margin-top:1rem">
-<button class="btn" onclick="grade()">✅ Revisar</button>
-<button class="btn" onclick="location.reload()">🔄 Reiniciar</button>
-</div>
-<p id="score" style="margin-top:1rem;font-weight:700"></p>
-<!-- Bloque de accesibilidad común PEVE -->
-<section class="section">
-<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
-<h2>🧩 Accesibilidad</h2>
-<p class="note">
-      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
-      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
-    </p>
-</article>
-</section>
-</main>
-<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3>🧠 Guía</h3><p>Recuerda leer bien cada opción; busca pistas en palabras clave.</p></div></div>
-<div class="ruler" id="ruler"></div>
-<script src="../js/script.js"></script>
-<script>
-  const questions = [
-  {
-    "q": "El hígado se encarga de la detoxificación del organismo y los hepatocitos son sus células principales. Según el banco PEVE, ¿qué organelo debiese estar presente en gran cantidad en este tipo de células?",
-    "a": [
-      "Complejo de Golgi",
-      "Mitocondria",
-      "Retículo endoplásmico liso",
-      "Retículo endoplásmico rugoso"
-    ],
-    "c": 2
-  },
-  {
-    "q": "En una de las preguntas PEVE se consulta: ¿en cuál de las siguientes estructuras celulares es posible encontrar una bicapa lipídica?",
-    "a": [
-      "Centríolo",
-      "Lisosoma",
-      "Citoesqueleto",
-      "Ribosomas"
-    ],
-    "c": 1
-  },
-  {
-    "q": "En mamíferos, el colesterol puede: I) proveer energía a las células, II) formar parte de las membranas biológicas, III) ser precursor de hormonas esteroidales. Según el ítem PEVE, ¿qué enunciados son correctos?",
-    "a": [
-      "Solo II",
-      "Solo I y II",
-      "Solo I y III",
-      "Solo II y III"
-    ],
-    "c": 3
-  },
-  {
-    "q": "Una pregunta PEVE compara células procariontes y eucariontes. ¿Cuál es la diferencia estructural correcta?",
-    "a": [
-      "La célula procarionte es la única que tiene pared celular.",
-      "La célula eucarionte es la única que presenta material genético.",
-      "La célula procarionte es la única que tiene flagelos.",
-      "La célula eucarionte es la que presenta mayor grado de compartimentación."
-    ],
-    "c": 3
-  },
-  {
-    "q": "El páncreas produce gran cantidad de proteínas para secretar hormonas. En el ítem PEVE correspondiente, ¿qué organelo se espera encontrar en abundancia en estas células?",
-    "a": [
-      "Lisosomas",
-      "Peroxisomas",
-      "Mitocondrias",
-      "Retículo endoplásmico rugoso"
-    ],
-    "c": 3
-  },
-  {
-    "q": "En una pregunta PEVE se define a organismos unicelulares procariontes, con membrana plasmática, pared celular y ADN disperso en el citoplasma. ¿A qué tipo de organismo corresponde esta descripción?",
-    "a": [
-      "Virus",
-      "Hongos",
-      "Animales",
-      "Bacterias"
-    ],
-    "c": 3
-  },
-  {
-    "q": "En un experimento PEVE se bloquea la función de la mitocondria en una célula. Según la clave oficial, ¿cuál es la consecuencia inmediata?",
-    "a": [
-      "Cese de la respiración celular",
-      "Detención de la división celular",
-      "Bloqueo de la síntesis de proteínas",
-      "Disminución de la síntesis de lípidos"
-    ],
-    "c": 0
-  },
-  {
-    "q": "Otra pregunta PEVE propone que, si la célula eucariota fuera una ciudad, ¿qué representaría mejor a la mitocondria?",
-    "a": [
-      "La planta de desechos",
-      "La central energética",
-      "El sistema de distribución",
-      "El almacén de productos"
-    ],
-    "c": 1
-  },
-  {
-    "q": "Según el banco PEVE, ¿cuál es la principal función de los cloroplastos en la célula vegetal?",
-    "a": [
-      "Absorber energía lumínica y fabricar nutrientes",
-      "Eliminar sustancias de desecho",
-      "Fabricar energía lumínica a partir del alimento",
-      "Regular la forma de la célula"
-    ],
-    "c": 0
-  },
-  {
-    "q": "En una pregunta sobre diferencias entre células, el ítem PEVE pregunta: ¿qué actividad puede realizar la célula vegetal que la célula animal no puede realizar?",
-    "a": [
-      "Excretar desechos",
-      "Sintetizar proteínas",
-      "Elaborar carbohidratos a partir del CO₂",
-      "Intercambiar gases con el medio externo"
-    ],
-    "c": 2
-  },
-  {
-    "q": "Un experimento PEVE utiliza una bolsa de celofán con agua y azúcar dentro de un vaso con otra concentración. Tras un tiempo, el volumen de la bolsa aumenta. ¿Cuál es la explicación correcta?",
-    "a": [
-      "Solo porque el celofán es semipermeable.",
-      "Solo porque la concentración de azúcar es mayor al interior.",
-      "Porque una bomba transportadora impulsó agua al interior.",
-      "Porque el celofán es semipermeable y la concentración de azúcar es mayor al interior."
-    ],
-    "c": 3
-  },
-  {
-    "q": "En un ítem sobre ventilación pulmonar, PEVE pregunta por la estructura donde ocurre el intercambio gaseoso con la sangre. ¿Cuál es la respuesta correcta?",
-    "a": [
-      "La tráquea",
-      "Los alvéolos",
-      "La faringe",
-      "La mitocondria"
-    ],
-    "c": 1
-  },
-  {
-    "q": "Respecto al proceso de digestión, el banco PEVE indica que en el intestino delgado comienza la absorción de nutrientes. ¿Qué proceso ocurre inmediatamente antes para formar el quilo?",
-    "a": [
-      "El bolo se mezcla con jugo gástrico y se forma el quimo.",
-      "El bolo se mezcla con jugo pancreático y se forma el quilo.",
-      "El quimo se mezcla con jugo gástrico y se forma el quilo.",
-      "El quimo se mezcla con jugos pancreático e intestinal y bilis, formándose el quilo."
-    ],
-    "c": 3
-  },
-  {
-    "q": "Otra pregunta PEVE aborda la representación de grupos de alimentos en Chile. ¿Por qué se cambió el modelo de pirámide alimentaria al plato seccionado?",
-    "a": [
-      "Porque la pirámide estaba invertida.",
-      "Porque la pirámide estaba incompleta.",
-      "Porque generaba confusión y errores de interpretación.",
-      "Porque los alimentos estaban desordenados."
-    ],
-    "c": 2
-  },
-  {
-    "q": "Según el ítem de nutrición humana del banco PEVE, ¿qué tipo de grasa es la más saludable para el cuerpo?",
-    "a": [
-      "Grasas trans",
-      "Grasas saturadas",
-      "Grasas insaturadas",
-      "Ninguna de las anteriores"
-    ],
-    "c": 2
-  }
-];
-  const box = document.getElementById('quizBox');
-  box.innerHTML = questions.map((o,i)=>`
-    <div style="margin:.75rem 0">
-      <div><strong>${i+1}.</strong> ${o.q}</div>
-      ${o.a.map((opt,j)=>`
-        <label style="display:block;margin:.25rem 0">
-          <input type="radio" name="q${i}" value="${j}"> ${opt}
-        </label>
-      `).join('')}
+<body class="theme-dark">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
     </div>
-  `).join('');
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
 
-  
-  async function grade(){
-    let correct = 0;
-    questions.forEach((o,i)=>{
-      const sel = document.querySelector('input[name="q'+i+'"]:checked');
-      if(sel && parseInt(sel.value,10)===o.c) correct++;
-    });
-    const scoreText = `Puntaje: ${correct}/${questions.length}`;
-    const scoreEl = document.getElementById('score');
-    if(scoreEl) scoreEl.textContent = scoreText;
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
 
-    // Enviar resultado al backend (Google Sheets) si hay sesión y API disponible
-    try{
-      const u = (typeof getSession === 'function') ? getSession() : null;
-      if(u && u.id && window.PEVE_API && typeof PEVE_API.pevePost === 'function'){
-        await PEVE_API.pevePost('quiz_submit', {
-          timestamp: new Date().toISOString(),
-          userId: u.id,
-          userName: u.name || '',
-          course: 'Biología 1M',
-          module: 'OA2',
-          score: correct,
-          max: questions.length,
-          q1: '',
-          q2: ''
-        });
-        console.log('Intento de quiz registrado en Sheets para', u.id);
-      }else{
-        console.log('Quiz registrado sólo localmente (sin sesión o sin API configurada).');
-      }
-    }catch(err){
-      console.warn('No se pudo enviar el quiz a Sheets (quiz_submit).', err);
-    }
-  }
+<main id="main-content" class="page-main"></main>
 
-</script>
-<script src="../../../../../assets/js/accesibilidad.js"></script></body>
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

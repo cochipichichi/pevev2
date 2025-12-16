@@ -1,203 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz PEVE — Física 8° Básico</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="../pwa/manifest.webmanifest"/>
-  <link rel="icon" href="../assets/img/favicon.png"/>
-  <link rel="preload" href="../style.css" as="style"/>
-  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
+  <script src="../../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-  <header class="header">
-    <div class="hero">
-      <h1>Quiz PEVE — Física 8° Básico</h1>
-      <p>Preguntas inspiradas en el banco oficial PEVE (CN08 OA10 y OA11).</p>
+<body class="theme-dark">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
+    </div>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
+
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
     </div>
   </header>
 
-  <main class="section">
-    <div id="quiz-container" class="quiz-container"></div>
-    <div class="btn-row">
-      <button id="checkBtn" class="btn">✅ Revisar respuestas</button>
-      <button id="resetBtn" class="btn">🔄 Reiniciar</button>
-      <a href="../index.html" class="btn">⬅ Volver a Física 8°</a>
+<main id="main-content" class="page-main"></main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
+        </p>
+      </div>
     </div>
-    <p id="score" class="note"></p>
-  </main>
-
-  <script>
-  const questions = [
-    {{
-      id: 1,
-      text: "La cantidad de carga eléctrica que fluye por un conductor en un cierto tiempo se llama:",
-      options: [
-        "Voltaje.",
-        "Intensidad eléctrica.",
-        "Potencia eléctrica.",
-        "Resistencia eléctrica."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 2,
-      text: "¿Cuál es la unidad de medida de la resistencia eléctrica en el Sistema Internacional?",
-      options: [
-        "Voltio (V)",
-        "Ohmio (Ω)",
-        "Watt (W)",
-        "Coulomb (C)"
-      ],
-      correct: 1
-    }},
-    {{
-      id: 3,
-      text: "El instrumento que se utiliza para medir la intensidad de corriente es el:",
-      options: [
-        "Corrientómetro.",
-        "Voltímetro.",
-        "Amperímetro.",
-        "Conductímetro."
-      ],
-      correct: 2
-    }},
-    {{
-      id: 4,
-      text: "En un circuito en serie, comparado con uno en paralelo, se cumple que:",
-      options: [
-        "La corriente es la misma en todos los componentes.",
-        "El voltaje es el mismo en todos los componentes.",
-        "La corriente se divide en cada rama.",
-        "No circula corriente eléctrica."
-      ],
-      correct: 0
-    }},
-    {{
-      id: 5,
-      text: "¿Cuál de los siguientes materiales es un buen conductor del calor?",
-      options: [
-        "Plástico.",
-        "Goma.",
-        "Vidrio.",
-        "Metal."
-      ],
-      correct: 3
-    }},
-    {{
-      id: 6,
-      text: "Respecto de las escalas Celsius y Kelvin, es correcto que:",
-      options: [
-        "0 °C equivale a 0 K.",
-        "Un cambio de 1 °C equivale a un cambio de 1 K.",
-        "La temperatura mínima posible es 0 °C.",
-        "Un cambio de 1 °C equivale a un cambio de 2 K."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 7,
-      text: "Cuando dos cuerpos a distinta temperatura se ponen en contacto, la transferencia de calor dura hasta que:",
-      options: [
-        "Ambos alcanzan la temperatura ambiente.",
-        "Ambos se enfrían totalmente.",
-        "Ambos alcanzan la misma temperatura.",
-        "Uno de ellos se evapora."
-      ],
-      correct: 2
-    }},
-    {{
-      id: 8,
-      text: "¿Qué sucede con las moléculas de un líquido cuando este se enfría?",
-      options: [
-        "Aumentan su velocidad.",
-        "Disminuyen su velocidad.",
-        "Se rompen en moléculas más pequeñas.",
-        "Desaparecen."
-      ],
-      correct: 1
-    }},
-    {{
-      id: 9,
-      text: "Una ampolleta de 100 W permanece encendida por 8 horas. ¿Cuánta energía consume en kWh?",
-      options: [
-        "0,1 kWh",
-        "0,8 kWh",
-        "8 kWh",
-        "80 kWh"
-      ],
-      correct: 1
-    }},
-    {{
-      id: 10,
-      text: "En un circuito domiciliario, el componente que permite el traslado de la energía eléctrica es:",
-      options: [
-        "El enchufe.",
-        "El interruptor.",
-        "El cable.",
-        "El automático."
-      ],
-      correct: 2
-    }}
-  ];
-
-  function renderQuiz() {{
-    const container = document.getElementById('quiz-container');
-    container.innerHTML = '';
-    questions.forEach((q, idx) => {{
-      const card = document.createElement('article');
-      card.className = 'card quiz-card';
-      const h3 = document.createElement('h3');
-      h3.textContent = `Pregunta ${idx + 1}`;
-      const p = document.createElement('p');
-      p.textContent = q.text;
-      card.appendChild(h3);
-      card.appendChild(p);
-
-      q.options.forEach((opt, i) => {{
-        const label = document.createElement('label');
-        label.className = 'quiz-option';
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'q' + q.id;
-        input.value = i;
-        label.appendChild(input);
-        const span = document.createElement('span');
-        span.textContent = opt;
-        label.appendChild(span);
-        card.appendChild(label);
-      }});
-
-      container.appendChild(card);
-    }});
-  }}
-
-  function checkAnswers() {{
-    let correctCount = 0;
-    questions.forEach(q => {{
-      const selected = document.querySelector('input[name="q' + q.id + '"]:checked');
-      if (selected && Number(selected.value) === q.correct) {{
-        correctCount++;
-      }}
-    }});
-    const scoreEl = document.getElementById('score');
-    scoreEl.textContent = `Acertaste ${correctCount} de ${questions.length} preguntas.`;
-  }}
-
-  function resetQuiz() {{
-    document.querySelectorAll('#quiz-container input[type="radio"]').forEach(i => i.checked = false);
-    document.getElementById('score').textContent = '';
-  }}
-
-  document.addEventListener('DOMContentLoaded', () => {{
-    renderQuiz();
-    document.getElementById('checkBtn').addEventListener('click', checkAnswers);
-    document.getElementById('resetBtn').addEventListener('click', resetQuiz);
-  }});
-  </script>
-
-  <script src="../js/script.js"></script>
-  <script src="../../../../assets/js/accesibilidad.js"></script>
+  </footer>
 </body>
 </html>

@@ -1,203 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CN08 OA04 — Plantas y estructuras especializadas</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="pwa/manifest.webmanifest"/>
-  <link rel="icon" href="assets/img/favicon.png"/>
-  <link rel="preload" href="style.css" as="style"/>
-  <link rel="stylesheet" href="style.css"/>
-  <!-- model-viewer 3D/AR -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../../assets/css/peve-cards.css">
+  <link rel="icon" type="image/svg+xml" href="../../../../assets/logo.svg">
+  <script src="../../../../assets/js/accessibility.js" defer></script>
 </head>
-<body>
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
-<div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
-</div>
-</div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
-<span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
-</nav>
+<body class="theme-dark">
 
-<header class="header">
-  <div class="hero" id="intro">
-    <h1
-      data-i18n-es="CN08 OA04 — Plantas y estructuras especializadas"
-      data-i18n-en="CN08 OA04 — Plants and specialized structures"
-    >
-      CN08 OA04 — Plantas y estructuras especializadas
-    </h1>
-    <p
-      data-i18n-es="Crear modelos que expliquen que las plantas tienen estructuras especializadas para responder a estímulos del medioambiente, similares a las del cuerpo humano."
-      data-i18n-en="Create models that explain that plants have specialized structures to respond to environmental stimuli, similar to those of the human body."
-    >
-      Crear modelos que expliquen que las plantas tienen estructuras especializadas para responder a estímulos
-      del medioambiente, similares a las del cuerpo humano, considerando transporte de sustancias e intercambio de gases.
-    </p>
-
-    <div class="btn-row">
-      <a class="btn" href="#comparacion">🌿🔁🫁 Comparar planta / cuerpo humano</a>
-      <a class="btn" href="#transporte">💧 Transporte de sustancias</a>
-      <a class="btn" href="#gases">🌬️ Intercambio de gases</a>
-      <a class="btn" href="#actividad">🧪 Actividades basadas en PEVE</a>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle" aria-hidden="true">📚</div>
+      <div class="brand-text">
+        <span class="brand-name">PEVE</span>
+        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+      </div>
     </div>
-    <p class="note">
-      Este recurso se conecta con el módulo Biología 8° (PEVE) y con las preguntas del banco asociadas a
-      transpiración, estomas, vacuola, pared celular y nutrición de las plantas.
-    </p>
-  </div>
-</header>
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../../../../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+      <a href="../../../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
 
-<main>
+    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
 
-  <section class="section" id="comparacion">
-    <h2>🌿🔁🫁 Plantas y cuerpo humano: ¿en qué se parecen?</h2>
-    <p>
-      El OA04 del Currículum Nacional propone comparar <strong>estructuras especializadas de las plantas</strong>
-      con <strong>estructuras del cuerpo humano</strong>, especialmente cuando cumplen funciones parecidas:
-      transportar sustancias o intercambiar gases.
-    </p>
+<main id="main-content" class="page-main"></main>
 
-    <div class="grid">
-      <article class="card">
-        <h3>🌿 Planta</h3>
-        <ul>
-          <li><strong>Raíces:</strong> absorben agua y sales minerales desde el suelo (similar a intestino/riñones).</li>
-          <li><strong>Tallo y vasos conductores (xilema y floema):</strong> transportan agua, sales minerales y azúcares.</li>
-          <li><strong>Hojas:</strong> realizan fotosíntesis y transpiran agua.</li>
-          <li><strong>Estomas:</strong> aberturas microscópicas por donde entran y salen gases.</li>
-          <li><strong>Vacuola central:</strong> almacena agua y mantiene la turgencia de la célula vegetal.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>🧍‍♂️ Cuerpo humano</h3>
-        <ul>
-          <li><strong>Intestino delgado:</strong> absorbe nutrientes hacia la sangre.</li>
-          <li><strong>Vasos sanguíneos:</strong> transportan oxígeno, nutrientes y desechos.</li>
-          <li><strong>Pulmones:</strong> realizan el intercambio de oxígeno y dióxido de carbono.</li>
-          <li><strong>Alvéolos:</strong> estructuras donde se realiza el intercambio gaseoso con la sangre.</li>
-          <li><strong>Riñones:</strong> filtran la sangre y regulan contenido de agua y sales.</li>
-        </ul>
-      </article>
-
-      <article class="card accessibility-card">
-        <h3>🧩 Tip para el estudio</h3>
-        <p class="note">
-          Para cada estructura de la planta, piensa en <strong>qué parte del cuerpo</strong> hace algo parecido.
-          Eso te ayudará a recordar las funciones y responder preguntas de PEVE.
+  <footer class="footer small">
+    <div class="footer-inner">
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
+          <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
+          <small>🛠️Prohibida su copia y/o reproducción</small>
+        </div>
+      </div>
+      <div class="footer-text">
+        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+        <p class="footer-note">
+          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
+          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </article>
+      </div>
     </div>
-  </section>
-
-  <section class="section" id="transporte">
-    <h2>💧 Transporte de sustancias en plantas y humanos</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🌿 En plantas</h3>
-        <ul>
-          <li><strong>Xilema:</strong> lleva agua y sales minerales desde la raíz hacia el resto de la planta.</li>
-          <li><strong>Floema:</strong> transporta azúcares y otras sustancias producidas en las hojas.</li>
-          <li><strong>Transpiración:</strong> la pérdida de agua por estomas ayuda a “tirar” agua desde la raíz.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🩸 En humanos</h3>
-        <ul>
-          <li><strong>Sistema circulatorio:</strong> el corazón impulsa la sangre por arterias y venas.</li>
-          <li><strong>Capilares:</strong> permiten el intercambio de sustancias entre la sangre y los tejidos.</li>
-          <li><strong>Plasma sanguíneo:</strong> transporta nutrientes, hormonas y desechos metabólicos.</li>
-        </ul>
-      </article>
-    </div>
-    <p class="note">
-      En el banco PEVE aparecen preguntas sobre <strong>transpiración en plantas</strong> y sobre por qué
-      la pérdida de agua es mayor en hojas expuestas al aire y al sol. Estas ideas se relacionan directamente
-      con el transporte de agua por xilema.
-    </p>
-  </section>
-
-  <section class="section" id="gases">
-    <h2>🌬️ Intercambio de gases: estomas y pulmones</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🌿 Estomas en las hojas</h3>
-        <ul>
-          <li>Son pequeños poros en la epidermis de las hojas.</li>
-          <li>Permiten la entrada de <strong>CO₂</strong> y la salida de <strong>O₂</strong> y vapor de agua.</li>
-          <li>Se abren y cierran según la luz, la humedad y la temperatura.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🫁 Alvéolos en los pulmones</h3>
-        <ul>
-          <li>Son pequeños sacos de aire al final de los bronquiolos.</li>
-          <li>En sus paredes ocurre el intercambio de <strong>O₂</strong> y <strong>CO₂</strong> con la sangre.</li>
-          <li>Están rodeados de capilares sanguíneos muy delgados.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🔗 Analogía clave</h3>
-        <p>
-          Varios ítems del banco PEVE relacionan los <strong>estomas</strong> con la función de las
-          <strong>fosas nasales</strong> o los pulmones: en ambos casos hay <strong>intercambio de gases</strong>
-          con el medio y regulación de entrada/salida de aire.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="actividad">
-    <h2>🧪 Actividades basadas en el banco PEVE</h2>
-    <ol>
-      <li>
-        <strong>Lectura de ítems:</strong> selecciona las preguntas del banco PEVE que hablen de
-        <em>transpiración, estomas, vacuola, pared celular o diferencias animal/vegetal</em>.
-      </li>
-      <li>
-        <strong>Mapa de analogías:</strong> por cada estructura de la planta, busca la estructura humana
-        que cumple una función similar (por ejemplo, estomas ↔ alvéolos).
-      </li>
-      <li>
-        <strong>Modelo 3D:</strong> usa el visor de célula (👁️ 3D / 📱 AR) para ubicar la vacuola y la pared celular
-        y explicar por qué son importantes para la planta.
-      </li>
-      <li>
-        <strong>Pregunta inversa:</strong> inventa una nueva pregunta tipo PEVE donde tengas que justificar
-        por qué la pérdida de agua es mayor en cierta planta según su ambiente.
-      </li>
-      <li>
-        <strong>Reflexión:</strong> registra tus conclusiones en el 🎟️ Ticket de salida del módulo Biología 8° PEVE.
-      </li>
-    </ol>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn">⬅ Volver al módulo Biología 8° PEVE</a>
-      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE</a>
-      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
-    </div>
-  </section>
-
-</main>
-
-<script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script>
+  </footer>
 </body>
 </html>
