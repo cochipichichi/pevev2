@@ -1,5 +1,5 @@
 // assets/js/auth-demo.js
-// Login unificado para PEVE (estudiante + administrador)
+// Login unificado para PEVE (estudiante, apoderado, docente y administrador) usando peve-login-form
 
 (function () {
   // "Base de datos" DEMO de estudiantes
@@ -61,6 +61,34 @@
     },
   ];
 
+  // Cuentas de apoderado DEMO (vinculadas a 8° básico)
+  const guardianAccounts = [
+    {
+      email: "apoderado.demo@peve.cl",
+      password: "PeveApoderado2025*", // DEMO
+      name: "Apoderado Demo",
+      phone: "+56 9 2002 7999",
+      studentName: "Martín Acuña Perez",
+      studentRun: "15677733-1",
+      studentIdPeve: "STU-2025-0001",
+      studentLevel: "8° Básico",
+      studentCall: "2025 · 1° llamado",
+      studentPackage: "PEVE 8° Básico Completo 2024",
+    },
+  ];
+
+  // Cuentas de docente DEMO
+  const teacherAccounts = [
+    {
+      email: "docente.demo@peve.cl",
+      password: "PeveDocente2025*", // DEMO
+      name: "Docente Demo PEVE",
+      school: "Liceo Bicentenario de Excelencia Polivalente San Nicolás",
+      subjects: ["Ciencias Naturales", "Tecnología"],
+      levels: ["7° Básico", "8° Básico", "1° Medio"],
+    },
+  ];
+
   function findErrorElement() {
     let el = document.getElementById("login-error");
     if (el) return el;
@@ -93,9 +121,11 @@
       const perfilInput = form.querySelector('input[name="perfil"]');
       let profile = (perfilInput?.value || "student").toLowerCase();
 
-      // Normalizamos posibles valores en español
+      // Normalizar español → inglés / clave interna
       if (profile === "estudiante") profile = "student";
       if (profile === "administrador") profile = "admin";
+      if (profile === "apoderado") profile = "guardian";
+      if (profile === "docente") profile = "teacher";
 
       const mainInput =
         document.getElementById("login-main-input") ||
@@ -149,7 +179,7 @@
           sessionStorage.setItem("studentCall", user.call);
           sessionStorage.setItem("studentPackage", user.packageName);
         } catch (e) {
-          console.warn("No se pudo usar sessionStorage:", e);
+          console.warn("No se pudo usar sessionStorage para estudiante:", e);
         }
 
         // Redirección al panel del estudiante
@@ -157,7 +187,81 @@
         return;
       }
 
-      // 2) LOGIN ADMINISTRADOR
+      // 2) LOGIN APODERADO
+      if (profile === "guardian") {
+        const guardian = guardianAccounts.find(
+          (g) => g.email.toLowerCase() === mainValue.toLowerCase()
+        );
+
+        if (!guardian || guardian.password !== password) {
+          if (errorEl) {
+            errorEl.textContent =
+              "Credenciales de apoderado incorrectas. Verifica correo y contraseña.";
+          }
+          return;
+        }
+
+        try {
+          sessionStorage.setItem("guardianLogged", "1");
+          sessionStorage.setItem("guardianEmail", guardian.email);
+          sessionStorage.setItem("guardianName", guardian.name);
+          sessionStorage.setItem("guardianPhone", guardian.phone || "");
+
+          sessionStorage.setItem("guardianStudentName", guardian.studentName);
+          sessionStorage.setItem("guardianStudentRun", guardian.studentRun);
+          sessionStorage.setItem("guardianStudentId", guardian.studentIdPeve);
+          sessionStorage.setItem("guardianStudentLevel", guardian.studentLevel);
+          sessionStorage.setItem("guardianStudentCall", guardian.studentCall);
+          sessionStorage.setItem(
+            "guardianStudentPackage",
+            guardian.studentPackage
+          );
+        } catch (e) {
+          console.warn("No se pudo usar sessionStorage para apoderado:", e);
+        }
+
+        // Redirección al panel de apoderado
+        window.location.href = "./dashboard_apoderado.html";
+        return;
+      }
+
+      // 3) LOGIN DOCENTE
+      if (profile === "teacher") {
+        const teacher = teacherAccounts.find(
+          (t) => t.email.toLowerCase() === mainValue.toLowerCase()
+        );
+
+        if (!teacher || teacher.password !== password) {
+          if (errorEl) {
+            errorEl.textContent =
+              "Credenciales de docente incorrectas. Verifica correo y contraseña.";
+          }
+          return;
+        }
+
+        try {
+          sessionStorage.setItem("teacherLogged", "1");
+          sessionStorage.setItem("teacherEmail", teacher.email);
+          sessionStorage.setItem("teacherName", teacher.name);
+          sessionStorage.setItem("teacherSchool", teacher.school || "");
+          sessionStorage.setItem(
+            "teacherSubjects",
+            JSON.stringify(teacher.subjects || [])
+          );
+          sessionStorage.setItem(
+            "teacherLevels",
+            JSON.stringify(teacher.levels || [])
+          );
+        } catch (e) {
+          console.warn("No se pudo usar sessionStorage para docente:", e);
+        }
+
+        // Redirección al panel docente
+        window.location.href = "./dashboard_docente.html";
+        return;
+      }
+
+      // 4) LOGIN ADMINISTRADOR
       if (profile === "admin") {
         const admin = adminAccounts.find(
           (a) => a.email.toLowerCase() === mainValue.toLowerCase()
@@ -184,7 +288,7 @@
         return;
       }
 
-      // 3) OTROS PERFILES (apoderado/docente demo)
+      // 5) OTROS PERFILES (docente/PIE externos, etc.) → modo demo
       if (errorEl) {
         errorEl.textContent =
           "Por ahora este perfil está en modo demostrativo. La conexión real se habilitará en próximas versiones.";

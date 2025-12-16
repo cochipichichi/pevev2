@@ -1,0 +1,98 @@
+
+/* Tarjetas para OA y módulos PEVE */
+.oa-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-block: 1.5rem 2rem;
+}
+.oa-card {
+  background: var(--card-bg, rgba(10,12,16,0.9));
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+.oa-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.18s ease-out;
+  pointer-events: none;
+}
+.oa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.45);
+  border-color: rgba(255,255,255,0.18);
+}
+.oa-card:hover::after {
+  opacity: 1;
+}
+.oa-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+.oa-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.5rem 0 0.75rem;
+}
+.oa-chip {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.02);
+}
+.oa-card .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.btn-ghost-sm, .btn-solid-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.22);
+  text-decoration: none;
+}
+.btn-solid-sm {
+  background: linear-gradient(135deg, #2563eb, #22c55e);
+}
+.btn-ghost-sm {
+  background: transparent;
+}
+.download-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.download-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: 0.9rem;
+  background: rgba(10,12,16,0.9);
+  border: 1px dashed rgba(255,255,255,0.25);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.download-card span {
+  display: block;
+}
+@media (max-width: 640px) {
+  .oa-card {
+    padding: 1rem 1.1rem;
+  }
+}
