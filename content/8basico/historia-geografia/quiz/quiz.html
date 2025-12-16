@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
   <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
   <script src="../../../../../assets/js/accessibility.js" defer></script>
+  <script src="../../../../../assets/js/config.js" defer></script>
+  <script src="../../../../../assets/js/peve-backend.js" defer></script>
 </head>
 <body class="theme-dark">
   <header class="topbar">
@@ -242,6 +244,27 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem(key, JSON.stringify(prev));
   } catch (err) {
     console.warn("No se pudo guardar en localStorage", err);
+  }
+
+  // Enviar también a Google Sheets vía Apps Script (modo demo)
+  if (window.PEVE_BACKEND) {
+    window.PEVE_BACKEND.sendQuizResult({
+      userName: payload.name,
+      course: payload.course || "8° Básico",
+      module: "Historia y Geografía 8° – Quiz demo",
+      score: correct,
+      max: QUESTIONS.length,
+      q1: "Historia 8°",
+      q2: "Quiz banco PEVE"
+    }).then((res) => {
+      if (res && res.status === "ok") {
+        console.log("[PEVE] Quiz enviado a Sheets");
+      } else {
+        console.warn("[PEVE] No se pudo enviar quiz a Sheets", res);
+      }
+    }).catch((err) => {
+      console.warn("[PEVE] Error al enviar quiz a Sheets", err);
+    });
   }
 });
 

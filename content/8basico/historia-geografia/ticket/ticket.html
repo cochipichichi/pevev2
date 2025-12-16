@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../../../../../assets/css/peve-cards.css">
   <link rel="icon" type="image/svg+xml" href="../../../../../assets/logo.svg">
   <script src="../../../../../assets/js/accessibility.js" defer></script>
+  <script src="../../../../../assets/js/config.js" defer></script>
+  <script src="../../../../../assets/js/peve-backend.js" defer></script>
 </head>
 <body class="theme-dark">
   <header class="topbar">
@@ -152,6 +154,31 @@ document.getElementById("mail-ticket").addEventListener("click", (e) => {
   const subject = encodeURIComponent("Ticket de salida Historia 8° – PEVE");
   const to = "belenacuna@liceosannicolas.cl,franciscopinto@liceosannicolas.cl";
   e.currentTarget.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+  // Además, enviar el ticket a Google Sheets vía Apps Script (demo)
+  if (window.PEVE_BACKEND) {
+    const name = document.getElementById("t-name").value || "";
+    const course = document.getElementById("t-course").value || "8° básico";
+    const learned = document.getElementById("t-q1").value || "";
+    const doubt = document.getElementById("t-q2").value || "";
+    const example = document.getElementById("t-q3").value || "";
+    window.PEVE_BACKEND.sendTicket({
+      userName: name,
+      course,
+      module: "Historia y Geografía 8° – Ticket salida",
+      learned,
+      doubt,
+      example
+    }).then((res) => {
+      if (res && res.status === "ok") {
+        console.log("[PEVE] Ticket enviado a Sheets");
+      } else {
+        console.warn("[PEVE] No se pudo enviar ticket a Sheets", res);
+      }
+    }).catch((err) => {
+      console.warn("[PEVE] Error al enviar ticket a Sheets", err);
+    });
+  }
 });
 </script>
 
