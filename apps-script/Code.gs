@@ -9,6 +9,7 @@ const ALLOWED_ORIGINS = [
   'http://127.0.0.1',
   // Agrega aquí tu dominio productivo:
   'https://panchopinto.github.io',
+  'https://cochipichichi.github.io',
   'https://educacioninmversiva.cl'
 ];
 
@@ -72,6 +73,49 @@ function doPost(e){
       const rows = values.map(r=>({id:r[0],name:r[1],role:r[2],email:r[3]}));
       out = {status:'ok', rows};
     }
+
+    else if(action === 'guardian_summary'){
+      const sh = _sheet_(ss, 'quiz', ['timestamp','userId','userName','course','module','score','max','q1','q2']);
+      const values = sh.getDataRange().getValues();
+      if (values.length <= 1) {
+        out = {status:'ok', rows: []};
+      } else {
+        values.shift(); // Encabezados
+        const targetId = String(payload.userId || '').trim();
+        const targetName = String(payload.userName || '').trim().toLowerCase();
+        const summaryMap = {};
+        for (var i = 0; i < values.length; i++) {
+          const r = values[i];
+          const uid = String(r[1] || '').trim();
+          const uname = String(r[2] || '').trim();
+          if (targetId && uid !== targetId) continue;
+          if (!targetId && targetName && uname.toLowerCase() !== targetName) continue;
+
+          const course = r[3] || '';
+          const module = r[4] || '';
+          const score = Number(r[5] || 0);
+          const max = Number(r[6] || 0);
+          const key = module || 'General';
+
+          if (!summaryMap[key]) {
+            summaryMap[key] = {
+              course: course,
+              module: module,
+              attempts: 0,
+              lastScore: 0,
+              bestScore: 0
+            };
+          }
+          const item = summaryMap[key];
+          item.attempts++;
+          const percent = max > 0 ? Math.round((score / max) * 100) : 0;
+          item.lastScore = percent;
+          if (percent > item.bestScore) item.bestScore = percent;
+        }
+        out = {status:'ok', rows: Object.keys(summaryMap).map(function(k){ return summaryMap[k]; })};
+      }
+    }
+
     else {
       out = {status:'error', message:'Acción no soportada'};
     }
@@ -255,6 +299,49 @@ function doPost(e){
       const pdf = DriveApp.getFileById(doc.getId()).getAs('application/pdf');
       const pdfFile = DriveApp.createFile(pdf).setName((payload.docTitle||'Reporte')+'.pdf');
       out = {status:'ok', pdfUrl: pdfFile.getUrl(), docUrl: 'https://docs.google.com/document/d/'+doc.getId()};
+    }
+
+
+    else if(action === 'guardian_summary'){
+      const sh = _sheet_(ss, 'quiz', ['timestamp','userId','userName','course','module','score','max','q1','q2']);
+      const values = sh.getDataRange().getValues();
+      if (values.length <= 1) {
+        out = {status:'ok', rows: []};
+      } else {
+        values.shift(); // Encabezados
+        const targetId = String(payload.userId || '').trim();
+        const targetName = String(payload.userName || '').trim().toLowerCase();
+        const summaryMap = {};
+        for (var i = 0; i < values.length; i++) {
+          const r = values[i];
+          const uid = String(r[1] || '').trim();
+          const uname = String(r[2] || '').trim();
+          if (targetId && uid !== targetId) continue;
+          if (!targetId && targetName && uname.toLowerCase() !== targetName) continue;
+
+          const course = r[3] || '';
+          const module = r[4] || '';
+          const score = Number(r[5] || 0);
+          const max = Number(r[6] || 0);
+          const key = module || 'General';
+
+          if (!summaryMap[key]) {
+            summaryMap[key] = {
+              course: course,
+              module: module,
+              attempts: 0,
+              lastScore: 0,
+              bestScore: 0
+            };
+          }
+          const item = summaryMap[key];
+          item.attempts++;
+          const percent = max > 0 ? Math.round((score / max) * 100) : 0;
+          item.lastScore = percent;
+          if (percent > item.bestScore) item.bestScore = percent;
+        }
+        out = {status:'ok', rows: Object.keys(summaryMap).map(function(k){ return summaryMap[k]; })};
+      }
     }
 
     else {
