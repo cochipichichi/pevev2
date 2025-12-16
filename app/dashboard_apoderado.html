@@ -49,10 +49,27 @@
 <p class="note">En esta versión los datos son de demostración; más adelante se conectarán a los reportes reales PEVE/DIA/KPSI.</p>
 </section>
 <section class="grid mt-lg">
-<article class="card card-highlight">
-<h3>📊 Resumen de exámenes</h3>
-<p>Visualiza un resumen de los exámenes rendidos y pendientes de tu estudiante.</p>
-<button class="btn-disabled" disabled="">Próximamente</button>
+<article class="card card-highlight" id="guardian-summary-card">
+<h3>📊 Resumen de práctica en PEVE</h3>
+<p id="guardian-summary-intro">
+  Cargando información de práctica desde Google Sheets…
+</p>
+<table class="table" id="guardian-summary-table" hidden>
+  <thead>
+    <tr>
+      <th>Curso</th>
+      <th>Módulo / OA</th>
+      <th>Intentos</th>
+      <th>Último puntaje</th>
+      <th>Mejor puntaje</th>
+    </tr>
+  </thead>
+  <tbody id="guardian-summary-tbody">
+  </tbody>
+</table>
+<p class="note" id="guardian-summary-empty" hidden>
+  Aún no hay intentos de práctica registrados para este estudiante en los módulos conectados a PEVE.
+</p>
 </article>
 <article class="card">
 <h3>📚 Temarios oficiales</h3>
@@ -83,6 +100,9 @@
 </div>
 </footer>
 <script src="../assets/js/accesibilidad.js" defer></script>
+<script src="../assets/js/config.js" defer></script>
+<script src="../assets/js/peve-backend.js" defer></script>
 <script src="../assets/js/guardian-context.js" defer></script>
+<script src="../assets/js/guardian-summary.js" defer></script>
 <script src="../assets/js/footer.js"></script></body>
 </html>
