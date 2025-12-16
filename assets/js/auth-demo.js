@@ -2,7 +2,7 @@
 // Login unificado para PEVE (estudiante, apoderado, docente y administrador) usando peve-login-form
 
 (function () {
-  // "Base de datos" DEMO de estudiantes
+  // "Base de datos" DEMO de usuarios
   const demoUsers = {
     student: [
       {
@@ -45,49 +45,68 @@
         estadoCuenta: "activa",
       },
     ],
+    guardian: [
+      {
+        email: "apoderado7@peve.cl",
+        password: "apo7",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 7° Básico",
+      },
+      {
+        email: "apoderado8@peve.cl",
+        password: "apo8",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 8° Básico",
+      },
+      {
+        email: "apoderado1m@peve.cl",
+        password: "apo1m",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 1° Medio",
+      },
+    ],
+    teacher: [
+      {
+        email: "docente7@peve.cl",
+        password: "doc7",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Ciencias y Matemática",
+        level: "7° Básico",
+      },
+      {
+        email: "docente8@peve.cl",
+        password: "doc8",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Ciencias y Lenguaje",
+        level: "8° Básico",
+      },
+      {
+        email: "docente1m@peve.cl",
+        password: "doc1m",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Biología",
+        level: "1° Medio",
+      },
+    ],
+    admin: [
+      {
+        email: "neotechedulab@gmail.com",
+        password: "PEVENeoTechEdulab2025*",
+        name: "Neotech EduLab – Admin",
+      },
+      {
+        email: "cochipichichi@gmail.com",
+        password: "PEVENeoTechEdulab2025*",
+        name: "Pancho Pinto – Admin",
+      },
+    ],
   };
-
-  // Cuentas admin autorizadas DEMO
-  const adminAccounts = [
-    {
-      email: "neotechedulab@gmail.com",
-      password: "PEVENeoTechEdulab2025*",
-      name: "Neotech EduLab – Admin",
-    },
-    {
-      email: "cochipichichi@gmail.com",
-      password: "PEVENeoTechEdulab2025*",
-      name: "Pancho Pinto – Admin",
-    },
-  ];
-
-  // Cuentas de apoderado DEMO (vinculadas a 8° básico)
-  const guardianAccounts = [
-    {
-      email: "apoderado.demo@peve.cl",
-      password: "PeveApoderado2025*", // DEMO
-      name: "Apoderado Demo",
-      phone: "+56 9 2002 7999",
-      studentName: "Martín Acuña Perez",
-      studentRun: "15677733-1",
-      studentIdPeve: "STU-2025-0001",
-      studentLevel: "8° Básico",
-      studentCall: "2025 · 1° llamado",
-      studentPackage: "PEVE 8° Básico Completo 2024",
-    },
-  ];
-
-  // Cuentas de docente DEMO
-  const teacherAccounts = [
-    {
-      email: "docente.demo@peve.cl",
-      password: "PeveDocente2025*", // DEMO
-      name: "Docente Demo PEVE",
-      school: "Liceo Bicentenario de Excelencia Polivalente San Nicolás",
-      subjects: ["Ciencias Naturales", "Tecnología"],
-      levels: ["7° Básico", "8° Básico", "1° Medio"],
-    },
-  ];
 
   function findErrorElement() {
     let el = document.getElementById("login-error");
@@ -189,7 +208,7 @@
 
       // 2) LOGIN APODERADO
       if (profile === "guardian") {
-        const guardian = guardianAccounts.find(
+        const guardian = demoUsers.guardian.find(
           (g) => g.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -227,7 +246,7 @@
 
       // 3) LOGIN DOCENTE
       if (profile === "teacher") {
-        const teacher = teacherAccounts.find(
+        const teacher = demoUsers.teacher.find(
           (t) => t.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -263,7 +282,7 @@
 
       // 4) LOGIN ADMINISTRADOR
       if (profile === "admin") {
-        const admin = adminAccounts.find(
+        const admin = demoUsers.admin.find(
           (a) => a.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -302,3 +321,9 @@
     setupPeveLogin();
   }
 })();
+""".strip()
+
+with open(auth_path,"w",encoding="utf-8") as f:
+    f.write(new_auth)
+
+len(new_auth.splitlines())
