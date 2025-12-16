@@ -17,12 +17,14 @@
 <span class="brand-subtitle">Versión demo – gestión de exámenes y temarios</span>
 </div>
 </div>
-<nav aria-label="Navegación principal" class="topbar-nav">
-<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
-<a class="nav-link" data-i18n="nav.proceso" href="../pages/info.html">Proceso</a>
-<a class="nav-link" data-i18n="nav.niveles" href="../pages/niveles.html">Niveles</a>
-<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
-<a class="nav-link" data-i18n="nav.accesibilidad" href="../pages/accesibilidad.html">Accesibilidad</a>
+<nav class="topbar-nav" aria-label="Navegación principal">
+<a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+<a href="../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+<a href="../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+<a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+<a href="../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+<a href="../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+<a href="../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
 </nav>
 <div aria-label="Controles de accesibilidad" class="accessibility-toolbar">
 <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
@@ -38,20 +40,34 @@
 
 <main class="container">
 <section class="hero">
-<h2>Herramientas docentes para exámenes libres</h2>
-<p>Este panel concentrará recursos de planificación, temarios alineados a OA y soporte para evaluaciones.</p>
+<h2>👩‍🏫 Panel Docente – <span id="teacher-name">Docente PEVE</span></h2>
+<p>
+  Herramientas para <strong id="teacher-subjects">Ciencias Naturales y Tecnología</strong> en
+  <strong id="teacher-levels">7° Básico · 8° Básico · 1° Medio</strong>, vinculadas a exámenes libres PEVE.
+</p>
+<p class="note">
+  Establecimiento: <strong id="teacher-school">Liceo Bicentenario de Excelencia Polivalente San Nicolás</strong>.
+  Esta vista es demostrativa; más adelante se conectará a resultados reales (Google Sheets / Apps Script).
+</p>
 </section>
 <section class="grid mt-lg">
-<article class="card card-highlight">
-<h3>📌 Gestión de temarios</h3>
-<p>Espacio futuro para vincular temarios oficiales a planificaciones.</p>
-<button class="btn-disabled" disabled="">Próximamente</button>
-</article>
-<article class="card">
-<h3>🧪 Banco de evaluaciones</h3>
-<p>Aquí se podrán crear y administrar instrumentos de evaluación para exámenes libres.</p>
-<button class="btn-disabled" disabled="">Próximamente</button>
-</article>
+  <article class="card card-highlight">
+    <h3>📊 Informes por curso y asignatura</h3>
+    <p>
+      Abre el módulo de informes PEVE · DIA · KPSI con filtros preconfigurados según tu perfil docente.
+      Puedes ajustar curso, asignatura y llamado en cualquier momento.
+    </p>
+    <a href="./informes.html" class="btn btn-primary">Ir a informes</a>
+  </article>
+
+  <article class="card">
+    <h3>📚 Mis cursos y OA</h3>
+    <p>
+      Accede a un resumen de tus cursos (7° · 8° Básico · 1° Medio) y a los módulos PEVE por
+      objetivo de aprendizaje para planificar y acompañar a tus estudiantes. También puedes ver solo tus cursos favoritos en la vista <strong>Mis grupos activos</strong>.
+    </p>
+    <a href="./docente/mis_cursos.html" class="btn btn-ghost">Ver mis cursos / OA</a>
+  </article>
 </section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
@@ -69,5 +85,7 @@
 <p>Vista demo de panel – sin backend aún. Pensado para iterar más adelante.</p>
 </div>
 </footer>
-<script src="../assets/js/accesibilidad.js"></script><script src="../assets/js/footer.js"></script></body>
+<script src="../assets/js/accesibilidad.js" defer></script>
+<script src="../assets/js/teacher-context.js" defer></script>
+<script src="../assets/js/footer.js"></script></body>
 </html>

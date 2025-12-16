@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE
+    <section class="section" id="teacher-informes-links" style="display:none;">
+      <p class="note">
+        Estás viendo informes como <strong id="teacher-name-informes">Docente PEVE</strong>.
+        Atajos rápidos:
+        <a href="./dashboard_docente.html" class="btn btn-ghost btn-small">Volver a Panel docente</a>
+        <a href="./docente/mis_cursos.html" class="btn btn-ghost btn-small">Ver mis cursos / OA</a>
+      </p>
+    </section>
+ html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -48,6 +57,15 @@
         (inicio / fin) para tomar decisiones pedagógicas.
       </p>
     </header>
+    <section class="section" id="teacher-informes-links" style="display:none;">
+      <p class="note">
+        Estás viendo informes como <strong id="teacher-name-informes">Docente PEVE</strong>.
+        Atajos rápidos:
+        <a href="./dashboard_docente.html" class="btn btn-ghost btn-small">Volver a Panel docente</a>
+        <a href="./docente/mis_cursos.html" class="btn btn-ghost btn-small">Ver mis cursos / OA</a>
+      </p>
+    </section>
+
 
     <!-- FILTROS SUPERIORES -->
     <section class="section">
@@ -63,6 +81,8 @@
           <label>
             <span style="font-size:0.8rem;">Curso 2025</span>
             <select id="filter-curso" class="btn btn-ghost" style="min-width:150px;">
+              <option>7° Básico</option>
+              <option>8° Básico</option>
               <option>1° Medio</option>
               <option>2° Medio</option>
               <option>3° Medio</option>
@@ -72,11 +92,14 @@
 
           <label>
             <span style="font-size:0.8rem;">Asignatura</span>
-            <select id="filter-asignatura" class="btn btn-ghost" style="min-width:180px;">
+            <select id="filter-asignatura" class="btn btn-ghost" style="min-width:220px;">
+              <option>Ciencias Naturales</option>
+              <option>Tecnología</option>
               <option>Biología 1° Medio (BIO1M)</option>
               <option>Lengua y Literatura</option>
               <option>Matemática</option>
               <option>Historia y Cs. Sociales</option>
+              <option>Inglés</option>
             </select>
           </label>
 
@@ -346,6 +369,7 @@ Equipo PEVE – Liceo San Nicolás / Neotech EduLab</textarea>
 
   <!-- JS COMÚN -->
   <script src="../assets/js/accesibilidad.js" defer></script>
+  <script src="../assets/js/informes-context.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
 </body>
 </html>

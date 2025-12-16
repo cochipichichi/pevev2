@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>📚 Mis cursos y OA – Panel Docente PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <style>
+    .doc-course-card.is-favorite {
+      border: 2px solid #22c55e;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35);
+    }
+    .doc-course-card .btn-fav {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">📚</div>
+      <div class="brand-text">
+        <p class="brand-kicker">Plataforma de Exámenes de Validación de Estudios</p>
+        <h1 class="brand-title">PEVE · Mis cursos y objetivos de aprendizaje</h1>
+      </div>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../dashboard_docente.html" class="nav-link">Panel Docente</a>
+      <a href="./grupos_activos.html" class="nav-link">Mis grupos activos</a>
+      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
+
+    <div class="topbar-right accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Abrir guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
+
+  <main id="main-content" class="page">
+    <header class="page-header">
+      <p class="page-kicker">Vista docente</p>
+      <h2>📚 Mis cursos y objetivos de aprendizaje</h2>
+      <p class="page-lead">
+        Esta vista resume los cursos y módulos PEVE asociados a tu perfil. Usa estos accesos rápidos para
+        revisar temarios, actividades y quizzes alineados a los OA de 7° y 8° básico.
+      </p>
+      <p class="note">
+        Docente: <strong id="teacher-name-inline">Docente PEVE</strong> · Establecimiento:
+        <strong id="teacher-school-inline">Liceo / establecimiento</strong>
+      </p>
+    </header>
+
+    <section class="section">
+      <h3>7° Básico · Cursos y OA</h3>
+      <div class="dashboard-grid">
+        <article class="card doc-course-card" data-course-id="7B-CN-FIS">
+          <h4>🔬 Ciencias Naturales – Física (7°)</h4>
+          <p class="note">
+            Módulo basado en el banco PEVE de 7° básico: fuerza, movimiento y fenómenos físicos cotidianos.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html" class="btn btn-primary">
+              Abrir módulo PEVE
+            </a>
+            <a href="../informes.html?curso=7° Básico&asig=Ciencias Naturales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="7B-CN-FIS">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="7B-LENG">
+          <h4>📖 Lengua y Literatura (7°)</h4>
+          <p class="note">
+            Banco PEVE de comprensión lectora, producción de textos y reflexión sobre la lengua para 7° básico.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/7basico/lenguaje/lengua-y-literatura/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=7° Básico&asig=Lengua y Literatura&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="7B-LENG">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="7B-MAT">
+          <h4>📐 Matemática (7°)</h4>
+          <p class="note">
+            Ítems PEVE de números, proporcionalidad, geometría y datos para reforzar el trabajo de aula en 7° básico.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/7basico/matematica/matematica-7/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=7° Básico&asig=Matemática&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="7B-MAT">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="7B-HIST">
+          <h4>🌍 Historia, Geografía y Cs. Sociales (7°)</h4>
+          <p class="note">
+            Banco de preguntas para analizar procesos históricos y geográficos relevantes del nivel.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/7basico/historia/historia-geografia/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=7° Básico&asig=Historia y Cs. Sociales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="7B-HIST">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>8° Básico · Cursos y OA</h3>
+      <div class="dashboard-grid">
+        <article class="card doc-course-card" data-course-id="8B-CN-BIO">
+          <h4>🔬 Ciencias Naturales – Biología (8°)</h4>
+          <p class="note">
+            Módulo PEVE con OA2, OA4, OA5 y OA7: célula, sistemas, biodiversidad y salud, entre otros.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html" class="btn btn-primary">
+              Abrir módulo Biología
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Ciencias Naturales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-CN-BIO">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-CN-FIS">
+          <h4>⚙️ Ciencias Naturales – Física (8°)</h4>
+          <p class="note">
+            Contenidos de calor, temperatura, energía y fenómenos físicos alineados al eje Física de 8° básico.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html" class="btn btn-primary">
+              Abrir módulo Física
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Ciencias Naturales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-CN-FIS">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-CN-QUI">
+          <h4>🧪 Ciencias Naturales – Química (8°)</h4>
+          <p class="note">
+            Actividades y preguntas sobre modelos atómicos, sustancias y mezclas, en sintonía con el eje Química.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html" class="btn btn-primary">
+              Abrir módulo Química
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Ciencias Naturales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-CN-QUI">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-HIST">
+          <h4>🌍 Historia, Geografía y Cs. Sociales (8°)</h4>
+          <p class="note">
+            Módulo basado en el banco PEVE de Historia 8°, con OA de reformas, ciudadanía y procesos contemporáneos.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/historia/historia-geografia/index.html" class="btn btn-primary">
+              Abrir módulo Historia
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Historia y Cs. Sociales&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-HIST">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-LENG">
+          <h4>📖 Lengua y Literatura (8°)</h4>
+          <p class="note">
+            Vista general del banco de lenguaje 8°, asociado a comprensión lectora y producción escrita.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/lenguaje/lenguaje-comunicacion/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Lengua y Literatura&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-LENG">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-MAT">
+          <h4>📐 Matemática (8°)</h4>
+          <p class="note">
+            Banco PEVE de Matemática 8°: proporcionalidad, álgebra básica, geometría y tratamiento de datos.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/matematica/matematica/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Matemática&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-MAT">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+
+        <article class="card doc-course-card" data-course-id="8B-ING">
+          <h4>🌐 Inglés (8°)</h4>
+          <p class="note">
+            Banco de ítems de comprensión lectora y auditiva para fortalecer el inglés en contexto de exámenes libres.
+          </p>
+          <div class="btn-group">
+            <a href="../../content/8basico/ingles/ingles/index.html" class="btn btn-primary">
+              Abrir módulo / banco
+            </a>
+            <a href="../informes.html?curso=8° Básico&asig=Inglés&llamado=2025 · 1° llamado" class="btn btn-ghost">
+              Ir a informes
+            </a>
+          </div>
+          <button type="button" class="btn btn-ghost btn-fav" data-course-id="8B-ING">
+            ⭐ Marcar como favorito
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <p>Vista docente de cursos PEVE – vDemo. En futuras versiones podrás configurar tus propios cursos y grupos.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/accesibilidad.js" defer></script>
+  <script src="../../assets/js/teacher-context.js" defer></script>
+  <script src="../../assets/js/teacher-favorites.js" defer></script>
+  <script>
+    // Ajuste rápido: reflejar nombre y establecimiento también en esta vista
+    (function() {
+      try {
+        var name = sessionStorage.getItem("teacherName") || "Docente PEVE";
+        var school = sessionStorage.getItem("teacherSchool") || "Liceo / establecimiento";
+        var nameEl = document.getElementById("teacher-name-inline");
+        var schoolEl = document.getElementById("teacher-school-inline");
+        if (nameEl) nameEl.textContent = name;
+        if (schoolEl) schoolEl.textContent = school;
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>

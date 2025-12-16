@@ -17,12 +17,14 @@
 <span class="brand-subtitle">Versión demo – vista para acompañar a tu estudiante</span>
 </div>
 </div>
-<nav aria-label="Navegación principal" class="topbar-nav">
-<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
-<a class="nav-link" data-i18n="nav.proceso" href="../pages/info.html">Proceso</a>
-<a class="nav-link" data-i18n="nav.niveles" href="../pages/niveles.html">Niveles</a>
-<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
-<a class="nav-link" data-i18n="nav.accesibilidad" href="../pages/accesibilidad.html">Accesibilidad</a>
+<nav class="topbar-nav" aria-label="Navegación principal">
+<a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+<a href="../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
+<a href="../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+<a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+<a href="../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+<a href="../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+<a href="../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
 </nav>
 <div aria-label="Controles de accesibilidad" class="accessibility-toolbar">
 <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
@@ -38,8 +40,13 @@
 
 <main class="container">
 <section class="hero">
-<h2>Seguimiento de exámenes libres</h2>
-<p>En futuras versiones podrás monitorear el avance de tu estudiante y recibir alertas importantes.</p>
+<h2>Hola, <span id="guardian-name">Apoderado/a</span> 👋</h2>
+<p>
+  Estás en el panel de seguimiento de <strong id="guardian-student-name">Nombre estudiante</strong>
+  (<span id="guardian-student-level">Nivel</span>). Aquí podrás revisar exámenes, temarios e informes
+  asociados a exámenes libres.
+</p>
+<p class="note">En esta versión los datos son de demostración; más adelante se conectarán a los reportes reales PEVE/DIA/KPSI.</p>
 </section>
 <section class="grid mt-lg">
 <article class="card card-highlight">
@@ -75,5 +82,7 @@
 <p>Vista demo de panel – sin backend aún. Pensado para iterar más adelante.</p>
 </div>
 </footer>
-<script src="../assets/js/accesibilidad.js"></script><script src="../assets/js/footer.js"></script></body>
+<script src="../assets/js/accesibilidad.js" defer></script>
+<script src="../assets/js/guardian-context.js" defer></script>
+<script src="../assets/js/footer.js"></script></body>
 </html>

@@ -18,7 +18,11 @@
     <nav class="topbar-nav" aria-label="Navegación principal">
       <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
       <a href="../dashboard_apoderado.html" class="nav-link">Panel Apoderado/a</a>
+      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
       <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
     </nav>
 
     <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
@@ -37,8 +41,13 @@
     <section class="hero">
       <h1>📊 Informe de avance (Apoderado/a)</h1>
       <p class="note">
-        Este módulo está pensado para que el apoderado/a pueda revisar un resumen del avance del estudiante y exportarlo a PDF.
-        Si el sistema está conectado a Google Sheets (Apps Script), podrás traer datos reales. Si no, verás un modo demo.
+        Módulo pensado para que <strong id="guardian-name-inline">el/la apoderado/a</strong> revise un resumen del avance de
+        <strong id="guardian-student-name-inline">su estudiante</strong> y pueda exportarlo a PDF.
+      </p>
+      <p class="note">
+        Estudiante: <strong id="guardian-student-name-hero">—</strong> · Nivel:
+        <strong id="guardian-student-level-hero">—</strong> · Llamado:
+        <strong id="guardian-student-call-hero">—</strong>
       </p>
 
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
@@ -173,5 +182,6 @@
       document.getElementById('r-print').addEventListener('click', ()=> window.print());
     })();
   </script>
+  <script src="../../assets/js/guardian-context.js" defer></script>
 </body>
 </html>

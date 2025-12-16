@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>👥 Mis grupos activos – Panel Docente PEVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <style>
+    .group-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(148, 163, 184, 0.18);
+    }
+    .group-tag span {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-circle">👥</div>
+      <div class="brand-text">
+        <p class="brand-kicker">Plataforma de Exámenes de Validación de Estudios</p>
+        <h1 class="brand-title">PEVE · Mis grupos activos</h1>
+      </div>
+    </div>
+
+    <nav class="topbar-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
+      <a href="../dashboard_docente.html" class="nav-link">Panel Docente</a>
+      <a href="./mis_cursos.html" class="nav-link">Mis cursos / OA</a>
+      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
+      <a href="../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
+      <a href="../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
+      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
+      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
+    </nav>
+
+    <div class="topbar-right accessibility-toolbar" aria-label="Controles de accesibilidad">
+      <button class="access-btn" data-action="home" data-home="../../index.html" title="Ir al inicio">🏠</button>
+      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
+      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
+      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
+      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
+      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
+      <button class="access-btn" data-action="guide" title="Abrir guía paso a paso">🧠</button>
+      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
+    </div>
+  </header>
+
+  <main id="main-content" class="page">
+    <header class="page-header">
+      <p class="page-kicker">Vista docente</p>
+      <h2>👥 Mis grupos activos (favoritos)</h2>
+      <p class="page-lead">
+        Aquí se muestran solo los cursos marcados como favoritos en la vista <strong>Mis cursos / OA</strong>.
+        Úsalos como acceso rápido para revisar módulos PEVE y generar informes.
+      </p>
+      <p class="note">
+        Docente: <strong id="teacher-name-grupos">Docente PEVE</strong> · Establecimiento:
+        <strong id="teacher-school-grupos">Liceo / establecimiento</strong>
+      </p>
+    </header>
+
+    <section class="section">
+      <h3>Grupos activos</h3>
+      <div id="groups-empty" class="note">
+        Aún no hay cursos favoritos. Marca algunos en <a href="./mis_cursos.html">Mis cursos / OA</a>
+        para que aparezcan aquí como grupos activos.
+      </div>
+
+      <div class="dashboard-grid" id="groups-grid" style="display:none;">
+        <!-- Tarjetas de grupos activos generadas por JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer small">
+    <div class="footer-inner">
+      <p>Mis grupos activos · Vista demostrativa para organizar cursos favoritos por docente.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/accesibilidad.js" defer></script>
+  <script src="../../assets/js/teacher-context.js" defer></script>
+  <script src="../../assets/js/docente-grupos-analytics.js" defer></script>
+  <script>const PEVE_TEACHER_COURSES = {
+  "7B-CN-FIS": {
+    "label": "7° Básico – Ciencias Naturales · Física",
+    "curso": "7° Básico",
+    "asig": "Ciencias Naturales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
+  },
+  "7B-LENG": {
+    "label": "7° Básico – Lengua y Literatura",
+    "curso": "7° Básico",
+    "asig": "Lengua y Literatura",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/7basico/lenguaje/lengua-y-literatura/index.html"
+  },
+  "7B-MAT": {
+    "label": "7° Básico – Matemática",
+    "curso": "7° Básico",
+    "asig": "Matemática",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/7basico/matematica/matematica-7/index.html"
+  },
+  "7B-HIST": {
+    "label": "7° Básico – Historia, Geografía y Cs. Sociales",
+    "curso": "7° Básico",
+    "asig": "Historia y Cs. Sociales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/7basico/historia/historia-geografia/index.html"
+  },
+  "8B-CN-BIO": {
+    "label": "8° Básico – Ciencias Naturales · Biología",
+    "curso": "8° Básico",
+    "asig": "Ciencias Naturales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
+  },
+  "8B-CN-FIS": {
+    "label": "8° Básico – Ciencias Naturales · Física",
+    "curso": "8° Básico",
+    "asig": "Ciencias Naturales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
+  },
+  "8B-CN-QUI": {
+    "label": "8° Básico – Ciencias Naturales · Química",
+    "curso": "8° Básico",
+    "asig": "Ciencias Naturales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
+  },
+  "8B-HIST": {
+    "label": "8° Básico – Historia, Geografía y Cs. Sociales",
+    "curso": "8° Básico",
+    "asig": "Historia y Cs. Sociales",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/historia/historia-geografia/index.html"
+  },
+  "8B-LENG": {
+    "label": "8° Básico – Lengua y Literatura",
+    "curso": "8° Básico",
+    "asig": "Lengua y Literatura",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/lenguaje/lenguaje-comunicacion/index.html"
+  },
+  "8B-MAT": {
+    "label": "8° Básico – Matemática",
+    "curso": "8° Básico",
+    "asig": "Matemática",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/matematica/matematica/index.html"
+  },
+  "8B-ING": {
+    "label": "8° Básico – Inglés",
+    "curso": "8° Básico",
+    "asig": "Inglés",
+    "llamado": "2025 · 1° llamado",
+    "module": "../../content/8basico/ingles/ingles/index.html"
+  }
+};</script>
+  <script src="../../assets/js/accesibilidad.js" defer></script>
+  <script src="../../assets/js/teacher-context.js" defer></script>
+  <script src="../../assets/js/docente-grupos-analytics.js" defer></script>
+  <script>
+    (function() {
+      const STORAGE_KEY_BASE = "peve-teacher-fav-courses";
+
+      function getStorageKey() {
+        try {
+          const email = (sessionStorage.getItem("teacherEmail") || "").trim().toLowerCase();
+          if (!email) return STORAGE_KEY_BASE;
+          return STORAGE_KEY_BASE + "::" + email;
+        } catch (e) {
+          return STORAGE_KEY_BASE;
+        }
+      }
+
+      function loadFavorites() {
+        const key = getStorageKey();
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function init() {
+        // Nombre del docente y establecimiento
+        try {
+          var name = sessionStorage.getItem("teacherName") || "Docente PEVE";
+          var school = sessionStorage.getItem("teacherSchool") || "Liceo / establecimiento";
+          document.getElementById("teacher-name-grupos").textContent = name;
+          document.getElementById("teacher-school-grupos").textContent = school;
+        } catch(e) {}
+
+        const favs = loadFavorites();
+        const grid = document.getElementById("groups-grid");
+        const emptyBox = document.getElementById("groups-empty");
+        if (!grid) return;
+
+        const validFavs = favs.filter(id => PEVE_TEACHER_COURSES[id]);
+        if (!validFavs.length) {
+          if (emptyBox) emptyBox.style.display = "block";
+          grid.style.display = "none";
+          return;
+        }
+
+        if (emptyBox) emptyBox.style.display = "none";
+        grid.style.display = "grid";
+
+        validFavs.forEach((id) => {
+          const meta = PEVE_TEACHER_COURSES[id];
+          const card = document.createElement("article");
+          card.className = "card";
+          card.setAttribute("data-course-id", id);
+          card.setAttribute("data-curso", meta.curso);
+          card.setAttribute("data-asig", meta.asig);
+          card.setAttribute("data-llamado", meta.llamado);
+
+          card.innerHTML = `
+            <h4>${meta.label}</h4>
+            <p class="note">
+              Curso: <strong>${meta.curso}</strong> · Asignatura: <strong>${meta.asig}</strong><br>
+              Llamado: <strong>${meta.llamado}</strong>
+            </p>
+            <div class="btn-group">
+              <a href="${meta.module}" class="btn btn-primary">Abrir módulo</a>
+              <a href="../informes.html?curso=${encodeURIComponent(meta.curso)}&asig=${encodeURIComponent(meta.asig)}&llamado=${encodeURIComponent(meta.llamado)}" class="btn btn-ghost">
+                Ver informes del grupo
+              </a>
+            </div>
+            <p class="note" data-analytics-placeholder>
+              <span class="group-tag"><span>★ Favorito activo</span></span>
+            </p>
+            <p class="note small" data-analytics-line>
+              Cargando datos de estudiantes y últimos informes…
+            </p>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
