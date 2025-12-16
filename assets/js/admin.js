@@ -44,6 +44,83 @@
       colegio_procedencia: "arboleda",
       observaciones: "Crisis de pánico. Coordinar apoyos PIE.",
     },
+     {
+        idPeve: "STU-2025-0001",
+        run: "15677733-1",
+        firstName: "Martín",
+        lastNameP: "Acuña",
+        lastNameM: "Perez",
+        email: "estudiante8@peve.cl",
+        password: "Peve8basico*", // DEMO 8° Básico
+        level: "8° Básico",
+        call: "2025 · 1° llamado",
+        packageName: "PEVE 8° Básico Completo 2024",
+        estadoCuenta: "activa",
+      },
+      {
+        idPeve: "STU-2025-0002",
+        run: "15888999-2",
+        firstName: "Demo",
+        lastNameP: "Siete",
+        lastNameM: "Básico",
+        email: "estudiante7@peve.cl",
+        password: "Peve7basico*", // DEMO 7° Básico
+        level: "7° Básico",
+        call: "2025 · 1° llamado",
+        packageName: "PEVE 7° Básico Completo 2024",
+        estadoCuenta: "activa",
+      },
+    ],
+    guardian: [
+      {
+        email: "apoderado7@peve.cl",
+        password: "apo7",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 7° Básico",
+      },
+      {
+        email: "apoderado8@peve.cl",
+        password: "apo8",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 8° Básico",
+      },
+      {
+        email: "apoderado1m@peve.cl",
+        password: "apo1m",
+        firstName: "Apoderado",
+        lastNameP: "Demo",
+        student: "Estudiante 1° Medio",
+      },
+    ],
+    teacher: [
+      {
+        email: "docente7@peve.cl",
+        password: "doc7",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Ciencias y Matemática",
+        level: "7° Básico",
+      },
+      {
+        email: "docente8@peve.cl",
+        password: "doc8",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Ciencias y Lenguaje",
+        level: "8° Básico",
+      },
+      {
+        email: "docente1m@peve.cl",
+        password: "doc1m",
+        firstName: "Docente",
+        lastNameP: "Demo",
+        subject: "Biología",
+        level: "1° Medio",
+      },
+
+    
   ];
 
   // 4) Estado interno
@@ -489,3 +566,4 @@
     init();
   }
 })();
+
