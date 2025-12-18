@@ -5,6 +5,7 @@
   // "Base de datos" DEMO de usuarios
   const demoUsers = {
     student: [
+      // Estudiante realista 1° Medio (Belen)
       {
         idPeve: "STU-2025-0005",
         run: "17757302-7",
@@ -12,25 +13,13 @@
         lastNameP: "Acuña",
         lastNameM: "Perez",
         email: "belen.acpe@gmail.com",
-        password: "PEVE2025-Belen01", // DEMO
+        password: "PEVE2025-Belen01",
         level: "1° Medio",
         call: "2025 · 1° llamado",
         packageName: "PEVE 1° Medio Completo 2024",
-        estadoCuenta: "activa",
+        estadoCuenta: "activa"
       },
-      {
-        idPeve: "STU-2025-0001",
-        run: "15677733-1",
-        firstName: "Martín",
-        lastNameP: "Acuña",
-        lastNameM: "Perez",
-        email: "estudiante8@peve.cl",
-        password: "Peve8basico*", // DEMO 8° Básico
-        level: "8° Básico",
-        call: "2025 · 1° llamado",
-        packageName: "PEVE 8° Básico Completo 2024",
-        estadoCuenta: "activa",
-      },
+      // Demo 7° Básico
       {
         idPeve: "STU-2025-0002",
         run: "15888999-2",
@@ -38,74 +27,151 @@
         lastNameP: "Siete",
         lastNameM: "Básico",
         email: "estudiante7@peve.cl",
-        password: "Peve7basico*", // DEMO 7° Básico
+        // Clave simple oficial
+        password: "peve7",
+        // Clave antigua aceptada también para compatibilidad
+        altPasswords: ["Peve7basico*"],
         level: "7° Básico",
         call: "2025 · 1° llamado",
         packageName: "PEVE 7° Básico Completo 2024",
-        estadoCuenta: "activa",
+        estadoCuenta: "activa"
       },
+      // Demo 8° Básico
+      {
+        idPeve: "STU-2025-0001",
+        run: "15677733-1",
+        firstName: "Martín",
+        lastNameP: "Acuña",
+        lastNameM: "Perez",
+        email: "estudiante8@peve.cl",
+        // Clave simple oficial
+        password: "peve8",
+        // Clave antigua aceptada también para compatibilidad
+        altPasswords: ["Peve8basico*"],
+        level: "8° Básico",
+        call: "2025 · 1° llamado",
+        packageName: "PEVE 8° Básico Completo 2024",
+        estadoCuenta: "activa"
+      },
+      // Demo 1° Medio simple
+      {
+        idPeve: "STU-2025-0003",
+        run: "16700111-3",
+        firstName: "Demo",
+        lastNameP: "Uno",
+        lastNameM: "Medio",
+        email: "estudiante1m@peve.cl",
+        password: "peve1m",
+        level: "1° Medio",
+        call: "2025 · 1° llamado",
+        packageName: "PEVE 1° Medio Demo",
+        estadoCuenta: "activa"
+      }
     ],
+
     guardian: [
       {
         email: "apoderado7@peve.cl",
         password: "apo7",
-        firstName: "Apoderado",
-        lastNameP: "Demo",
-        student: "Estudiante 7° Básico",
+        name: "Apoderado 7° Básico",
+        phone: "+56 9 7000 7007",
+        studentName: "Estudiante 7° Básico",
+        studentRun: "15888999-2",
+        studentIdPeve: "STU-2025-0002",
+        studentLevel: "7° Básico",
+        studentCall: "2025 · 1° llamado",
+        studentPackage: "PEVE 7° Básico Completo 2024"
       },
       {
         email: "apoderado8@peve.cl",
         password: "apo8",
-        firstName: "Apoderado",
-        lastNameP: "Demo",
-        student: "Estudiante 8° Básico",
+        name: "Apoderado 8° Básico",
+        phone: "+56 9 8000 8008",
+        studentName: "Estudiante 8° Básico",
+        studentRun: "15677733-1",
+        studentIdPeve: "STU-2025-0001",
+        studentLevel: "8° Básico",
+        studentCall: "2025 · 1° llamado",
+        studentPackage: "PEVE 8° Básico Completo 2024"
       },
       {
         email: "apoderado1m@peve.cl",
         password: "apo1m",
-        firstName: "Apoderado",
-        lastNameP: "Demo",
-        student: "Estudiante 1° Medio",
-      },
+        name: "Apoderado 1° Medio",
+        phone: "+56 9 9000 9009",
+        studentName: "Estudiante 1° Medio",
+        studentRun: "16700111-3",
+        studentIdPeve: "STU-2025-0003",
+        studentLevel: "1° Medio",
+        studentCall: "2025 · 1° llamado",
+        studentPackage: "PEVE 1° Medio Demo"
+      }
     ],
+
     teacher: [
       {
         email: "docente7@peve.cl",
         password: "doc7",
-        firstName: "Docente",
-        lastNameP: "Demo",
-        subject: "Ciencias y Matemática",
-        level: "7° Básico",
+        name: "Docente 7° Básico",
+        school: "Liceo / establecimiento",
+        subjects: ["Ciencias Naturales", "Matemática"],
+        levels: ["7° Básico"]
       },
       {
         email: "docente8@peve.cl",
         password: "doc8",
-        firstName: "Docente",
-        lastNameP: "Demo",
-        subject: "Ciencias y Lenguaje",
-        level: "8° Básico",
+        name: "Docente 8° Básico",
+        school: "Liceo / establecimiento",
+        subjects: ["Ciencias Naturales", "Lenguaje y Comunicación"],
+        levels: ["8° Básico"]
       },
       {
         email: "docente1m@peve.cl",
         password: "doc1m",
-        firstName: "Docente",
-        lastNameP: "Demo",
-        subject: "Biología",
-        level: "1° Medio",
+        name: "Docente 1° Medio",
+        school: "Liceo / establecimiento",
+        subjects: ["Biología"],
+        levels: ["1° Medio"]
       },
+      {
+        email: "docente.demo@peve.cl",
+        password: "PeveDocente2025*",
+        name: "Docente Demo General",
+        school: "Neotech EduLab / PEVE",
+        subjects: ["Ciencias", "Matemática", "Historia", "Inglés"],
+        levels: ["7° Básico", "8° Básico", "1° Medio"]
+      }
     ],
+
     admin: [
+      // Admins reales ya existentes
       {
         email: "neotechedulab@gmail.com",
         password: "PEVENeoTechEdulab2025*",
-        name: "Neotech EduLab – Admin",
+        name: "Neotech EduLab – Admin"
       },
       {
         email: "cochipichichi@gmail.com",
         password: "PEVENeoTechEdulab2025*",
-        name: "Pancho Pinto – Admin",
+        name: "Pancho Pinto – Admin"
       },
-    ],
+      // Admins simples para demo
+      {
+        email: "admin@peve.cl",
+        password: "admin",
+        name: "Super Administrador PEVE"
+      },
+      {
+        email: "neotechedulab@peve.cl",
+        password: "neo",
+        name: "Admin Plataforma NeoTech"
+      },
+      {
+        email: "cochipichichi@gmail.com",
+        password: "pancho",
+        name: "Admin Pancho (clave simple demo)"
+      }
+    ]
   };
 
   function findErrorElement() {
@@ -140,7 +206,7 @@
       const perfilInput = form.querySelector('input[name="perfil"]');
       let profile = (perfilInput?.value || "student").toLowerCase();
 
-      // Normalizar español → inglés / clave interna
+      // Normalizar español → clave interna
       if (profile === "estudiante") profile = "student";
       if (profile === "administrador") profile = "admin";
       if (profile === "apoderado") profile = "guardian";
@@ -170,15 +236,21 @@
           (u) => u.email.toLowerCase() === mainValue.toLowerCase()
         );
 
-        if (!user || user.password !== password) {
+        const okPassword =
+          user &&
+          (user.password === password ||
+            (Array.isArray(user.altPasswords) &&
+              user.altPasswords.includes(password)));
+
+        if (!user || !okPassword) {
           if (errorEl) {
             errorEl.textContent =
-              "Correo o contraseña incorrectos. Verifica tus datos.";
+              "Correo o contraseña incorrectos. Verifica tus datos de estudiante.";
           }
           return;
         }
 
-        if (user.estadoCuenta !== "activa") {
+        if (user.estadoCuenta && user.estadoCuenta !== "activa") {
           if (errorEl) {
             errorEl.textContent =
               "Tu cuenta PEVE está inactiva. Contacta a administración.";
@@ -190,25 +262,24 @@
 
         try {
           sessionStorage.setItem("studentProfile", "estudiante");
-          sessionStorage.setItem("studentId", user.idPeve);
-          sessionStorage.setItem("studentRun", user.run);
+          sessionStorage.setItem("studentId", user.idPeve || "");
+          sessionStorage.setItem("studentRun", user.run || "");
           sessionStorage.setItem("studentName", fullName);
           sessionStorage.setItem("studentEmail", user.email);
-          sessionStorage.setItem("studentLevel", user.level);
-          sessionStorage.setItem("studentCall", user.call);
-          sessionStorage.setItem("studentPackage", user.packageName);
+          sessionStorage.setItem("studentLevel", user.level || "");
+          sessionStorage.setItem("studentCall", user.call || "");
+          sessionStorage.setItem("studentPackage", user.packageName || "");
         } catch (e) {
           console.warn("No se pudo usar sessionStorage para estudiante:", e);
         }
 
-        // Redirección al panel del estudiante
         window.location.href = "./estudiante/dashboard.html";
         return;
       }
 
       // 2) LOGIN APODERADO
       if (profile === "guardian") {
-        const guardian = demoUsers.guardian.find(
+        const guardian = (demoUsers.guardian || []).find(
           (g) => g.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -223,30 +294,44 @@
         try {
           sessionStorage.setItem("guardianLogged", "1");
           sessionStorage.setItem("guardianEmail", guardian.email);
-          sessionStorage.setItem("guardianName", guardian.name);
+          sessionStorage.setItem("guardianName", guardian.name || "Apoderado/a");
           sessionStorage.setItem("guardianPhone", guardian.phone || "");
 
-          sessionStorage.setItem("guardianStudentName", guardian.studentName);
-          sessionStorage.setItem("guardianStudentRun", guardian.studentRun);
-          sessionStorage.setItem("guardianStudentId", guardian.studentIdPeve);
-          sessionStorage.setItem("guardianStudentLevel", guardian.studentLevel);
-          sessionStorage.setItem("guardianStudentCall", guardian.studentCall);
+          sessionStorage.setItem(
+            "guardianStudentName",
+            guardian.studentName || "Estudiante"
+          );
+          sessionStorage.setItem(
+            "guardianStudentRun",
+            guardian.studentRun || ""
+          );
+          sessionStorage.setItem(
+            "guardianStudentId",
+            guardian.studentIdPeve || ""
+          );
+          sessionStorage.setItem(
+            "guardianStudentLevel",
+            guardian.studentLevel || ""
+          );
+          sessionStorage.setItem(
+            "guardianStudentCall",
+            guardian.studentCall || ""
+          );
           sessionStorage.setItem(
             "guardianStudentPackage",
-            guardian.studentPackage
+            guardian.studentPackage || ""
           );
         } catch (e) {
           console.warn("No se pudo usar sessionStorage para apoderado:", e);
         }
 
-        // Redirección al panel de apoderado
         window.location.href = "./dashboard_apoderado.html";
         return;
       }
 
       // 3) LOGIN DOCENTE
       if (profile === "teacher") {
-        const teacher = demoUsers.teacher.find(
+        const teacher = (demoUsers.teacher || []).find(
           (t) => t.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -261,8 +346,11 @@
         try {
           sessionStorage.setItem("teacherLogged", "1");
           sessionStorage.setItem("teacherEmail", teacher.email);
-          sessionStorage.setItem("teacherName", teacher.name);
-          sessionStorage.setItem("teacherSchool", teacher.school || "");
+          sessionStorage.setItem("teacherName", teacher.name || "Docente");
+          sessionStorage.setItem(
+            "teacherSchool",
+            teacher.school || "Liceo / establecimiento"
+          );
           sessionStorage.setItem(
             "teacherSubjects",
             JSON.stringify(teacher.subjects || [])
@@ -275,14 +363,13 @@
           console.warn("No se pudo usar sessionStorage para docente:", e);
         }
 
-        // Redirección al panel docente
         window.location.href = "./dashboard_docente.html";
         return;
       }
 
       // 4) LOGIN ADMINISTRADOR
       if (profile === "admin") {
-        const admin = demoUsers.admin.find(
+        const admin = (demoUsers.admin || []).find(
           (a) => a.email.toLowerCase() === mainValue.toLowerCase()
         );
 
@@ -297,17 +384,16 @@
         try {
           sessionStorage.setItem("adminLogged", "1");
           sessionStorage.setItem("adminEmail", admin.email);
-          sessionStorage.setItem("adminName", admin.name);
+          sessionStorage.setItem("adminName", admin.name || "Administrador");
         } catch (e) {
           console.warn("No se pudo usar sessionStorage para admin:", e);
         }
 
-        // Redirección al panel admin
         window.location.href = "./dashboard_admin.html";
         return;
       }
 
-      // 5) OTROS PERFILES (docente/PIE externos, etc.) → modo demo
+      // 5) Otros perfiles no implementados
       if (errorEl) {
         errorEl.textContent =
           "Por ahora este perfil está en modo demostrativo. La conexión real se habilitará en próximas versiones.";
@@ -321,9 +407,3 @@
     setupPeveLogin();
   }
 })();
-""".strip()
-
-with open(auth_path,"w",encoding="utf-8") as f:
-    f.write(new_auth)
-
-len(new_auth.splitlines())
