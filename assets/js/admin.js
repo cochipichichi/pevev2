@@ -184,6 +184,55 @@
     });
   }
 
+  
+  function normalizePackageLabel(user) {
+    const raw =
+      (user.paquete_comprado ||
+        user.packageName ||
+        user.paquete ||
+        "") + "";
+    const value = raw.trim();
+    if (!value) return "Sin paquete";
+
+    if (value.includes("7°")) return "PEVE 7° Básico";
+    if (value.includes("8°")) return "PEVE 8° Básico";
+    if (value.includes("1° Medio") || value.includes("1Â° Medio")) return "PEVE 1° Medio";
+
+    return value;
+  }
+
+  function renderPackagesChart(users) {
+    const canvas = document.getElementById("admin-packages-chart");
+    const summaryEl = document.getElementById("admin-packages-summary");
+    if (!canvas) return;
+
+    const counts = {};
+    users.forEach((u) => {
+      const label = normalizePackageLabel(u);
+      counts[label] = (counts[label] || 0) + 1;
+    });
+
+    const labels = Object.keys(counts);
+    const values = labels.map((l) => counts[l]);
+
+    if (summaryEl) {
+      summaryEl.innerHTML = "";
+      labels.forEach((lab) => {
+        const li = document.createElement("li");
+        li.textContent = `${lab}: ${counts[lab]} estudiante(s)`;
+        summaryEl.appendChild(li);
+      });
+    }
+
+    if (window.PEVE_CHARTS && labels.length) {
+      try {
+        window.PEVE_CHARTS.drawBarChart(canvas, labels, values);
+      } catch (e) {
+        console.warn("No se pudo dibujar el gráfico de paquetes:", e);
+      }
+    }
+  }
+
   // ==============================================
   // 6) CARGA DE USUARIOS (dashboard_admin.html)
   // ==============================================
@@ -251,6 +300,10 @@
     if (count7El) count7El.textContent = String(count7);
     if (count8El) count8El.textContent = String(count8);
     if (count1mEl) count1mEl.textContent = String(count1m);
+
+    // Actualizar gráfico de paquetes PEVE
+    renderPackagesChart(users);
+
 
     // Mostrar fuente de datos y URL de API
     if (srcEl) {

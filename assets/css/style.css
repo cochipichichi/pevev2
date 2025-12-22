@@ -1721,3 +1721,18 @@ body.peve-contrast :focus-visible {
   outline: 3px solid rgba(56, 189, 248, 0.9);
   outline-offset: 3px;
 }
+
+
+/* Mini gráfico en tarjetas (admin) */
+.mini-chart-wrapper {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 160px;
+}
+
+.mini-chart-wrapper canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

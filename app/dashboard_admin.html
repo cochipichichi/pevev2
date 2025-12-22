@@ -104,6 +104,19 @@
             <a href="./dashboard_docente.html" class="btn btn-card btn-ghost">👩‍🏫 Panel docente</a>
           </div>
         </article>
+        <article class="card">
+          <h3>📦 Paquetes PEVE contratados</h3>
+          <p class="note">
+            Distribución de estudiantes según el paquete PEVE asociado (7° básico, 8° básico, 1° medio u otros).
+          </p>
+          <div class="mini-chart-wrapper">
+            <canvas id="admin-packages-chart" aria-label="Gráfico de paquetes PEVE" role="img"></canvas>
+          </div>
+          <ul class="bullet-list small" id="admin-packages-summary">
+            <!-- Se rellena dinámicamente desde admin.js -->
+          </ul>
+        </article>
+
       </div>
     </section>
 os desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de
@@ -267,6 +280,7 @@ os desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura 
   <!-- JS GLOBAL -->
   <script src="../assets/js/accesibilidad.js" defer></script>
   <script src="../assets/js/footer.js" defer></script>
+  <script src="../assets/js/charts-mini.js" defer></script>
   <script src="../assets/js/admin.js" defer></script>
 </body>
 </html>
