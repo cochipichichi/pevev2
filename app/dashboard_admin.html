@@ -71,14 +71,19 @@
             Total de estudiantes cargados desde la hoja <code>PEVE_Usuarios</code>.
           </p>
           <p><strong id="admin-total-users">–</strong> estudiante(s)</p>
+          <p class="small">
+            Fuente de datos: <strong id="admin-users-source">–</strong><br>
+            API: <code id="admin-script-url">–</code>
+          </p>
         </article>
 
         <article class="card">
-          <h3>📩 Envío de credenciales</h3>
-          <p class="note">
-            Selecciona un estudiante en la tabla y utiliza los botones para enviar las credenciales por correo o
-            WhatsApp al apoderado.
-          </p>
+          <h3>📌 Resumen por nivel</h3>
+          <ul class="bullet-list small">
+            <li>7° Básico: <strong id="admin-count-7b">–</strong> estudiante(s)</li>
+            <li>8° Básico: <strong id="admin-count-8b">–</strong> estudiante(s)</li>
+            <li>1° Medio: <strong id="admin-count-1m">–</strong> estudiante(s)</li>
+          </ul>
         </article>
 
         <article class="card">
@@ -89,15 +94,19 @@
           </p>
           <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes detallados</a>
         </article>
+
+        <article class="card">
+          <h3>🧭 Accesos rápidos</h3>
+          <p class="note">Abre los paneles según el rol para revisar la experiencia completa.</p>
+          <div class="btn-group-vertical">
+            <a href="./dashboard_estudiante.html" class="btn btn-card btn-ghost">👦👧 Panel estudiante</a>
+            <a href="./dashboard_apoderado.html" class="btn btn-card btn-ghost">👨‍👩‍👧 Panel apoderado</a>
+            <a href="./dashboard_docente.html" class="btn btn-card btn-ghost">👩‍🏫 Panel docente</a>
+          </div>
+        </article>
       </div>
     </section>
-
-    <!-- TABLA DE USUARIOS PEVE -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Gestión de usuarios PEVE</h2>
-        <p>
-          Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de
+os desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de
           Google Sheets). Selecciona un estudiante para trabajar informes y credenciales.
         </p>
       </div>

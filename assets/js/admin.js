@@ -123,6 +123,10 @@
     
   ];
 
+  // Fuente actual (api o demo) para mostrar en el dashboard
+  let ADMIN_USERS_SOURCE = "demo"; // se actualizará en loadUsersIntoTable
+
+
   // 4) Estado interno
   let selectedIndex = null; // índice del usuario seleccionado en la tabla
 
@@ -186,6 +190,11 @@
   async function loadUsersIntoTable() {
     const tableBody = q("#admin-users-table tbody");
     const totalEl = document.getElementById("admin-total-users");
+    const srcEl = document.getElementById("admin-users-source");
+    const urlEl = document.getElementById("admin-script-url");
+    const count7El = document.getElementById("admin-count-7b");
+    const count8El = document.getElementById("admin-count-8b");
+    const count1mEl = document.getElementById("admin-count-1m");
     if (!tableBody) return;
 
     let users = [];
@@ -194,21 +203,22 @@
         const resp = await fetch(USERS_API_URL);
         if (!resp.ok) throw new Error("HTTP " + resp.status);
         users = await resp.json();
+        ADMIN_USERS_SOURCE = "api";
       } else {
         users = DEMO_USERS;
+        ADMIN_USERS_SOURCE = "demo";
       }
     } catch (e) {
       console.warn("No se pudo cargar desde la API, usando DEMO_USERS:", e);
       users = DEMO_USERS;
+      ADMIN_USERS_SOURCE = "demo";
     }
 
     window.PEVE_ADMIN_USERS = users;
     tableBody.innerHTML = "";
 
     users.forEach((u, idx) => {
-      const fullName = `${u.nombre_estudiante || ""} ${
-        u.apellido_paterno || ""
-      } ${u.apellido_materno || ""}`.trim();
+      const fullName = `${u.nombre_estudiante || ""} ${u.apellido_paterno || ""} ${u.apellido_materno || ""}`.trim();
 
       const tr = document.createElement("tr");
       tr.dataset.index = String(idx);
@@ -232,6 +242,26 @@
     });
 
     if (totalEl) totalEl.textContent = users.length.toString();
+
+    // Resumen por nivel (solo si hay elementos donde curso_2025 diga 7°, 8° o 1° Medio)
+    const count7 = users.filter(u => (u.curso_2025 || "").includes("7°")).length;
+    const count8 = users.filter(u => (u.curso_2025 || "").includes("8°")).length;
+    const count1m = users.filter(u => (u.curso_2025 || "").includes("1° Medio")).length;
+
+    if (count7El) count7El.textContent = String(count7);
+    if (count8El) count8El.textContent = String(count8);
+    if (count1mEl) count1mEl.textContent = String(count1m);
+
+    // Mostrar fuente de datos y URL de API
+    if (srcEl) {
+      srcEl.textContent =
+        ADMIN_USERS_SOURCE === "api"
+          ? "Hoja de cálculo (Apps Script)"
+          : "Datos DEMO locales (admin.js)";
+    }
+    if (urlEl) {
+      urlEl.textContent = USERS_API_URL || "No configurada";
+    }
 
     // Delegación de eventos: selección + acciones
     tableBody.addEventListener("click", function (ev) {
