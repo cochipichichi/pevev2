@@ -23,6 +23,17 @@
     el.setAttribute("href", href);
   }
 
+  function hide(el) {
+    if (!el) return;
+    el.style.display = "none";
+  }
+
+  function showInline(el) {
+    if (!el) return;
+    el.style.display = "inline-flex";
+  }
+
+
   function initStudentDashboard() {
     var level = sessionStorage.getItem("studentLevel") || "";
 
@@ -147,6 +158,84 @@
         "/pevev2/content/8basico/historia-geografia/index.html"
       );
       setText(histLink, "🌍 Abrir Historia y Geografía 8°");
+
+      return;
+    }
+
+
+    // Si el estudiante es de 1° Medio, adaptamos el panel a Biología 1M (OA2 Evidencias de Evolución)
+    if (level.indexOf("1°") !== -1 || level.indexOf("1 Medio") !== -1 || level.indexOf("1° Medio") !== -1) {
+      // Ciencias Naturales / Biología 1M
+      setText(cnTitle, "🧪 Ciencias Naturales 1° Medio");
+      setText(
+        cnNote,
+        "Biología 1° Medio con foco en OA2 Evidencias de evolución: ADN, fósiles, homología y línea de tiempo de la vida."
+      );
+      setHtml(
+        cnBullets,
+        [
+          "<li>🧬 <strong>ADN y variabilidad:</strong> modelo 3D de doble hélice para explorar estructura.</li>",
+          "<li>🔍 <strong>Evidencias de evolución:</strong> fósiles, homologías y líneas de tiempo.</li>",
+          "<li>🧬 <strong>Recursos XR:</strong> visores 3D/VR y quiz integrados al OA2.</li>"
+        ].join("")
+      );
+      // En 1M usamos un flujo especial con asignatura detallada:
+      // enviamos al estudiante a la vista app/estudiante/asignatura-bio1m.html
+      setHref(cnLinkBio, "/pevev2/app/estudiante/asignatura-bio1m.html");
+      setText(cnLinkBio, "🧬 Biología 1° Medio");
+      // Ocultamos los botones de Física y Química porque aún no hay módulos 1M para esas áreas
+      hide(cnLinkFis);
+      hide(cnLinkQui);
+
+      // Lenguaje 1° Medio (placeholder hasta poblar contenido)
+      setText(lenTitle, "📖 Lenguaje y Comunicación 1° Medio");
+      setText(
+        lenNote,
+        "Lectura crítica y producción de textos para 1° Medio. Módulos detallados se irán activando en el piloto."
+      );
+      setHtml(
+        lenBullets,
+        [
+          "<li>📘 Comprensión de textos más extensos y complejos.</li>",
+          "<li>✍️ Producción de textos expositivos y argumentativos.</li>"
+        ].join("")
+      );
+      // Por ahora sin ruta específica de contenido, dejamos un ancla neutra
+      setHref(lenLink, "#");
+      setText(lenLink, "📖 Lenguaje 1° Medio (próximamente)");
+
+      // Matemática 1° Medio (placeholder)
+      setText(matTitle, "🧮 Matemática 1° Medio");
+      setText(
+        matNote,
+        "Números reales, funciones, geometría analítica y datos. Se habilitará progresivamente en el piloto."
+      );
+      setHtml(
+        matBullets,
+        [
+          "<li>🔢 Números racionales e irracionales.</li>",
+          "<li>📈 Representación gráfica de funciones.</li>",
+          "<li>📐 Geometría y coordenadas en el plano.</li>"
+        ].join("")
+      );
+      setHref(matLink, "#");
+      setText(matLink, "🧮 Matemática 1° Medio (próximamente)");
+
+      // Historia 1° Medio (placeholder)
+      setText(histTitle, "🌍 Historia, Geografía y Cs. Sociales 1° Medio");
+      setText(
+        histNote,
+        "Procesos históricos, geográficos y formación ciudadana para 1° Medio. Contenidos se incorporarán en siguientes versiones."
+      );
+      setHtml(
+        histBullets,
+        [
+          "<li>📜 Transformaciones del mundo contemporáneo.</li>",
+          "<li>🧭 Espacio geográfico, medio ambiente y sociedad.</li>"
+        ].join("")
+      );
+      setHref(histLink, "#");
+      setText(histLink, "🌍 Historia 1° Medio (próximamente)");
 
       return;
     }
