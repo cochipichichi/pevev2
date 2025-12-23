@@ -14,8 +14,8 @@
     <div class="topbar-left">
       <div class="logo-circle">📚</div>
       <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
+        <div class="brand-title">PEVE – Plataforma de Exámenes Libres</div>
+        <div class="brand-subtitle">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
       </div>
     </div>
 
@@ -42,8 +42,7 @@
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
-  
-   <main id="main-content" class="page">
+  <main id="main-content" class="page">
 
     <!-- ENCABEZADO / BREADCRUMB -->
     <header class="page-header">
@@ -73,49 +72,31 @@
     <!-- SECCIÓN 1: RESUMEN RÁPIDO -->
     <section class="section">
       <div class="section-header">
-        <h2>Resumen rápido</h2>
-        <p>Información general de tu proceso PEVE.</p>
+        <h2>Resumen general</h2>
+        <p>Visión general de tu plan de estudio en PEVE.</p>
       </div>
 
-      <div class="dashboard-grid">
-        <!-- Card: Nivel y llamado -->
-        <article class="card">
-          <h3>🧩 Nivel y llamado</h3>
-          <p class="note">
-            <!-- TODO: reemplazar por nivel real -->
-            Estás inscrito en <strong id="student-level">1° Medio</strong>, llamado
-            <strong id="student-call">2025 · 1° llamado</strong>.
+      <div class="card-grid">
+        <article class="card highlight">
+          <h3>Tu nivel actual</h3>
+          <p>
+            Estás inscrito en: <strong id="student-level">7° Básico</strong>.
+            Los contenidos y simulacros que verás están alineados a este curso.
           </p>
-        </article>
-
-        <!-- Card: Estado general de preparación -->
-        <article class="card">
-          <h3>📊 Estado general</h3>
-          <div class="progress-group">
-            <label>Progreso global estimado</label>
-            <div class="progress-bar">
-              <!-- TODO: ajustar width según avance real -->
-              <span style="width: 40%;" id="student-progress-bar"></span>
-            </div>
-            <p class="note">
-              Has revisado aproximadamente <strong id="student-progress-text">40%</strong> de los
-              Objetivos de Aprendizaje de tus asignaturas.
-            </p>
-          </div>
-        </article>
-
-        <!-- Card: Próximo hito -->
-        <article class="card">
-          <h3>⏰ Próximo hito</h3>
-          <p class="note">
-            <!-- TODO: definir lógica de fechas / próximos exámenes -->
-            Tu próximo examen tentativo es:
-          </p>
-          <ul class="bullet-list small">
-            <li><strong>Asignatura:</strong> Biología 1° Medio</li>
-            <li><strong>Fecha:</strong> Por definir con MINEDUC / establecimiento</li>
-            <li><strong>Recomendación:</strong> Completa primero los OA de “Evidencias de evolución”.</li>
+          <ul class="bullet-list">
+            <li>📚 Asignaturas principales: Ciencias Naturales, Lengua y Literatura, Matemática, Historia.</li>
+            <li>✅ Materiales alineados a OA y temarios oficiales MINEDUC.</li>
+            <li>🧠 Incluye simulacros tipo PEVE y tickets de salida.</li>
           </ul>
+        </article>
+
+        <article class="card">
+          <h3>Cómo usar este panel</h3>
+          <ol class="steps-list">
+            <li>Revisa tus <strong>asignaturas</strong> y entra a los módulos de contenido.</li>
+            <li>Realiza las actividades, simulacros y tickets de salida.</li>
+            <li>Vuelve a <strong>“Mi progreso”</strong> para ver tus avances y próximos pasos.</li>
+          </ol>
         </article>
       </div>
     </section>
@@ -141,17 +122,17 @@
           </ul>
           <div class="btn-row">
             <a id="card-cn-link-bio"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
+               href="../../content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
                class="btn btn-outline btn-card">
               🧬 Biología 7°
             </a>
             <a id="card-cn-link-fis"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
+               href="../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
                class="btn btn-outline btn-card">
               ⚙️ Física 7°
             </a>
             <a id="card-cn-link-qui"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
+               href="../../content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
                class="btn btn-outline btn-card">
               ⚗️ Química 7°
             </a>
@@ -170,7 +151,7 @@
           </ul>
           <div class="btn-row">
             <a id="card-len-link"
-               href="/pevev2/content/7basico/lengua-y-literatura/index.html"
+               href="../../content/7basico/lengua-y-literatura/index.html"
                class="btn btn-outline btn-card">
               📖 Abrir Lengua y Literatura 7°
             </a>
@@ -191,7 +172,7 @@
           </ul>
           <div class="btn-row">
             <a id="card-mat-link"
-               href="/pevev2/content/7basico/matematica/index.html"
+               href="../../content/7basico/matematica/index.html"
                class="btn btn-outline btn-card">
               🧮 Abrir Matemática 7°
             </a>
@@ -210,7 +191,7 @@
           </ul>
           <div class="btn-row">
             <a id="card-hist-link"
-               href="/pevev2/content/7basico/historia-geografia/index.html"
+               href="../../content/7basico/historia-geografia/index.html"
                class="btn btn-outline btn-card">
               🌍 Abrir Historia y Geografía 7°
             </a>
@@ -219,62 +200,30 @@
       </div>
     </section>
 
-
-
-    <!-- SECCIÓN 3: MI PROGRESO -->
+    <!-- SECCIÓN 3: RECORDATORIOS Y SUGERENCIAS -->
     <section class="section">
       <div class="section-header">
-        <h2>Mi progreso</h2>
-        <p>Vista general de cómo avanzas en cada asignatura.</p>
+        <h2>Recomendaciones para tu estudio</h2>
+        <p>Sugerencias para organizar tu semana de trabajo.</p>
       </div>
 
-      <div class="dashboard-grid">
-        <!-- Progreso por asignatura -->
+      <div class="card-grid">
         <article class="card">
-          <h3>📚 Progreso por asignatura</h3>
-
-          <div class="progress-group">
-            <label>Biología 1° Medio</label>
-            <div class="progress-bar">
-              <span style="width: 35%;"></span>
-            </div>
-            <p class="note">OA revisados: 35% (ejemplo, editable).</p>
-          </div>
-
-          <div class="progress-group">
-            <label>Lenguaje</label>
-            <div class="progress-bar">
-              <span style="width: 20%;"></span>
-            </div>
-            <p class="note">OA revisados: 20%.</p>
-          </div>
-
-          <div class="progress-group">
-            <label>Matemática</label>
-            <div class="progress-bar">
-              <span style="width: 10%;"></span>
-            </div>
-            <p class="note">OA revisados: 10%.</p>
-          </div>
+          <h3>📆 Planifica por bloques</h3>
+          <ul class="bullet-list">
+            <li>Elige 2 asignaturas por día para no sobrecargarte.</li>
+            <li>Combina teoría (lectura) y práctica (simulacros).</li>
+            <li>Termina cada sesión con un ticket de salida o mini resumen.</li>
+          </ul>
         </article>
 
-        <!-- Resumen + llamado a la acción -->
         <article class="card">
-          <h3>✅ Próximo paso recomendado</h3>
-          <p class="note">
-            <!-- TODO: aquí puedes aplicar lógica simple de recomendación -->
-            Te sugerimos continuar con:
-          </p>
-          <ul class="bullet-list small">
-            <li>Biología 1° Medio — OA2: Evidencias de evolución.</li>
-            <li>Realizar un simulacro corto de 10 preguntas sobre ese OA.</li>
-            <li>Registrar tus resultados para ver tu progreso en este panel.</li>
+          <h3>🧠 Usa la plataforma a tu favor</h3>
+          <ul class="bullet-list">
+            <li>Activa el narrador si necesitas apoyo en lectura.</li>
+            <li>Cambia el tamaño de letra o el tema para descansar la vista.</li>
+            <li>Marca en tu cuaderno qué OA ya trabajaste en cada sesión.</li>
           </ul>
-
-          <!-- Botón a futuro: simulacros -->
-          <a href="#" class="btn btn-solid btn-card pulse">
-            Ir a simulacros de Biología
-          </a>
         </article>
       </div>
     </section>
@@ -287,118 +236,56 @@
       </div>
 
       <div class="card-grid">
-        <!-- Fechas / hitos -->
         <article class="card">
-          <h3>📅 Fechas importantes</h3>
-          <ul class="bullet-list small">
-            <li><strong>Inscripción exámenes:</strong> Por definir (ejemplo).</li>
-            <li><strong>Ventana de rendición:</strong> Segundo semestre 2025.</li>
-            <li><strong>Plazo sugerido de estudio:</strong> Al menos 8 semanas por asignatura.</li>
-          </ul>
+          <h3>📅 Próximo hito sugerido</h3>
+          <p>
+            Revisa primero los contenidos de <strong>Biología</strong> de tu nivel y luego completa
+            el <strong>simulacro PEVE</strong> asociado.
+          </p>
+          <p class="note">
+            Si ya trabajaste Biología, puedes avanzar con Lengua o Matemática según tu prioridad.
+          </p>
         </article>
 
-        <!-- Accesos rápidos -->
         <article class="card">
-          <h3>⚙️ Accesos rápidos</h3>
-          <div class="hero-cta-group">
-            <a href="../../pages/temarios.html" class="btn btn-solid btn-card pulse">
-              📄 Ver temarios oficiales
+          <h3>🔗 Accesos directos</h3>
+          <div class="btn-row">
+            <a href="./asignaturas.html" class="btn btn-outline btn-card">
+              📚 Ir a mis asignaturas
             </a>
-            <a href="#" class="btn btn-outline btn-card">
-              🧪 Simulacro general
+            <a href="./progreso.html" class="btn btn-outline btn-card">
+              📈 Ver mi progreso
             </a>
-            <a href="#" class="btn btn-ghost btn-card">
-              ⬇ Descargar ficha de estudio (PDF)
+            <a href="../../pages/accesibilidad.html" class="btn btn-ghost btn-card">
+              🧠 Ver todas las herramientas de apoyo
             </a>
           </div>
         </article>
       </div>
     </section>
 
-  
-<!-- Bloque de accesibilidad común PEVE -->
-<section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
-      🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
-      🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
-    </p>
-  </article>
-</section>
+  </main>
 
-</main>
-
-<script src="../../assets/js/accesibilidad.js" defer></script>
-<script src="../../assets/js/footer.js" defer></script>
-<script src="../../assets/js/student-context.js" defer></script>
-
-  <!-- OPCIONAL: ejemplo de cómo podrías leer datos almacenados en sessionStorage -->
-  <!-- <script>
-    (function () {
-      // Ejemplo: si desde login guardas estos datos...
-      const name = sessionStorage.getItem("studentName");
-      const level = sessionStorage.getItem("studentLevel");
-      const call  = sessionStorage.getItem("studentCall");
-      const progress = sessionStorage.getItem("studentProgress"); // 0-100
-
-      if (name) {
-        document.getElementById("student-name").textContent = name;
-      }
-      if (level) {
-        document.getElementById("student-level").textContent = level;
-      }
-      if (call) {
-        document.getElementById("student-call").textContent = call;
-      }
-      if (progress) {
-        const pct = `${progress}%`;
-        const bar = document.getElementById("student-progress-bar");
-        const txt = document.getElementById("student-progress-text");
-        if (bar) bar.style.width = pct;
-        if (txt) txt.textContent = pct;
-      }
-    })();
-  </script> -->
-
-<footer class="footer small">
+  <!-- FOOTER -->
+  <footer class="footer small">
     <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
+      <div class="footer-bar">
+        <div class="logo">
+          <img src="../../assets/logo.svg" alt="Neotech EduLab" class="logo-img"
+               onerror="this.style.display='none'">
+          <div><strong>© Neotech EduLab</strong> – Educación Inmersiva</div>
+          <small>🛠️ Prohibida su copia y/o reproducción</small>
+        </div>
       </div>
       <div class="footer-text">
-	<!-- <img src="assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
-        <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
-          PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
-          depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
-        </p>
+        <p>Plataforma desarrollada para acompañar procesos de Exámenes Libres, con foco en inclusión y accesibilidad.</p>
       </div>
     </div>
   </footer>
 
-
-  <script src="../../assets/js/accesibilidad.js" defer></script>
+  <!-- SCRIPTS -->
+  <script src="../../assets/js/accessibility.js" defer></script>
   <script src="../../assets/js/student-context.js" defer></script>
-
-
-
-
-
-
-
-
-
-<script src="../../assets/js/student-dashboard.js" defer></script>
-
+  <script src="../../assets/js/student-dashboard.js" defer></script>
 </body>
 </html>
-
