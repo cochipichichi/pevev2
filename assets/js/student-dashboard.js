@@ -89,17 +89,17 @@
       );
       setHref(
         cnLinkBio,
-        "../../content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
+        "/pevev2/content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
       );
       setText(cnLinkBio, "🧬 Biología 8°");
       setHref(
         cnLinkFis,
-        "../../content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
+        "/pevev2/content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
       );
       setText(cnLinkFis, "⚙️ Física 8°");
       setHref(
         cnLinkQui,
-        "../../content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
+        "/pevev2/content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
       );
       setText(cnLinkQui, "⚗️ Química 8°");
 
@@ -118,7 +118,7 @@
       );
       setHref(
         lenLink,
-        "../../content/8basico/lenguaje-comunicacion/index.html"
+        "/pevev2/content/8basico/lenguaje-comunicacion/index.html"
       );
       setText(lenLink, "📖 Abrir Lenguaje 8°");
 
@@ -155,7 +155,7 @@
       );
       setHref(
         histLink,
-        "../../content/8basico/historia-geografia/index.html"
+        "/pevev2/content/8basico/historia-geografia/index.html"
       );
       setText(histLink, "🌍 Abrir Historia y Geografía 8°");
 
