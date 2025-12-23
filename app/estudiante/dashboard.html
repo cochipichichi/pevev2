@@ -112,84 +112,90 @@
         <p>Selecciona una asignatura para ver temarios, materiales y simulacros.</p>
       </div>
 
-      
       <div class="card-grid card-grid-wide">
-        <!-- 7° Básico – Ciencias Naturales -->
-        <article class="card">
-          <h3>🧪 Ciencias Naturales 7° Básico</h3>
-          <p class="note">
+        <!-- Card dinámico: Ciencias Naturales -->
+        <article class="card" id="card-cn">
+          <h3 id="card-cn-title">🧪 Ciencias Naturales 7° Básico</h3>
+          <p class="note" id="card-cn-note">
             Biología, Física y Química 7° básico con módulos PEVE, temarios oficiales y simulacros.
           </p>
-          <ul class="bullet-list small">
+          <ul class="bullet-list small" id="card-cn-bullets">
             <li>🧬 <strong>Biología:</strong> seres vivos, células, niveles de organización y ecosistemas.</li>
             <li>⚙️ <strong>Física:</strong> fuerza, movimiento, energía, luz y sonido.</li>
             <li>⚗️ <strong>Química:</strong> materia, estados y mezclas.</li>
           </ul>
           <div class="btn-row">
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
+            <a id="card-cn-link-bio"
+               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
                class="btn btn-outline btn-card">
               🧬 Biología 7°
             </a>
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
+            <a id="card-cn-link-fis"
+               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
                class="btn btn-outline btn-card">
               ⚙️ Física 7°
             </a>
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
+            <a id="card-cn-link-qui"
+               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
                class="btn btn-outline btn-card">
               ⚗️ Química 7°
             </a>
           </div>
         </article>
 
-        <!-- 7° Básico – Lengua y Literatura -->
-        <article class="card">
-          <h3>📖 Lengua y Literatura 7° Básico</h3>
-          <p class="note">
+        <!-- Card dinámico: Lengua / Lenguaje -->
+        <article class="card" id="card-len">
+          <h3 id="card-len-title">📖 Lengua y Literatura 7° Básico</h3>
+          <p class="note" id="card-len-note">
             Lectura, escritura y comprensión lectora alineadas al temario oficial de exámenes libres.
           </p>
-          <ul class="bullet-list small">
+          <ul class="bullet-list small" id="card-len-bullets">
             <li>📖 Comprensión de textos literarios y no literarios.</li>
             <li>✍️ Producción de textos con planificación y revisión.</li>
           </ul>
           <div class="btn-row">
-            <a href="../../content/7basico/lengua-y-literatura/index.html"
+            <a id="card-len-link"
+               href="/pevev2/content/7basico/lengua-y-literatura/index.html"
                class="btn btn-outline btn-card">
               📖 Abrir Lengua y Literatura 7°
             </a>
           </div>
         </article>
 
-        <!-- 7° Básico – Matemática -->
-        <article class="card">
-          <h3>🧮 Matemática 7° Básico</h3>
-          <p class="note">
-            Números, fracciones, proporcionalidad, geometría y datos según OA de 7° básico.
+        <!-- Card dinámico: Matemática -->
+        <article class="card" id="card-mat">
+          <h3 id="card-mat-title">🧮 Matemática 7° Básico</h3>
+          <p class="note" id="card-mat-note">
+            Contenidos de números, fracciones, proporcionalidad, geometría y datos, según OA del temario MINEDUC.
           </p>
-          <ul class="bullet-list small">
-            <li>➗ Operaciones con fracciones y decimales.</li>
-            <li>📐 Figuras geométricas y perímetros.</li>
+          <ul class="bullet-list small" id="card-mat-bullets">
+            <li>🔢 Números naturales, enteros y fracciones.</li>
+            <li>📏 Proporcionalidad directa e inversa.</li>
+            <li>📐 Figuras geométricas planas y volumen.</li>
             <li>📊 Gráficos simples y probabilidades.</li>
           </ul>
           <div class="btn-row">
-            <a href="../../content/7basico/matematica/index.html"
+            <a id="card-mat-link"
+               href="/pevev2/content/7basico/matematica/index.html"
                class="btn btn-outline btn-card">
               🧮 Abrir Matemática 7°
             </a>
           </div>
         </article>
 
-        <!-- 7° Básico – Historia y Geografía -->
-        <article class="card">
-          <h3>🌍 Historia y Geografía 7° Básico</h3>
-          <p class="note">
+        <!-- Card dinámico: Historia y Geografía -->
+        <article class="card" id="card-hist">
+          <h3 id="card-hist-title">🌍 Historia y Geografía 7° Básico</h3>
+          <p class="note" id="card-hist-note">
             Procesos históricos y geográficos clave de 7° básico según el temario MINEDUC.
           </p>
-          <ul class="bullet-list small">
+          <ul class="bullet-list small" id="card-hist-bullets">
             <li>📜 Sociedades antiguas y medievales.</li>
             <li>🗺️ Territorio, mapas y organización política.</li>
           </ul>
           <div class="btn-row">
-            <a href="../../content/7basico/historia-geografia/index.html"
+            <a id="card-hist-link"
+               href="/pevev2/content/7basico/historia-geografia/index.html"
                class="btn btn-outline btn-card">
               🌍 Abrir Historia y Geografía 7°
             </a>
@@ -197,6 +203,7 @@
         </article>
       </div>
     </section>
+
 
 
     <!-- SECCIÓN 3: MI PROGRESO -->
@@ -373,6 +380,9 @@
 
 
 
+
+
+<script src="../../assets/js/student-dashboard.js" defer></script>
 
 </body>
 </html>
