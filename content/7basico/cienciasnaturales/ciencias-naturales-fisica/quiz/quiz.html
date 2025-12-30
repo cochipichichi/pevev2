@@ -1,176 +1,176 @@
 <!DOCTYPE html>
-<html lang=\"es\">
+<html lang="es">
 <head>
-  <meta charset=\"utf-8\"/>
-  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Quiz PEVE — Física 7° Básico</title>
-  <meta name=\"theme-color\" content=\"#0c0f10\"/>
-  <link rel=\"manifest\" href=\"../pwa/manifest.webmanifest\"/>
-  <link rel=\"icon\" href=\"../assets/img/favicon.png\"/>
-  <link rel=\"preload\" href=\"../style.css\" as=\"style\"/>
-  <link rel=\"stylesheet\" href=\"../style.css\"/>
+  <meta name="theme-color" content="#0c0f10"/>
+  <link rel="manifest" href="../pwa/manifest.webmanifest"/>
+  <link rel="icon" href="../../../../../assets/img/favicon.png"/>
+  <link rel="preload" href="../style.css" as="style"/>
+  <link rel="stylesheet" href="../style.css"/>
 </head>
 <body>
   <!-- La barra de accesibilidad se inyecta por script.js global -->
-  <header class=\"header\">
-    <div class=\"hero\">
+  <header class="header">
+    <div class="hero">
       <h1>Quiz PEVE — Física 7° Básico</h1>
       <p>Preguntas inspiradas en el banco oficial PEVE (CN07 OA07, OA09, OA11).</p>
     </div>
   </header>
 
-  <main class=\"section\">
-    <div id=\"quiz-container\" class=\"quiz-container\"></div>
-    <div class=\"btn-row\">
-      <button id=\"checkBtn\" class=\"btn\">✅ Revisar respuestas</button>
-      <button id=\"resetBtn\" class=\"btn\">🔄 Reiniciar</button>
-      <a href=\"../index.html\" class=\"btn\">⬅ Volver al módulo Física 7°</a>
+  <main class="section">
+    <div id="quiz-container" class="quiz-container"></div>
+    <div class="btn-row">
+      <button id="checkBtn" class="btn">✅ Revisar respuestas</button>
+      <button id="resetBtn" class="btn">🔄 Reiniciar</button>
+      <a href="../index.html" class="btn">⬅ Volver al módulo Física 7°</a>
     </div>
-    <p id=\"score\" class=\"note\"></p>
+    <p id="score" class="note"></p>
   </main>
 
   <script>
   const questions = [
     {
       id: 1,
-      text: \"Cuando levantas objetos de igual masa pero con formas y tamaños distintos, ¿cómo es la fuerza que aplicas para levantarlos?",
+      text: "Cuando levantas objetos de igual masa pero con formas y tamaños distintos, ¿cómo es la fuerza que aplicas para levantarlos?",
       options: [
-        \"Depende solo de la forma del objeto.\",
-        \"Depende solo del tamaño del objeto.\",
-        \"Es la misma, porque lo que importa es la masa.\",
-        \"Siempre es mayor para el objeto más grande.\"
+        "Depende solo de la forma del objeto.",
+        "Depende solo del tamaño del objeto.",
+        "Es la misma, porque lo que importa es la masa.",
+        "Siempre es mayor para el objeto más grande."
       ],
       correct: 2
     },
     {
       id: 2,
-      text: \"¿Cuál de las siguientes situaciones representa directamente la acción de la fuerza de gravedad?",
+      text: "¿Cuál de las siguientes situaciones representa directamente la acción de la fuerza de gravedad?",
       options: [
-        \"Dos bolitas chocando entre ellas.\",
-        \"Una persona empujando un automóvil.\",
-        \"Una manzana que cae desde un árbol.\",
-        \"Una pelota rodando hasta detenerse.\"
+        "Dos bolitas chocando entre ellas.",
+        "Una persona empujando un automóvil.",
+        "Una manzana que cae desde un árbol.",
+        "Una pelota rodando hasta detenerse."
       ],
       correct: 2
     },
     {
       id: 3,
-      text: \"Un dinamómetro funciona con un resorte interno. ¿Qué es lo que mide directamente ese resorte para luego traducirlo en peso?",
+      text: "Un dinamómetro funciona con un resorte interno. ¿Qué es lo que mide directamente ese resorte para luego traducirlo en peso?",
       options: [
-        \"La masa del objeto.\", 
-        \"La fuerza de gravedad de la Tierra.\",
-        \"La elongación (estiramiento) del resorte.\",
-        \"La constante elástica del material.\"
+        "La masa del objeto.", 
+        "La fuerza de gravedad de la Tierra.",
+        "La elongación (estiramiento) del resorte.",
+        "La constante elástica del material."
       ],
       correct: 2
     },
     {
       id: 4,
-      text: \"¿En cuál de estas situaciones se aprecia un efecto del roce estático?",
+      text: "¿En cuál de estas situaciones se aprecia un efecto del roce estático?",
       options: [
-        \"Un libro apoyado sobre una mesa.\",
-        \"Un automóvil andando por la carretera.\",
-        \"Una niña deslizándose por un resbalín.\",
-        \"Una persona cayendo en paracaídas.\"
+        "Un libro apoyado sobre una mesa.",
+        "Un automóvil andando por la carretera.",
+        "Una niña deslizándose por un resbalín.",
+        "Una persona cayendo en paracaídas."
       ],
       correct: 0
     },
     {
       id: 5,
-      text: \"Sobre un paracaidista en caída, ¿en qué momento actúa la fuerza de gravedad?",
+      text: "Sobre un paracaidista en caída, ¿en qué momento actúa la fuerza de gravedad?",
       options: [
-        \"Solo cuando abre el paracaídas.\",
-        \"Solo cuando está cayendo rápidamente.\",
-        \"Solo cuando está cerca del suelo.\",
-        \"En todo momento, desde que salta hasta que llega al suelo.\"
+        "Solo cuando abre el paracaídas.",
+        "Solo cuando está cayendo rápidamente.",
+        "Solo cuando está cerca del suelo.",
+        "En todo momento, desde que salta hasta que llega al suelo."
       ],
       correct: 3
     },
     {
       id: 6,
-      text: \"En un movimiento rectilíneo uniforme (MRU), ¿qué ocurre con la rapidez del objeto?",
+      text: "En un movimiento rectilíneo uniforme (MRU), ¿qué ocurre con la rapidez del objeto?",
       options: [
-        \"Aumenta cada vez más.\",
-        \"Disminuye cada vez más.\",
-        \"Se mantiene constante en el tiempo.\",
-        \"Primero aumenta y luego disminuye.\"
+        "Aumenta cada vez más.",
+        "Disminuye cada vez más.",
+        "Se mantiene constante en el tiempo.",
+        "Primero aumenta y luego disminuye."
       ],
       correct: 2
     },
     {
       id: 7,
-      text: \"En un experimento, una bolita recorre 12 metros en 3 segundos con movimiento rectilíneo uniforme. ¿Cuál es su rapidez promedio?",
+      text: "En un experimento, una bolita recorre 12 metros en 3 segundos con movimiento rectilíneo uniforme. ¿Cuál es su rapidez promedio?",
       options: [
-        \"2 m/s\",
-        \"3 m/s\",
-        \"4 m/s\",
-        \"36 m/s\"
+        "2 m/s",
+        "3 m/s",
+        "4 m/s",
+        "36 m/s"
       ],
       correct: 2
     },
     {
       id: 8,
-      text: \"¿Qué expresa la fórmula v = d / t en el estudio del movimiento?",
+      text: "¿Qué expresa la fórmula v = d / t en el estudio del movimiento?",
       options: [
-        \"La fuerza aplicada sobre un cuerpo.\",
-        \"La rapidez como distancia recorrida en un cierto tiempo.\",
-        \"La energía potencial de un objeto.\",
-        \"La presión ejercida por un gas.\"
+        "La fuerza aplicada sobre un cuerpo.",
+        "La rapidez como distancia recorrida en un cierto tiempo.",
+        "La energía potencial de un objeto.",
+        "La presión ejercida por un gas."
       ],
       correct: 1
     },
     {
       id: 9,
-      text: \"¿Qué provoca principalmente el movimiento de las placas tectónicas en la Tierra?",
+      text: "¿Qué provoca principalmente el movimiento de las placas tectónicas en la Tierra?",
       options: [
-        \"Los maremotos y huracanes.\",
-        \"El movimiento de rotación de la Tierra.\",
-        \"Las corrientes de convección del manto.\",
-        \"La fuerza del viento sobre los continentes.\"
+        "Los maremotos y huracanes.",
+        "El movimiento de rotación de la Tierra.",
+        "Las corrientes de convección del manto.",
+        "La fuerza del viento sobre los continentes."
       ],
       correct: 2
     },
     {
       id: 10,
-      text: \"Cuando dos placas se separan y asciende magma que forma corteza oceánica nueva, ¿qué tipo de límite de placas es?",
+      text: "Cuando dos placas se separan y asciende magma que forma corteza oceánica nueva, ¿qué tipo de límite de placas es?",
       options: [
-        \"Convergente.\",
-        \"Divergente.\",
-        \"Transformante.\",
-        \"Subductivo.\"
+        "Convergente.",
+        "Divergente.",
+        "Transformante.",
+        "Subductivo."
       ],
       correct: 1
     },
     {
       id: 11,
-      text: \"¿Cómo se llama el punto de la superficie terrestre que está justo sobre el lugar interno donde se inicia un terremoto?",
+      text: "¿Cómo se llama el punto de la superficie terrestre que está justo sobre el lugar interno donde se inicia un terremoto?",
       options: [
-        \"Epicentro.\",
-        \"Hipocentro.\",
-        \"Anillo de fuego.\",
-        \"Falla geológica.\"
+        "Epicentro.",
+        "Hipocentro.",
+        "Anillo de fuego.",
+        "Falla geológica."
       ],
       correct: 0
     },
     {
       id: 12,
-      text: \"Un gráfico muestra que tanto la temperatura como la densidad aumentan con la profundidad al interior de la Tierra. ¿Qué interpretación es correcta?",
+      text: "Un gráfico muestra que tanto la temperatura como la densidad aumentan con la profundidad al interior de la Tierra. ¿Qué interpretación es correcta?",
       options: [
-        \"La temperatura aumenta y la densidad disminuye.\",
-        \"La temperatura y la densidad aumentan con la profundidad.\",
-        \"La temperatura y la densidad disminuyen con la profundidad.\",
-        \"La densidad aumenta y la temperatura disminuye.\"
+        "La temperatura aumenta y la densidad disminuye.",
+        "La temperatura y la densidad aumentan con la profundidad.",
+        "La temperatura y la densidad disminuyen con la profundidad.",
+        "La densidad aumenta y la temperatura disminuye."
       ],
       correct: 1
     },
     {
       id: 13,
-      text: \"Comparando dos cordilleras, una con montañas puntiagudas y otra con montañas redondeadas, ¿cuál es la interpretación más aceptada?",
+      text: "Comparando dos cordilleras, una con montañas puntiagudas y otra con montañas redondeadas, ¿cuál es la interpretación más aceptada?",
       options: [
-        \"Las montañas puntiagudas son más antiguas.\",
-        \"Las montañas redondeadas son más antiguas por efecto de la erosión.\",
-        \"Tienen la misma edad, pero están en distintos hemisferios.\",
-        \"No se puede relacionar la forma con la edad.\"
+        "Las montañas puntiagudas son más antiguas.",
+        "Las montañas redondeadas son más antiguas por efecto de la erosión.",
+        "Tienen la misma edad, pero están en distintos hemisferios.",
+        "No se puede relacionar la forma con la edad."
       ],
       correct: 1
     }
@@ -231,7 +231,7 @@
   });
   </script>
 
-  <script src=\"../js/script.js\"></script>
-  <script src=\"../../../../assets/js/accesibilidad.js\"></script>
+  <script src="../js/script.js"></script>
+  <script src="../../../../../assets/js/accesibilidad.js"></script>
 </body>
 </html>
