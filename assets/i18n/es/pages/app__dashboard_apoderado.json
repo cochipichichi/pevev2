@@ -1,0 +1,15 @@
+{
+  "p.app__dashboard_apoderado.0001": "Versión demo – vista para acompañar a tu estudiante",
+  "p.app__dashboard_apoderado.0002": "Apoderado/a",
+  "p.app__dashboard_apoderado.0003": "Nivel",
+  "p.app__dashboard_apoderado.0004": "En esta versión los datos son de demostración; más adelante se conectarán a los reportes reales PEVE/DIA/KPSI.",
+  "p.app__dashboard_apoderado.0005": "📊 Resumen de exámenes",
+  "p.app__dashboard_apoderado.0006": "Visualiza un resumen de los exámenes rendidos y pendientes de tu estudiante.",
+  "p.app__dashboard_apoderado.0007": "Próximamente",
+  "p.app__dashboard_apoderado.0008": "📚 Temarios oficiales",
+  "p.app__dashboard_apoderado.0009": "Consulta los temarios que está estudiando tu estudiante.",
+  "p.app__dashboard_apoderado.0010": "Ver temarios",
+  "p.app__dashboard_apoderado.0011": "📊 Informes por rol (Apoderado/a)",
+  "p.app__dashboard_apoderado.0012": "Genera un reporte simple (PEVE/DIA/KPSI) para acompañar el avance del estudiante. Incluye opción de exportar a PDF.",
+  "p.app__dashboard_apoderado.0013": "Abrir informes de apoderado/a"
+}
