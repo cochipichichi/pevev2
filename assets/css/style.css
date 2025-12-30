@@ -1736,3 +1736,29 @@ body.peve-contrast :focus-visible {
   height: 100%;
   display: block;
 }
+
+
+/* === THEME POST-OVERRIDES (auto) === */
+
+/* These rules are intentionally placed at the end to win over earlier base styles. */
+body.theme-light .card,
+body.theme-light .card.card-hover,
+body.theme-light .card.card-tilt {
+  background: rgba(255,255,255,.96);
+  border-color: rgba(15,23,42,.14);
+  box-shadow: 0 10px 26px rgba(15,23,42,.08);
+}
+body.theme-light .card::before{
+  background: radial-gradient(800px circle at var(--mx, 50%) var(--my, 35%), rgba(15,23,42,.08), transparent 42%);
+}
+body.theme-light .card:hover{
+  border-color: rgba(15,23,42,.22);
+  box-shadow: 0 14px 34px rgba(15,23,42,.12);
+}
+body.theme-light .card p,
+body.theme-light .card .muted{
+  color: rgba(15,23,42,.82);
+}
+body.theme-dark .card::before{
+  background: radial-gradient(800px circle at var(--mx, 50%) var(--my, 35%), rgba(255,255,255,.09), transparent 42%);
+}
