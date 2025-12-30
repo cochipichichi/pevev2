@@ -1,0 +1,12 @@
+{
+  "p.app__admin.0001": "Acceso administrador PEVE",
+  "p.app__admin.0002": "Inicia sesión with your cuenta autorizada for gestionar usuarios, credenciales e reports of results.",
+  "p.app__admin.0003": "🛠️ Administrator PEVE",
+  "p.app__admin.0004": "Solo cuentas autorizadas: Neotech EduLab and coordinación PEVE.",
+  "p.app__admin.0005": "Gestiona usuarios PEVE, envía credenciales and accede to the módulo of reports (results, DIA and KPSI).",
+  "p.app__admin.0006": "📩 Envío of credenciales",
+  "p.app__admin.0007": "Select a student in the tabla and utiliza the botones for enviar the credenciales by correo or WhatsApp to the parent/guardian.",
+  "p.app__admin.0008": "Visualiza results by grade, subject, DIA and KPSI desde the módulo of reports.",
+  "p.app__admin.0009": "Gestión of usuarios PEVE",
+  "p.app__admin.0010": "admin@peve.cl"
+}

@@ -1,0 +1,16 @@
+{
+  "p.app__login.0001": "Acceso seguro",
+  "p.app__login.0002": "Elige your perfil for ingresar",
+  "p.app__login.0003": "Select a perfil and luego escribe your credenciales. This versión es demostrativa (front-end) and aún no está conectada to a backend real.",
+  "p.app__login.0004": "Perfil",
+  "p.app__login.0005": "👨‍👩‍👧 Parent/Guardian/to",
+  "p.app__login.0006": "👩‍🏫 Teacher",
+  "p.app__login.0007": "🛠️ Administrator",
+  "p.app__login.0008": "Elige the perfil with the que quieres ingresar to 📚PEVE.",
+  "p.app__login.0009": "👦👧 Student:",
+  "p.app__login.0010": "⚠️ This login es demostrativo (front-end). In a próxima versión se conectará to a backend real (Firebase, Supabase or otro) for manejar sesiones and permisos by perfil.",
+  "p.app__login.0011": "guardian",
+  "p.app__login.0012": "teacher",
+  "p.app__login.0013": "admin",
+  "p.app__login.0014": "student@dominio.cl"
+}
