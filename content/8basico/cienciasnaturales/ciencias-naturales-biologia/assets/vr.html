@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta content="#0c0f10" name="theme-color"/>
@@ -9,10 +8,10 @@
 <link href="../style.css" rel="stylesheet"/>
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 <style>body,html{background:#000}</style>
-</head>
+<link href="../../../../../assets/css/theme.css" rel="stylesheet"/></head>
 <body>
 <nav class="controls" style="position:fixed;top:0;left:0;right:0;z-index:5">
-<span class="control-title">🛠️ Controles:</span>
+<span class="control-title" data-i18n="c.controles_e9be6793">🛠️ Controles:</span>
 <a class="control-btn" href="../index.html">🏠</a>
 <button class="control-btn" onclick="toggleGuide(true)">🧠</button>
 </nav>
@@ -27,9 +26,9 @@
 <a-entity gltf-model="../assets/models/fosil.glb" position="-1 1.2 -3" scale="0.8 0.8 0.8"></a-entity>
 <a-entity gltf-model="../assets/models/homologia.glb" position="1 1.2 -3" scale="0.8 0.8 0.8"></a-entity>
 <a-entity gltf-model="../assets/models/adn.glb" position="0 1.2 -1.5" scale="0.5 0.5 0.5"></a-entity>
-<a-text color="#fff" position="-1.5 2 -2.5" value="Gira la cabeza o arrastra para mirar. En dispositivos compatibles, usa el botón VR."></a-text>
+<a-text color="#fff" data-i18n-value="c.attr.value.gira_la_cabeza_o_arrastra_para_mirar_en_a135842d" position="-1.5 2 -2.5" value="Gira la cabeza o arrastra para mirar. En dispositivos compatibles, usa el botón VR."></a-text>
 </a-scene>
-<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3>🧠 Guía</h3><p>Usa el botón 🥽 en la esquina para entrar a VR si tu dispositivo lo soporta.</p></div></div>
+<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3 data-i18n="c.guía_22cd2fea">🧠 Guía</h3><p data-i18n="c.usa_el_botón__en_la_esquina_para_entrar_46c83009">Usa el botón 🥽 en la esquina para entrar a VR si tu dispositivo lo soporta.</p></div></div>
 <script src="../js/script.js"></script>
-<script src="../../../../../assets/js/accesibilidad.js"></script></body>
+<script src="../../../../../assets/js/accessibility.js"></script></body>
 </html>
