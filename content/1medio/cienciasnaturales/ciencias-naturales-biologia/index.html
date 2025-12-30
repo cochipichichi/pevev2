@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
@@ -12,123 +10,123 @@
 <link as="style" href="style.css" rel="preload"/>
 <link href="style.css" rel="stylesheet"/>
 <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
-</head>
+<link href="../../../../assets/css/theme.css" rel="stylesheet"/></head>
 <body>
 <!-- Reading ruler -->
 <div aria-hidden="true" class="ruler" id="ruler"></div>
 <!-- Controls -->
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<nav aria-label="Barra de controles" class="controls" data-i18n-aria-label="c.attr.aria-label.barra_de_controles_16ccbafc" role="navigation">
+<span class="control-title">🛠️ <span data-i18n="c.controles_0ba15df1" data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" data-i18n-aria-label="c.attr.aria-label.inicio_b0cbe1c0" data-i18n-title="c.attr.title.inicio_6a942e51" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" data-i18n-aria-label="c.attr.aria-label.narrar_bd2b0dc4" data-i18n-title="c.attr.title.narrar_1272f7ec" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
 <div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+<button aria-label="Cambiar tema" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_tema_4156dabc" data-i18n-title="c.attr.title.temas_altt_58abcf47" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" data-i18n-aria-label="c.attr.aria-label.selector_de_tema_a0c5920a" id="themeMenu" role="menu">
+<button data-i18n="c.claro_e8e44533" onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button data-i18n="c.oscuro_27a6408f" onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button data-i18n="c.alto_contraste_745b631c" onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button data-i18n="c.sepia_0bd3eacb" onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
 </div>
 </div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.aumentar_tamaño_de_letra_286fb21a" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.disminuir_tamaño_de_letra_15d6bf38" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_a_inglés_e612bcaf" data-i18n-title="c.attr.title.cambiar_idioma_1b5aed40" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" data-i18n-aria-label="c.attr.aria-label.guía_121763af" data-i18n-title="c.attr.title.guía_244a2aff" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" data-i18n-aria-label="c.attr.aria-label.regla_de_lectura_d2d94444" data-i18n-title="c.attr.title.regla_de_lectura_d4498f1d" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
 <span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+<button aria-label="Detener narración" class="control-btn" data-i18n-aria-label="c.attr.aria-label.detener_narración_3d1c8d5f" data-i18n-title="c.attr.title.detener_narración_95070702" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
 </nav>
 <header class="header">
 <div class="hero" id="intro">
-<h1 data-i18n-en="Natural Sciences — Evidence of Evolution (OA2)" data-i18n-es="Ciencias Natrulares — Evidencias de la Evolución (OA2)">Ciencias Natrulares — Evidencias de la Evolución (OA2)</h1>
-<p data-i18n-en="Explore fossils, comparative anatomy, embryology and DNA; understand natural selection and the contributions of Darwin &amp; Wallace." data-i18n-es="Explora fósiles, anatomía comparada, embriología y ADN; comprende la selección natural y el aporte de Darwin y Wallace.">
+<h1 data-i18n="c.ciencias_natrulares__evidencias_de_la_ev_271d2d4e" data-i18n-en="Natural Sciences — Evidence of Evolution (OA2)" data-i18n-es="Ciencias Natrulares — Evidencias de la Evolución (OA2)">Ciencias Natrulares — Evidencias de la Evolución (OA2)</h1>
+<p data-i18n="c.explora_fósiles_anatomía_comparada_embri_0705a188" data-i18n-en="Explore fossils, comparative anatomy, embryology and DNA; understand natural selection and the contributions of Darwin &amp; Wallace." data-i18n-es="Explora fósiles, anatomía comparada, embriología y ADN; comprende la selección natural y el aporte de Darwin y Wallace.">
          Explora fósiles, anatomía comparada, embriología y ADN; comprende la selección natural y el aporte de Darwin y Wallace.
       </p>
 <div class="btn-row">
-<a class="btn" href="#modelos">👁️ Ver en 3D</a>
-<a class="btn" href="#modelos" title="Realidad Aumentada">📱 Ver en AR</a>
-<a class="btn" href="#modelos" title="Realidad Virtual">🥽 Ver en VR</a>
-<a class="btn" href="quiz/quiz.html">🧪 Quiz OA2</a>
-<a class="btn" href="BIO1M_OA2_EvidenciasEvolucion/index.html">🧬  Evidencias de Evolucion</a>
+<a class="btn" data-i18n="c.ver_en_3d_3855fc7d" href="#modelos">👁️ Ver en 3D</a>
+<a class="btn" data-i18n="c.ver_en_ar_9833d157" data-i18n-title="c.attr.title.realidad_aumentada_41ff5343" href="#modelos" title="Realidad Aumentada">📱 Ver en AR</a>
+<a class="btn" data-i18n="c.ver_en_vr_694d8053" data-i18n-title="c.attr.title.realidad_virtual_71cb837f" href="#modelos" title="Realidad Virtual">🥽 Ver en VR</a>
+<a class="btn" data-i18n="c.quiz_oa2_d37ef664" href="quiz/quiz.html">🧪 Quiz OA2</a>
+<a class="btn" data-i18n="c.evidencias_de_evolucion_15104752" href="BIO1M_OA2_EvidenciasEvolucion/index.html">🧬  Evidencias de Evolucion</a>
 </div>
 </div>
 </header>
 <main>
 <section class="section">
-<h2>🔬 Objetivo de Aprendizaje N°2</h2>
-<p>Analizar e interpretar datos para proveer evidencias de que la diversidad de organismos es el resultado de la evolución: registro fósil, homologías, embriología, ADN; postulados de selección natural; aportes de Darwin y Wallace.</p>
-<div class="badge">⏱️ 90 min — 25 preguntas por asignatura</div>
-<div class="badge">🧭 Indicadores: evidencias, especiación, selección natural, Darwin &amp; Wallace</div>
+<h2 data-i18n="c.objetivo_de_aprendizaje_n2_7ee4a479">🔬 Objetivo de Aprendizaje N°2</h2>
+<p data-i18n="c.analizar_e_interpretar_datos_para_provee_fb5c60fc">Analizar e interpretar datos para proveer evidencias de que la diversidad de organismos es el resultado de la evolución: registro fósil, homologías, embriología, ADN; postulados de selección natural; aportes de Darwin y Wallace.</p>
+<div class="badge" data-i18n="c.90_min__25_preguntas_por_asignatura_7d6c93b3">⏱️ 90 min — 25 preguntas por asignatura</div>
+<div class="badge" data-i18n="c.indicadores_evidencias_especiación_selec_f4f41716">🧭 Indicadores: evidencias, especiación, selección natural, Darwin &amp; Wallace</div>
 </section>
 <section class="section">
-<h2>🧱 Evidencias</h2>
+<h2 data-i18n="c.evidencias_50e25f39">🧱 Evidencias</h2>
 <div class="grid" id="modelos">
 <article class="card">
-<h3>🦴 Registro fósil</h3>
+<h3 data-i18n="c.registro_fósil_c0976079">🦴 Registro fósil</h3>
 <p>Observa una línea de tiempo con fósiles (placeholders). Reemplaza <code>assets/models/fosil.glb</code> con tu modelo GLB.</p>
 <div class="btn-row">
-<button class="btn" onclick="location.href='assets/fosil.html'">👁️ 3D</button>
-<button class="btn" onclick="location.href='assets/fosil.html#ar'">📱 AR</button>
+<button class="btn" data-i18n="c.3d_2baabebc" onclick="location.href='assets/fosil.html'">👁️ 3D</button>
+<button class="btn" data-i18n="c.ar_aef36459" onclick="location.href='assets/fosil.html#ar'">📱 AR</button>
 </div>
 </article>
 <article class="card">
-<h3>🫱🏻‍🫲🏽 Estructuras homólogas</h3>
+<h3 data-i18n="c.estructuras_homólogas_4a6f9248">🫱🏻‍🫲🏽 Estructuras homólogas</h3>
 <p>Compara extremidades de vertebrados para identificar homologías vs analogías. Reemplaza <code>assets/models/homologia.glb</code>.</p>
 <div class="btn-row">
-<button class="btn" onclick="location.href='assets/fosil.html'">👁️ 3D</button>
-<button class="btn" onclick="location.href='assets/vr.html'">🥽 VR</button>
+<button class="btn" data-i18n="c.3d_2baabebc" onclick="location.href='assets/fosil.html'">👁️ 3D</button>
+<button class="btn" data-i18n="c.vr_7d9bf95d" onclick="location.href='assets/vr.html'">🥽 VR</button>
 </div>
 </article>
 <article class="card">
-<h3>🧬 Secuencias de ADN</h3>
+<h3 data-i18n="c.secuencias_de_adn_b5539686">🧬 Secuencias de ADN</h3>
 <p>Visualiza un modelo simple de ADN y compara secuencias. Reemplaza <code>assets/models/adn.glb</code>.</p>
 <div class="btn-row">
-<button class="btn" onclick="location.href='assets/adn.html'">👁️ 3D</button>
+<button class="btn" data-i18n="c.3d_2baabebc" onclick="location.href='assets/adn.html'">👁️ 3D</button>
 </div>
 </article>
 </div>
 </section>
 <section class="section">
-<h2>🧪 Mini simulación — Selección natural</h2>
-<p>Ajusta la <strong>presión de selección</strong> y observa cómo cambia la población en generaciones sucesivas.</p>
+<h2 data-i18n="c.mini_simulación__selección_natural_dfc60e2c">🧪 Mini simulación — Selección natural</h2>
+<p>Ajusta la <strong data-i18n="c.presión_de_selección_4bba0e90">presión de selección</strong> y observa cómo cambia la población en generaciones sucesivas.</p>
 <div class="card">
 <div class="btn-row" style="justify-content:space-between">
 <label>Presión de selección: <input id="sel" max="0.9" min="0.2" step="0.01" type="range" value="0.5"/></label>
 <div class="btn-row">
-<button class="btn" id="step">➡️ Siguiente generación</button>
-<button class="btn" id="reset">🔄 Reiniciar</button>
+<button class="btn" data-i18n="c.siguiente_generación_1409ff13" id="step">➡️ Siguiente generación</button>
+<button class="btn" data-i18n="c.reiniciar_eb96b786" id="reset">🔄 Reiniciar</button>
 </div>
 </div>
 <canvas id="sim" style="width:100%;height:280px;display:block"></canvas>
 </div>
 </section>
 <section class="section">
-<h2>👥 Darwin &amp; Wallace</h2>
+<h2 data-i18n="c.darwin__wallace_f4051c6f">👥 Darwin &amp; Wallace</h2>
 <div class="grid">
 <article class="card">
-<h3>📜 Postulados de la selección natural</h3>
+<h3 data-i18n="c.postulados_de_la_selección_natural_2907de78">📜 Postulados de la selección natural</h3>
 <ul>
-<li>Sobreproducción</li>
-<li>Variación</li>
-<li>Adaptación</li>
-<li>Selección</li>
+<li data-i18n="c.sobreproducción_d6717018">Sobreproducción</li>
+<li data-i18n="c.variación_f007316c">Variación</li>
+<li data-i18n="c.adaptación_44418fd9">Adaptación</li>
+<li data-i18n="c.selección_7b3b3b9e">Selección</li>
 </ul>
 </article>
 <article class="card">
-<h3>👤 Charles Darwin</h3>
-<p>Breve biografía y contribuciones. (Sustituye con contenido ampliado — y cita fuentes)</p>
+<h3 data-i18n="c.charles_darwin_5ed9c8b0">👤 Charles Darwin</h3>
+<p data-i18n="c.breve_biografía_y_contribuciones_sustitu_7d566462">Breve biografía y contribuciones. (Sustituye con contenido ampliado — y cita fuentes)</p>
 </article>
 <article class="card">
-<h3>👤 Alfred R. Wallace</h3>
-<p>Breve biografía y contribuciones. (Sustituye con contenido ampliado — y cita fuentes)</p>
+<h3 data-i18n="c.alfred_r_wallace_87fa1d78">👤 Alfred R. Wallace</h3>
+<p data-i18n="c.breve_biografía_y_contribuciones_sustitu_7d566462">Breve biografía y contribuciones. (Sustituye con contenido ampliado — y cita fuentes)</p>
 </article>
 </div>
 </section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
-<h2>🧩 Accesibilidad</h2>
-<p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
@@ -136,33 +134,33 @@
 </section>
 </main>
 <footer class="footer">
-<div>Plataforma Exámenes Libres — <strong>Educación Inmversiva</strong></div>
-<div>👩‍🏫 Belén Acuña — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
-<div>👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
-<div>Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+<div>Plataforma Exámenes Libres — <strong data-i18n="c.educación_inmversiva_f97a1baf">Educación Inmversiva</strong></div>
+<div data-i18n="c.belén_acuña___belenacpegmailcom___56_9_6_f7bb5bad">👩‍🏫 Belén Acuña — 📧 belen.acpe@gmail.com · 📞 +56 9 6266 4960</div>
+<div data-i18n="c.francisco_pinto___franciscoandrespgmailc_acf06b88">👨‍💻 Francisco Pinto — 📧 franciscoandresp@gmail.com · 📞 +56 9 2002 7992</div>
+<div data-i18n="c.hecho_con__para_el_liceo_bicentenario_de_797dec3c">Hecho con ❤️ para el Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
 </footer>
 <!-- Guide modal -->
 <div aria-labelledby="guideTitle" aria-modal="true" class="modal" id="guideModal" role="dialog">
 <div class="box">
 <span class="close" onclick="toggleGuide(false)">✖</span>
-<h3 id="guideTitle">🧠 Guía rápida</h3>
-<p><strong>Objetivo (OA2):</strong> interpretar evidencias de evolución; explicar selección natural; reconocer aportes de Darwin &amp; Wallace.</p>
-<h4>Para el/la docente</h4>
+<h3 data-i18n="c.guía_rápida_aba56fe4" id="guideTitle">🧠 Guía rápida</h3>
+<p><strong data-i18n="c.objetivo_oa2_a600ef71">Objetivo (OA2):</strong> interpretar evidencias de evolución; explicar selección natural; reconocer aportes de Darwin &amp; Wallace.</p>
+<h4 data-i18n="c.para_ella_docente_fa86d923">Para el/la docente</h4>
 <ul>
-<li>Inicio (5’): activar conocimientos previos con ejemplos locales.</li>
-<li>Desarrollo (30’): evidencias → simulación → discusión guiada.</li>
-<li>Cierre (10’): 🎟️ ticket de salida + consignas de estudio.</li>
+<li data-i18n="c.inicio_5_activar_conocimientos_previos_c_891bee05">Inicio (5’): activar conocimientos previos con ejemplos locales.</li>
+<li data-i18n="c.desarrollo_30_evidencias__simulación__di_4a3af6f8">Desarrollo (30’): evidencias → simulación → discusión guiada.</li>
+<li data-i18n="c.cierre_10__ticket_de_salida__consignas_d_c57251d7">Cierre (10’): 🎟️ ticket de salida + consignas de estudio.</li>
 </ul>
-<h4>Para el/la estudiante</h4>
+<h4 data-i18n="c.para_ella_estudiante_84aba28d">Para el/la estudiante</h4>
 <ul>
-<li>Explora las tarjetas de evidencias.</li>
-<li>Prueba la simulación y explica en tus palabras qué observas.</li>
-<li>Resuelve el 🧪 Quiz OA2.</li>
+<li data-i18n="c.explora_las_tarjetas_de_evidencias_ffe4bb23">Explora las tarjetas de evidencias.</li>
+<li data-i18n="c.prueba_la_simulación_y_explica_en_tus_pa_c283c4ed">Prueba la simulación y explica en tus palabras qué observas.</li>
+<li data-i18n="c.resuelve_el__quiz_oa2_f4e3a733">Resuelve el 🧪 Quiz OA2.</li>
 </ul>
 </div>
 </div>
 <script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script></body>
+<script src="../../../../assets/js/accessibility.js"></script></body>
 </html>
-<section class="section"><h2>👥 Darwin &amp; Wallace</h2><div class="card"><a class="btn" href="../../../../assets/timeline.html">📜 Ver línea de tiempo</a></div></section>
-<section class="section"><h2>📊 Panel docente</h2><div class="card"><a class="btn" href="dashboard.html">Abrir panel</a></div></section>
+<html><section class="section"><h2 data-i18n="c.darwin__wallace_f4051c6f">👥 Darwin &amp; Wallace</h2><div class="card"><a class="btn" data-i18n="c.ver_línea_de_tiempo_3e14a9ff" href="../../../../assets/timeline.html">📜 Ver línea de tiempo</a></div></section>
+<section class="section"><h2 data-i18n="c.panel_docente_c90744ec">📊 Panel docente</h2><div class="card"><a class="btn" data-i18n="c.abrir_panel_a55c9912" href="dashboard.html">Abrir panel</a></div></section></html>

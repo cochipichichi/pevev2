@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta content="#0c0f10" name="theme-color"/>
@@ -14,19 +12,19 @@
     import { SHEETS_WRITE_ENDPOINT } from "../js/config.js";
     window.__SHEETS_ENDPOINT = SHEETS_WRITE_ENDPOINT;
   </script>
-</head>
+<link href="../../../../assets/css/theme.css" rel="stylesheet"/></head>
 <body>
 <nav class="controls">
-<span class="control-title">🛠️ Controles:</span>
+<span class="control-title" data-i18n="c.controles_e9be6793">🛠️ Controles:</span>
 <a class="control-btn" href="../index.html">🏠</a>
 <button class="control-btn" onclick="handleSpeak()">🗣️</button>
 <div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+<button aria-label="Cambiar tema" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_tema_4156dabc" data-i18n-title="c.attr.title.temas_altt_58abcf47" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" data-i18n-aria-label="c.attr.aria-label.selector_de_tema_a0c5920a" id="themeMenu" role="menu">
+<button data-i18n="c.claro_e8e44533" onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button data-i18n="c.oscuro_27a6408f" onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button data-i18n="c.alto_contraste_745b631c" onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button data-i18n="c.sepia_0bd3eacb" onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
 </div>
 </div>
 <button class="control-btn" onclick="fontDelta(1)">A+</button>
@@ -38,26 +36,26 @@
 <button class="control-btn" onclick="handleStop()">⏹</button>
 </nav>
 <main class="section" id="intro">
-<h1>🧪 Quiz OA2</h1>
-<p>Selecciona la alternativa correcta. Al terminar, revisa tu puntaje.</p>
+<h1 data-i18n="c.quiz_oa2_d37ef664">🧪 Quiz OA2</h1>
+<p data-i18n="c.selecciona_la_alternativa_correcta_al_te_5a1f74c4">Selecciona la alternativa correcta. Al terminar, revisa tu puntaje.</p>
 <div class="card" id="quizBox"></div>
 <div class="btn-row" style="margin-top:1rem">
-<button class="btn" onclick="grade()">✅ Revisar</button>
-<button class="btn" onclick="location.reload()">🔄 Reiniciar</button>
+<button class="btn" data-i18n="c.revisar_cc0347d3" onclick="grade()">✅ Revisar</button>
+<button class="btn" data-i18n="c.reiniciar_eb96b786" onclick="location.reload()">🔄 Reiniciar</button>
 </div>
 <p id="score" style="margin-top:1rem;font-weight:700"></p>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card">
-<h2>🧩 Accesibilidad</h2>
-<p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
 </article>
 </section>
 </main>
-<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3>🧠 Guía</h3><p>Recuerda leer bien cada opción; busca pistas en palabras clave.</p></div></div>
+<div class="modal" id="guideModal"><div class="box"><span class="close" onclick="toggleGuide(false)">✖</span><h3 data-i18n="c.guía_22cd2fea">🧠 Guía</h3><p data-i18n="c.recuerda_leer_bien_cada_opción_busca_pis_e396dca7">Recuerda leer bien cada opción; busca pistas en palabras clave.</p></div></div>
 <div class="ruler" id="ruler"></div>
 <script src="../js/script.js"></script>
 <script>
@@ -138,5 +136,5 @@
   }
 
 </script>
-<script src="../../../../assets/js/accesibilidad.js"></script></body>
+<script src="../../../../assets/js/accessibility.js"></script></body>
 </html>
