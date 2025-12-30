@@ -1,114 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>📊 Informes Apoderado/a – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>📊 Informes Apoderado/a – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Informes para apoderado/a</span>
-      </div>
-    </div>
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../dashboard_apoderado.html" class="nav-link">Panel Apoderado/a</a>
-      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <a href="../../pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
-      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Abrir guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h1>📊 Informe de avance (Apoderado/a)</h1>
-      <p class="note">
-        Módulo pensado para que <strong id="guardian-name-inline">el/la apoderado/a</strong> revise un resumen del avance de
-        <strong id="guardian-student-name-inline">su estudiante</strong> y pueda exportarlo a PDF.
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="p.app__apoderado__informes_apoderado.0001">Informes para apoderado/a</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../../index.html">Inicio</a>
+<a class="nav-link" data-i18n="p.app__apoderado__informes_apoderado.0002" href="../dashboard_apoderado.html">Panel Apoderado/a</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../../pages/asignaturas.html">Asignaturas</a>
+<a class="nav-link" data-i18n="nav.perfiles" href="../../pages/perfiles.html">Perfiles</a>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../../pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="../../pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.abrir_guía_paso_a_paso_09b564da" title="Abrir guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<main class="container">
+<section class="hero">
+<h1 data-i18n="p.app__apoderado__informes_apoderado.0003">📊 Informe de avance (Apoderado/a)</h1>
+<p class="note">
+        Módulo pensado para que <strong data-i18n="p.app__apoderado__informes_apoderado.0004" id="guardian-name-inline">el/la apoderado/a</strong> revise un resumen del avance de
+        <strong data-i18n="p.app__apoderado__informes_apoderado.0005" id="guardian-student-name-inline">su estudiante</strong> y pueda exportarlo a PDF.
       </p>
-      <p class="note">
+<p class="note">
         Estudiante: <strong id="guardian-student-name-hero">—</strong> · Nivel:
         <strong id="guardian-student-level-hero">—</strong> · Llamado:
         <strong id="guardian-student-call-hero">—</strong>
-      </p>
+</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
+<div class="card">
+<h3 data-i18n="p.app__apoderado__informes_apoderado.0006">👤 Estudiante</h3>
+<label class="small" data-i18n="p.app__apoderado__informes_apoderado.0007" for="g-run">RUN del estudiante</label>
+<input class="input" data-i18n-placeholder="p.app__apoderado__informes_apoderado.0024" id="g-run" placeholder="Ej: 12.345.678-9"/>
+<label class="small" data-i18n="p.app__apoderado__informes_apoderado.0008" for="g-idpeve" style="margin-top:.5rem;">ID PEVE (opcional)</label>
+<input class="input" data-i18n-placeholder="p.app__apoderado__informes_apoderado.0025" id="g-idpeve" placeholder="Ej: STU-2025-0001"/>
+<button class="btn btn-solid" data-i18n="p.app__apoderado__informes_apoderado.0009" id="g-load" style="margin-top:.75rem;width:100%;">🔄 Cargar informe</button>
+<p class="small note" data-i18n="p.app__apoderado__informes_apoderado.0010" id="g-status" style="margin-top:.6rem;">Listo.</p>
+</div>
+<div class="card">
+<h3 data-i18n="p.app__apoderado__informes_apoderado.0011">📌 Resumen</h3>
+<div class="small" data-i18n="p.app__apoderado__informes_apoderado.0012">Última actualización</div>
+<div id="r-updated" style="font-weight:700;margin:.25rem 0 0;">—</div>
+<div class="small" data-i18n="p.app__apoderado__informes_apoderado.0013" style="margin-top:.65rem;">Progreso estimado</div>
+<div class="progress-bar" style="margin-top:.35rem;">
+<div class="progress-fill" id="r-progress" style="width:0%;"></div>
+</div>
+<div class="small" data-i18n="p.app__apoderado__informes_apoderado.0014" id="r-progress-text" style="margin-top:.35rem;">0%</div>
+<button class="btn btn-ghost" data-i18n="p.app__apoderado__informes_apoderado.0015" id="r-print" style="margin-top:.75rem;width:100%;">🖨️ Exportar a PDF</button>
+</div>
+<div class="card">
+<h3 data-i18n="p.app__apoderado__informes_apoderado.0016">✅ Indicadores</h3>
+<ul class="list">
+<li><strong data-i18n="p.app__apoderado__informes_apoderado.0017">PEVE:</strong> <span id="k-peve">—</span></li>
+<li><strong data-i18n="p.app__apoderado__informes_apoderado.0018">DIA:</strong> <span id="k-dia">—</span></li>
+<li><strong data-i18n="p.app__apoderado__informes_apoderado.0019">KPSI:</strong> <span id="k-kpsi">—</span></li>
+</ul>
+<p class="small note" data-i18n="p.app__apoderado__informes_apoderado.0020">Estos indicadores se completan cuando el Apps Script provee datos.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<article class="card">
+<h2 data-i18n="p.app__apoderado__informes_apoderado.0021">📄 Detalle (modo demo / real)</h2>
+<div class="note small" data-i18n="p.app__apoderado__informes_apoderado.0022">Si estás en modo demo, este contenido muestra un ejemplo. Si estás conectado, se reemplaza con datos reales.</div>
+<div id="r-detail" style="margin-top:1rem;">
+<div class="note" data-i18n="p.app__apoderado__informes_apoderado.0023">No hay datos cargados aún.</div>
+</div>
+</article>
+</section>
+<section class="section">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra · 🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.</p>
+</article>
+</section>
+</main>
+<footer class="footer small"></footer>
+<script src="../../assets/api.js"></script>
 
-      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
-        <div class="card">
-          <h3>👤 Estudiante</h3>
-          <label class="small" for="g-run">RUN del estudiante</label>
-          <input id="g-run" class="input" placeholder="Ej: 12.345.678-9" />
-          <label class="small" for="g-idpeve" style="margin-top:.5rem;">ID PEVE (opcional)</label>
-          <input id="g-idpeve" class="input" placeholder="Ej: STU-2025-0001" />
-          <button class="btn btn-solid" id="g-load" style="margin-top:.75rem;width:100%;">🔄 Cargar informe</button>
-          <p class="small note" id="g-status" style="margin-top:.6rem;">Listo.</p>
-        </div>
-
-        <div class="card">
-          <h3>📌 Resumen</h3>
-          <div class="small">Última actualización</div>
-          <div id="r-updated" style="font-weight:700;margin:.25rem 0 0;">—</div>
-          <div class="small" style="margin-top:.65rem;">Progreso estimado</div>
-          <div class="progress-bar" style="margin-top:.35rem;">
-            <div class="progress-fill" id="r-progress" style="width:0%;"></div>
-          </div>
-          <div class="small" id="r-progress-text" style="margin-top:.35rem;">0%</div>
-          <button class="btn btn-ghost" id="r-print" style="margin-top:.75rem;width:100%;">🖨️ Exportar a PDF</button>
-        </div>
-
-        <div class="card">
-          <h3>✅ Indicadores</h3>
-          <ul class="list">
-            <li><strong>PEVE:</strong> <span id="k-peve">—</span></li>
-            <li><strong>DIA:</strong> <span id="k-dia">—</span></li>
-            <li><strong>KPSI:</strong> <span id="k-kpsi">—</span></li>
-          </ul>
-          <p class="small note">Estos indicadores se completan cuando el Apps Script provee datos.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <article class="card">
-        <h2>📄 Detalle (modo demo / real)</h2>
-        <div class="note small">Si estás en modo demo, este contenido muestra un ejemplo. Si estás conectado, se reemplaza con datos reales.</div>
-        <div id="r-detail" style="margin-top:1rem;">
-          <div class="note">No hay datos cargados aún.</div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section">
-      <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-        <h2>🧩 Accesibilidad</h2>
-        <p class="note">🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra · 🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.</p>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer small"></footer>
-
-  <script src="../../assets/api.js"></script>
-  <script src="../../assets/js/accesibilidad.js"></script>
-  <script src="../../assets/js/footer.js"></script>
-  <script>
+<script src="../../assets/js/footer.js"></script>
+<script>
     (function(){
       const status = document.getElementById('g-status');
       const detail = document.getElementById('r-detail');
@@ -182,6 +173,6 @@
       document.getElementById('r-print').addEventListener('click', ()=> window.print());
     })();
   </script>
-  <script src="../../assets/js/guardian-context.js" defer></script>
-</body>
+<script defer="" src="../../assets/js/guardian-context.js"></script>
+<script src="../../assets/js/accessibility.js"></script></body>
 </html>

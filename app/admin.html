@@ -1,162 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>🛠️ Panel Administrador – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>🛠️ Panel Administrador – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-  <!-- HEADER GLOBAL -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Panel de administración</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active" data-i18n="nav.admin">Administrador</span>
-      <a href="./informes.html" class="nav-link" data-i18n="nav.informes">Informes</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main id="main-content" class="page">
-
-    <!-- BLOQUE LOGIN ADMIN -->
-    <section id="admin-login-section" class="section">
-      <div class="section-header">
-        <h1>Acceso administrador PEVE</h1>
-        <p class="page-lead">
+<!-- HEADER GLOBAL -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.panel_de_administración_17c736c0">Panel de administración</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="nav.admin">Administrador</span>
+<a class="nav-link" data-i18n="nav.informes" href="./informes.html">Informes</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<!-- BLOQUE LOGIN ADMIN -->
+<section class="section" id="admin-login-section">
+<div class="section-header">
+<h1 data-i18n="p.app__admin.0001">Acceso administrador PEVE</h1>
+<p class="page-lead" data-i18n="p.app__admin.0002">
           Inicia sesión con tu cuenta autorizada para gestionar usuarios, credenciales e informes de resultados.
         </p>
-      </div>
-
-      <div class="login-layout">
-        <article class="login-card login-card-admin" style="max-width: 420px;">
-          <h2>🛠️ Administrador PEVE</h2>
-          <p>
+</div>
+<div class="login-layout">
+<article class="login-card login-card-admin" style="max-width: 420px;">
+<h2 data-i18n="p.app__admin.0003">🛠️ Administrador PEVE</h2>
+<p data-i18n="p.app__admin.0004">
             Solo cuentas autorizadas: Neotech EduLab y coordinación PEVE.
           </p>
-
-          <form class="login-form" id="admin-login-form">
-            <label>
+<form class="login-form" id="admin-login-form">
+<label>
               Correo administrador
-              <input type="email" name="email" placeholder="admin@peve.cl" required />
-            </label>
-            <label>
+              <input data-i18n-placeholder="p.app__admin.0010" name="email" placeholder="admin@peve.cl" required="" type="email"/>
+</label>
+<label>
               Contraseña
-              <input type="password" name="password" placeholder="********" required />
-            </label>
-            <button class="login-btn" type="submit">Ingresar</button>
-            <p class="note login-error" id="admin-login-error" aria-live="polite"></p>
-          </form>
-        </article>
-      </div>
-    </section>
-
-    <!-- BLOQUE PANEL ADMIN (SOLO SI ESTÁ LOGUEADO) -->
-    <section id="admin-panel-section" class="section" style="display:none;">
-      <div class="section-header">
-        <h1>Panel administrador</h1>
-        <p class="page-lead">
+              <input data-i18n-placeholder="c.attr.placeholder.txt_02d4b93b" name="password" placeholder="********" required="" type="password"/>
+</label>
+<button class="login-btn" data-i18n="c.ingresar_84b55f2d" type="submit">Ingresar</button>
+<p aria-live="polite" class="note login-error" id="admin-login-error"></p>
+</form>
+</article>
+</div>
+</section>
+<!-- BLOQUE PANEL ADMIN (SOLO SI ESTÁ LOGUEADO) -->
+<section class="section" id="admin-panel-section" style="display:none;">
+<div class="section-header">
+<h1 data-i18n="c.panel_administrador_3dba7e67">Panel administrador</h1>
+<p class="page-lead" data-i18n="p.app__admin.0005">
           Gestiona usuarios PEVE, envía credenciales y accede al módulo de informes (resultados, DIA y KPSI).
         </p>
-      </div>
-
-      <!-- RESUMEN SUPERIOR -->
-      <div class="dashboard-grid">
-        <article class="card">
-          <h3>👥 Usuarios PEVE</h3>
-          <p class="note">
+</div>
+<!-- RESUMEN SUPERIOR -->
+<div class="dashboard-grid">
+<article class="card">
+<h3 data-i18n="c.usuarios_peve_e0bac65a">👥 Usuarios PEVE</h3>
+<p class="note">
             Total de estudiantes cargados desde la hoja <code>PEVE_Usuarios</code>.
           </p>
-          <p><strong id="admin-total-users">–</strong> estudiante(s)</p>
-        </article>
-
-        <article class="card">
-          <h3>📩 Envío de credenciales</h3>
-          <p class="note">
+<p><strong id="admin-total-users">–</strong> estudiante(s)</p>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__admin.0006">📩 Envío de credenciales</h3>
+<p class="note" data-i18n="p.app__admin.0007">
             Selecciona un estudiante en la tabla y utiliza los botones para enviar las credenciales por correo o WhatsApp al apoderado.
           </p>
-        </article>
-
-        <article class="card">
-          <h3>📊 Informes y resultados</h3>
-          <p class="note">
+</article>
+<article class="card">
+<h3 data-i18n="c.informes_y_resultados_8e8b7c39">📊 Informes y resultados</h3>
+<p class="note" data-i18n="p.app__admin.0008">
             Visualiza resultados por curso, asignatura, DIA y KPSI desde el módulo de informes.
           </p>
-          <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes</a>
-        </article>
-      </div>
-
-      <!-- TABLA DE USUARIOS PEVE -->
-      <section class="section">
-        <div class="section-header">
-          <h2>Gestión de usuarios PEVE</h2>
-          <p>
+<a class="btn btn-outline btn-card" data-i18n="c.ir_a_informes_940c0024" href="./informes.html">Ir a informes</a>
+</article>
+</div>
+<!-- TABLA DE USUARIOS PEVE -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__admin.0009">Gestión de usuarios PEVE</h2>
+<p>
             Datos sincronizados desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de Google Sheets).
           </p>
-        </div>
-
-        <div class="table-wrapper">
-          <table class="temario-table" id="admin-users-table">
-            <thead>
-              <tr>
-                <th>ID PEVE</th>
-                <th>Estudiante</th>
-                <th>RUT</th>
-                <th>Curso 2025</th>
-                <th>Llamado</th>
-                <th>Correo estudiante</th>
-                <th>Apoderado</th>
-                <th>Correo apoderado</th>
-                <th>Teléfono apoderado</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Filas dinámicas desde admin.js -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-  
+</div>
+<div class="table-wrapper">
+<table class="temario-table" id="admin-users-table">
+<thead>
+<tr>
+<th data-i18n="c.id_peve_ecd2f2f2">ID PEVE</th>
+<th data-i18n="c.estudiante_7a3b082a">Estudiante</th>
+<th data-i18n="c.rut_df370c60">RUT</th>
+<th data-i18n="c.curso_2025_77376c47">Curso 2025</th>
+<th data-i18n="c.llamado_caef663d">Llamado</th>
+<th data-i18n="c.correo_estudiante_f443bcae">Correo estudiante</th>
+<th data-i18n="c.apoderado_67fa6f18">Apoderado</th>
+<th data-i18n="c.correo_apoderado_eb0c57ed">Correo apoderado</th>
+<th data-i18n="c.teléfono_apoderado_6578589a">Teléfono apoderado</th>
+<th data-i18n="c.estado_87cf2a84">Estado</th>
+<th data-i18n="c.acciones_79bd0ed9">Acciones</th>
+</tr>
+</thead>
+<tbody>
+<!-- Filas dinámicas desde admin.js -->
+</tbody>
+</table>
+</div>
+</section>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
+<!-- FOOTER + JS -->
 
-  <!-- FOOTER + JS -->
-  <script src="../assets/js/accesibilidad.js" defer></script>
-  <script src="../assets/js/footer.js" defer></script>
-  <script src="../assets/js/admin.js" defer></script>
-</body>
+<script defer="" src="../assets/js/footer.js"></script>
+<script defer="" src="../assets/js/admin.js"></script>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>

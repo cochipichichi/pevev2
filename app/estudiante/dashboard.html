@@ -1,291 +1,255 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>👦👧 Panel Estudiante – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>👦👧 Panel Estudiante – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-  <!-- HEADER GLOBAL PEVE -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <div class="brand-title">PEVE – Plataforma de Exámenes Libres</div>
-        <div class="brand-subtitle">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../../pages/proceso.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active">Estudiante</span>
-      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main id="main-content" class="page">
-
-    <!-- ENCABEZADO / BREADCRUMB -->
-    <header class="page-header">
-      <p class="page-kicker">Perfil estudiante</p>
-      <h1>Hola, <span id="student-name">Nombre Estudiante</span> 👋</h1>
-      <p class="page-lead">
+<!-- HEADER GLOBAL PEVE -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<div class="brand-title" data-i18n="p.app__estudiante__dashboard.0001">PEVE – Plataforma de Exámenes Libres</div>
+<div class="brand-subtitle" data-i18n="c.liceo_bicentenario_de_excelencia_polival_ca3b98b4">Liceo Bicentenario de Excelencia Polivalente San Nicolás</div>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../../pages/proceso.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="c.estudiante_7a3b082a">Estudiante</span>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../../pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="../../pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<!-- ENCABEZADO / BREADCRUMB -->
+<header class="page-header">
+<p class="page-kicker" data-i18n="c.perfil_estudiante_a8a3e0dc">Perfil estudiante</p>
+<h1>Hola, <span data-i18n="c.nombre_estudiante_990f7f4f" id="student-name">Nombre Estudiante</span> 👋</h1>
+<p class="page-lead" data-i18n="p.app__estudiante__dashboard.0002">
         Aquí podrás revisar tus asignaturas, tu progreso de estudio y los próximos hitos de tus
         exámenes libres.
       </p>
-    </header>
-
-    <!-- SECCIÓN 1B: ATAJOS RÁPIDOS DEL ESTUDIANTE -->
-    <section class="section">
-      <div class="hero-cta-group">
-        <span class="btn btn-ghost btn-card">
+</header>
+<!-- SECCIÓN 1B: ATAJOS RÁPIDOS DEL ESTUDIANTE -->
+<section class="section">
+<div class="hero-cta-group">
+<span class="btn btn-ghost btn-card" data-i18n="p.app__estudiante__dashboard.0003">
           📊 Resumen general
         </span>
-        <a href="./asignaturas.html" class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__dashboard.0004" href="./asignaturas.html">
           📚 Ver asignaturas
         </a>
-        <a href="./progreso.html" class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.ver_mi_progreso_58ce30c6" href="./progreso.html">
           📈 Ver mi progreso
         </a>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 1: RESUMEN RÁPIDO -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Resumen general</h2>
-        <p>Visión general de tu plan de estudio en PEVE.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card highlight">
-          <h3>Tu nivel actual</h3>
-          <p>
-            Estás inscrito en: <strong id="student-level">7° Básico</strong>.
+</div>
+</section>
+<!-- SECCIÓN 1: RESUMEN RÁPIDO -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__dashboard.0005">Resumen general</h2>
+<p data-i18n="p.app__estudiante__dashboard.0006">Visión general de tu plan de estudio en PEVE.</p>
+</div>
+<div class="card-grid">
+<article class="card highlight">
+<h3 data-i18n="p.app__estudiante__dashboard.0007">Tu nivel actual</h3>
+<p>
+            Estás inscrito en: <strong data-i18n="c.7_básico_c000a1dd" id="student-level">7° Básico</strong>.
             Los contenidos y simulacros que verás están alineados a este curso.
           </p>
-          <ul class="bullet-list">
-            <li>📚 Asignaturas principales: Ciencias Naturales, Lengua y Literatura, Matemática, Historia.</li>
-            <li>✅ Materiales alineados a OA y temarios oficiales MINEDUC.</li>
-            <li>🧠 Incluye simulacros tipo PEVE y tickets de salida.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Cómo usar este panel</h3>
-          <ol class="steps-list">
-            <li>Revisa tus <strong>asignaturas</strong> y entra a los módulos de contenido.</li>
-            <li>Realiza las actividades, simulacros y tickets de salida.</li>
-            <li>Vuelve a <strong>“Mi progreso”</strong> para ver tus avances y próximos pasos.</li>
-          </ol>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 2: MIS ASIGNATURAS -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Mis asignaturas</h2>
-        <p>Selecciona una asignatura para ver temarios, materiales y simulacros.</p>
-      </div>
-
-      <div class="card-grid card-grid-wide">
-        <!-- Card dinámico: Ciencias Naturales -->
-        <article class="card" id="card-cn">
-          <h3 id="card-cn-title">🧪 Ciencias Naturales 7° Básico</h3>
-          <p class="note" id="card-cn-note">
+<ul class="bullet-list">
+<li data-i18n="p.app__estudiante__dashboard.0008">📚 Asignaturas principales: Ciencias Naturales, Lengua y Literatura, Matemática, Historia.</li>
+<li data-i18n="p.app__estudiante__dashboard.0009">✅ Materiales alineados a OA y temarios oficiales MINEDUC.</li>
+<li data-i18n="p.app__estudiante__dashboard.0010">🧠 Incluye simulacros tipo PEVE y tickets de salida.</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__dashboard.0011">Cómo usar este panel</h3>
+<ol class="steps-list">
+<li>Revisa tus <strong data-i18n="p.app__estudiante__dashboard.0012">asignaturas</strong> y entra a los módulos de contenido.</li>
+<li data-i18n="p.app__estudiante__dashboard.0013">Realiza las actividades, simulacros y tickets de salida.</li>
+<li>Vuelve a <strong data-i18n="p.app__estudiante__dashboard.0014">“Mi progreso”</strong> para ver tus avances y próximos pasos.</li>
+</ol>
+</article>
+</div>
+</section>
+<!-- SECCIÓN 2: MIS ASIGNATURAS -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__dashboard.0015">Mis asignaturas</h2>
+<p data-i18n="p.app__estudiante__dashboard.0016">Selecciona una asignatura para ver temarios, materiales y simulacros.</p>
+</div>
+<div class="card-grid card-grid-wide">
+<!-- Card dinámico: Ciencias Naturales -->
+<article class="card" id="card-cn">
+<h3 data-i18n="p.app__estudiante__dashboard.0017" id="card-cn-title">🧪 Ciencias Naturales 7° Básico</h3>
+<p class="note" data-i18n="p.app__estudiante__dashboard.0018" id="card-cn-note">
             Biología, Física y Química 7° básico con módulos PEVE, temarios oficiales y simulacros.
           </p>
-          <ul class="bullet-list small" id="card-cn-bullets">
-            <li>🧬 <strong>Biología:</strong> seres vivos, células, niveles de organización y ecosistemas.</li>
-            <li>⚙️ <strong>Física:</strong> fuerza, movimiento, energía, luz y sonido.</li>
-            <li>⚗️ <strong>Química:</strong> materia, estados y mezclas.</li>
-          </ul>
-          <div class="btn-row">
-            <a id="card-cn-link-bio"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small" id="card-cn-bullets">
+<li>🧬 <strong data-i18n="p.app__estudiante__dashboard.0019">Biología:</strong> seres vivos, células, niveles de organización y ecosistemas.</li>
+<li>⚙️ <strong data-i18n="p.app__estudiante__dashboard.0020">Física:</strong> fuerza, movimiento, energía, luz y sonido.</li>
+<li>⚗️ <strong data-i18n="p.app__estudiante__dashboard.0021">Química:</strong> materia, estados y mezclas.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="c.biología_7_8bba345e" href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html" id="card-cn-link-bio">
               🧬 Biología 7°
             </a>
-            <a id="card-cn-link-fis"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.física_7_a23d81d7" href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html" id="card-cn-link-fis">
               ⚙️ Física 7°
             </a>
-            <a id="card-cn-link-qui"
-               href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.química_7_f56fcf17" href="/pevev2/content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html" id="card-cn-link-qui">
               ⚗️ Química 7°
             </a>
-          </div>
-        </article>
-
-        <!-- Card dinámico: Lengua / Lenguaje -->
-        <article class="card" id="card-len">
-          <h3 id="card-len-title">📖 Lengua y Literatura 7° Básico</h3>
-          <p class="note" id="card-len-note">
+</div>
+</article>
+<!-- Card dinámico: Lengua / Lenguaje -->
+<article class="card" id="card-len">
+<h3 data-i18n="p.app__estudiante__dashboard.0022" id="card-len-title">📖 Lengua y Literatura 7° Básico</h3>
+<p class="note" data-i18n="c.lectura_escritura_y_comprensión_lectora_2d4d0551" id="card-len-note">
             Lectura, escritura y comprensión lectora alineadas al temario oficial de exámenes libres.
           </p>
-          <ul class="bullet-list small" id="card-len-bullets">
-            <li>📖 Comprensión de textos literarios y no literarios.</li>
-            <li>✍️ Producción de textos con planificación y revisión.</li>
-          </ul>
-          <div class="btn-row">
-            <a id="card-len-link"
-               href="/pevev2/content/7basico/lengua-y-literatura/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small" id="card-len-bullets">
+<li data-i18n="p.app__estudiante__dashboard.0023">📖 Comprensión de textos literarios y no literarios.</li>
+<li data-i18n="p.app__estudiante__dashboard.0024">✍️ Producción de textos con planificación y revisión.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__dashboard.0025" href="/pevev2/content/7basico/lengua-y-literatura/index.html" id="card-len-link">
               📖 Abrir Lengua y Literatura 7°
             </a>
-          </div>
-        </article>
-
-        <!-- Card dinámico: Matemática -->
-        <article class="card" id="card-mat">
-          <h3 id="card-mat-title">🧮 Matemática 7° Básico</h3>
-          <p class="note" id="card-mat-note">
+</div>
+</article>
+<!-- Card dinámico: Matemática -->
+<article class="card" id="card-mat">
+<h3 data-i18n="p.app__estudiante__dashboard.0026" id="card-mat-title">🧮 Matemática 7° Básico</h3>
+<p class="note" data-i18n="p.app__estudiante__dashboard.0027" id="card-mat-note">
             Contenidos de números, fracciones, proporcionalidad, geometría y datos, según OA del temario MINEDUC.
           </p>
-          <ul class="bullet-list small" id="card-mat-bullets">
-            <li>🔢 Números naturales, enteros y fracciones.</li>
-            <li>📏 Proporcionalidad directa e inversa.</li>
-            <li>📐 Figuras geométricas planas y volumen.</li>
-            <li>📊 Gráficos simples y probabilidades.</li>
-          </ul>
-          <div class="btn-row">
-            <a id="card-mat-link"
-               href="/pevev2/content/7basico/matematica/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small" id="card-mat-bullets">
+<li data-i18n="p.app__estudiante__dashboard.0028">🔢 Números naturales, enteros y fracciones.</li>
+<li data-i18n="p.app__estudiante__dashboard.0029">📏 Proporcionalidad directa e inversa.</li>
+<li data-i18n="p.app__estudiante__dashboard.0030">📐 Figuras geométricas planas y volumen.</li>
+<li data-i18n="p.app__estudiante__dashboard.0031">📊 Gráficos simples y probabilidades.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__dashboard.0032" href="/pevev2/content/7basico/matematica/index.html" id="card-mat-link">
               🧮 Abrir Matemática 7°
             </a>
-          </div>
-        </article>
-
-        <!-- Card dinámico: Historia y Geografía -->
-        <article class="card" id="card-hist">
-          <h3 id="card-hist-title">🌍 Historia y Geografía 7° Básico</h3>
-          <p class="note" id="card-hist-note">
+</div>
+</article>
+<!-- Card dinámico: Historia y Geografía -->
+<article class="card" id="card-hist">
+<h3 data-i18n="p.app__estudiante__dashboard.0033" id="card-hist-title">🌍 Historia y Geografía 7° Básico</h3>
+<p class="note" data-i18n="p.app__estudiante__dashboard.0034" id="card-hist-note">
             Procesos históricos y geográficos clave de 7° básico según el temario MINEDUC.
           </p>
-          <ul class="bullet-list small" id="card-hist-bullets">
-            <li>📜 Sociedades antiguas y medievales.</li>
-            <li>🗺️ Territorio, mapas y organización política.</li>
-          </ul>
-          <div class="btn-row">
-            <a id="card-hist-link"
-               href="/pevev2/content/7basico/historia-geografia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small" id="card-hist-bullets">
+<li data-i18n="p.app__estudiante__dashboard.0035">📜 Sociedades antiguas y medievales.</li>
+<li data-i18n="p.app__estudiante__dashboard.0036">🗺️ Territorio, mapas y organización política.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__dashboard.0037" href="/pevev2/content/7basico/historia-geografia/index.html" id="card-hist-link">
               🌍 Abrir Historia y Geografía 7°
             </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 3: RECORDATORIOS Y SUGERENCIAS -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Recomendaciones para tu estudio</h2>
-        <p>Sugerencias para organizar tu semana de trabajo.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>📆 Planifica por bloques</h3>
-          <ul class="bullet-list">
-            <li>Elige 2 asignaturas por día para no sobrecargarte.</li>
-            <li>Combina teoría (lectura) y práctica (simulacros).</li>
-            <li>Termina cada sesión con un ticket de salida o mini resumen.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>🧠 Usa la plataforma a tu favor</h3>
-          <ul class="bullet-list">
-            <li>Activa el narrador si necesitas apoyo en lectura.</li>
-            <li>Cambia el tamaño de letra o el tema para descansar la vista.</li>
-            <li>Marca en tu cuaderno qué OA ya trabajaste en cada sesión.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 4: PRÓXIMOS HITOS Y ACCESOS RÁPIDOS -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Fechas e instrumentos</h2>
-        <p>Fechas importantes y herramientas clave para tu proceso.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>📅 Próximo hito sugerido</h3>
-          <p>
-            Revisa primero los contenidos de <strong>Biología</strong> de tu nivel y luego completa
-            el <strong>simulacro PEVE</strong> asociado.
+</div>
+</article>
+</div>
+</section>
+<!-- SECCIÓN 3: RECORDATORIOS Y SUGERENCIAS -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="c.recomendaciones_para_tu_estudio_db4953a2">Recomendaciones para tu estudio</h2>
+<p data-i18n="p.app__estudiante__dashboard.0038">Sugerencias para organizar tu semana de trabajo.</p>
+</div>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.app__estudiante__dashboard.0039">📆 Planifica por bloques</h3>
+<ul class="bullet-list">
+<li data-i18n="p.app__estudiante__dashboard.0040">Elige 2 asignaturas por día para no sobrecargarte.</li>
+<li data-i18n="p.app__estudiante__dashboard.0041">Combina teoría (lectura) y práctica (simulacros).</li>
+<li data-i18n="p.app__estudiante__dashboard.0042">Termina cada sesión con un ticket de salida o mini resumen.</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__dashboard.0043">🧠 Usa la plataforma a tu favor</h3>
+<ul class="bullet-list">
+<li data-i18n="p.app__estudiante__dashboard.0044">Activa el narrador si necesitas apoyo en lectura.</li>
+<li data-i18n="p.app__estudiante__dashboard.0045">Cambia el tamaño de letra o el tema para descansar la vista.</li>
+<li data-i18n="p.app__estudiante__dashboard.0046">Marca en tu cuaderno qué OA ya trabajaste en cada sesión.</li>
+</ul>
+</article>
+</div>
+</section>
+<!-- SECCIÓN 4: PRÓXIMOS HITOS Y ACCESOS RÁPIDOS -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__dashboard.0047">Fechas e instrumentos</h2>
+<p data-i18n="p.app__estudiante__dashboard.0048">Fechas importantes y herramientas clave para tu proceso.</p>
+</div>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.app__estudiante__dashboard.0049">📅 Próximo hito sugerido</h3>
+<p>
+            Revisa primero los contenidos de <strong data-i18n="c.biología_5b99ab13">Biología</strong> de tu nivel y luego completa
+            el <strong data-i18n="p.app__estudiante__dashboard.0050">simulacro PEVE</strong> asociado.
           </p>
-          <p class="note">
+<p class="note" data-i18n="p.app__estudiante__dashboard.0051">
             Si ya trabajaste Biología, puedes avanzar con Lengua o Matemática según tu prioridad.
           </p>
-        </article>
-
-        <article class="card">
-          <h3>🔗 Accesos directos</h3>
-          <div class="btn-row">
-            <a href="./asignaturas.html" class="btn btn-outline btn-card">
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__dashboard.0052">🔗 Accesos directos</h3>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__dashboard.0053" href="./asignaturas.html">
               📚 Ir a mis asignaturas
             </a>
-            <a href="./progreso.html" class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.ver_mi_progreso_58ce30c6" href="./progreso.html">
               📈 Ver mi progreso
             </a>
-            <a href="../../pages/accesibilidad.html" class="btn btn-ghost btn-card">
+<a class="btn btn-ghost btn-card" data-i18n="p.app__estudiante__dashboard.0054" href="../../pages/accesibilidad.html">
               🧠 Ver todas las herramientas de apoyo
             </a>
-          </div>
-        </article>
-      </div>
-    </section>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="footer small">
+<div class="footer-inner">
+<div class="footer-bar">
+<div class="logo">
+<img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../../assets/logo.svg"/>
+<div><strong data-i18n="c.neotech_edulab_b1cfa542">© Neotech EduLab</strong> – Educación Inmersiva</div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_bd9abd35">🛠️ Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<p data-i18n="p.app__estudiante__dashboard.0055">Plataforma desarrollada para acompañar procesos de Exámenes Libres, con foco en inclusión y accesibilidad.</p>
+</div>
+</div>
+</footer>
+<!-- SCRIPTS -->
 
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer small">
-    <div class="footer-inner">
-      <div class="footer-bar">
-        <div class="logo">
-          <img src="../../assets/logo.svg" alt="Neotech EduLab" class="logo-img"
-               onerror="this.style.display='none'">
-          <div><strong>© Neotech EduLab</strong> – Educación Inmersiva</div>
-          <small>🛠️ Prohibida su copia y/o reproducción</small>
-        </div>
-      </div>
-      <div class="footer-text">
-        <p>Plataforma desarrollada para acompañar procesos de Exámenes Libres, con foco en inclusión y accesibilidad.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- SCRIPTS -->
-  <script src="../../assets/js/accessibility.js" defer></script>
-  <script src="../../assets/js/student-context.js" defer></script>
-  <script src="../../assets/js/student-dashboard.js" defer></script>
-</body>
+<script defer="" src="../../assets/js/student-context.js"></script>
+<script defer="" src="../../assets/js/student-dashboard.js"></script>
+<script src="../../assets/js/accessibility.js"></script></body>
 </html>

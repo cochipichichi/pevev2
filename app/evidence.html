@@ -1,80 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Evidencias</title>
-  <link rel="stylesheet" href="../assets/style.css">
-  <meta name="theme-color" content="#0b0f14">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Evidencias</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<meta content="#0b0f14" name="theme-color"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body>
-  <main class="container" style="max-width:1000px;margin:1rem auto;padding:1rem;">
-    <h1>🧾 Evidencias</h1>
-    <p>Adjunta imágenes (JPG/PNG) o PDF. Puedes agregar notas por OA/curso/estudiante y luego exportar un reporte imprimible.</p>
-
-    <section class="card" style="padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:1rem;">
-      <form id="evidence-form">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-          <label>Curso<br><input type="text" name="course" placeholder="1° Medio A" required></label>
-          <label>Estudiante<br><input type="text" name="student" placeholder="Nombre Apellido" required></label>
-          <label>OA (Objetivo de Aprendizaje)<br><input type="text" name="oa" placeholder="CN OA2 Evolución" required></label>
-          <label>Fecha<br><input type="date" name="date" required></label>
-        </div>
-        <label style="display:block;margin-top:1rem;">Notas / Observaciones
-          <textarea name="notes" rows="4" placeholder="Describa la evidencia, logros, apoyos PIE, etc."></textarea>
-        </label>
-        <div id="dropzone" style="margin-top:1rem;padding:1.2rem;border:2px dashed rgba(255,255,255,.2);border-radius:1rem;text-align:center;">
-          Arrastra archivos aquí o <input type="file" id="file-input" multiple accept=".png,.jpg,.jpeg,.pdf"> 
-        </div>
-        <div id="preview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;margin-top:1rem;"></div>
-        <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;">
-          <button type="button" class="btn" id="export-pdf">🖨️ Exportar PDF</button>
-          <button type="reset" class="btn">🧹 Limpiar</button>
-        </div>
-      </form>
-    </section>
-  
+<main class="container" style="max-width:1000px;margin:1rem auto;padding:1rem;">
+<h1 data-i18n="p.app__evidence.0001">🧾 Evidencias</h1>
+<p data-i18n="p.app__evidence.0002">Adjunta imágenes (JPG/PNG) o PDF. Puedes agregar notas por OA/curso/estudiante y luego exportar un reporte imprimible.</p>
+<section class="card" style="padding:1rem;border:1px solid rgba(255,255,255,.12);border-radius:1rem;">
+<form id="evidence-form">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+<label>Curso<br/><input data-i18n-placeholder="p.app__evidence.0005" name="course" placeholder="1° Medio A" required="" type="text"/></label>
+<label>Estudiante<br/><input data-i18n-placeholder="p.app__evidence.0006" name="student" placeholder="Nombre Apellido" required="" type="text"/></label>
+<label>OA (Objetivo de Aprendizaje)<br/><input data-i18n-placeholder="p.app__evidence.0007" name="oa" placeholder="CN OA2 Evolución" required="" type="text"/></label>
+<label>Fecha<br/><input name="date" required="" type="date"/></label>
+</div>
+<label style="display:block;margin-top:1rem;">Notas / Observaciones
+          <textarea data-i18n-placeholder="p.app__evidence.0008" name="notes" placeholder="Describa la evidencia, logros, apoyos PIE, etc." rows="4"></textarea>
+</label>
+<div id="dropzone" style="margin-top:1rem;padding:1.2rem;border:2px dashed rgba(255,255,255,.2);border-radius:1rem;text-align:center;">
+          Arrastra archivos aquí o <input accept=".png,.jpg,.jpeg,.pdf" id="file-input" multiple="" type="file"/>
+</div>
+<div id="preview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem;margin-top:1rem;"></div>
+<div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+<button class="btn" data-i18n="p.app__evidence.0003" id="export-pdf" type="button">🖨️ Exportar PDF</button>
+<button class="btn" data-i18n="p.app__evidence.0004" type="reset">🧹 Limpiar</button>
+</div>
+</form>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
 
-<script src="../assets/js/accesibilidad.js" defer></script>
-<script src="../assets/js/main.js" defer></script>
-
-
-  <footer class="footer small">
-    <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<script defer="" src="../assets/js/main.js"></script>
+<footer class="footer small">
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
-  </footer>
-
-
-</body>
+</div>
+</div>
+</footer>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>

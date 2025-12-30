@@ -1,392 +1,348 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>📚 Mis asignaturas – Estudiante – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>📚 Mis asignaturas – Estudiante – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-  <!-- HEADER GLOBAL PEVE -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../../pages/proceso.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active">Estudiante</span>
-      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-
-    <main id="main-content" class="page">
-
-    <!-- ENCABEZADO + SUBNAV ESTUDIANTE -->
-  <header class="page-header">
-  <p class="page-kicker">Perfil estudiante</p>
-  <h1>Hola, <span id="student-name">Nombre Estudiante</span> 👋</h1>
-  <p class="page-lead">
+<!-- HEADER GLOBAL PEVE -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.plataforma_de_exámenes_de_validación_de_e650314b">Plataforma de Exámenes de Validación de Estudios</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../../pages/proceso.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="c.estudiante_7a3b082a">Estudiante</span>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../../pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="../../pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<!-- ENCABEZADO + SUBNAV ESTUDIANTE -->
+<header class="page-header">
+<p class="page-kicker" data-i18n="c.perfil_estudiante_a8a3e0dc">Perfil estudiante</p>
+<h1>Hola, <span data-i18n="c.nombre_estudiante_990f7f4f" id="student-name">Nombre Estudiante</span> 👋</h1>
+<p class="page-lead">
     Estas son tus asignaturas para
-    <strong id="student-level">1° Medio</strong>, llamado
-    <strong id="student-call">2025 · 1° llamado</strong>.
+    <strong data-i18n="c.1_medio_51dba562" id="student-level">1° Medio</strong>, llamado
+    <strong data-i18n="c.2025__1_llamado_c71b6481" id="student-call">2025 · 1° llamado</strong>.
   </p>
 </header>
-
-
-    <!-- SUBNAVEGACIÓN INTERNA DEL PERFIL ESTUDIANTE -->
-    <section class="section">
-      <div class="hero-cta-group">
-        <a href="./dashboard.html" class="btn btn-outline btn-card">
+<!-- SUBNAVEGACIÓN INTERNA DEL PERFIL ESTUDIANTE -->
+<section class="section">
+<div class="hero-cta-group">
+<a class="btn btn-outline btn-card" data-i18n="c.volver_al_panel_4729be0f" href="./dashboard.html">
           ⬅ Volver al panel
         </a>
-        <span class="btn btn-ghost btn-card">
+<span class="btn btn-ghost btn-card" data-i18n="p.app__estudiante__asignaturas.0001">
           📚 Mis asignaturas (vista actual)
         </span>
-        <a href="./progreso.html" class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0002" href="./progreso.html">
           📊 Mi progreso
         </a>
-      </div>
-    </section>
-
-    <!-- FILTRO / NIVEL (wireframe, se puede conectar después) -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Asignaturas del nivel</h2>
-        <p>
+</div>
+</section>
+<!-- FILTRO / NIVEL (wireframe, se puede conectar después) -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignaturas.0003">Asignaturas del nivel</h2>
+<p data-i18n="p.app__estudiante__asignaturas.0004">
           Estas son las asignaturas asociadas a tu nivel PEVE. Más adelante podrás filtrar por año,
           llamado u otros criterios.
         </p>
-      </div>
-
-      <div class="card" style="margin-bottom: 1rem;">
-        <div class="hero-cta-group">
-          <div>
-            <p class="note" style="margin-bottom: 0.35rem;">
+</div>
+<div class="card" style="margin-bottom: 1rem;">
+<div class="hero-cta-group">
+<div>
+<p class="note" style="margin-bottom: 0.35rem;">
               Nivel actual:
-              <strong id="student-level-label">1° Medio (ejemplo)</strong>
-            </p>
-            <p class="note">
-              <!-- TODO: este texto se puede reemplazar por datos reales -->
+              <strong data-i18n="c.1_medio_ejemplo_e299fbb6" id="student-level-label">1° Medio (ejemplo)</strong>
+</p>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0005">
+<!-- TODO: este texto se puede reemplazar por datos reales -->
               Si cambias de nivel o agregas más asignaturas, esta lista se actualizará
               automáticamente.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GRID DE ASIGNATURAS -->
-    <!-- MÓDULOS PEVE POR CURSO Y ASIGNATURA -->
-    <section class="section">
-      <div class="section-header">
-        <h2>📚 Módulos PEVE por curso y asignatura</h2>
-        <p>Primero elige el curso y luego el eje de Ciencias Naturales que quieres estudiar.</p>
-      </div>
-
-      <div class="card-grid card-grid-wide">
-                <article class="card" data-level="7° Básico">
-          <h3>7° Básico – Ciencias Naturales</h3>
-          <p class="note">
+</div>
+</div>
+</div>
+</section>
+<!-- GRID DE ASIGNATURAS -->
+<!-- MÓDULOS PEVE POR CURSO Y ASIGNATURA -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignaturas.0006">📚 Módulos PEVE por curso y asignatura</h2>
+<p data-i18n="p.app__estudiante__asignaturas.0007">Primero elige el curso y luego el eje de Ciencias Naturales que quieres estudiar.</p>
+</div>
+<div class="card-grid card-grid-wide">
+<article class="card" data-level="7° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0008">7° Básico – Ciencias Naturales</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0009">
             Módulos PEVE para los tres ejes de Ciencias Naturales 7° básico: Biología, Física y Química,
             basados en el banco de preguntas y respuestas PEVE.
           </p>
-          <ul class="bullet-list small">
-            <li>🧬 <strong>Biología 7°:</strong> seres vivos, células, niveles de organización y ecosistemas.</li>
-            <li>⚙️ <strong>Física 7°:</strong> fuerza, movimiento, energía, luz y sonido.</li>
-            <li>⚗️ <strong>Química 7°:</strong> materia, estados y mezclas.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>🧬 <strong data-i18n="p.app__estudiante__asignaturas.0010">Biología 7°:</strong> seres vivos, células, niveles de organización y ecosistemas.</li>
+<li>⚙️ <strong data-i18n="p.app__estudiante__asignaturas.0011">Física 7°:</strong> fuerza, movimiento, energía, luz y sonido.</li>
+<li>⚗️ <strong data-i18n="p.app__estudiante__asignaturas.0012">Química 7°:</strong> materia, estados y mezclas.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="c.biología_7_8bba345e" href="../../content/7basico/cienciasnaturales/ciencias-naturales-biologia/index.html">
               🧬 Biología 7°
             </a>
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.física_7_a23d81d7" href="../../content/7basico/cienciasnaturales/ciencias-naturales-fisica/index.html">
               ⚙️ Física 7°
             </a>
-            <a href="../../content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.química_7_f56fcf17" href="../../content/7basico/cienciasnaturales/ciencias-naturales-quimica/index.html">
               ⚗️ Química 7°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="7° Básico">
-          <h3>7° Básico – Historia, Geografía y Cs. Sociales</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="7° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0013">7° Básico – Historia, Geografía y Cs. Sociales</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0014">
             Módulo PEVE HI07 con civilizaciones antiguas, geografía de Chile y América y otros contenidos
             claves de Historia y Geografía 7°.
           </p>
-          <ul class="bullet-list small">
-            <li>🏛️ <strong>Historia 7°:</strong> civilizaciones antiguas y su legado.</li>
-            <li>🌎 <strong>Geografía 7°:</strong> regiones, relieves y climas de Chile y América.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/7basico/historia/historia-geografia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>🏛️ <strong data-i18n="p.app__estudiante__asignaturas.0015">Historia 7°:</strong> civilizaciones antiguas y su legado.</li>
+<li>🌎 <strong data-i18n="p.app__estudiante__asignaturas.0016">Geografía 7°:</strong> regiones, relieves y climas de Chile y América.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0017" href="../../content/7basico/historia/historia-geografia/index.html">
               🌎 Historia y Geografía 7°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="7° Básico">
-          <h3>7° Básico – Lengua y Literatura</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="7° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0018">7° Básico – Lengua y Literatura</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0019">
             Módulo PEVE LE07 para trabajar comprensión lectora, producción escrita y reflexión sobre el lenguaje.
           </p>
-          <ul class="bullet-list small">
-            <li>📖 <strong>Lengua y Literatura 7°:</strong> lectura de textos literarios y no literarios.</li>
-            <li>✍️ Planificación, escritura y revisión de textos propios.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/7basico/lengua-y-literatura/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>📖 <strong data-i18n="p.app__estudiante__asignaturas.0020">Lengua y Literatura 7°:</strong> lectura de textos literarios y no literarios.</li>
+<li data-i18n="p.app__estudiante__asignaturas.0021">✍️ Planificación, escritura y revisión de textos propios.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0022" href="../../content/7basico/lengua-y-literatura/index.html">
               📖 Lengua y Literatura 7°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="7° Básico">
-          <h3>7° Básico – Matemática</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="7° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0023">7° Básico – Matemática</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0024">
             Módulo PEVE MA07 con ejercicios de fracciones, decimales, geometría básica y resolución de problemas.
           </p>
-          <ul class="bullet-list small">
-            <li>➗ <strong>Matemática 7°:</strong> operaciones con fracciones y decimales.</li>
-            <li>📐 Geometría básica: figuras, ángulos y propiedades fundamentales.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/7basico/matematica/matematica-7/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>➗ <strong data-i18n="p.app__estudiante__asignaturas.0025">Matemática 7°:</strong> operaciones con fracciones y decimales.</li>
+<li data-i18n="p.app__estudiante__asignaturas.0026">📐 Geometría básica: figuras, ángulos y propiedades fundamentales.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0027" href="../../content/7basico/matematica/matematica-7/index.html">
               ➗ Matemática 7°
             </a>
-          </div>
-        </article>
-
-                <article class="card" data-level="8° Básico">
-          <h3>8° Básico – Ciencias Naturales</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="8° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0028">8° Básico – Ciencias Naturales</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0029">
             Módulos PEVE para los tres ejes de Ciencias Naturales: Biología, Física y Química,
             alineados a OA y bancos de preguntas.
           </p>
-          <ul class="bullet-list small">
-            <li>🧬 <strong>Biología 8°:</strong> OA2, OA4, OA5, OA7 (células, reproducción, ecosistemas, salud).</li>
-            <li>⚙️ <strong>Física 8°:</strong> OA10, OA11 (calor, temperatura, electricidad y circuitos).</li>
-            <li>⚗️ <strong>Química 8°:</strong> OA12, OA14 (modelos atómicos, sustancias y enlaces químicos).</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>🧬 <strong data-i18n="p.app__estudiante__asignaturas.0030">Biología 8°:</strong> OA2, OA4, OA5, OA7 (células, reproducción, ecosistemas, salud).</li>
+<li>⚙️ <strong data-i18n="p.app__estudiante__asignaturas.0031">Física 8°:</strong> OA10, OA11 (calor, temperatura, electricidad y circuitos).</li>
+<li>⚗️ <strong data-i18n="p.app__estudiante__asignaturas.0032">Química 8°:</strong> OA12, OA14 (modelos atómicos, sustancias y enlaces químicos).</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0033" href="../../content/8basico/cienciasnaturales/ciencias-naturales-biologia/index.html">
               🧬 Biología 8°
             </a>
-            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0034" href="../../content/8basico/cienciasnaturales/ciencias-naturales-fisica/index.html">
               ⚙️ Física 8°
             </a>
-            <a href="../../content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html"
-               class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0035" href="../../content/8basico/cienciasnaturales/ciencias-naturales-quimica/index.html">
               ⚗️ Química 8°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="8° Básico">
-          <h3>8° Básico – Historia, Geografía y Cs. Sociales</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="8° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0036">8° Básico – Historia, Geografía y Cs. Sociales</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0037">
             Módulo PEVE HI08 con Reforma y Contrarreforma, Estado moderno, conquista de América,
             Ilustración, revoluciones atlánticas y Derechos Humanos, además de conflictos
             socioambientales e Índice de Desarrollo Humano (IDH).
           </p>
-          <ul class="bullet-list small">
-            <li>🌍 <strong>Historia 8°:</strong> OA02, OA03, OA04, OA07, OA11, OA12, OA14, OA16, OA18, OA21, OA22.</li>
-            <li>📊 <strong>Geografía y desarrollo:</strong> Conflictos socioambientales, proyectos extractivos e IDH.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/8basico/historia/historia-geografia/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>🌍 <strong data-i18n="p.app__estudiante__asignaturas.0038">Historia 8°:</strong> OA02, OA03, OA04, OA07, OA11, OA12, OA14, OA16, OA18, OA21, OA22.</li>
+<li>📊 <strong data-i18n="p.app__estudiante__asignaturas.0039">Geografía y desarrollo:</strong> Conflictos socioambientales, proyectos extractivos e IDH.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0040" href="../../content/8basico/historia/historia-geografia/index.html">
               🌍 Historia y Geografía 8°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="8° Básico">
-          <h3>8° Básico – Lenguaje y Comunicación</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="8° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0041">8° Básico – Lenguaje y Comunicación</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0042">
             Módulo PEVE LE08 para trabajar comprensión lectora, producción de textos y reflexión sobre la lengua.
           </p>
-          <ul class="bullet-list small">
-            <li>📖 <strong>Lenguaje 8°:</strong> OA3, OA4, OA8, OA9, OA10, OA16.</li>
-            <li>Incluye módulos de lectura, escritura y participación oral.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/8basico/lenguaje/lenguaje-comunicacion/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>📖 <strong data-i18n="p.app__estudiante__asignaturas.0043">Lenguaje 8°:</strong> OA3, OA4, OA8, OA9, OA10, OA16.</li>
+<li data-i18n="p.app__estudiante__asignaturas.0044">Incluye módulos de lectura, escritura y participación oral.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0045" href="../../content/8basico/lenguaje/lenguaje-comunicacion/index.html">
               📖 Lenguaje 8°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="8° Básico">
-          <h3>8° Básico – Matemática</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="8° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0046">8° Básico – Matemática</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0047">
             Módulo PEVE MA08 con problemas de números, proporcionalidad, geometría, datos y azar.
           </p>
-          <ul class="bullet-list small">
-            <li>📏 <strong>Matemática 8°:</strong> OA1, OA2, OA3, OA4, OA8, OA10, OA12, OA13, OA15, OA16.</li>
-            <li>Se trabaja resolución de problemas paso a paso con énfasis en estrategias de cálculo.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/8basico/matematica/matematica/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>📏 <strong data-i18n="p.app__estudiante__asignaturas.0048">Matemática 8°:</strong> OA1, OA2, OA3, OA4, OA8, OA10, OA12, OA13, OA15, OA16.</li>
+<li data-i18n="p.app__estudiante__asignaturas.0049">Se trabaja resolución de problemas paso a paso con énfasis en estrategias de cálculo.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0050" href="../../content/8basico/matematica/matematica/index.html">
               📏 Matemática 8°
             </a>
-          </div>
-        </article>
-
-        <article class="card" data-level="8° Básico">
-          <h3>8° Básico – Inglés</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card" data-level="8° Básico">
+<h3 data-i18n="p.app__estudiante__asignaturas.0051">8° Básico – Inglés</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0052">
             Módulo PEVE ING08 con actividades de comprensión auditiva, lectura y escritura en inglés.
           </p>
-          <ul class="bullet-list small">
-            <li>🗺️ <strong>Inglés 8°:</strong> OA9, OA10, OA13, OA16.</li>
-            <li>Se trabaja vocabulario, estructuras básicas y proyectos comunicativos simples.</li>
-          </ul>
-          <div class="btn-row">
-            <a href="../../content/8basico/ingles/ingles/index.html"
-               class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li>🗺️ <strong data-i18n="p.app__estudiante__asignaturas.0053">Inglés 8°:</strong> OA9, OA10, OA13, OA16.</li>
+<li data-i18n="p.app__estudiante__asignaturas.0054">Se trabaja vocabulario, estructuras básicas y proyectos comunicativos simples.</li>
+</ul>
+<div class="btn-row">
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0055" href="../../content/8basico/ingles/ingles/index.html">
               🗺️ Inglés 8°
             </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-
-    <section class="section">
-      <div class="section-header">
-        <h2>Asignaturas inscritas</h2>
-        <p>Haz clic en una asignatura para entrar a su panel detallado.</p>
-      </div>
-
-      <div class="card-grid card-grid-wide">
-        <!-- BIOLOGÍA -->
-        <article class="card" data-level="1° Medio">
-          <h3>🧬 Biología 1° Medio (BIO1M)</h3>
-          <p class="note">
+</div>
+</article>
+</div>
+</section>
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignaturas.0056">Asignaturas inscritas</h2>
+<p data-i18n="p.app__estudiante__asignaturas.0057">Haz clic en una asignatura para entrar a su panel detallado.</p>
+</div>
+<div class="card-grid card-grid-wide">
+<!-- BIOLOGÍA -->
+<article class="card" data-level="1° Medio">
+<h3 data-i18n="c.biología_1_medio_bio1m_e1cdd681">🧬 Biología 1° Medio (BIO1M)</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0058">
             Temario oficial MINEDUC, OA por unidad (incluyendo OA2 — Evidencias de evolución) y
             simulacros específicos de Biología.
           </p>
-          <ul class="bullet-list small">
-            <li><strong>Tipo:</strong> Obligatoria / Científico-humanista.</li>
-            <li><strong>Estado de estudio:</strong> 35% OA revisados (ejemplo).</li>
-          </ul>
-          <!-- TODO: crea esta página luego -->
-          <a href="./asignatura-bio1m.html" class="btn btn-solid btn-card pulse">
+<ul class="bullet-list small">
+<li><strong data-i18n="c.tipo_99c7d26b">Tipo:</strong> Obligatoria / Científico-humanista.</li>
+<li><strong data-i18n="c.estado_de_estudio_06c7d9d0">Estado de estudio:</strong> 35% OA revisados (ejemplo).</li>
+</ul>
+<!-- TODO: crea esta página luego -->
+<a class="btn btn-solid btn-card pulse" data-i18n="p.app__estudiante__asignaturas.0059" href="./asignatura-bio1m.html">
             Abrir Biología 1° Medio
           </a>
-        </article>
-
-        <!-- LENGUAJE -->
-        <article class="card" data-level="1° Medio">
-          <h3>📖 Lenguaje y Comunicación 1° Medio</h3>
-          <p class="note">
+</article>
+<!-- LENGUAJE -->
+<article class="card" data-level="1° Medio">
+<h3 data-i18n="c.lenguaje_y_comunicación_1_medio_1f44a25a">📖 Lenguaje y Comunicación 1° Medio</h3>
+<p class="note" data-i18n="c.lectura_escritura_y_comprensión_lectora_2d4d0551">
             Lectura, escritura y comprensión lectora alineadas al temario oficial de exámenes libres.
           </p>
-          <ul class="bullet-list small">
-            <li><strong>Tipo:</strong> Obligatoria.</li>
-            <li><strong>Estado de estudio:</strong> 20% OA revisados (ejemplo).</li>
-          </ul>
-          <a href="#" class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li><strong data-i18n="c.tipo_99c7d26b">Tipo:</strong> Obligatoria.</li>
+<li><strong data-i18n="c.estado_de_estudio_06c7d9d0">Estado de estudio:</strong> 20% OA revisados (ejemplo).</li>
+</ul>
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0060" href="#">
             Abrir Lenguaje 1° Medio
           </a>
-        </article>
-
-        <!-- MATEMÁTICA -->
-        <article class="card" data-level="1° Medio">
-          <h3>🧮 Matemática 1° Medio</h3>
-          <p class="note">
+</article>
+<!-- MATEMÁTICA -->
+<article class="card" data-level="1° Medio">
+<h3 data-i18n="c.matemática_1_medio_777e46fa">🧮 Matemática 1° Medio</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0061">
             Contenidos de números, álgebra, geometría y análisis de datos según OA de Matemática.
           </p>
-          <ul class="bullet-list small">
-            <li><strong>Tipo:</strong> Obligatoria.</li>
-            <li><strong>Estado de estudio:</strong> 10% OA revisados (ejemplo).</li>
-          </ul>
-          <a href="#" class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li><strong data-i18n="c.tipo_99c7d26b">Tipo:</strong> Obligatoria.</li>
+<li><strong data-i18n="c.estado_de_estudio_06c7d9d0">Estado de estudio:</strong> 10% OA revisados (ejemplo).</li>
+</ul>
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0062" href="#">
             Abrir Matemática 1° Medio
           </a>
-        </article>
-
-        <!-- HISTORIA -->
-        <article class="card" data-level="1° Medio">
-          <h3>🌎 Historia, Geografía y Cs. Sociales 1° Medio</h3>
-          <p class="note">
+</article>
+<!-- HISTORIA -->
+<article class="card" data-level="1° Medio">
+<h3 data-i18n="c.historia_geografía_y_cs_sociales_1_medio_2ff3d523">🌎 Historia, Geografía y Cs. Sociales 1° Medio</h3>
+<p class="note" data-i18n="p.app__estudiante__asignaturas.0063">
             Procesos históricos, territorio y ciudadanía para tu examen de Historia.
           </p>
-          <ul class="bullet-list small">
-            <li><strong>Tipo:</strong> Obligatoria.</li>
-            <li><strong>Estado de estudio:</strong> 0% OA revisados (ejemplo).</li>
-          </ul>
-          <a href="#" class="btn btn-outline btn-card">
+<ul class="bullet-list small">
+<li><strong data-i18n="c.tipo_99c7d26b">Tipo:</strong> Obligatoria.</li>
+<li><strong data-i18n="c.estado_de_estudio_06c7d9d0">Estado de estudio:</strong> 0% OA revisados (ejemplo).</li>
+</ul>
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignaturas.0064" href="#">
             Abrir Historia 1° Medio
           </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- LEYENDA / NOTA FINAL -->
-    <section class="section">
-      <div class="callout callout-secondary">
-        <strong>Nota:</strong>
+</article>
+</div>
+</section>
+<!-- LEYENDA / NOTA FINAL -->
+<section class="section">
+<div class="callout callout-secondary">
+<strong data-i18n="p.app__estudiante__asignaturas.0065">Nota:</strong>
         Esta vista es un prototipo de estudiante. En la versión conectada a backend PEVE, las
         asignaturas, estados de estudio y enlaces se cargarán automáticamente según tu inscripción
         real en exámenes libres.
       </div>
-    </section>
-  
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
 
-<script src="../../assets/js/accesibilidad.js" defer></script>
-<script src="../../assets/js/footer.js" defer></script>
-<script src="../../assets/js/student-context.js" defer></script>
-
-  <!-- OPCIONAL: leer nivel del estudiante desde sessionStorage si ya lo guardas en login -->
- <!--  <script>
+<script defer="" src="../../assets/js/footer.js"></script>
+<script defer="" src="../../assets/js/student-context.js"></script>
+<!-- OPCIONAL: leer nivel del estudiante desde sessionStorage si ya lo guardas en login -->
+<!--  <script>
     (function () {
       const level = sessionStorage.getItem("studentLevel");
       if (level) {
@@ -395,40 +351,28 @@
       }
     })();
   </script> -->
-
 <footer class="footer small">
-    <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="../../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../../assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="../../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
-  </footer>
+</div>
+</div>
+</footer>
 
-
-  <script src="../../assets/js/accesibilidad.js" defer></script>
-  <script src="../../assets/js/student-context.js" defer></script>
-
-
-
-
-
-
+<script defer="" src="../../assets/js/student-context.js"></script>
 <script>
   (function () {
     function normalize(str) {
@@ -455,7 +399,5 @@
     }
   })();
 </script>
-
-</body>
+<script src="../../assets/js/accessibility.js"></script></body>
 </html>
-

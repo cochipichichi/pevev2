@@ -1,127 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>🔐 Login – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>🔐 Login – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark login-page">
-
-  <!-- HEADER PEVE -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active">Perfiles</span>
-      <a href="../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CARD ÚNICA -->
-  <main id="main-content" class="login-layout">
-    <div class="login-shell">
-      <header class="login-shell-header">
-        <p class="login-kicker">Acceso seguro</p>
-        <h1>Elige tu perfil para ingresar</h1>
-        <p class="login-sub">
+<!-- HEADER PEVE -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.plataforma_de_exámenes_de_validación_de_e650314b">Plataforma de Exámenes de Validación de Estudios</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../pages/info.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="nav.perfiles">Perfiles</span>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="../pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CARD ÚNICA -->
+<main class="login-layout" id="main-content">
+<div class="login-shell">
+<header class="login-shell-header">
+<p class="login-kicker" data-i18n="p.app__login.0001">Acceso seguro</p>
+<h1 data-i18n="p.app__login.0002">Elige tu perfil para ingresar</h1>
+<p class="login-sub" data-i18n="p.app__login.0003">
           Selecciona un perfil y luego escribe tus credenciales. Esta versión es demostrativa
           (front-end) y aún no está conectada a un backend real.
         </p>
-      </header>
-
-      <section class="login-shell-body">
-        <!-- SELECTOR TIPO COMBOBOX -->
-        <div class="profile-select-group">
-          <label for="profile-select">Perfil</label>
-          <select id="profile-select" name="perfil_visible">
-            <option value="student">👦👧 Estudiante</option>
-            <option value="guardian">👨‍👩‍👧 Apoderado/a</option>
-            <option value="teacher">👩‍🏫 Docente</option>
-            <option value="admin">🛠️ Administrador</option>
-          </select>
-          <small class="profile-hint">
+</header>
+<section class="login-shell-body">
+<!-- SELECTOR TIPO COMBOBOX -->
+<div class="profile-select-group">
+<label data-i18n="p.app__login.0004" for="profile-select">Perfil</label>
+<select id="profile-select" name="perfil_visible">
+<option data-i18n="c.estudiante_77b9832c" data-i18n-value="c.attr.value.student_2f8642fe" value="student">👦👧 Estudiante</option>
+<option data-i18n="p.app__login.0005" data-i18n-value="p.app__login.0011" value="guardian">👨‍👩‍👧 Apoderado/a</option>
+<option data-i18n="p.app__login.0006" data-i18n-value="p.app__login.0012" value="teacher">👩‍🏫 Docente</option>
+<option data-i18n="p.app__login.0007" data-i18n-value="p.app__login.0013" value="admin">🛠️ Administrador</option>
+</select>
+<small class="profile-hint" data-i18n="p.app__login.0008">
             Elige el perfil con el que quieres ingresar a 📚PEVE.
           </small>
-        </div>
-
-        <!-- FORMULARIO ÚNICO -->
-        <form class="login-form-single" id="peve-login-form">
-          <input type="hidden" name="perfil" id="profile-input" value="student" />
-
-          <div class="profile-summary" id="profile-summary">
-            <strong>👦👧 Estudiante:</strong>
+</div>
+<!-- FORMULARIO ÚNICO -->
+<form class="login-form-single" id="peve-login-form">
+<input data-i18n-value="c.attr.value.student_2f8642fe" id="profile-input" name="perfil" type="hidden" value="student"/>
+<div class="profile-summary" id="profile-summary">
+<strong data-i18n="p.app__login.0009">👦👧 Estudiante:</strong>
             Accede a tus temarios, materiales y registro de progreso.
           </div>
-
-          <div class="login-field-group">
-            <label id="login-main-label">
+<div class="login-field-group">
+<label id="login-main-label">
               Correo institucional
-              <input
-                type="email"
-                id="login-main-input"
-                placeholder="estudiante@dominio.cl"
-                required
-              />
-            </label>
-
-            <label>
+              <input data-i18n-placeholder="p.app__login.0014" id="login-main-input" placeholder="estudiante@dominio.cl" required="" type="email"/>
+</label>
+<label>
               Contraseña
-              <input type="password" id="login-password" placeholder="********" required />
-            </label>
-          </div>
-
-          <button class="login-btn" type="submit">
+              <input data-i18n-placeholder="c.attr.placeholder.txt_02d4b93b" id="login-password" placeholder="********" required="" type="password"/>
+</label>
+</div>
+<button class="login-btn" data-i18n="c.ingresar_84b55f2d" type="submit">
             Ingresar
           </button>
-        </form>
-      </section>
-    </div>
-
-    <p class="login-note">
+</form>
+</section>
+</div>
+<p class="login-note" data-i18n="p.app__login.0010">
       ⚠️ Este login es demostrativo (front-end). En una próxima versión se conectará a un backend real
       (Firebase, Supabase u otro) para manejar sesiones y permisos por perfil.
     </p>
-  
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
-
- 
-
-  <!-- LÓGICA DEL SELECTOR DE PERFIL -->
-  <script>
+<!-- LÓGICA DEL SELECTOR DE PERFIL -->
+<script>
     (function () {
       const profiles = {
         student: {
@@ -186,13 +165,10 @@
       });
     })();
   </script>
-  <!-- Accesibilidad + footer -->
-  <script src="../assets/js/accesibilidad.js" defer></script>
-  <script src="../assets/js/footer.js"></script>
+<!-- Accesibilidad + footer -->
 
-  <!-- Lógica de login demo (Gianella) -->
-  <script src="../assets/js/auth-demo.js" defer></script>
-</body>
+<script src="../assets/js/footer.js"></script>
+<!-- Lógica de login demo (Gianella) -->
+<script defer="" src="../assets/js/auth-demo.js"></script>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>
-
-

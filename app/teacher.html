@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Profesor — 📚PEVE</title>
-  <link rel="stylesheet" href="../assets/style.css">
-  <meta name="theme-color" content="#0b0f14">
-  <script defer src="../assets/app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Profesor — 📚PEVE</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<meta content="#0b0f14" name="theme-color"/>
+<script defer="" src="../assets/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
     // Panel docente en modo DEMO (sin conexión real a Google Sheets / Apps Script).
     function $(sel){ return document.querySelector(sel); }
 
@@ -152,135 +152,118 @@
       }
     });
   </script>
-</head></head>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body data-home="../index.html">
-
 <header class="header">
-  <div class="logo">
-    <span class="badge">📚PEVE</span>
-    <span class="title">Plataforma Exámenes de Validación de Estudios</span>
-  </div>
-  <div class="row">
-    <button class="toggle" data-action="fs-dec">A−</button>
-    <button class="toggle" data-action="fs-inc">A+</button>
-    <button class="toggle" data-action="contrast">🌓 Alto contraste</button>
-  </div>
-
-<div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-
-
+<div class="logo">
+<span class="badge" data-i18n="c.peve_63155b10">📚PEVE</span>
+<span class="title" data-i18n="c.plataforma_exámenes_de_validación_de_est_a925d25a">Plataforma Exámenes de Validación de Estudios</span>
+</div>
+<div class="row">
+<button class="toggle" data-action="fs-dec">A−</button>
+<button class="toggle" data-action="fs-inc">A+</button>
+<button class="toggle" data-action="contrast" data-i18n="c.alto_contraste_32387669">🌓 Alto contraste</button>
+</div>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
 </header>
-
 <main>
-  <div class="row" style="justify-content:space-between;align-items:center">
-    <h2>👩‍🏫 Panel Docente — <span id="who"></span></h2>
-    <button class="toggle" data-action="logout">Cerrar sesión</button>
-  </div>
-  <div class="grid">
-    <div class="card">
-      <h3>OA Biología 1M</h3>
-      <ul id="oa"></ul>
-      <div class="row">
-        <a class="btn" href="../pages/quiz_bio1m.html">🧪 Gestionar Quiz</a>
-        <a class="btn" href="../pages/ticket_bio1m.html">🎟️ Ticket de salida</a>
-        <a class="btn purple" href="https://cochipichichi.github.io/OA2_Evidencias_Evolucion_BIO1M_docente/index.html" target="_blank" rel="noopener">📚 Zona Docente OA2</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Dashboard (demo)</h3>
-      <p>Vista rápida de avance (simulada):</p>
-      <table class="table">
-        <tr><th>Estudiante</th><th>Quiz OA2</th><th>Quiz OA4</th><th>Quiz OA6</th><th>Quiz OA8</th></tr>
-        <tr><td>Estudiante Demo</td><td>85%</td><td>70%</td><td>90%</td><td>80%</td></tr>
-      </table>
-      <small>Conectar a Google Sheets o una API para datos reales.</small>
-    </div>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <h3>📊 Estadísticas por curso (Sheets)</h3>
-      <div class="row">
-        <input id="st_course" placeholder="courseId (ej: BIO1M)">
-        <button class="btn" onclick="loadStatsCourse()">Cargar</button>
-        <button class="btn" onclick="exportPDF()">Exportar PDF</button>
-      </div>
-      <table class="table" id="stats-course"><thead><tr><th>OA</th><th>Intentos</th><th>Promedio</th></tr></thead><tbody></tbody></table>
+<div class="row" style="justify-content:space-between;align-items:center">
+<h2>👩‍🏫 Panel Docente — <span id="who"></span></h2>
+<button class="toggle" data-action="logout" data-i18n="c.cerrar_sesión_f394d025">Cerrar sesión</button>
+</div>
+<div class="grid">
+<div class="card">
+<h3 data-i18n="p.app__teacher.0001">OA Biología 1M</h3>
+<ul id="oa"></ul>
+<div class="row">
+<a class="btn" data-i18n="p.app__teacher.0002" href="../pages/quiz_bio1m.html">🧪 Gestionar Quiz</a>
+<a class="btn" data-i18n="c.ticket_de_salida_5dcd1a80" href="../pages/ticket_bio1m.html">🎟️ Ticket de salida</a>
+<a class="btn purple" data-i18n="p.app__teacher.0003" href="https://cochipichichi.github.io/OA2_Evidencias_Evolucion_BIO1M_docente/index.html" rel="noopener" target="_blank">📚 Zona Docente OA2</a>
+</div>
+</div>
+<div class="card">
+<h3 data-i18n="p.app__teacher.0004">Dashboard (demo)</h3>
+<p data-i18n="p.app__teacher.0005">Vista rápida de avance (simulada):</p>
+<table class="table">
+<tr><th data-i18n="c.estudiante_7a3b082a">Estudiante</th><th data-i18n="p.app__teacher.0006">Quiz OA2</th><th data-i18n="p.app__teacher.0007">Quiz OA4</th><th data-i18n="p.app__teacher.0008">Quiz OA6</th><th data-i18n="p.app__teacher.0009">Quiz OA8</th></tr>
+<tr><td data-i18n="p.app__teacher.0010">Estudiante Demo</td><td data-i18n="p.app__teacher.0011">85%</td><td data-i18n="p.app__teacher.0012">70%</td><td data-i18n="p.app__teacher.0013">90%</td><td data-i18n="p.app__teacher.0014">80%</td></tr>
+</table>
+<small data-i18n="p.app__teacher.0015">Conectar a Google Sheets o una API para datos reales.</small>
+</div>
+</div>
+<div class="grid">
+<div class="card">
+<h3 data-i18n="p.app__teacher.0016">📊 Estadísticas por curso (Sheets)</h3>
+<div class="row">
+<input data-i18n-placeholder="p.app__teacher.0022" id="st_course" placeholder="courseId (ej: BIO1M)"/>
+<button class="btn" data-i18n="c.cargar_e97b1cb6" onclick="loadStatsCourse()">Cargar</button>
+<button class="btn" data-i18n="p.app__teacher.0017" onclick="exportPDF()">Exportar PDF</button>
+</div>
+<table class="table" id="stats-course"><thead><tr><th data-i18n="c.oa_cabcf0a5">OA</th><th data-i18n="c.intentos_a3a1c519">Intentos</th><th data-i18n="c.promedio_f491932f">Promedio</th></tr></thead><tbody></tbody></table>
 <canvas id="chart-course" style="max-height:320px"></canvas>
-    </div>
-    <div class="card">
-      <h3>👤 Estadísticas por estudiante</h3>
-      <div class="row">
-        <input id="st_user" placeholder="userId (ej: est1)">
-        <button class="btn" onclick="loadStatsStudent()">Cargar</button>
-      </div>
-      <table class="table" id="stats-student"><thead><tr><th>Curso</th><th>OA</th><th>Intentos</th><th>Promedio</th></tr></thead><tbody></tbody></table>
+</div>
+<div class="card">
+<h3 data-i18n="p.app__teacher.0018">👤 Estadísticas por estudiante</h3>
+<div class="row">
+<input data-i18n-placeholder="p.app__teacher.0023" id="st_user" placeholder="userId (ej: est1)"/>
+<button class="btn" data-i18n="c.cargar_e97b1cb6" onclick="loadStatsStudent()">Cargar</button>
+</div>
+<table class="table" id="stats-student"><thead><tr><th data-i18n="c.curso_32c85c59">Curso</th><th data-i18n="c.oa_cabcf0a5">OA</th><th data-i18n="c.intentos_a3a1c519">Intentos</th><th data-i18n="c.promedio_f491932f">Promedio</th></tr></thead><tbody></tbody></table>
 <canvas id="chart-student" style="max-height:320px"></canvas>
-    </div>
-
-    <div class="card">
-      <h3>📎 Adjuntar evidencia (Drive)</h3>
-      <p>Sube un archivo (PDF/imagen) como evidencia vinculada a un OA.</p>
-      <div class="row">
-        <input id="ev_user" placeholder="userId">
-        <input id="ev_course" placeholder="courseId">
-        <input id="ev_oa" placeholder="OA (ej: OA2)">
-      </div>
-      <input type="file" id="ev_file" accept="image/*,application/pdf">
-      <div class="row"><button class="btn green" onclick="uploadEvidence()">Subir</button></div>
-      <p id="ev_out" class="notice">—</p>
-    </div>
-  </div>
-
+</div>
+<div class="card">
+<h3 data-i18n="p.app__teacher.0019">📎 Adjuntar evidencia (Drive)</h3>
+<p data-i18n="p.app__teacher.0020">Sube un archivo (PDF/imagen) como evidencia vinculada a un OA.</p>
+<div class="row">
+<input data-i18n-placeholder="p.app__teacher.0024" id="ev_user" placeholder="userId"/>
+<input data-i18n-placeholder="p.app__teacher.0025" id="ev_course" placeholder="courseId"/>
+<input data-i18n-placeholder="p.app__teacher.0026" id="ev_oa" placeholder="OA (ej: OA2)"/>
+</div>
+<input accept="image/*,application/pdf" id="ev_file" type="file"/>
+<div class="row"><button class="btn green" data-i18n="p.app__teacher.0021" onclick="uploadEvidence()">Subir</button></div>
+<p class="notice" id="ev_out">—</p>
+</div>
+</div>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
-
-
-
-
 <footer class="footer small">
-    <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
-  </footer>
+</div>
+</div>
+</footer>
 
-<script src="../assets/js/accesibilidad.js" defer></script>
-<script src="../assets/js/main.js" defer></script>
-</body></html>
+<script defer="" src="../assets/js/main.js"></script>
+<script src="../assets/js/accessibility.js"></script></body></html>

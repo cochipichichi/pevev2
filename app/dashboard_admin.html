@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>🛠️ Panel Administrador – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>🛠️ Panel Administrador – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-  <!-- GUARDIA DE SESIÓN ADMIN -->
-  <script>
+<!-- GUARDIA DE SESIÓN ADMIN -->
+<script>
     (function () {
       try {
         const isAdmin = sessionStorage.getItem("adminLogged") === "1";
@@ -21,266 +20,239 @@
       }
     })();
   </script>
-
-  <!-- HEADER GLOBAL -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Panel de administración</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active" data-i18n="nav.admin">Administrador</span>
-      <a href="./informes.html" class="nav-link" data-i18n="nav.informes">Informes</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main id="main-content" class="page">
-
-    <!-- RESUMEN SUPERIOR -->
-    <section class="section">
-      <div class="section-header">
-        <h1>Panel administrador</h1>
-        <p class="page-lead">
+<!-- HEADER GLOBAL -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.panel_de_administración_17c736c0">Panel de administración</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="nav.admin">Administrador</span>
+<a class="nav-link" data-i18n="nav.informes" href="./informes.html">Informes</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<!-- RESUMEN SUPERIOR -->
+<section class="section">
+<div class="section-header">
+<h1 data-i18n="c.panel_administrador_3dba7e67">Panel administrador</h1>
+<p class="page-lead" data-i18n="p.app__dashboard_admin.0001">
           Gestiona usuarios PEVE, credenciales de acceso e informes de resultados (PEVE, DIA y KPSI) para estudiantes,
           apoderados, docentes y UTP.
         </p>
-      </div>
-
-      <div class="dashboard-grid">
-        <article class="card">
-          <h3>👥 Usuarios PEVE</h3>
-          <p class="note">
+</div>
+<div class="dashboard-grid">
+<article class="card">
+<h3 data-i18n="c.usuarios_peve_e0bac65a">👥 Usuarios PEVE</h3>
+<p class="note">
             Total de estudiantes cargados desde la hoja <code>PEVE_Usuarios</code>.
           </p>
-          <p><strong id="admin-total-users">–</strong> estudiante(s)</p>
-          <p class="small">
-            Fuente de datos: <strong id="admin-users-source">–</strong><br>
+<p><strong id="admin-total-users">–</strong> estudiante(s)</p>
+<p class="small">
+            Fuente de datos: <strong id="admin-users-source">–</strong><br/>
             API: <code id="admin-script-url">–</code>
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>📌 Resumen por nivel</h3>
-          <ul class="bullet-list small">
-            <li>7° Básico: <strong id="admin-count-7b">–</strong> estudiante(s)</li>
-            <li>8° Básico: <strong id="admin-count-8b">–</strong> estudiante(s)</li>
-            <li>1° Medio: <strong id="admin-count-1m">–</strong> estudiante(s)</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>📊 Informes y resultados</h3>
-          <p class="note">
+</p>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__dashboard_admin.0002">📌 Resumen por nivel</h3>
+<ul class="bullet-list small">
+<li>7° Básico: <strong id="admin-count-7b">–</strong> estudiante(s)</li>
+<li>8° Básico: <strong id="admin-count-8b">–</strong> estudiante(s)</li>
+<li>1° Medio: <strong id="admin-count-1m">–</strong> estudiante(s)</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="c.informes_y_resultados_8e8b7c39">📊 Informes y resultados</h3>
+<p class="note">
             Genera y comparte informes PEVE (resultados, DIA, KPSI) desde este panel o en el módulo detallado de
-            <strong>Informes</strong>.
+            <strong data-i18n="nav.informes">Informes</strong>.
           </p>
-          <a href="./informes.html" class="btn btn-outline btn-card">Ir a informes detallados</a>
-        </article>
-
-        <article class="card">
-          <h3>🧭 Accesos rápidos</h3>
-          <p class="note">Abre los paneles según el rol para revisar la experiencia completa.</p>
-          <div class="btn-group-vertical">
-            <a href="./dashboard_estudiante.html" class="btn btn-card btn-ghost">👦👧 Panel estudiante</a>
-            <a href="./dashboard_apoderado.html" class="btn btn-card btn-ghost">👨‍👩‍👧 Panel apoderado</a>
-            <a href="./dashboard_docente.html" class="btn btn-card btn-ghost">👩‍🏫 Panel docente</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3>📦 Paquetes PEVE contratados</h3>
-          <p class="note">
+<a class="btn btn-outline btn-card" data-i18n="p.app__dashboard_admin.0003" href="./informes.html">Ir a informes detallados</a>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__dashboard_admin.0004">🧭 Accesos rápidos</h3>
+<p class="note" data-i18n="p.app__dashboard_admin.0005">Abre los paneles según el rol para revisar la experiencia completa.</p>
+<div class="btn-group-vertical">
+<a class="btn btn-card btn-ghost" data-i18n="p.app__dashboard_admin.0006" href="./dashboard_estudiante.html">👦👧 Panel estudiante</a>
+<a class="btn btn-card btn-ghost" data-i18n="p.app__dashboard_admin.0007" href="./dashboard_apoderado.html">👨‍👩‍👧 Panel apoderado</a>
+<a class="btn btn-card btn-ghost" data-i18n="p.app__dashboard_admin.0008" href="./dashboard_docente.html">👩‍🏫 Panel docente</a>
+</div>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__dashboard_admin.0009">📦 Paquetes PEVE contratados</h3>
+<p class="note" data-i18n="p.app__dashboard_admin.0010">
             Distribución de estudiantes según el paquete PEVE asociado (7° básico, 8° básico, 1° medio u otros).
           </p>
-          <div class="mini-chart-wrapper">
-            <canvas id="admin-packages-chart" aria-label="Gráfico de paquetes PEVE" role="img"></canvas>
-          </div>
-          <ul class="bullet-list small" id="admin-packages-summary">
-            <!-- Se rellena dinámicamente desde admin.js -->
-          </ul>
-        </article>
-
-      </div>
-    </section>
+<div class="mini-chart-wrapper">
+<canvas aria-label="Gráfico de paquetes PEVE" data-i18n-aria-label="p.app__dashboard_admin.0030" id="admin-packages-chart" role="img"></canvas>
+</div>
+<ul class="bullet-list small" id="admin-packages-summary">
+<!-- Se rellena dinámicamente desde admin.js -->
+</ul>
+</article>
+</div>
+</section>
 os desde la hoja <code>PEVE_Usuarios</code> (o datos demo mientras se configura la API de
           Google Sheets). Selecciona un estudiante para trabajar informes y credenciales.
-        </p>
-      </div>
+        
+      
 
       <div class="table-wrapper">
-        <table class="temario-table" id="admin-users-table">
-          <thead>
-            <tr>
-              <th>ID PEVE</th>
-              <th>Estudiante</th>
-              <th>RUT</th>
-              <th>Curso 2025</th>
-              <th>Llamado</th>
-              <th>Correo estudiante</th>
-              <th>Apoderado</th>
-              <th>Correo apoderado</th>
-              <th>Teléfono apoderado</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Filas dinámicas desde admin.js -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- INFORMES RÁPIDOS PEVE · DIA · KPSI -->
-    <section class="section admin-report-section">
-      <div class="section-header">
-        <h2>Informes rápidos PEVE · DIA · KPSI</h2>
-        <p class="page-lead">
+<table class="temario-table" id="admin-users-table">
+<thead>
+<tr>
+<th data-i18n="c.id_peve_ecd2f2f2">ID PEVE</th>
+<th data-i18n="c.estudiante_7a3b082a">Estudiante</th>
+<th data-i18n="c.rut_df370c60">RUT</th>
+<th data-i18n="c.curso_2025_77376c47">Curso 2025</th>
+<th data-i18n="c.llamado_caef663d">Llamado</th>
+<th data-i18n="c.correo_estudiante_f443bcae">Correo estudiante</th>
+<th data-i18n="c.apoderado_67fa6f18">Apoderado</th>
+<th data-i18n="c.correo_apoderado_eb0c57ed">Correo apoderado</th>
+<th data-i18n="c.teléfono_apoderado_6578589a">Teléfono apoderado</th>
+<th data-i18n="c.estado_87cf2a84">Estado</th>
+<th data-i18n="c.acciones_79bd0ed9">Acciones</th>
+</tr>
+</thead>
+<tbody>
+<!-- Filas dinámicas desde admin.js -->
+</tbody>
+</table>
+</div>
+<!-- INFORMES RÁPIDOS PEVE · DIA · KPSI -->
+<section class="section admin-report-section">
+<div class="section-header">
+<h2 data-i18n="p.app__dashboard_admin.0011">Informes rápidos PEVE · DIA · KPSI</h2>
+<p class="page-lead" data-i18n="p.app__dashboard_admin.0012">
           A partir del estudiante seleccionado puedes generar un informe breve para distintos destinatarios:
           estudiante, apoderado, docente o UTP / Equipo PIE. PEVE integra resultados de exámenes, información de
           ingreso (DIA) y KPSI inicio / fin como insumos para el seguimiento.
         </p>
-      </div>
-
-      <div class="admin-report-steps callout-secondary">
-        <p>
-          <strong>Flujo sugerido:</strong>
+</div>
+<div class="admin-report-steps callout-secondary">
+<p>
+<strong data-i18n="p.app__dashboard_admin.0013">Flujo sugerido:</strong>
           1️⃣ Selecciona un estudiante en la tabla superior ·
           2️⃣ Elige tipo de informe y destinatario ·
           3️⃣ Ajusta el texto si lo deseas ·
           4️⃣ Envía por correo o WhatsApp.
         </p>
-        <p class="note">
+<p class="note" data-i18n="p.app__dashboard_admin.0014">
           Por ahora el contenido es una plantilla demostrativa. Más adelante podrás inyectar resultados reales de
           PEVE, DIA y KPSI desde tus hojas de cálculo.
         </p>
-      </div>
-
-      <div class="admin-report-grid">
-        <!-- Columna izquierda: configuración + texto del informe -->
-        <article class="card admin-report-main">
-          <header class="admin-report-header">
-            <span class="page-kicker">Informe rápido · Borrador editable</span>
-            <h3>Configuración del informe</h3>
-          </header>
-
-          <div class="admin-report-student">
-            <span class="admin-report-label">Estudiante seleccionado</span>
-            <p id="report-student-label" class="admin-report-student-name">
+</div>
+<div class="admin-report-grid">
+<!-- Columna izquierda: configuración + texto del informe -->
+<article class="card admin-report-main">
+<header class="admin-report-header">
+<span class="page-kicker" data-i18n="p.app__dashboard_admin.0015">Informe rápido · Borrador editable</span>
+<h3 data-i18n="p.app__dashboard_admin.0016">Configuración del informe</h3>
+</header>
+<div class="admin-report-student">
+<span class="admin-report-label" data-i18n="c.estudiante_seleccionado_d7e887df">Estudiante seleccionado</span>
+<p class="admin-report-student-name" data-i18n="p.app__dashboard_admin.0017" id="report-student-label">
               Sin selección · selecciona una fila en la tabla de usuarios.
             </p>
-          </div>
-
-          <div class="admin-report-form">
-            <div class="admin-report-field">
-              <label for="report-type-select">Tipo de informe</label>
-              <select id="report-type-select" class="admin-report-select">
-                <option value="resumen-peve">Resumen PEVE (exámenes + avance)</option>
-                <option value="dia">Informe de ingreso (DIA)</option>
-                <option value="kpsi">Informe KPSI inicio / fin</option>
-                <option value="mixto">Informe mixto (PEVE + DIA + KPSI)</option>
-              </select>
-            </div>
-
-            <div class="admin-report-field">
-              <label for="report-target-select">Destinatario principal</label>
-              <select id="report-target-select" class="admin-report-select">
-                <option value="estudiante">Estudiante</option>
-                <option value="apoderado">Apoderado / tutor / cuidador</option>
-                <option value="docente">Docente</option>
-                <option value="utp">UTP / Equipo PIE</option>
-              </select>
-            </div>
-
-            <div class="admin-report-tags">
-              <button type="button" class="report-tag" data-report-type="dia">
+</div>
+<div class="admin-report-form">
+<div class="admin-report-field">
+<label data-i18n="c.tipo_de_informe_b37009ee" for="report-type-select">Tipo de informe</label>
+<select class="admin-report-select" id="report-type-select">
+<option data-i18n="c.resumen_peve_exámenes__avance_e454c049" data-i18n-value="p.app__dashboard_admin.0031" value="resumen-peve">Resumen PEVE (exámenes + avance)</option>
+<option data-i18n="p.app__dashboard_admin.0018" data-i18n-value="p.app__dashboard_admin.0032" value="dia">Informe de ingreso (DIA)</option>
+<option data-i18n="p.app__dashboard_admin.0019" data-i18n-value="p.app__dashboard_admin.0033" value="kpsi">Informe KPSI inicio / fin</option>
+<option data-i18n="c.informe_mixto_peve__dia__kpsi_a9f810db" data-i18n-value="p.app__dashboard_admin.0034" value="mixto">Informe mixto (PEVE + DIA + KPSI)</option>
+</select>
+</div>
+<div class="admin-report-field">
+<label data-i18n="c.destinatario_principal_4757f8fe" for="report-target-select">Destinatario principal</label>
+<select class="admin-report-select" id="report-target-select">
+<option data-i18n="c.estudiante_7a3b082a" data-i18n-value="p.app__dashboard_admin.0035" value="estudiante">Estudiante</option>
+<option data-i18n="p.app__dashboard_admin.0020" data-i18n-value="p.app__dashboard_admin.0036" value="apoderado">Apoderado / tutor / cuidador</option>
+<option data-i18n="c.docente_1ffba224" data-i18n-value="p.app__dashboard_admin.0037" value="docente">Docente</option>
+<option data-i18n="c.utp__equipo_pie_74c8e118" data-i18n-value="p.app__dashboard_admin.0038" value="utp">UTP / Equipo PIE</option>
+</select>
+</div>
+<div class="admin-report-tags">
+<button class="report-tag" data-i18n="c.dia__línea_de_base_d8686612" data-report-type="dia" type="button">
                 DIA · línea de base
               </button>
-              <button type="button" class="report-tag" data-report-type="kpsi">
+<button class="report-tag" data-i18n="c.kpsi_inicio__fin_c430c271" data-report-type="kpsi" type="button">
                 KPSI inicio / fin
               </button>
-              <button type="button" class="report-tag" data-report-type="resumen-peve">
+<button class="report-tag" data-i18n="c.resultados_por_curso_y_asignatura_7a1ab5c9" data-report-type="resumen-peve" type="button">
                 Resultados por curso y asignatura
               </button>
-              <button type="button" class="report-tag" data-report-type="mixto">
+<button class="report-tag" data-i18n="c.informe_mixto_peve__dia__kpsi_a9f810db" data-report-type="mixto" type="button">
                 Informe mixto (PEVE + DIA + KPSI)
               </button>
-            </div>
-
-            <div class="admin-report-field">
-              <label for="report-preview">
+</div>
+<div class="admin-report-field">
+<label data-i18n="p.app__dashboard_admin.0021" for="report-preview">
                 Vista previa del informe (puedes editar el texto antes de enviar)
               </label>
-              <textarea id="report-preview"
-                        rows="14"
-                        class="admin-report-textarea"></textarea>
-            </div>
-          </div>
-        </article>
-
-        <!-- Columna derecha: tips + acciones de envío -->
-        <aside class="card admin-report-side">
-          <h3>Uso de este informe</h3>
-          <ul class="bullet-list small">
-            <li>Ajusta el tono y el detalle según el destinatario (estudiante, familia, docente o UTP / PIE).</li>
-            <li>Puedes copiar el texto para informes DIA, actas de reunión o fichas de seguimiento interno.</li>
-            <li>A futuro se incorporarán datos reales de PEVE, DIA y KPSI (gráficos, porcentajes, etc.).</li>
-          </ul>
-
-          <div class="admin-report-actions">
-            <button id="btn-report-email" type="button" class="btn btn-solid">
+<textarea class="admin-report-textarea" id="report-preview" rows="14"></textarea>
+</div>
+</div>
+</article>
+<!-- Columna derecha: tips + acciones de envío -->
+<aside class="card admin-report-side">
+<h3 data-i18n="p.app__dashboard_admin.0022">Uso de este informe</h3>
+<ul class="bullet-list small">
+<li data-i18n="p.app__dashboard_admin.0023">Ajusta el tono y el detalle según el destinatario (estudiante, familia, docente o UTP / PIE).</li>
+<li data-i18n="p.app__dashboard_admin.0024">Puedes copiar el texto para informes DIA, actas de reunión o fichas de seguimiento interno.</li>
+<li data-i18n="p.app__dashboard_admin.0025">A futuro se incorporarán datos reales de PEVE, DIA y KPSI (gráficos, porcentajes, etc.).</li>
+</ul>
+<div class="admin-report-actions">
+<button class="btn btn-solid" data-i18n="p.app__dashboard_admin.0026" id="btn-report-email" type="button">
               📩 Enviar informe por correo
             </button>
-            <button id="btn-report-whatsapp" type="button" class="btn btn-outline">
+<button class="btn btn-outline" data-i18n="p.app__dashboard_admin.0027" id="btn-report-whatsapp" type="button">
               📱 Enviar informe por WhatsApp
             </button>
-            <a href="./informes.html" class="btn btn-ghost btn-card">
+<a class="btn btn-ghost btn-card" data-i18n="p.app__dashboard_admin.0028" href="./informes.html">
               Ver módulo de informes completo
             </a>
-          </div>
-
-          <p class="note admin-report-note">
+</div>
+<p class="note admin-report-note" data-i18n="p.app__dashboard_admin.0029">
             Estos botones usan el correo / teléfono del estudiante o apoderado asociado al registro seleccionado
             en la tabla. Más adelante podrás integrar correos de docentes y UTP específicos por curso.
           </p>
-        </aside>
-      </div>
-    </section>
-  
+</aside>
+</div>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
+<!-- JS GLOBAL -->
 
-  <!-- JS GLOBAL -->
-  <script src="../assets/js/accesibilidad.js" defer></script>
-  <script src="../assets/js/footer.js" defer></script>
-  <script src="../assets/js/charts-mini.js" defer></script>
-  <script src="../assets/js/admin.js" defer></script>
-</body>
+<script defer="" src="../assets/js/footer.js"></script>
+<script defer="" src="../assets/js/charts-mini.js"></script>
+<script defer="" src="../assets/js/admin.js"></script>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>

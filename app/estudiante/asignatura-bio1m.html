@@ -1,428 +1,335 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>🧬 Biología 1° Medio – OA2 Evidencias de evolución | Estudiante – 📚PEVE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
-  <link rel="stylesheet" href="../../assets/css/style.css" />
-</head>
+<meta charset="utf-8"/>
+<title>🧬 Biología 1° Medio – OA2 Evidencias de evolución | Estudiante – 📚PEVE</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Desde /app/estudiante subimos dos niveles hasta /assets/ -->
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-  <!-- HEADER GLOBAL PEVE -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="../../pages/proceso.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="../../pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="../../pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <span class="nav-link nav-link-active">Estudiante</span>
-      <a href="../../pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="../../pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main id="main-content" class="page">
-
-    <!-- ENCABEZADO + BREADCRUMB SIMPLE -->
+<!-- HEADER GLOBAL PEVE -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.plataforma_de_exámenes_de_validación_de_e650314b">Plataforma de Exámenes de Validación de Estudios</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../../pages/proceso.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../../pages/asignaturas.html">Asignaturas</a>
+<span class="nav-link nav-link-active" data-i18n="c.estudiante_7a3b082a">Estudiante</span>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="../../pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="../../pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<!-- ENCABEZADO + BREADCRUMB SIMPLE -->
 <header class="page-header">
-  <p class="page-kicker">Biología 1° Medio · OA2 — Evidencias de evolución</p>
-  <h1>Hola, <span id="student-name">Nombre Estudiante</span> 👋</h1>
-  <p class="page-lead">
+<p class="page-kicker" data-i18n="p.app__estudiante__asignatura-bio1m.0001">Biología 1° Medio · OA2 — Evidencias de evolución</p>
+<h1>Hola, <span data-i18n="c.nombre_estudiante_990f7f4f" id="student-name">Nombre Estudiante</span> 👋</h1>
+<p class="page-lead">
     Estás trabajando este OA para
-    <strong id="student-level">1° Medio</strong>, llamado
-    <strong id="student-call">2025 · 1° llamado</strong>.
+    <strong data-i18n="c.1_medio_51dba562" id="student-level">1° Medio</strong>, llamado
+    <strong data-i18n="c.2025__1_llamado_c71b6481" id="student-call">2025 · 1° llamado</strong>.
   </p>
 </header>
-
-
-    <!-- NAV INTERNA DEL PERFIL ESTUDIANTE -->
-    <section class="section">
-      <div class="hero-cta-group">
-        <a href="./dashboard.html" class="btn btn-outline btn-card">
+<!-- NAV INTERNA DEL PERFIL ESTUDIANTE -->
+<section class="section">
+<div class="hero-cta-group">
+<a class="btn btn-outline btn-card" data-i18n="c.volver_al_panel_4729be0f" href="./dashboard.html">
           ⬅ Volver al panel
         </a>
-        <a href="./asignaturas.html" class="btn btn-outline btn-card">
+<a class="btn btn-outline btn-card" data-i18n="c.mis_asignaturas_99adbf92" href="./asignaturas.html">
           📚 Mis asignaturas
         </a>
-        <span class="btn btn-ghost btn-card">
+<span class="btn btn-ghost btn-card" data-i18n="p.app__estudiante__asignatura-bio1m.0002">
           🧬 Biología 1° Medio · OA2 (vista actual)
         </span>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 1: QUÉ APRENDERÁS -->
-    <section class="section">
-      <div class="section-header">
-        <h2>¿Qué aprenderás en este OA?</h2>
-        <p>Basado en la guía de estudio BIO1M_OA2 que ya tienes en la carpeta <code>content</code>.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>🎯 Objetivos de aprendizaje esperados</h3>
-          <ul class="bullet-list">
-            <li>Explicar con tus palabras qué es la evolución biológica.</li>
-            <li>Describir al menos cuatro tipos de evidencias de la evolución con ejemplos.</li>
-            <li>Aplicar los postulados de la selección natural a un caso concreto.</li>
-            <li>Reconocer la contribución de Darwin y Wallace a la teoría evolutiva.</li>
-            <li>Interpretar tablas o esquemas simples de secuencias de ADN y parentesco.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>🧩 Vocabulario clave</h3>
-          <ul class="bullet-list small">
-            <li><strong>Evolución biológica:</strong> cambio en las poblaciones a lo largo del tiempo.</li>
-            <li><strong>Selección natural:</strong> mecanismo que favorece a los individuos mejor adaptados.</li>
-            <li><strong>Estructuras homólogas:</strong> órganos con mismo origen pero función distinta.</li>
-            <li><strong>Especiación:</strong> formación de nuevas especies.</li>
-            <li><strong>Adaptación:</strong> característica que mejora la supervivencia o reproducción.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 2: EXPERIENCIA INTERACTIVA OA2 -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Experiencia interactiva OA2</h2>
-        <p>
+</div>
+</section>
+<!-- SECCIÓN 1: QUÉ APRENDERÁS -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0003">¿Qué aprenderás en este OA?</h2>
+<p>Basado en la guía de estudio BIO1M_OA2 que ya tienes en la carpeta <code>content</code>.</p>
+</div>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0004">🎯 Objetivos de aprendizaje esperados</h3>
+<ul class="bullet-list">
+<li data-i18n="c.explicar_con_tus_palabras_qué_es_la_evol_aa14ac7a">Explicar con tus palabras qué es la evolución biológica.</li>
+<li data-i18n="c.describir_al_menos_cuatro_tipos_de_evide_40c51801">Describir al menos cuatro tipos de evidencias de la evolución con ejemplos.</li>
+<li data-i18n="c.aplicar_los_postulados_de_la_selección_n_56a79590">Aplicar los postulados de la selección natural a un caso concreto.</li>
+<li data-i18n="c.reconocer_la_contribución_de_darwin_y_wa_75528519">Reconocer la contribución de Darwin y Wallace a la teoría evolutiva.</li>
+<li data-i18n="c.interpretar_tablas_o_esquemas_simples_de_fa1cc621">Interpretar tablas o esquemas simples de secuencias de ADN y parentesco.</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0005">🧩 Vocabulario clave</h3>
+<ul class="bullet-list small">
+<li><strong data-i18n="c.evolución_biológica_f5467096">Evolución biológica:</strong> cambio en las poblaciones a lo largo del tiempo.</li>
+<li><strong data-i18n="c.selección_natural_fa1f966a">Selección natural:</strong> mecanismo que favorece a los individuos mejor adaptados.</li>
+<li><strong data-i18n="c.estructuras_homólogas_8e39834c">Estructuras homólogas:</strong> órganos con mismo origen pero función distinta.</li>
+<li><strong data-i18n="c.especiación_085fe420">Especiación:</strong> formación de nuevas especies.</li>
+<li><strong data-i18n="c.adaptación_cdd420a3">Adaptación:</strong> característica que mejora la supervivencia o reproducción.</li>
+</ul>
+</article>
+</div>
+</section>
+<!-- SECCIÓN 2: EXPERIENCIA INTERACTIVA OA2 -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0006">Experiencia interactiva OA2</h2>
+<p>
           Accede al recurso completo que ya construiste en
           <code>content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/</code>.
         </p>
-      </div>
-
-      <article class="card">
-        <h3>🌐 Explorador OA2 — Evidencias de la Evolución</h3>
-        <p class="note">
+</div>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0007">🌐 Explorador OA2 — Evidencias de la Evolución</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0008">
           Versión inmersiva con narrador, cambio de tema, control de lectura y accesos a modelos
           3D, línea de tiempo y simulación de selección natural.
         </p>
-        <div class="hero-cta-group">
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/index.html"
-            class="btn btn-solid pulse btn-card"
-            target="_blank" rel="noopener"
-          >
+<div class="hero-cta-group">
+<a class="btn btn-solid pulse btn-card" data-i18n="p.app__estudiante__asignatura-bio1m.0009" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/index.html" rel="noopener" target="_blank">
             🌐 Abrir explorador OA2
           </a>
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/quiz/quiz.html"
-            class="btn btn-outline btn-card"
-            target="_blank" rel="noopener"
-          >
+<a class="btn btn-outline btn-card" data-i18n="c.quiz_oa2_d37ef664" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/quiz/quiz.html" rel="noopener" target="_blank">
             🧪 Quiz OA2
           </a>
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/vr.html"
-            class="btn btn-outline btn-card"
-            target="_blank" rel="noopener"
-          >
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignatura-bio1m.0010" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/vr.html" rel="noopener" target="_blank">
             🥽 Ver escena VR
           </a>
-        </div>
-      </article>
-    </section>
-
-    <!-- SECCIÓN 3: MODELOS 3D / AR / VR -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Modelos 3D, AR y VR</h2>
-        <p>Conecta los modelos GLB y escenas que ya tienes en la carpeta <code>assets/</code> del OA2.</p>
-      </div>
-
-      <div class="card-grid card-grid-wide">
-        <article class="card">
-          <h3>🦴 Registro fósil</h3>
-          <p class="note">
+</div>
+</article>
+</section>
+<!-- SECCIÓN 3: MODELOS 3D / AR / VR -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0011">Modelos 3D, AR y VR</h2>
+<p>Conecta los modelos GLB y escenas que ya tienes en la carpeta <code>assets/</code> del OA2.</p>
+</div>
+<div class="card-grid card-grid-wide">
+<article class="card">
+<h3 data-i18n="c.registro_fósil_c0976079">🦴 Registro fósil</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0012">
             Observa una línea de tiempo con fósiles y analiza cómo cambian las especies en el
             tiempo.
           </p>
-          <div class="hero-cta-group">
-            <a
-              href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/fosil.html"
-              class="btn btn-solid btn-card pulse"
-              target="_blank" rel="noopener"
-            >
+<div class="hero-cta-group">
+<a class="btn btn-solid btn-card pulse" data-i18n="p.app__estudiante__asignatura-bio1m.0013" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/fosil.html" rel="noopener" target="_blank">
               👁️ 3D / 📱 AR
             </a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>🫱🏻‍🫲🏽 Estructuras homólogas</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card">
+<h3 data-i18n="c.estructuras_homólogas_4a6f9248">🫱🏻‍🫲🏽 Estructuras homólogas</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0014">
             Compara extremidades de vertebrados para identificar homologías y entender el origen
             común.
           </p>
-          <div class="hero-cta-group">
-            <a
-              href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/homologia.html"
-              class="btn btn-solid btn-card pulse"
-              target="_blank" rel="noopener"
-            >
+<div class="hero-cta-group">
+<a class="btn btn-solid btn-card pulse" data-i18n="p.app__estudiante__asignatura-bio1m.0015" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/homologia.html" rel="noopener" target="_blank">
               👁️ Ver modelo 3D
             </a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>🧬 Modelo de ADN</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0016">🧬 Modelo de ADN</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0017">
             Explora un modelo simple de ADN y relaciona las secuencias con el parentesco entre
             especies.
           </p>
-          <div class="hero-cta-group">
-            <a
-              href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/adn.html"
-              class="btn btn-solid btn-card pulse"
-              target="_blank" rel="noopener"
-            >
+<div class="hero-cta-group">
+<a class="btn btn-solid btn-card pulse" data-i18n="p.app__estudiante__asignatura-bio1m.0018" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/adn.html" rel="noopener" target="_blank">
               👁️ Ver ADN en 3D
             </a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>👥 Darwin &amp; Wallace</h3>
-          <p class="note">
+</div>
+</article>
+<article class="card">
+<h3 data-i18n="c.darwin__wallace_f4051c6f">👥 Darwin &amp; Wallace</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0019">
             Revisa una línea de tiempo con los hitos principales de la teoría evolutiva y el aporte
             de Darwin y Wallace.
           </p>
-          <div class="hero-cta-group">
-            <a
-              href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/timeline.html"
-              class="btn btn-outline btn-card"
-              target="_blank" rel="noopener"
-            >
+<div class="hero-cta-group">
+<a class="btn btn-outline btn-card" data-i18n="c.ver_línea_de_tiempo_3e14a9ff" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/assets/timeline.html" rel="noopener" target="_blank">
               📜 Ver línea de tiempo
             </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 4: MATERIAL OFICIAL MINEDUC -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Material oficial MINEDUC</h2>
-        <p>Documentos descargables que ya están en <code>docs/mineduc/</code> dentro del OA2.</p>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="temario-table">
-          <thead>
-            <tr>
-              <th>Documento</th>
-              <th>Descripción</th>
-              <th>Acceso</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Temario oficial Biología 1° Medio</td>
-              <td>
+</div>
+</article>
+</div>
+</section>
+<!-- SECCIÓN 4: MATERIAL OFICIAL MINEDUC -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0020">Material oficial MINEDUC</h2>
+<p>Documentos descargables que ya están en <code>docs/mineduc/</code> dentro del OA2.</p>
+</div>
+<div class="table-wrapper">
+<table class="temario-table">
+<thead>
+<tr>
+<th data-i18n="p.app__estudiante__asignatura-bio1m.0021">Documento</th>
+<th data-i18n="p.app__estudiante__asignatura-bio1m.0022">Descripción</th>
+<th data-i18n="p.app__estudiante__asignatura-bio1m.0023">Acceso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0024">Temario oficial Biología 1° Medio</td>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0025">
                 Documento UCE con los contenidos que se evalúan en exámenes libres de 1° Medio.
               </td>
-              <td>
-                <a
-                  href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/temario_media_1deg_medio_uce_1.pdf"
-                  class="btn-link" target="_blank" rel="noopener"
-                >📄 Abrir PDF</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Recurso MINEDUC 1</td>
-              <td>
+<td>
+<a class="btn-link" data-i18n="c.abrir_pdf_092fd01a" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/temario_media_1deg_medio_uce_1.pdf" rel="noopener" target="_blank">📄 Abrir PDF</a>
+</td>
+</tr>
+<tr>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0026">Recurso MINEDUC 1</td>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0027">
                 Artículo de apoyo para trabajar evidencias de evolución en aula / estudio
                 individual.
               </td>
-              <td>
-                <a
-                  href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/articles-213374_recurso_pdf_(1).pdf"
-                  class="btn-link" target="_blank" rel="noopener"
-                >📄 Abrir PDF</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Recurso MINEDUC 2</td>
-              <td>
+<td>
+<a class="btn-link" data-i18n="c.abrir_pdf_092fd01a" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/articles-213374_recurso_pdf_(1).pdf" rel="noopener" target="_blank">📄 Abrir PDF</a>
+</td>
+</tr>
+<tr>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0028">Recurso MINEDUC 2</td>
+<td data-i18n="p.app__estudiante__asignatura-bio1m.0029">
                 Segundo recurso complementario para profundizar en los ejemplos de evidencias.
               </td>
-              <td>
-                <a
-                  href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/articles-81248_recurso_pdf.pdf"
-                  class="btn-link" target="_blank" rel="noopener"
-                >📄 Abrir PDF</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 5: GUÍAS, CONTENIDOS Y EVALUACIÓN -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Guía de estudio y evaluación OA2</h2>
-        <p>Conecta directamente con las páginas internas que ya construiste en el mini-sitio.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>📚 Contenidos OA2</h3>
-          <p class="note">
+<td>
+<a class="btn-link" data-i18n="c.abrir_pdf_092fd01a" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/docs/mineduc/articles-81248_recurso_pdf.pdf" rel="noopener" target="_blank">📄 Abrir PDF</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECCIÓN 5: GUÍAS, CONTENIDOS Y EVALUACIÓN -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0030">Guía de estudio y evaluación OA2</h2>
+<p data-i18n="p.app__estudiante__asignatura-bio1m.0031">Conecta directamente con las páginas internas que ya construiste en el mini-sitio.</p>
+</div>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0032">📚 Contenidos OA2</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0033">
             Desarrollo teórico del OA2 con ejemplos y explicaciones visuales.
           </p>
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/contenidos.html"
-            class="btn btn-outline btn-card"
-            target="_blank" rel="noopener"
-          >
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignatura-bio1m.0034" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/contenidos.html" rel="noopener" target="_blank">
             Abrir contenidos OA2
           </a>
-        </article>
-
-        <article class="card">
-          <h3>📝 Guía de estudio</h3>
-          <p class="note">
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0035">📝 Guía de estudio</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0036">
             Checklist personal para organizar tu estudio, con KPSI y sugerencias de trabajo.
           </p>
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/guia-estudio.html"
-            class="btn btn-outline btn-card"
-            target="_blank" rel="noopener"
-          >
+<a class="btn btn-outline btn-card" data-i18n="c.abrir_guía_de_estudio_ee4ca99c" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/guia-estudio.html" rel="noopener" target="_blank">
             Abrir guía de estudio
           </a>
-        </article>
-
-        <article class="card">
-          <h3>✅ Evaluación formativa</h3>
-          <p class="note">
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0037">✅ Evaluación formativa</h3>
+<p class="note" data-i18n="p.app__estudiante__asignatura-bio1m.0038">
             Preguntas tipo prueba para practicar antes de rendir tu examen o simulacro PEVE.
           </p>
-          <a
-            href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/evaluacion-formativa.html"
-            class="btn btn-outline btn-card"
-            target="_blank" rel="noopener"
-          >
+<a class="btn btn-outline btn-card" data-i18n="p.app__estudiante__asignatura-bio1m.0039" href="../../content/1medio/cienciasnaturales/ciencias-naturales-biologia/BIO1M_OA2_EvidenciasEvolucion/evaluacion-formativa.html" rel="noopener" target="_blank">
             Abrir evaluación formativa
           </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECCIÓN 6: PROGRESO (WIREFRAME) -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Mi progreso en Biología 1° Medio</h2>
-        <p>Este bloque se puede conectar después a tu backend o Google Sheets.</p>
-      </div>
-
-      <div class="dashboard-grid">
-        <article class="card">
-          <h3>📊 Progreso en OA2</h3>
-          <div class="progress-group">
-            <label>OA2 — Evidencias de evolución</label>
-            <div class="progress-bar">
-              <span style="width: 35%;"></span>
-            </div>
-            <p class="note">
-              Has completado aproximadamente un <strong>35%</strong> de las actividades sugeridas de
+</article>
+</div>
+</section>
+<!-- SECCIÓN 6: PROGRESO (WIREFRAME) -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__estudiante__asignatura-bio1m.0040">Mi progreso en Biología 1° Medio</h2>
+<p data-i18n="p.app__estudiante__asignatura-bio1m.0041">Este bloque se puede conectar después a tu backend o Google Sheets.</p>
+</div>
+<div class="dashboard-grid">
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0042">📊 Progreso en OA2</h3>
+<div class="progress-group">
+<label data-i18n="c.oa2__evidencias_de_evolución_e4b2648d">OA2 — Evidencias de evolución</label>
+<div class="progress-bar">
+<span style="width: 35%;"></span>
+</div>
+<p class="note">
+              Has completado aproximadamente un <strong data-i18n="p.app__estudiante__asignatura-bio1m.0043">35%</strong> de las actividades sugeridas de
               este OA (ejemplo).
             </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>🧠 Siguiente paso recomendado</h3>
-          <ul class="bullet-list small">
-            <li>Revisa la guía de estudio y completa la autoevaluación KPSI.</li>
-            <li>Explora al menos un modelo 3D (fósil, homología o ADN).</li>
-            <li>Resuelve la evaluación formativa y anota tus dudas para tu docente.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-  
+</div>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__estudiante__asignatura-bio1m.0044">🧠 Siguiente paso recomendado</h3>
+<ul class="bullet-list small">
+<li data-i18n="p.app__estudiante__asignatura-bio1m.0045">Revisa la guía de estudio y completa la autoevaluación KPSI.</li>
+<li data-i18n="p.app__estudiante__asignatura-bio1m.0046">Explora al menos un modelo 3D (fósil, homología o ADN).</li>
+<li data-i18n="p.app__estudiante__asignatura-bio1m.0047">Resuelve la evaluación formativa y anota tus dudas para tu docente.</li>
+</ul>
+</article>
+</div>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
-
-
 <footer class="footer small">
-    <div class="footer-inner">
-      <div class="footer-text">
-        <p>© 2025 📚PEVE – Familias y cuidadores.</p>
-      </div>
-    </div>
-
 <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="../../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="../../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<div class="footer-text">
+<p data-i18n="c.2025_peve__familias_y_cuidadores_0c5d3327">© 2025 📚PEVE – Familias y cuidadores.</p>
+</div>
+</div>
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../../assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="../../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
+</div>
+</div>
+</footer>
+<!-- SCRIPTS -->
 
-
-  </footer>
-
-
-  <!-- SCRIPTS -->
-<script src="../../assets/js/accesibilidad.js" defer></script>
-<script src="../../assets/js/footer.js" defer></script>
-<script src="../../assets/js/student-context.js" defer></script>
-
-
-	
-</body>
+<script defer="" src="../../assets/js/footer.js"></script>
+<script defer="" src="../../assets/js/student-context.js"></script>
+<script src="../../assets/js/accessibility.js"></script></body>
 </html>
-
-

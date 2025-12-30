@@ -1,323 +1,291 @@
-<!DOCTYPE
-    <section class="section" id="teacher-informes-links" style="display:none;">
-      <p class="note">
-        Estás viendo informes como <strong id="teacher-name-informes">Docente PEVE</strong>.
-        Atajos rápidos:
-        <a href="./dashboard_docente.html" class="btn btn-ghost btn-small">Volver a Panel docente</a>
-        <a href="./docente/mis_cursos.html" class="btn btn-ghost btn-small">Ver mis cursos / OA</a>
-      </p>
-    </section>
- html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>📊 Informes PEVE · DIA · KPSI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-</head>
-<body class="theme-dark">
+<meta charset="utf-8"/>
+<title>📊 Informes PEVE · DIA · KPSI</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
+<body class="">
 <script>(function(){try{if(sessionStorage.getItem("adminLogged")!=="1"){/* UX guard */}}catch(e){}})();</script>
-
-  <!-- HEADER GLOBAL PEVE -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Módulo de informes</span>
-      </div>
-    </div>
-
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="../index.html" class="nav-link">Inicio</a>
-      <a href="../pages/info.html" class="nav-link">Proceso</a>
-      <a href="../pages/niveles.html" class="nav-link">Niveles</a>
-      <a href="../pages/asignaturas.html" class="nav-link">Asignaturas</a>
-      <a href="./dashboard.html" class="nav-link">Estudiante</a>
-      <a href="./dashboard_admin.html" class="nav-link">Administrador</a>
-      <span class="nav-link nav-link-active">Informes</span>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn btn-icon" data-action="toggle-theme" aria-label="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn btn-icon" data-action="font-dec" aria-label="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn btn-icon" data-action="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn btn-icon" data-action="narrator" aria-label="Activar narrador de la página">🔊</button>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main id="main-content" class="page">
-    <header class="page-header">
-      <p class="page-kicker">Seguimiento académico</p>
-      <h1>Informes PEVE · DIA · KPSI</h1>
-      <p class="page-lead">
+<!-- HEADER GLOBAL PEVE -->
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="p.app__informes.0001">Módulo de informes</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="../pages/info.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="../pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="../pages/asignaturas.html">Asignaturas</a>
+<a class="nav-link" data-i18n="c.estudiante_7a3b082a" href="./dashboard.html">Estudiante</a>
+<a class="nav-link" data-i18n="nav.admin" href="./dashboard_admin.html">Administrador</a>
+<span class="nav-link nav-link-active" data-i18n="nav.informes">Informes</span>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button aria-label="Cambiar tema claro/oscuro" class="access-btn btn-icon" data-action="toggle-theme" data-i18n-aria-label="c.attr.aria-label.cambiar_tema_clarooscuro_afb52f78">🌓</button>
+<button aria-label="Disminuir tamaño de letra" class="access-btn btn-icon" data-action="font-dec" data-i18n-aria-label="c.attr.aria-label.disminuir_tamaño_de_letra_15d6bf38">A−</button>
+<button aria-label="Aumentar tamaño de letra" class="access-btn btn-icon" data-action="font-inc" data-i18n-aria-label="c.attr.aria-label.aumentar_tamaño_de_letra_286fb21a">A+</button>
+<button aria-label="Activar narrador de la página" class="access-btn btn-icon" data-action="narrator" data-i18n-aria-label="p.app__informes.0069">🔊</button>
+</div>
+</header><section class="section" id="teacher-informes-links" style="display:none;">
+<p class="note">
+        Estás viendo informes como <strong data-i18n="c.docente_peve_a8a85d47" id="teacher-name-informes">Docente PEVE</strong>.
+        Atajos rápidos:
+        <a class="btn btn-ghost btn-small" data-i18n="c.volver_a_panel_docente_d50c1ba4" href="./dashboard_docente.html">Volver a Panel docente</a>
+<a class="btn btn-ghost btn-small" data-i18n="c.ver_mis_cursos__oa_e61792df" href="./docente/mis_cursos.html">Ver mis cursos / OA</a>
+</p>
+</section>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="page" id="main-content">
+<header class="page-header">
+<p class="page-kicker" data-i18n="p.app__informes.0002">Seguimiento académico</p>
+<h1 data-i18n="p.app__informes.0003">Informes PEVE · DIA · KPSI</h1>
+<p class="page-lead" data-i18n="p.app__informes.0004">
         Este módulo permite a UTP, PIE y docentes revisar resultados por curso y asignatura, combinando
         información de PEVE (exámenes y temarios), DIA (Diagnóstico Integral de Aprendizajes) y KPSI
         (inicio / fin) para tomar decisiones pedagógicas.
       </p>
-    </header>
-    <section class="section" id="teacher-informes-links" style="display:none;">
-      <p class="note">
-        Estás viendo informes como <strong id="teacher-name-informes">Docente PEVE</strong>.
+</header>
+<section class="section" id="teacher-informes-links" style="display:none;">
+<p class="note">
+        Estás viendo informes como <strong data-i18n="c.docente_peve_a8a85d47" id="teacher-name-informes">Docente PEVE</strong>.
         Atajos rápidos:
-        <a href="./dashboard_docente.html" class="btn btn-ghost btn-small">Volver a Panel docente</a>
-        <a href="./docente/mis_cursos.html" class="btn btn-ghost btn-small">Ver mis cursos / OA</a>
-      </p>
-    </section>
-
-
-    <!-- FILTROS SUPERIORES -->
-    <section class="section">
-      <div class="card">
-        <h2>Filtros de informe</h2>
-        <p class="note">
+        <a class="btn btn-ghost btn-small" data-i18n="c.volver_a_panel_docente_d50c1ba4" href="./dashboard_docente.html">Volver a Panel docente</a>
+<a class="btn btn-ghost btn-small" data-i18n="c.ver_mis_cursos__oa_e61792df" href="./docente/mis_cursos.html">Ver mis cursos / OA</a>
+</p>
+</section>
+<!-- FILTROS SUPERIORES -->
+<section class="section">
+<div class="card">
+<h2 data-i18n="p.app__informes.0005">Filtros de informe</h2>
+<p class="note">
           Selecciona curso, asignatura y llamado para actualizar la vista. Por ahora los datos son de
           demostración; más adelante se conectarán a hojas como <code>PEVE_Resultados</code>,
           <code>DIA_Resultados</code> y <code>KPSI_Resultados</code>.
         </p>
-
-        <form class="hero-cta-group" id="filters-form">
-          <label>
-            <span style="font-size:0.8rem;">Curso 2025</span>
-            <select id="filter-curso" class="btn btn-ghost" style="min-width:150px;">
-              <option>7° Básico</option>
-              <option>8° Básico</option>
-              <option>1° Medio</option>
-              <option>2° Medio</option>
-              <option>3° Medio</option>
-              <option>4° Medio</option>
-            </select>
-          </label>
-
-          <label>
-            <span style="font-size:0.8rem;">Asignatura</span>
-            <select id="filter-asignatura" class="btn btn-ghost" style="min-width:220px;">
-              <option>Ciencias Naturales</option>
-              <option>Tecnología</option>
-              <option>Biología 1° Medio (BIO1M)</option>
-              <option>Lengua y Literatura</option>
-              <option>Matemática</option>
-              <option>Historia y Cs. Sociales</option>
-              <option>Inglés</option>
-            </select>
-          </label>
-
-          <label>
-            <span style="font-size:0.8rem;">Llamado</span>
-            <select id="filter-llamado" class="btn btn-ghost" style="min-width:170px;">
-              <option>2025 · 1° llamado</option>
-              <option>2025 · 2° llamado</option>
-              <option>2026 · 1° llamado</option>
-            </select>
-          </label>
-
-          <label>
-            <span style="font-size:0.8rem;">Tipo de informe</span>
-            <select id="filter-tipo" class="btn btn-ghost" style="min-width:190px;">
-              <option>PEVE (exámenes / temarios)</option>
-              <option>DIA (ingreso / cierre)</option>
-              <option>KPSI (inicio / fin)</option>
-              <option>Mixto (PEVE + DIA + KPSI)</option>
-            </select>
-          </label>
-
-          <button type="button" class="btn btn-solid pulse" id="btn-actualizar">
+<form class="hero-cta-group" id="filters-form">
+<label>
+<span data-i18n="c.curso_2025_77376c47" style="font-size:0.8rem;">Curso 2025</span>
+<select class="btn btn-ghost" id="filter-curso" style="min-width:150px;">
+<option data-i18n="c.7_básico_c000a1dd">7° Básico</option>
+<option data-i18n="c.8_básico_d7e339e5">8° Básico</option>
+<option data-i18n="c.1_medio_51dba562">1° Medio</option>
+<option data-i18n="c.2_medio_5dbda691">2° Medio</option>
+<option data-i18n="c.3_medio_1ce8d4fb">3° Medio</option>
+<option data-i18n="c.4_medio_696e6595">4° Medio</option>
+</select>
+</label>
+<label>
+<span data-i18n="c.asignatura_fcea7fa3" style="font-size:0.8rem;">Asignatura</span>
+<select class="btn btn-ghost" id="filter-asignatura" style="min-width:220px;">
+<option data-i18n="c.ciencias_naturales_c6fe775a">Ciencias Naturales</option>
+<option data-i18n="p.app__informes.0006">Tecnología</option>
+<option data-i18n="p.app__informes.0007">Biología 1° Medio (BIO1M)</option>
+<option data-i18n="c.lengua_y_literatura_73ee1ad6">Lengua y Literatura</option>
+<option data-i18n="c.matemática_6eb05f3a">Matemática</option>
+<option data-i18n="p.app__informes.0008">Historia y Cs. Sociales</option>
+<option data-i18n="p.app__informes.0009">Inglés</option>
+</select>
+</label>
+<label>
+<span data-i18n="c.llamado_caef663d" style="font-size:0.8rem;">Llamado</span>
+<select class="btn btn-ghost" id="filter-llamado" style="min-width:170px;">
+<option data-i18n="c.2025__1_llamado_c71b6481">2025 · 1° llamado</option>
+<option data-i18n="p.app__informes.0010">2025 · 2° llamado</option>
+<option data-i18n="p.app__informes.0011">2026 · 1° llamado</option>
+</select>
+</label>
+<label>
+<span data-i18n="c.tipo_de_informe_b37009ee" style="font-size:0.8rem;">Tipo de informe</span>
+<select class="btn btn-ghost" id="filter-tipo" style="min-width:190px;">
+<option data-i18n="p.app__informes.0012">PEVE (exámenes / temarios)</option>
+<option data-i18n="p.app__informes.0013">DIA (ingreso / cierre)</option>
+<option data-i18n="p.app__informes.0014">KPSI (inicio / fin)</option>
+<option data-i18n="p.app__informes.0015">Mixto (PEVE + DIA + KPSI)</option>
+</select>
+</label>
+<button class="btn btn-solid pulse" data-i18n="p.app__informes.0016" id="btn-actualizar" type="button">
             Actualizar vista
           </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- RESUMEN EJECUTIVO -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Resumen ejecutivo del curso</h2>
-        <p class="page-lead">
+</form>
+</div>
+</section>
+<!-- RESUMEN EJECUTIVO -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__informes.0017">Resumen ejecutivo del curso</h2>
+<p class="page-lead" data-i18n="p.app__informes.0018">
           Indicadores rápidos para reuniones de ciclo, UTP o informes con dirección. Los valores son
           demostrativos y se reemplazarán con datos reales más adelante.
         </p>
-      </div>
-
-      <div class="dashboard-grid">
-        <article class="card">
-          <h3>👥 Estudiantes del curso</h3>
-          <p class="note">Total de estudiantes que rinden PEVE en el curso seleccionado.</p>
-          <p><strong id="kpi-total-estudiantes">28</strong> estudiante(s)</p>
-        </article>
-
-        <article class="card">
-          <h3>✅ Avance en PEVE</h3>
-          <p class="note">Porcentaje que completó todos los temarios y evaluaciones clave.</p>
-          <p><strong id="kpi-avance-completo">68 %</strong> con avance completo (demo)</p>
-        </article>
-
-        <article class="card">
-          <h3>📈 Mejora KPSI</h3>
-          <p class="note">Estudiantes que muestran mejora entre KPSI inicio y KPSI fin.</p>
-          <p><strong id="kpi-kpsi-mejora">74 %</strong> con mejora positiva (demo)</p>
-        </article>
-
-        <article class="card">
-          <h3>📊 Promedios PEVE / DIA</h3>
-          <ul class="bullet-list small">
-            <li><strong>Promedio PEVE asignatura:</strong> 5,8 (ejemplo)</li>
-            <li><strong>Promedio DIA ingreso:</strong> 5,0 (ejemplo)</li>
-            <li><strong>Meta:</strong> Subir al menos 0,5 puntos entre ingreso y cierre.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- TABLA DETALLE POR ESTUDIANTE -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Detalle por estudiante</h2>
-        <p class="page-lead">
+</div>
+<div class="dashboard-grid">
+<article class="card">
+<h3 data-i18n="p.app__informes.0019">👥 Estudiantes del curso</h3>
+<p class="note" data-i18n="p.app__informes.0020">Total de estudiantes que rinden PEVE en el curso seleccionado.</p>
+<p><strong id="kpi-total-estudiantes">28</strong> estudiante(s)</p>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__informes.0021">✅ Avance en PEVE</h3>
+<p class="note" data-i18n="p.app__informes.0022">Porcentaje que completó todos los temarios y evaluaciones clave.</p>
+<p><strong data-i18n="p.app__informes.0023" id="kpi-avance-completo">68 %</strong> con avance completo (demo)</p>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__informes.0024">📈 Mejora KPSI</h3>
+<p class="note" data-i18n="p.app__informes.0025">Estudiantes que muestran mejora entre KPSI inicio y KPSI fin.</p>
+<p><strong data-i18n="p.app__informes.0026" id="kpi-kpsi-mejora">74 %</strong> con mejora positiva (demo)</p>
+</article>
+<article class="card">
+<h3 data-i18n="p.app__informes.0027">📊 Promedios PEVE / DIA</h3>
+<ul class="bullet-list small">
+<li><strong data-i18n="p.app__informes.0028">Promedio PEVE asignatura:</strong> 5,8 (ejemplo)</li>
+<li><strong data-i18n="p.app__informes.0029">Promedio DIA ingreso:</strong> 5,0 (ejemplo)</li>
+<li><strong data-i18n="p.app__informes.0030">Meta:</strong> Subir al menos 0,5 puntos entre ingreso y cierre.</li>
+</ul>
+</article>
+</div>
+</section>
+<!-- TABLA DETALLE POR ESTUDIANTE -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__informes.0031">Detalle por estudiante</h2>
+<p class="page-lead" data-i18n="p.app__informes.0032">
           Tabla pensada para reuniones de curso, trabajo con PIE y análisis de brechas. Puedes exportarla
           a CSV o imprimirla en versión resumida.
         </p>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="temario-table" id="tabla-informes">
-          <thead>
-            <tr>
-              <th>Estudiante</th>
-              <th>Curso</th>
-              <th>Llamado</th>
-              <th>% avance PEVE</th>
-              <th>Resultado PEVE</th>
-              <th>DIA ingreso</th>
-              <th>DIA cierre</th>
-              <th>KPSI inicio</th>
-              <th>KPSI fin</th>
-              <th>Alertas</th>
-              <th>Informe</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Filas de demostración; luego se podrán generar desde resultados reales -->
-            <tr>
-              <td>Gianella Sepúlveda</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>85 %</td>
-              <td>6,0</td>
-              <td>4,8</td>
-              <td>5,5</td>
-              <td>Medio</td>
-              <td>Alto</td>
-              <td>Requiere seguimiento PIE</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Belen Acuña</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>72 %</td>
-              <td>5,5</td>
-              <td>5,0</td>
-              <td>5,8</td>
-              <td>Bajo</td>
-              <td>Medio</td>
-              <td>Sin alerta</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Pancho Pinto</td>
-              <td>1° Medio</td>
-              <td>2025 · 1° llamado</td>
-              <td>60 %</td>
-              <td>5,0</td>
-              <td>4,5</td>
-              <td>5,0</td>
-              <td>Bajo</td>
-              <td>Medio</td>
-              <td>Refuerzo en Biología / Matemática</td>
-              <td>
-                <button class="btn btn-ghost btn-card">Ver informe individual</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="hero-meta" style="margin-top:0.8rem;">
-        <button class="btn btn-outline btn-card">Exportar CSV (para UTP)</button>
-        <button class="btn btn-outline btn-card">Versión para imprimir / PDF</button>
-      </div>
-    </section>
-
-    <!-- PANEL DE INFORME INDIVIDUAL (BORRADOR EDITABLE) -->
-    <section class="section">
-      <div class="section-header">
-        <h2>Informe individual PEVE · DIA · KPSI</h2>
-        <p class="page-lead">
+</div>
+<div class="table-wrapper">
+<table class="temario-table" id="tabla-informes">
+<thead>
+<tr>
+<th data-i18n="c.estudiante_7a3b082a">Estudiante</th>
+<th data-i18n="c.curso_32c85c59">Curso</th>
+<th data-i18n="c.llamado_caef663d">Llamado</th>
+<th data-i18n="p.app__informes.0033">% avance PEVE</th>
+<th data-i18n="p.app__informes.0034">Resultado PEVE</th>
+<th data-i18n="p.app__informes.0035">DIA ingreso</th>
+<th data-i18n="p.app__informes.0036">DIA cierre</th>
+<th data-i18n="p.app__informes.0037">KPSI inicio</th>
+<th data-i18n="p.app__informes.0038">KPSI fin</th>
+<th data-i18n="p.app__informes.0039">Alertas</th>
+<th data-i18n="p.app__informes.0040">Informe</th>
+</tr>
+</thead>
+<tbody>
+<!-- Filas de demostración; luego se podrán generar desde resultados reales -->
+<tr>
+<td data-i18n="p.app__informes.0041">Gianella Sepúlveda</td>
+<td data-i18n="c.1_medio_51dba562">1° Medio</td>
+<td data-i18n="c.2025__1_llamado_c71b6481">2025 · 1° llamado</td>
+<td data-i18n="p.app__informes.0042">85 %</td>
+<td>6,0</td>
+<td>4,8</td>
+<td>5,5</td>
+<td data-i18n="c.medio_5ae9f5bf">Medio</td>
+<td data-i18n="p.app__informes.0043">Alto</td>
+<td data-i18n="p.app__informes.0044">Requiere seguimiento PIE</td>
+<td>
+<button class="btn btn-ghost btn-card" data-i18n="c.ver_informe_individual_45475669">Ver informe individual</button>
+</td>
+</tr>
+<tr>
+<td data-i18n="p.app__informes.0045">Belen Acuña</td>
+<td data-i18n="c.1_medio_51dba562">1° Medio</td>
+<td data-i18n="c.2025__1_llamado_c71b6481">2025 · 1° llamado</td>
+<td data-i18n="p.app__informes.0046">72 %</td>
+<td>5,5</td>
+<td>5,0</td>
+<td>5,8</td>
+<td data-i18n="c.bajo_bb90d11d">Bajo</td>
+<td data-i18n="c.medio_5ae9f5bf">Medio</td>
+<td data-i18n="p.app__informes.0047">Sin alerta</td>
+<td>
+<button class="btn btn-ghost btn-card" data-i18n="c.ver_informe_individual_45475669">Ver informe individual</button>
+</td>
+</tr>
+<tr>
+<td data-i18n="p.app__informes.0048">Pancho Pinto</td>
+<td data-i18n="c.1_medio_51dba562">1° Medio</td>
+<td data-i18n="c.2025__1_llamado_c71b6481">2025 · 1° llamado</td>
+<td data-i18n="p.app__informes.0049">60 %</td>
+<td>5,0</td>
+<td>4,5</td>
+<td>5,0</td>
+<td data-i18n="c.bajo_bb90d11d">Bajo</td>
+<td data-i18n="c.medio_5ae9f5bf">Medio</td>
+<td data-i18n="p.app__informes.0050">Refuerzo en Biología / Matemática</td>
+<td>
+<button class="btn btn-ghost btn-card" data-i18n="c.ver_informe_individual_45475669">Ver informe individual</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="hero-meta" style="margin-top:0.8rem;">
+<button class="btn btn-outline btn-card" data-i18n="p.app__informes.0051">Exportar CSV (para UTP)</button>
+<button class="btn btn-outline btn-card" data-i18n="p.app__informes.0052">Versión para imprimir / PDF</button>
+</div>
+</section>
+<!-- PANEL DE INFORME INDIVIDUAL (BORRADOR EDITABLE) -->
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.app__informes.0053">Informe individual PEVE · DIA · KPSI</h2>
+<p class="page-lead" data-i18n="p.app__informes.0054">
           Borrador editable para compartir con familias, docentes o equipos externos. Más adelante este
           texto se podrá generar automáticamente desde los resultados reales del estudiante.
         </p>
-      </div>
-
-      <div class="dashboard-grid">
-        <article class="card">
-          <h3>Configuración rápida del informe</h3>
-          <p class="note">
+</div>
+<div class="dashboard-grid">
+<article class="card">
+<h3 data-i18n="p.app__informes.0055">Configuración rápida del informe</h3>
+<p class="note" data-i18n="p.app__informes.0056">
             1) Selecciona un estudiante en la tabla · 2) Ajusta el tipo de informe y destinatario ·
             3) Edita el texto si lo necesitas · 4) Envía por correo o WhatsApp.
           </p>
-
-          <div class="progress-group">
-            <label>Estudiante seleccionado</label>
-            <p id="report-student-label"><em>Sin selección · usa la tabla de arriba.</em></p>
-          </div>
-
-          <div class="progress-group">
-            <label for="report-type">Tipo de informe</label>
-            <select id="report-type" class="btn btn-ghost" style="width:100%;">
-              <option>Resumen PEVE (exámenes + avance)</option>
-              <option>DIA · línea de base</option>
-              <option>KPSI inicio / fin</option>
-              <option>Resultados por curso y asignatura</option>
-            </select>
-          </div>
-
-          <div class="progress-group">
-            <label for="report-target">Destinatario principal</label>
-            <select id="report-target" class="btn btn-ghost" style="width:100%;">
-              <option>Estudiante</option>
-              <option>Apoderado / familia</option>
-              <option>Docente</option>
-              <option>UTP / Equipo PIE</option>
-            </select>
-          </div>
-
-          <div class="hero-meta" style="margin-top:1rem;">
-            <button class="btn btn-solid pulse" id="btn-report-email">📩 Enviar por correo</button>
-            <button class="btn btn-outline" id="btn-report-whatsapp">📱 Enviar por WhatsApp</button>
-          </div>
-
-          <p class="note" style="margin-top:0.6rem;">
+<div class="progress-group">
+<label data-i18n="c.estudiante_seleccionado_d7e887df">Estudiante seleccionado</label>
+<p id="report-student-label"><em data-i18n="p.app__informes.0057">Sin selección · usa la tabla de arriba.</em></p>
+</div>
+<div class="progress-group">
+<label data-i18n="c.tipo_de_informe_b37009ee" for="report-type">Tipo de informe</label>
+<select class="btn btn-ghost" id="report-type" style="width:100%;">
+<option data-i18n="c.resumen_peve_exámenes__avance_e454c049">Resumen PEVE (exámenes + avance)</option>
+<option data-i18n="c.dia__línea_de_base_d8686612">DIA · línea de base</option>
+<option data-i18n="c.kpsi_inicio__fin_c430c271">KPSI inicio / fin</option>
+<option data-i18n="c.resultados_por_curso_y_asignatura_7a1ab5c9">Resultados por curso y asignatura</option>
+</select>
+</div>
+<div class="progress-group">
+<label data-i18n="c.destinatario_principal_4757f8fe" for="report-target">Destinatario principal</label>
+<select class="btn btn-ghost" id="report-target" style="width:100%;">
+<option data-i18n="c.estudiante_7a3b082a">Estudiante</option>
+<option data-i18n="p.app__informes.0058">Apoderado / familia</option>
+<option data-i18n="c.docente_1ffba224">Docente</option>
+<option data-i18n="c.utp__equipo_pie_74c8e118">UTP / Equipo PIE</option>
+</select>
+</div>
+<div class="hero-meta" style="margin-top:1rem;">
+<button class="btn btn-solid pulse" data-i18n="p.app__informes.0059" id="btn-report-email">📩 Enviar por correo</button>
+<button class="btn btn-outline" data-i18n="p.app__informes.0060" id="btn-report-whatsapp">📱 Enviar por WhatsApp</button>
+</div>
+<p class="note" style="margin-top:0.6rem;">
             Estos botones podrán utilizar el correo / teléfono del apoderado, docente o UTP
             asociados al estudiante seleccionado en la tabla de arriba. La lógica fina se
             implementará en <code>admin.js</code> cuando conectemos resultados reales.
           </p>
-        </article>
-
-        <article class="card">
-          <h3>Vista previa del informe (editable)</h3>
-          <p class="note">
+</article>
+<article class="card">
+<h3 data-i18n="p.app__informes.0061">Vista previa del informe (editable)</h3>
+<p class="note" data-i18n="p.app__informes.0062">
             Puedes editar libremente este texto antes de enviarlo. Más adelante se generará
             automáticamente con datos PEVE · DIA · KPSI.
           </p>
-          <textarea
-            id="report-preview"
-            style="width:100%;min-height:280px;border-radius:14px;border:1px solid rgba(148,163,184,0.6);background:rgba(15,23,42,0.96);color:#e5e7eb;padding:0.8rem;font-size:0.82rem;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;"
-          >[INFORME DEMO PEVE – COMPLETAR]
+<textarea id="report-preview" style="width:100%;min-height:280px;border-radius:14px;border:1px solid rgba(148,163,184,0.6);background:rgba(15,23,42,0.96);color:#e5e7eb;padding:0.8rem;font-size:0.82rem;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">[INFORME DEMO PEVE – COMPLETAR]
 
 Estimada familia / equipo,
 
@@ -343,33 +311,31 @@ partir de los registros reales de la plataforma.
 
 Atentamente,
 Equipo PEVE – Liceo San Nicolás / Neotech EduLab</textarea>
-        </article>
-      </div>
-    </section>
-
-    <!-- NOTA FINAL -->
-    <section class="section">
-      <div class="callout-secondary callout">
-        <h3>¿Cómo se integran PEVE, DIA y KPSI en la práctica?</h3>
-        <p class="note">
+</article>
+</div>
+</section>
+<!-- NOTA FINAL -->
+<section class="section">
+<div class="callout-secondary callout">
+<h3 data-i18n="p.app__informes.0063">¿Cómo se integran PEVE, DIA y KPSI en la práctica?</h3>
+<p class="note" data-i18n="p.app__informes.0064">
           La intención del módulo de informes es que el liceo pueda conectar:
         </p>
-        <ul class="bullet-list small">
-          <li>Resultados de exámenes PEVE por curso y asignatura.</li>
-          <li>Información de ingreso y cierre del DIA (MINEDUC).</li>
-          <li>KPSI de inicio / fin como indicador de percepción de logro.</li>
-        </ul>
-        <p class="note">
+<ul class="bullet-list small">
+<li data-i18n="p.app__informes.0065">Resultados de exámenes PEVE por curso y asignatura.</li>
+<li data-i18n="p.app__informes.0066">Información de ingreso y cierre del DIA (MINEDUC).</li>
+<li data-i18n="p.app__informes.0067">KPSI de inicio / fin como indicador de percepción de logro.</li>
+</ul>
+<p class="note" data-i18n="p.app__informes.0068">
           Con esa triada, UTP y PIE pueden identificar estudiantes que requieren apoyos,
           monitorear avances y generar informes claros para familias y redes externas.
         </p>
-      </div>
-    </section>
-  </main>
+</div>
+</section>
+</main>
+<!-- JS COMÚN -->
 
-  <!-- JS COMÚN -->
-  <script src="../assets/js/accesibilidad.js" defer></script>
-  <script src="../assets/js/informes-context.js" defer></script>
-  <script src="../assets/js/footer.js" defer></script>
-</body>
+<script defer="" src="../assets/js/informes-context.js"></script>
+<script defer="" src="../assets/js/footer.js"></script>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>
