@@ -125,3 +125,14 @@ input::placeholder, textarea::placeholder{ color: var(--muted) !important; }
 .access-btn:hover{
   filter: brightness(1.08);
 }
+
+
+/* Accessibility UI helpers */
+.peve-toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.peve-toast.show{opacity:1;}
+
+.peve-guide-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:9998;padding:16px;}
+.peve-guide-backdrop.open{display:flex;}
+.peve-guide-modal{max-width:680px;width:100%;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.35);padding:16px;}
+.peve-guide-modal h2{margin:0 0 10px 0;}
+.peve-guide-modal .btn-row{display:flex;gap:10px;justify-content:flex-end;margin-top:12px;}
