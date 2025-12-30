@@ -1,0 +1,15 @@
+{
+  "p.app__dashboard_apoderado.0001": "Voirsión demo – vista pour acompañar à ton élève",
+  "p.app__dashboard_apoderado.0002": "Parent/Tuteur/à",
+  "p.app__dashboard_apoderado.0003": "Niveau",
+  "p.app__dashboard_apoderado.0004": "Dans cette versión les données son de demostración; más adelante se conectarán à les reportes reales PEVE/DIA/KPSI.",
+  "p.app__dashboard_apoderado.0005": "📊 Resumen de exámenes",
+  "p.app__dashboard_apoderado.0006": "Visualiza un resumen de les exámenes rendidos et pendientes de ton élève.",
+  "p.app__dashboard_apoderado.0007": "Próximamente",
+  "p.app__dashboard_apoderado.0008": "📚 Plans oficiales",
+  "p.app__dashboard_apoderado.0009": "Consulta les plans que está estudiando ton élève.",
+  "p.app__dashboard_apoderado.0010": "Voir plans",
+  "p.app__dashboard_apoderado.0011": "📊 Rapports par rol (Parent/Tuteur/à)",
+  "p.app__dashboard_apoderado.0012": "Genera un reporte simple (PEVE/DIA/KPSI) pour acompañar le avance du élève. Incluye opción de exportar à PDF.",
+  "p.app__dashboard_apoderado.0013": "Ouvrir rapports de parent/tuteur/à"
+}

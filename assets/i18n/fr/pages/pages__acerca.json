@@ -1,0 +1,19 @@
+{
+  "p.pages__acerca.0001": "À propos ce proyecto",
+  "p.pages__acerca.0002": "Contexto et propósito",
+  "p.pages__acerca.0003": "PEVE como ecosistema educativo inclusivo",
+  "p.pages__acerca.0004": "PEVE nace como une iniciativa de innovación educativa vinculada au trabajo du Liceo Bicentenario de Excelencia Polivalente San Nicolás et Neotech EduLab Spa, avec foco dans acompañar trayectorias no lineales mediante tecnología e inclusión.",
+  "p.pages__acerca.0005": "Origen",
+  "p.pages__acerca.0006": "Le proyecto surge de la necesidad de ordenar et visibilizar les procesos de estudiantes que rinden Examens libres, especialmente aquellos avec trayectorias interrumpidas, condiciones de salud complejas ou que participan dans programas PIE et hospitalarios.",
+  "p.pages__acerca.0007": "La idea central es que ninguna trayectoria quede “invisible”: que existan herramientas concretas pour planificar, seguir et evidenciar le trabajo de cada élève.",
+  "p.pages__acerca.0008": "Principios de diseño",
+  "p.pages__acerca.0009": "Inclusión real:",
+  "p.pages__acerca.0010": "Interoperabilidad:",
+  "p.pages__acerca.0011": "Escalabilidad:",
+  "p.pages__acerca.0012": "Suivants pasos",
+  "p.pages__acerca.0013": "Cette versión de PEVE corresponde à un prototipo funcional estático (HTML/CSS/JS) pensado pour ser alojado dans GitHub Pages. Les pasos siguientes podrían incluir:",
+  "p.pages__acerca.0014": "Integrar formularios reales avec registro dans Google Sheets ou bases de données.",
+  "p.pages__acerca.0015": "Desarrollar un panel seguro pour que cada élève pueda ingresar avec votre usuario.",
+  "p.pages__acerca.0016": "Ajouter dashboards visuales avec avance par matière et niveau.",
+  "p.pages__acerca.0017": "© 2025 📚PEVE – À proposl proyecto."
+}
