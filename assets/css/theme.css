@@ -1,0 +1,127 @@
+/* theme.css (PEVE unified theme v1)
+   - Single source of truth: html[data-theme="dark|light"] and html[data-contrast="high|normal"]
+   - Designed to override legacy fixed colors in scattered CSS files.
+*/
+
+:root{
+  --bg: #0b0f1a;
+  --text: #eef2ff;
+  --muted: #aab0c4;
+  --card: #111a2b;
+  --surface: #0f172a;
+  --surface-2: #0b1220;
+  --border: rgba(255,255,255,.12);
+  --link: #7dd3fc;
+  --shadow: 0 12px 28px rgba(0,0,0,.35);
+
+  --focus: rgba(125,211,252,.35);
+}
+
+html[data-theme="light"]{
+  --bg: #f6f7fb;
+  --text: #111827;
+  --muted: #374151;
+  --card: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f3f4f6;
+  --border: rgba(17,24,39,.12);
+  --link: #2563eb;
+  --shadow: 0 10px 24px rgba(17,24,39,.12);
+
+  --focus: rgba(37,99,235,.25);
+}
+
+html[data-contrast="high"][data-theme="dark"]{
+  --bg:#000;
+  --text:#fff;
+  --muted:#fff;
+  --card:#000;
+  --surface:#000;
+  --surface-2:#000;
+  --border:#fff;
+  --link:#00ffff;
+  --shadow:none;
+  --focus: rgba(255,255,255,.5);
+}
+
+html[data-contrast="high"][data-theme="light"]{
+  --bg:#fff;
+  --text:#000;
+  --muted:#000;
+  --card:#fff;
+  --surface:#fff;
+  --surface-2:#fff;
+  --border:#000;
+  --link:#0000ff;
+  --shadow:none;
+  --focus: rgba(0,0,0,.3);
+}
+
+/* Global surface */
+body{
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+a{ color: var(--link); }
+a:focus, button:focus, input:focus, select:focus, textarea:focus{
+  outline: 2px solid var(--focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Headers / nav */
+.topbar, header, .navbar, .nav{
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* Cards / panels */
+.card, .tile, .panel, .box, .kpi, .module, .section-card{
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow);
+}
+
+.card p, .tile p, .panel p, .box p{ color: var(--muted) !important; }
+
+/* Tables */
+table, th, td{
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+thead th{
+  background: var(--surface-2) !important;
+}
+
+/* Forms */
+input, select, textarea{
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+input::placeholder, textarea::placeholder{ color: var(--muted) !important; }
+
+/* Footer */
+.footer, footer{
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-top: 1px solid var(--border) !important;
+}
+.footer small, footer small{ color: var(--muted) !important; }
+.footer a, footer a{ color: var(--link) !important; }
+
+/* Accessibility toolbar */
+.access-toolbar, .toolbar, .access-controls, .accessibility-toolbar{
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+}
+.access-btn{
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.access-btn:hover{
+  filter: brightness(1.08);
+}

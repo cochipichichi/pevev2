@@ -415,9 +415,11 @@
   }
 
   function applyContrast(on) {
-    body.classList.toggle("peve-contrast", !!on);
-    try { localStorage.setItem(CONTRAST_KEY, on ? "1" : "0"); } catch(e){}
-    toast(`${t("toast.contrast")}: ${on ? t("toast.on") : t("toast.off")}`);
+    const enabled = !!on;
+    body.classList.toggle("peve-contrast", enabled);
+    html.setAttribute("data-contrast", enabled ? "high" : "normal");
+    try { localStorage.setItem(CONTRAST_KEY, enabled ? "1" : "0"); } catch(e){}
+    toast(`${t("toast.contrast")}: ${enabled ? t("toast.on") : t("toast.off")}`);
   }
 
   (function initTheme() {
@@ -430,7 +432,7 @@
 
     try {
       const c = localStorage.getItem(CONTRAST_KEY);
-      if (c === "1") body.classList.add("peve-contrast");
+      applyContrast(c === "1");
     } catch(e){}
   })();
 
@@ -521,6 +523,8 @@
       acceptNode: (node) => {
         if (!node || !node.parentElement) return NodeFilter.FILTER_REJECT;
         const tag = node.parentElement.tagName;
+        // Skip nodes controlled by data-i18n (key-based translation)
+        if (node.parentElement.closest("[data-i18n],[data-i18n-title],[data-i18n-placeholder],[data-i18n-aria-label],[data-i18n-alt],[data-i18n-value]")) return NodeFilter.FILTER_REJECT;
         if (["SCRIPT","STYLE","NOSCRIPT"].includes(tag)) return NodeFilter.FILTER_REJECT;
         const v = node.nodeValue;
         if (!v || !norm(v)) return NodeFilter.FILTER_REJECT;
@@ -538,11 +542,12 @@
     }
 
     // Attribute nodes
-    const attrs = ["title","placeholder","aria-label","alt"];
+    const attrs = ["title","placeholder","aria-label","alt","value"];
     doc.querySelectorAll("*").forEach((el) => {
       attrs.forEach((a) => {
         const v = el.getAttribute(a);
         if (!v) return;
+        if (el.hasAttribute("data-i18n-" + a)) return;
         __attrNodes.push({ el, attr: a, src: v });
       });
     });
@@ -560,34 +565,121 @@
     return lead + rep + tail;
   }
 
+  
+  // =========================
+  // i18n (JSON dictionaries)
+  // =========================
+  const __I18N_CACHE = {};
+
+  function assetsBase() {
+    // We derive the correct relative base from theme.css (present on every page)
+    const link = doc.querySelector('link[href$="assets/css/theme.css"]');
+    if (link) {
+      const href = link.getAttribute("href") || "";
+      return href.split("assets/css/theme.css")[0] + "assets/";
+    }
+    // Fallback: derive from script src
+    const s = doc.querySelector('script[src$="assets/js/accessibility.js"]') || doc.querySelector('script[src$="assets/js/accesibilidad.js"]');
+    if (s) {
+      const src = s.getAttribute("src") || "";
+      return src.split("assets/js/")[0] + "assets/";
+    }
+    return "assets/";
+  }
+
+  function pageId() {
+    let path = (location.pathname || "").replace(/\\/g, "/");
+    if (!path || path.endsWith("/")) path += "index.html";
+
+    // Heuristic: strip any leading hosting prefix (repo name, folder name)
+    const markers = ["/app/","/content/","/sites/","/index.html","/offline.html"];
+    let cut = -1;
+    markers.forEach((m) => {
+      const i = path.indexOf(m);
+      if (i !== -1 && (cut === -1 || i < cut)) cut = i;
+    });
+    if (cut > 0) path = path.slice(cut + 1); // remove leading "/"
+    else path = path.replace(/^\/+/, "");
+
+    if (path.toLowerCase().endsWith(".html")) path = path.slice(0, -5);
+    return path.replace(/\//g, "__") || "index";
+  }
+
+  async function fetchJson(url) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) return {};
+      return await res.json();
+    } catch (e) {
+      return {};
+    }
+  }
+
+  async function loadLangMap(lang) {
+    const pid = pageId();
+    const cacheKey = lang + "|" + pid;
+    if (__I18N_CACHE[cacheKey]) return __I18N_CACHE[cacheKey];
+
+    const base = assetsBase();
+    const i18nBase = base + "i18n/";
+
+    const langCommon = await fetchJson(i18nBase + lang + "/common.json");
+    const langPage = await fetchJson(i18nBase + lang + "/pages/" + pid + ".json");
+
+    let esCommon = {}, esPage = {};
+    if (lang !== "es") {
+      esCommon = await fetchJson(i18nBase + "es/common.json");
+      esPage = await fetchJson(i18nBase + "es/pages/" + pid + ".json");
+    }
+
+    // Merge order: ES fallback -> selected language -> built-in (toolbar UX)
+    const merged = Object.assign({}, esCommon, esPage, langCommon, langPage, (I18N[lang] || {}));
+    __I18N_CACHE[cacheKey] = merged;
+    return merged;
+  }
+
+  function applyI18nMap(map) {
+    // Text content
+    doc.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (key && map[key] !== undefined) el.textContent = map[key];
+    });
+
+    // Attributes
+    const attrs = ["title","placeholder","aria-label","alt","value"];
+    attrs.forEach((a) => {
+      doc.querySelectorAll("[data-i18n-" + a + "]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-" + a);
+        if (key && map[key] !== undefined) el.setAttribute(a, map[key]);
+      });
+    });
+  }
+
   function applyLang(lang) {
     html.setAttribute("lang", lang);
     try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
 
-    // Traducción por keys (data-i18n)
-    const map = I18N[lang];
-    if (map) {
-      Object.keys(map).forEach((key) => {
-        doc.querySelectorAll('[data-i18n="' + key + '"]').forEach((el) => (el.textContent = map[key]));
-      });
-    }
-
-    // Actualiza tooltips/aria de toolbar si existe
+    // Update tooltips/aria of the accessibility toolbar (built-in keys)
     doc.querySelectorAll('.access-btn[data-action="home"]').forEach((b)=>{ b.title=t("btn.home"); b.setAttribute("aria-label",t("btn.home")); });
     doc.querySelectorAll('.access-btn[data-action="narrator"]').forEach((b)=>{ b.title=t("btn.narrator"); b.setAttribute("aria-label",t("btn.narrator")); });
-    doc.querySelectorAll('.access-btn[data-action="toggle-theme"], .access-btn[data-action="theme"], .access-btn[data-action="contrast"]').forEach((b)=>{ b.title=t("btn.theme"); b.setAttribute("aria-label",t("btn.theme")); });
+    doc.querySelectorAll('.access-btn[data-action="toggle-theme"]').forEach((b)=>{ b.title=t("btn.theme"); b.setAttribute("aria-label",t("btn.theme")); });
     doc.querySelectorAll('.access-btn[data-action="font-inc"]').forEach((b)=>{ b.title=t("btn.fontPlus"); b.setAttribute("aria-label",t("btn.fontPlus")); });
     doc.querySelectorAll('.access-btn[data-action="font-dec"]').forEach((b)=>{ b.title=t("btn.fontMinus"); b.setAttribute("aria-label",t("btn.fontMinus")); });
     doc.querySelectorAll('.access-btn[data-action="lang"]').forEach((b)=>{ b.title=t("btn.lang"); b.setAttribute("aria-label",t("btn.lang")); });
     doc.querySelectorAll('.access-btn[data-action="guide"]').forEach((b)=>{ b.title=t("btn.guide"); b.setAttribute("aria-label",t("btn.guide")); });
     doc.querySelectorAll('.access-btn[data-action="search"]').forEach((b)=>{ b.title=t("btn.search"); b.setAttribute("aria-label",t("btn.search")); });
 
-    // Auto translation
-    collectAutoTranslatables();
-    __textNodes.forEach((r) => { r.node.nodeValue = translateString(lang, r.src); });
-    __attrNodes.forEach((r) => { r.el.setAttribute(r.attr, translateString(lang, r.src)); });
+    // Load JSON dictionaries for this page and apply key-based translations
+    loadLangMap(lang).then((map) => {
+      applyI18nMap(map);
 
-    toast(`${t("toast.lang")}: ${lang.toUpperCase()}`);
+      // Fallback: translate any residual nodes not under data-i18n control
+      collectAutoTranslatables();
+      __textNodes.forEach((r) => { r.node.nodeValue = translateString(lang, r.src); });
+      __attrNodes.forEach((r) => { r.el.setAttribute(r.attr, translateString(lang, r.src)); });
+
+      toast(`${t("toast.lang")}: ${lang.toUpperCase()}`);
+    });
   }
 
   function getLang() {
