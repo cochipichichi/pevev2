@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Quiz PEVE — Física 7° Básico</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="../pwa/manifest.webmanifest"/>
-  <link rel="icon" href="../../../../../assets/img/favicon.png"/>
-  <link rel="preload" href="../style.css" as="style"/>
-  <link rel="stylesheet" href="../style.css"/>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__quiz__quiz.0004">Quiz PEVE — Física 7° Básico</title>
+<meta content="#0c0f10" name="theme-color">
+<link href="../pwa/manifest.webmanifest" rel="manifest">
+<link href="../../../../../assets/img/favicon.png" rel="icon">
+<link as="style" href="../style.css" rel="preload">
+<link href="../style.css" rel="stylesheet">
+<link href="../../../../../assets/css/theme.css" rel="stylesheet">
 </head>
 <body>
-  <!-- La barra de accesibilidad se inyecta por script.js global -->
-  <header class="header">
-    <div class="hero">
-      <h1>Quiz PEVE — Física 7° Básico</h1>
-      <p>Preguntas inspiradas en el banco oficial PEVE (CN07 OA07, OA09, OA11).</p>
-    </div>
-  </header>
-
-  <main class="section">
-    <div id="quiz-container" class="quiz-container"></div>
-    <div class="btn-row">
-      <button id="checkBtn" class="btn">✅ Revisar respuestas</button>
-      <button id="resetBtn" class="btn">🔄 Reiniciar</button>
-      <a href="../index.html" class="btn">⬅ Volver al módulo Física 7°</a>
-    </div>
-    <p id="score" class="note"></p>
-  </main>
-
-  <script>
+<!-- La barra de accesibilidad se inyecta por script.js global -->
+<header class="header">
+<div class="hero">
+<h1 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__quiz__quiz.0001">Quiz PEVE — Física 7° Básico</h1>
+<p data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__quiz__quiz.0002">Preguntas inspiradas en el banco oficial PEVE (CN07 OA07, OA09, OA11).</p>
+</div>
+</header>
+<main class="section">
+<div class="quiz-container" id="quiz-container"></div>
+<div class="btn-row">
+<button class="btn" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__quiz__quiz.0003" id="checkBtn">✅ Revisar respuestas</button>
+<button class="btn" data-i18n="c.reiniciar_eb96b786" id="resetBtn">🔄 Reiniciar</button>
+<a class="btn" data-i18n="c.volver_al_módulo_física_7_7fc072e1" href="../index.html">⬅ Volver al módulo Física 7°</a>
+</div>
+<p class="note" id="score"></p>
+</main>
+<script>
   const questions = [
     {
       id: 1,
@@ -230,8 +229,8 @@
     document.getElementById('resetBtn').addEventListener('click', resetQuiz);
   });
   </script>
+<script src="../js/script.js"></script>
 
-  <script src="../js/script.js"></script>
-  <script src="../../../../../assets/js/accesibilidad.js"></script>
+<script src="../../../../../assets/js/accessibility.js"></script>
 </body>
 </html>

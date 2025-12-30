@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>CN07 OA07 — Fuerza y efectos</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="pwa/manifest.webmanifest"/>
-  <link rel="icon" href="../../../../assets/img/favicon.png"/>
-  <link rel="preload" href="style.css" as="style"/>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0029">CN07 OA07 — Fuerza y efectos</title>
+<meta content="#0c0f10" name="theme-color">
+<link href="pwa/manifest.webmanifest" rel="manifest">
+<link href="../../../../assets/img/favicon.png" rel="icon">
+<link as="style" href="style.css" rel="preload">
+<link href="style.css" rel="stylesheet">
+<link href="../../../../assets/css/theme.css" rel="stylesheet">
 </head>
 <body>
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<nav aria-label="Barra de controles" class="controls" data-i18n-aria-label="c.attr.aria-label.barra_de_controles_16ccbafc" role="navigation">
+<span class="control-title">🛠️ <span data-i18n="c.controles_0ba15df1" data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" data-i18n-aria-label="c.attr.aria-label.inicio_b0cbe1c0" data-i18n-title="c.attr.title.inicio_6a942e51" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" data-i18n-aria-label="c.attr.aria-label.narrar_bd2b0dc4" data-i18n-title="c.attr.title.narrar_1272f7ec" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
 <div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+<button aria-label="Cambiar tema" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_tema_4156dabc" data-i18n-title="c.attr.title.temas_altt_58abcf47" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" data-i18n-aria-label="c.attr.aria-label.selector_de_tema_a0c5920a" id="themeMenu" role="menu">
+<button data-i18n="c.claro_e8e44533" onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button data-i18n="c.oscuro_27a6408f" onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button data-i18n="c.alto_contraste_745b631c" onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button data-i18n="c.sepia_0bd3eacb" onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
 </div>
 </div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.aumentar_tamaño_de_letra_286fb21a" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.disminuir_tamaño_de_letra_15d6bf38" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_a_inglés_e612bcaf" data-i18n-title="c.attr.title.cambiar_idioma_1b5aed40" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" data-i18n-aria-label="c.attr.aria-label.guía_121763af" data-i18n-title="c.attr.title.guía_244a2aff" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" data-i18n-aria-label="c.attr.aria-label.regla_de_lectura_d2d94444" data-i18n-title="c.attr.title.regla_de_lectura_d4498f1d" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
 <span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+<button aria-label="Detener narración" class="control-btn" data-i18n-aria-label="c.attr.aria-label.detener_narración_3d1c8d5f" data-i18n-title="c.attr.title.detener_narración_95070702" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
 </nav>
-
 <header class="header">
-  <div class="hero" id="intro">
-    <h1>CN07 OA07 — Fuerza y efectos</h1>
-    <p>
+<div class="hero" id="intro">
+<h1 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0001">CN07 OA07 — Fuerza y efectos</h1>
+<p data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0002">
       Analizar y describir efectos de diferentes fuerzas sobre objetos: gravedad, roce, fuerza elástica y su medición
       con dinamómetros y resortes (ley de Hooke).
     </p>
-    <div class="btn-row">
-      <a class="btn" href="#tipos">💪 Tipos de fuerza</a>
-      <a class="btn" href="#hooke">📏 Ley de Hooke y dinamómetro</a>
-      <a class="btn" href="#peve">🧪 Actividades con preguntas PEVE</a>
-    </div>
-  </div>
+<div class="btn-row">
+<a class="btn" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0003" href="#tipos">💪 Tipos de fuerza</a>
+<a class="btn" data-i18n="c.ley_de_hooke_y_dinamómetro_8e50c81e" href="#hooke">📏 Ley de Hooke y dinamómetro</a>
+<a class="btn" data-i18n="c.actividades_con_preguntas_peve_6b0da68e" href="#peve">🧪 Actividades con preguntas PEVE</a>
+</div>
+</div>
 </header>
-
 <main>
-
-  <section class="section" id="tipos">
-    <h2>💪 Tipos de fuerza en situaciones cotidianas</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🌎 Fuerza de gravedad</h3>
-        <ul>
-          <li>Es la fuerza con que la Tierra atrae a los objetos hacia su centro.</li>
-          <li>Ejemplo típico: una fruta que cae desde un árbol.</li>
-          <li>En las preguntas PEVE se usa también el ejemplo del paracaidista y objetos que caen.fileciteturn6file0</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🧱 Fuerza de roce</h3>
-        <ul>
-          <li>Ocurre entre superficies en contacto.</li>
-          <li><strong>Roce estático:</strong> se opone al inicio del movimiento (un libro en una mesa).</li>
-          <li><strong>Roce dinámico:</strong> se opone al movimiento ya iniciado (una niña en un resbalín, ruedas de auto).</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🌀 Otras fuerzas</h3>
-        <ul>
-          <li><strong>Fuerza de empuje:</strong> cuando empujas un auto o un mueble.</li>
-          <li><strong>Fuerza elástica:</strong> cuando un resorte o goma se estiran o comprimen.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="hooke">
-    <h2>📏 Ley de Hooke y dinamómetro</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>📐 Experimentos con resortes</h3>
-        <p>
+<section class="section" id="tipos">
+<h2 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0004">💪 Tipos de fuerza en situaciones cotidianas</h2>
+<div class="grid">
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0005">🌎 Fuerza de gravedad</h3>
+<ul>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0006">Es la fuerza con que la Tierra atrae a los objetos hacia su centro.</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0007">Ejemplo típico: una fruta que cae desde un árbol.</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0008">En las preguntas PEVE se usa también el ejemplo del paracaidista y objetos que caen.fileciteturn6file0</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0009">🧱 Fuerza de roce</h3>
+<ul>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0010">Ocurre entre superficies en contacto.</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0011">Roce estático:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0033">se opone al inicio del movimiento (un libro en una mesa).</span>
+</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0012">Roce dinámico:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0034">se opone al movimiento ya iniciado (una niña en un resbalín, ruedas de auto).</span>
+</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0013">🌀 Otras fuerzas</h3>
+<ul>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0014">Fuerza de empuje:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0035">cuando empujas un auto o un mueble.</span>
+</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0015">Fuerza elástica:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0036">cuando un resorte o goma se estiran o comprimen.</span>
+</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="section" id="hooke">
+<h2 data-i18n="c.ley_de_hooke_y_dinamómetro_8e50c81e">📏 Ley de Hooke y dinamómetro</h2>
+<div class="grid">
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0016">📐 Experimentos con resortes</h3>
+<p data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0017">
           En el banco PEVE se describe cómo cuelgan diferentes masas de un resorte y miden cuánto se alarga.
           Observan que, mientras más peso, mayor es el estiramiento.fileciteturn6file0
         </p>
-        <ul>
-          <li>Cuando la elongación es proporcional a la fuerza aplicada, el resorte cumple la <strong>ley de Hooke</strong>.</li>
-          <li>Si al duplicar la masa, se duplica la elongación, hay proporcionalidad directa.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>⚖️ Dinamómetro y báscula</h3>
-        <ul>
-          <li>Un dinamómetro es un resorte graduado que mide fuerza o peso.</li>
-          <li>Las “pesas” o básculas utilizan internamente un resorte: miden la <strong>elongación</strong> del resorte
-              y la traducen en peso.</li>
-          <li>En el ítem PEVE correspondiente, se enfatiza que el aparato mide el <strong>estiramiento del resorte</strong>
-              para luego asociarlo al peso.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="peve">
-    <h2>🧪 Actividades con preguntas PEVE</h2>
-    <ol>
-      <li>
+<ul>
+<li> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0030">Cuando la elongación es proporcional a la fuerza aplicada, el resorte cumple la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0018">ley de Hooke</strong>.</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0019">Si al duplicar la masa, se duplica la elongación, hay proporcionalidad directa.</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0020">⚖️ Dinamómetro y báscula</h3>
+<ul>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0021">Un dinamómetro es un resorte graduado que mide fuerza o peso.</li>
+<li> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0031">Las “pesas” o básculas utilizan internamente un resorte: miden la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0022">elongación</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0037">del resorte
+              y la traducen en peso.</span>
+</li>
+<li> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0032">En el ítem PEVE correspondiente, se enfatiza que el aparato mide el</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0023">estiramiento del resorte</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0038">para luego asociarlo al peso.</span>
+</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="section" id="peve">
+<h2 data-i18n="c.actividades_con_preguntas_peve_6b0da68e">🧪 Actividades con preguntas PEVE</h2>
+<ol>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0024">
         Clasifica las preguntas PEVE en: gravedad, roce, fuerza elástica o combinación de fuerzas.
       </li>
-      <li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0025">
         Dibuja diagramas simples (flechas) que representen la dirección de la fuerza de gravedad en distintos puntos
         de la Tierra y sobre un paracaidista.
       </li>
-      <li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0026">
         Reproduce en tu cuaderno una tabla de masa vs. elongación y decide si el resorte cumple la ley de Hooke.
       </li>
-      <li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0027">
         Inventar una nueva pregunta tipo PEVE donde se use un dinamómetro para medir el peso de un objeto.
       </li>
-      <li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa07_fuerza.0028">
         Registra en el 🎟️ Ticket de salida una situación de tu vida cotidiana donde reconozcas claramente la acción
         de la fuerza de roce o de la gravedad.
       </li>
-    </ol>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn">⬅ Volver al módulo Física 7° PEVE</a>
-      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE Física</a>
-      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
-    </div>
-  </section>
-
+</ol>
+<div class="btn-row">
+<a class="btn" data-i18n="c.volver_al_módulo_física_7_peve_ccbea649" href="index.html">⬅ Volver al módulo Física 7° PEVE</a>
+<a class="btn" data-i18n="c.ir_al_quiz_peve_física_29831795" href="quiz/quiz.html">🧪 Ir al Quiz PEVE Física</a>
+<a class="btn" data-i18n="c.ir_al_ticket_de_salida_44bd65cf" href="ticket/ticket.html">🎟️ Ir al Ticket de salida</a>
+</div>
+</section>
 </main>
-
 <script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script>
+
+<script src="../../../../assets/js/accessibility.js"></script>
 </body>
 </html>

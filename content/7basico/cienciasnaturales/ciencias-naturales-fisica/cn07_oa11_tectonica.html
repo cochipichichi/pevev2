@@ -1,148 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</title>
-  <meta name="theme-color" content="#0c0f10"/>
-  <link rel="manifest" href="pwa/manifest.webmanifest"/>
-  <link rel="icon" href="../../../../assets/img/favicon.png"/>
-  <link rel="preload" href="style.css" as="style"/>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0036">CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</title>
+<meta content="#0c0f10" name="theme-color">
+<link href="pwa/manifest.webmanifest" rel="manifest">
+<link href="../../../../assets/img/favicon.png" rel="icon">
+<link as="style" href="style.css" rel="preload">
+<link href="style.css" rel="stylesheet">
+<link href="../../../../assets/css/theme.css" rel="stylesheet">
 </head>
 <body>
-<nav aria-label="Barra de controles" class="controls" role="navigation">
-<span class="control-title">🛠️ <span data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
-<button aria-label="Inicio" class="control-btn" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
-<button aria-label="Narrar" class="control-btn" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
+<nav aria-label="Barra de controles" class="controls" data-i18n-aria-label="c.attr.aria-label.barra_de_controles_16ccbafc" role="navigation">
+<span class="control-title">🛠️ <span data-i18n="c.controles_0ba15df1" data-i18n-en="Controls" data-i18n-es="Controles">Controles</span>:</span>
+<button aria-label="Inicio" class="control-btn" data-i18n-aria-label="c.attr.aria-label.inicio_b0cbe1c0" data-i18n-title="c.attr.title.inicio_6a942e51" id="home" onclick="scrollTopSmooth()" title="Inicio">🏠</button>
+<button aria-label="Narrar" class="control-btn" data-i18n-aria-label="c.attr.aria-label.narrar_bd2b0dc4" data-i18n-title="c.attr.title.narrar_1272f7ec" id="speak" onclick="handleSpeak()" title="Narrar">🗣️</button>
 <div class="theme-switcher">
-<button aria-label="Cambiar tema" class="control-btn" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
-<div aria-label="Selector de tema" class="theme-menu hidden" id="themeMenu" role="menu">
-<button onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
-<button onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
-<button onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
-<button onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
+<button aria-label="Cambiar tema" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_tema_4156dabc" data-i18n-title="c.attr.title.temas_altt_58abcf47" id="themeBtn" onclick="toggleThemeMenu()" title="Temas (Alt+T)">🌓</button>
+<div aria-label="Selector de tema" class="theme-menu hidden" data-i18n-aria-label="c.attr.aria-label.selector_de_tema_a0c5920a" id="themeMenu" role="menu">
+<button data-i18n="c.claro_e8e44533" onclick="setTheme('light')" role="menuitem">☀️ Claro</button>
+<button data-i18n="c.oscuro_27a6408f" onclick="setTheme('dark')" role="menuitem">🌙 Oscuro</button>
+<button data-i18n="c.alto_contraste_745b631c" onclick="setTheme('high')" role="menuitem">⚡ Alto contraste</button>
+<button data-i18n="c.sepia_0bd3eacb" onclick="setTheme('sepia')" role="menuitem">📜 Sepia</button>
 </div>
 </div>
-<button aria-label="Aumentar tamaño de letra" class="control-btn" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
-<button aria-label="Disminuir tamaño de letra" class="control-btn" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
-<button aria-label="Cambiar a inglés" class="control-btn" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
-<button aria-label="Guía" class="control-btn" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
-<button aria-label="Regla de lectura" class="control-btn" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
+<button aria-label="Aumentar tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.aumentar_tamaño_de_letra_286fb21a" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" id="inc" onclick="fontDelta(1)" title="Aumentar tamaño de letra">A+</button>
+<button aria-label="Disminuir tamaño de letra" class="control-btn" data-i18n-aria-label="c.attr.aria-label.disminuir_tamaño_de_letra_15d6bf38" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" id="dec" onclick="fontDelta(-1)" title="Disminuir tamaño de letra">A−</button>
+<button aria-label="Cambiar a inglés" class="control-btn" data-i18n-aria-label="c.attr.aria-label.cambiar_a_inglés_e612bcaf" data-i18n-title="c.attr.title.cambiar_idioma_1b5aed40" id="lang" onclick="toggleLang(this)" title="Cambiar idioma">🌐</button>
+<button aria-label="Guía" class="control-btn" data-i18n-aria-label="c.attr.aria-label.guía_121763af" data-i18n-title="c.attr.title.guía_244a2aff" id="guide" onclick="toggleGuide(true)" title="Guía">🧠</button>
+<button aria-label="Regla de lectura" class="control-btn" data-i18n-aria-label="c.attr.aria-label.regla_de_lectura_d2d94444" data-i18n-title="c.attr.title.regla_de_lectura_d4498f1d" id="rul" onclick="toggleRuler(this)" title="Regla de lectura">🔍</button>
 <span class="spacer"></span>
-<button aria-label="Detener narración" class="control-btn" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
+<button aria-label="Detener narración" class="control-btn" data-i18n-aria-label="c.attr.aria-label.detener_narración_3d1c8d5f" data-i18n-title="c.attr.title.detener_narración_95070702" id="stop" onclick="handleStop()" title="Detener narración">⏹</button>
 </nav>
-
 <header class="header">
-  <div class="hero" id="intro">
-    <h1>CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</h1>
-    <p>
+<div class="hero" id="intro">
+<h1 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0001">CN07 OA11 — Placas tectónicas, sismos y cambios en la Tierra</h1>
+<p data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0002">
       Explicar el movimiento de las placas tectónicas y su relación con la formación de montañas, sismos,
       volcanes y cambios en la corteza terrestre, usando modelos y evidencias.
     </p>
-    <div class="btn-row">
-      <a class="btn" href="#placas">🌎 Placas y límites</a>
-      <a class="btn" href="#sismos">🌋 Sismos y epicentro</a>
-      <a class="btn" href="#cambios">⛰️ Cambios en la superficie terrestre</a>
-    </div>
-  </div>
+<div class="btn-row">
+<a class="btn" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0003" href="#placas">🌎 Placas y límites</a>
+<a class="btn" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0004" href="#sismos">🌋 Sismos y epicentro</a>
+<a class="btn" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0005" href="#cambios">⛰️ Cambios en la superficie terrestre</a>
+</div>
+</div>
 </header>
-
 <main>
-
-  <section class="section" id="placas">
-    <h2>🌎 Placas tectónicas y sus límites</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🔁 ¿Por qué se mueven las placas?</h3>
-        <p>
-          Según el banco PEVE, el movimiento de las placas se explica por las
-          <strong>corrientes de convección del manto</strong>: el material caliente asciende, se enfría y desciende,
-          arrastrando las placas de la litosfera.fileciteturn6file0turn6file1
-        </p>
-      </article>
-      <article class="card">
-        <h3>🧩 Tipos de límites</h3>
-        <ul>
-          <li><strong>Divergente:</strong> las placas se separan y asciende magma, formando corteza nueva (dorsales oceánicas).</li>
-          <li><strong>Convergente:</strong> las placas se acercan y una puede hundirse bajo la otra (subducción).</li>
-          <li><strong>Transformante:</strong> las placas se deslizan horizontalmente una junto a la otra (falla de San Andrés).</li>
-        </ul>
-        <p class="note">
+<section class="section" id="placas">
+<h2 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0006">🌎 Placas tectónicas y sus límites</h2>
+<div class="grid">
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0007">🔁 ¿Por qué se mueven las placas?</h3>
+<p> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0037">Según el banco PEVE, el movimiento de las placas se explica por las</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0008">corrientes de convección del manto</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0042">: el material caliente asciende, se enfría y desciende,
+          arrastrando las placas de la litosfera.fileciteturn6file0turn6file1</span></p>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0009">🧩 Tipos de límites</h3>
+<ul>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0010">Divergente:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0043">las placas se separan y asciende magma, formando corteza nueva (dorsales oceánicas).</span>
+</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0011">Convergente:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0044">las placas se acercan y una puede hundirse bajo la otra (subducción).</span>
+</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0012">Transformante:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0045">las placas se deslizan horizontalmente una junto a la otra (falla de San Andrés).</span>
+</li>
+</ul>
+<p class="note" data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0013">
           En los límites convergentes se destruye parte de la corteza oceánica, mientras que en los divergentes se crea
           corteza nueva.
         </p>
-      </article>
-      <article class="card">
-        <h3>🌍 Deriva continental</h3>
-        <ul>
-          <li>Wegener observó que los continentes “calzan” como un rompecabezas.</li>
-          <li>El concepto de <strong>Pangea</strong> explica que antes estaban unidos.</li>
-          <li>La distribución de fósiles similares en continentes hoy separados refuerza esta idea.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="sismos">
-    <h2>🌋 Sismos, epicentro e hipocentro</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>📍 Foco, hipocentro y epicentro</h3>
-        <ul>
-          <li><strong>Foco o hipocentro:</strong> punto al interior de la Tierra donde se inicia el sismo.</li>
-          <li><strong>Epicentro:</strong> punto de la superficie directamente sobre el hipocentro.</li>
-          <li>Las ondas sísmicas se propagan desde allí en todas direcciones.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>🇨🇱 Contexto de Chile</h3>
-        <p>
-          A lo largo de la costa de Chile, la <strong>placa de Nazca</strong> subduce bajo la
-          <strong>placa Sudamericana</strong>, generando frecuentes sismos y actividad volcánica, tal como se describe
-          en las preguntas del banco PEVE.
-        </p>
-      </article>
-      <article class="card">
-        <h3>🧪 Preguntas tipo PEVE</h3>
-        <ul>
-          <li>Identificar el tipo de límite de placas según esquemas (divergente, convergente, transformante).</li>
-          <li>Elegir la descripción correcta del punto que corresponde al epicentro.</li>
-          <li>Reconocer qué fenómenos se explican por el movimiento de placas (por ejemplo, sismos).</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="cambios">
-    <h2>⛰️ Cambios en la superficie terrestre: capas y erosión</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>🔥 Capas de la Tierra</h3>
-        <p>
-          Un gráfico del banco PEVE muestra que a mayor profundidad aumentan tanto la <strong>temperatura</strong>
-          como la <strong>densidad</strong> del material. Esto explica por qué el interior de la Tierra es tan dinámico.fileciteturn6file0
-        </p>
-      </article>
-      <article class="card">
-        <h3>💨 Erosión y “edad” de las montañas</h3>
-        <p>
-          Otra pregunta compara montañas puntiagudas con montañas redondeadas: las más <strong>antiguas</strong> son
-          las redondeadas, porque han sido erosionadas durante más tiempo por viento, agua y hielo.
-        </p>
-      </article>
-    </div>
-
-    <div class="btn-row">
-      <a href="index.html" class="btn">⬅ Volver al módulo Física 7° PEVE</a>
-      <a href="quiz/quiz.html" class="btn">🧪 Ir al Quiz PEVE Física</a>
-      <a href="ticket/ticket.html" class="btn">🎟️ Ir al Ticket de salida</a>
-    </div>
-  </section>
-
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0014">🌍 Deriva continental</h3>
+<ul>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0015">Wegener observó que los continentes “calzan” como un rompecabezas.</li>
+<li> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0038">El concepto de</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0016">Pangea</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0046">explica que antes estaban unidos.</span>
+</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0017">La distribución de fósiles similares en continentes hoy separados refuerza esta idea.</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="section" id="sismos">
+<h2 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0018">🌋 Sismos, epicentro e hipocentro</h2>
+<div class="grid">
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0019">📍 Foco, hipocentro y epicentro</h3>
+<ul>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0020">Foco o hipocentro:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0047">punto al interior de la Tierra donde se inicia el sismo.</span>
+</li>
+<li>
+<strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0021">Epicentro:</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0048">punto de la superficie directamente sobre el hipocentro.</span>
+</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0022">Las ondas sísmicas se propagan desde allí en todas direcciones.</li>
+</ul>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0023">🇨🇱 Contexto de Chile</h3>
+<p> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0039">A lo largo de la costa de Chile, la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0024">placa de Nazca</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0049">subduce bajo la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0025">placa Sudamericana</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0050">, generando frecuentes sismos y actividad volcánica, tal como se describe
+          en las preguntas del banco PEVE.</span></p>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0026">🧪 Preguntas tipo PEVE</h3>
+<ul>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0027">Identificar el tipo de límite de placas según esquemas (divergente, convergente, transformante).</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0028">Elegir la descripción correcta del punto que corresponde al epicentro.</li>
+<li data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0029">Reconocer qué fenómenos se explican por el movimiento de placas (por ejemplo, sismos).</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="section" id="cambios">
+<h2 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0030">⛰️ Cambios en la superficie terrestre: capas y erosión</h2>
+<div class="grid">
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0031">🔥 Capas de la Tierra</h3>
+<p> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0040">Un gráfico del banco PEVE muestra que a mayor profundidad aumentan tanto la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0032">temperatura</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0051">como la</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0033">densidad</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0052">del material. Esto explica por qué el interior de la Tierra es tan dinámico.fileciteturn6file0</span></p>
+</article>
+<article class="card">
+<h3 data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0034">💨 Erosión y “edad” de las montañas</h3>
+<p> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0041">Otra pregunta compara montañas puntiagudas con montañas redondeadas: las más</span><strong data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0035">antiguas</strong> <span data-i18n="p.content__7basico__cienciasnaturales__ciencias-naturales-fisica__cn07_oa11_tectonica.0053">son
+          las redondeadas, porque han sido erosionadas durante más tiempo por viento, agua y hielo.</span></p>
+</article>
+</div>
+<div class="btn-row">
+<a class="btn" data-i18n="c.volver_al_módulo_física_7_peve_ccbea649" href="index.html">⬅ Volver al módulo Física 7° PEVE</a>
+<a class="btn" data-i18n="c.ir_al_quiz_peve_física_29831795" href="quiz/quiz.html">🧪 Ir al Quiz PEVE Física</a>
+<a class="btn" data-i18n="c.ir_al_ticket_de_salida_44bd65cf" href="ticket/ticket.html">🎟️ Ir al Ticket de salida</a>
+</div>
+</section>
 </main>
-
 <script src="js/script.js"></script>
-<script src="../../../../assets/js/accesibilidad.js"></script>
+
+<script src="../../../../assets/js/accessibility.js"></script>
 </body>
 </html>
