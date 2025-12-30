@@ -1,224 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 PEVE – Plataforma de Exámenes Libres</title>
-  <meta name="description" content="PEVE es una plataforma educativa inclusiva que organiza contenidos y temarios para Exámenes Libres menores de 18 años, alineados al currículum chileno.">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>📚 PEVE – Plataforma de Exámenes Libres</title>
+<meta content="PEVE es una plataforma educativa inclusiva que organiza contenidos y temarios para Exámenes Libres menores de 18 años, alineados al currículum chileno." name="description"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-
-
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle" aria-hidden="true">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Plataforma de Exámenes de Validación de Estudios</span>
-      </div>
-    </div>
-    <nav class="topbar-nav" aria-label="Navegación principal">
-      <a href="index.html" class="nav-link nav-link-active" data-i18n="nav.inicio">Inicio</a>
-      <a href="pages/info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="pages/niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="pages/asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <a href="pages/perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
-      <a href="pages/accesibilidad.html" class="nav-link" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="pages/acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-
-    <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="hero">
-      <div class="hero-text">
-        <p class="hero-kicker">Exámenes Libres · Menores de 18 años</p>
-        <h1>Organiza, acompaña y evidencia la trayectoria de cada estudiante.</h1>
-        <p class="hero-lead">
+<header class="topbar">
+<div class="topbar-left">
+<div aria-hidden="true" class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="c.plataforma_de_exámenes_de_validación_de_e650314b">Plataforma de Exámenes de Validación de Estudios</span>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="topbar-nav" data-i18n-aria-label="c.attr.aria-label.navegación_principal_86058c13">
+<a class="nav-link nav-link-active" data-i18n="nav.inicio" href="index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="pages/info.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="pages/niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="pages/asignaturas.html">Asignaturas</a>
+<a class="nav-link" data-i18n="nav.perfiles" href="pages/perfiles.html">Perfiles</a>
+<a class="nav-link" data-i18n="nav.accesibilidad" href="pages/accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="pages/acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<main id="main-content">
+<section class="hero">
+<div class="hero-text">
+<p class="hero-kicker" data-i18n="p.index.0001">Exámenes Libres · Menores de 18 años</p>
+<h1 data-i18n="p.index.0002">Organiza, acompaña y evidencia la trayectoria de cada estudiante.</h1>
+<p class="hero-lead">
           📚 PEVE es una plataforma inclusiva que centraliza temarios, orientaciones y recursos
           para rendir Exámenes de Validación de Estudios en Chile. No reemplaza los canales
-          oficiales de MINEDUC, pero ayuda a que estudiantes y familias sepan <strong>qué</strong> estudiar,
-          <strong>cómo</strong> prepararse y <strong>dónde</strong> registrar sus avances.
+          oficiales de MINEDUC, pero ayuda a que estudiantes y familias sepan <strong data-i18n="p.index.0003">qué</strong> estudiar,
+          <strong data-i18n="p.index.0004">cómo</strong> prepararse y <strong data-i18n="p.index.0005">dónde</strong> registrar sus avances.
         </p>
-
-        <div class="hero-cta-group">
-          <a href="pages/panel_estudiante.html" class="btn btn-solid pulse">
+<div class="hero-cta-group">
+<a class="btn btn-solid pulse" data-i18n="p.index.0006" href="pages/panel_estudiante.html">
             👦👧 Soy estudiante
           </a>
-          <a href="pages/familias.html" class="btn btn-outline">
+<a class="btn btn-outline" data-i18n="p.index.0007" href="pages/familias.html">
             👪 Soy familia / cuidador
           </a>
-          <a href="pages/panel_docente.html" class="btn btn-ghost">
+<a class="btn btn-ghost" data-i18n="p.index.0008" href="pages/panel_docente.html">
             👩‍🏫 Equipo docente / PIE
           </a>
-        
-          <a href="pages/temarios_oficiales.html" class="btn btn-outline">
+<a class="btn btn-outline" data-i18n="p.index.0009" href="pages/temarios_oficiales.html">
             📚 Temarios oficiales MINEDUC
           </a>
-
-			 <a href="app/login.html" class="btn btn-solid pulse">
+<a class="btn btn-solid pulse" data-i18n="c.ingresar_ae9f4965" href="app/login.html">
 			🔐 Ingresar</a>
-		
-			</div>
-
-        <div class="hero-meta">
-          <span class="meta-pill">♿ Enfoque inclusivo</span>
-          <span class="meta-pill">📖 Alineado a OA MINEDUC</span>
-          <span class="meta-pill">📊 Registro de progreso</span>
-		  <span class="meta-pill">📋<strong>Informes</strong></span>
-        </div>
-      </div>
-
-      <div class="hero-panel">
-        <h2>¿En qué consiste 📚PEVE?</h2>
-        <ul class="hero-list">
-          <li>
-            <strong>🎒 Trayectoria del alumno:</strong>
+</div>
+<div class="hero-meta">
+<span class="meta-pill" data-i18n="p.index.0010">♿ Enfoque inclusivo</span>
+<span class="meta-pill" data-i18n="p.index.0011">📖 Alineado a OA MINEDUC</span>
+<span class="meta-pill" data-i18n="p.index.0012">📊 Registro de progreso</span>
+<span class="meta-pill">📋<strong data-i18n="nav.informes">Informes</strong></span>
+</div>
+</div>
+<div class="hero-panel">
+<h2 data-i18n="p.index.0013">¿En qué consiste 📚PEVE?</h2>
+<ul class="hero-list">
+<li>
+<strong data-i18n="p.index.0014">🎒 Trayectoria del alumno:</strong>
             cada estudiante puede visualizar los cursos que está validando, los temarios asociados
             y el estado de sus evaluaciones.
           </li>
-          <li>
-            <strong>📚 Panel del estudiante:</strong>
+<li>
+<strong data-i18n="p.index.0015">📚 Panel del estudiante:</strong>
             acceso a todas las asignaturas con contenidos alineados a Objetivos de Aprendizaje (OA),
             recursos descargables y enlaces a material oficial.
           </li>
-          <li>
-            <strong>🧩 Materiales accesibles:</strong>
+<li>
+<strong data-i18n="p.index.0016">🧩 Materiales accesibles:</strong>
             alto contraste, narrador de pantalla, control de tamaño de letra y organización visual clara,
             pensados especialmente para estudiantes NEET y PIE.
           </li>
-          <li>
-            <strong>✅ Registro de progreso:</strong>
+<li>
+<strong data-i18n="p.index.0017">✅ Registro de progreso:</strong>
             espacio para marcar temarios revisados, contenidos ejercitados y exámenes rendidos,
             generando una evidencia ordenada del proceso.
           </li>
-        </ul>
-        <a href="https://www.ayudamineduc.cl/ficha/examenes-libres-menores-de-18-anos-11" target="_blank" rel="noopener" class="btn btn-link">
+</ul>
+<a class="btn btn-link" data-i18n="p.index.0018" href="https://www.ayudamineduc.cl/ficha/examenes-libres-menores-de-18-anos-11" rel="noopener" target="_blank">
           🔗 Ver ficha oficial MINEDUC (Ayuda Mineduc)
         </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2>Entradas rápidas</h2>
-        <p>Elige por dónde comenzar según lo que necesitas hoy.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>ℹ️ Proceso Exámenes Libres</h3>
-          <p>
+</div>
+</section>
+<section class="section">
+<div class="section-header">
+<h2 data-i18n="p.index.0019">Entradas rápidas</h2>
+<p data-i18n="p.index.0020">Elige por dónde comenzar según lo que necesitas hoy.</p>
+</div>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.index.0021">ℹ️ Proceso Exámenes Libres</h3>
+<p data-i18n="p.index.0022">
             Requisitos generales, plazos de inscripción, forma de rendir las pruebas y elementos
             que dependen exclusivamente del MINEDUC.
           </p>
-         <a href="pages/info.html" class="btn btn-outline pulse">⚙️ Proceso</a>
-        </article>
-
-        <article class="card">
-          <h3>🧱 Niveles y cursos</h3>
-          <p>
+<a class="btn btn-outline pulse" data-i18n="p.index.0023" href="pages/info.html">⚙️ Proceso</a>
+</article>
+<article class="card">
+<h3 data-i18n="p.index.0024">🧱 Niveles y cursos</h3>
+<p data-i18n="p.index.0025">
             Explora los cursos que se pueden validar (Básica y Media) y revisa qué asignaturas
             se evalúan en cada nivel.
           </p>
-           <a href="pages/niveles.html" class="btn btn-outline pulse">📝 Explorar Niveles</a>
-        </article>
-
-        <article class="card">
-          <h3>📒 Temarios y asignaturas</h3>
-          <p>
+<a class="btn btn-outline pulse" data-i18n="p.index.0026" href="pages/niveles.html">📝 Explorar Niveles</a>
+</article>
+<article class="card">
+<h3 data-i18n="p.index.0027">📒 Temarios y asignaturas</h3>
+<p data-i18n="p.index.0028">
             Accede a una vista organizada de temarios por asignatura, con ejemplos de OA y
             espacio para anexar material complementario.
           </p>
-          <a href="pages/asignaturas.html" class="btn btn-outline pulse">📒 Explorar Niveles</a>
-        </article>
-
-        <article class="card">
-          <h3>👥 Perfiles y permisos</h3>
-          <p>
+<a class="btn btn-outline pulse" data-i18n="p.index.0029" href="pages/asignaturas.html">📒 Explorar Niveles</a>
+</article>
+<article class="card">
+<h3 data-i18n="p.index.0030">👥 Perfiles y permisos</h3>
+<p data-i18n="p.index.0031">
             Estudiantes, familias, docentes, PIE y coordinación: qué puede hacer cada rol dentro
             de PEVE y cómo se articulan al servicio del estudiante.
           </p>
-          
-			
-			<a href="app/login.html" class="btn btn-solid pulse">🔐 Ingresar</a>
-			<!-- <a href="pages/perfiles.html" class="btn btn-card">Ver perfiles</a> -->
-        </article>
-
-        <article class="card">
-          <h3>♿ Accesibilidad</h3>
-          <p>
+<a class="btn btn-solid pulse" data-i18n="c.ingresar_ae9f4965" href="app/login.html">🔐 Ingresar</a>
+<!-- <a href="pages/perfiles.html" class="btn btn-card">Ver perfiles</a> -->
+</article>
+<article class="card">
+<h3 data-i18n="p.index.0032">♿ Accesibilidad</h3>
+<p data-i18n="p.index.0033">
             Conoce en detalle las herramientas de accesibilidad integradas en la plataforma
             y sugerencias para acompañar a estudiantes con NEE.
           </p>
-			<a href="pages/accesibilidad.html" class="btn btn-outline pulse">🤝 Ver herramientas</a>
-          </article>
-
-        <article class="card">
-          <h3>💬 Sobre este proyecto</h3>
-          <p>
+<a class="btn btn-outline pulse" data-i18n="p.index.0034" href="pages/accesibilidad.html">🤝 Ver herramientas</a>
+</article>
+<article class="card">
+<h3 data-i18n="p.index.0035">💬 Sobre este proyecto</h3>
+<p data-i18n="p.index.0036">
             Contexto, equipo impulsor, vínculo con el Liceo Bicentenario de Excelencia Polivalente
             San Nicolás y enfoque PEI/PIE.
           </p>
-			<a href="pages/acerca.html" class="btn btn-outline pulse">❓  Conocer más</a>
-            </article>
-      </div>
-    </section>
-  
+<a class="btn btn-outline pulse" data-i18n="p.index.0037" href="pages/acerca.html">❓  Conocer más</a>
+</article>
+</div>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
-
-  
-
 </main>
-
-  <footer class="footer small">
-    <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<footer class="footer small">
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
-  </footer>
+</div>
+</div>
+</footer>
 
-  <script src="assets/js/accesibilidad.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-</body>
+<script defer="" src="assets/js/main.js"></script>
+<script src="assets/js/accessibility.js"></script></body>
 </html>

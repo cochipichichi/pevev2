@@ -1,141 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accesibilidad – PEVE</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Accesibilidad – PEVE</title>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<link href="../assets/css/theme.css" rel="stylesheet"/></head>
 <body class="theme-dark">
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-circle">📚</div>
-      <div class="brand-text">
-        <span class="brand-name">PEVE</span>
-        <span class="brand-subtitle">Accesibilidad e inclusión</span>
-      </div>
-    </div>
-    <nav class="topbar-nav">
-      <a href="../index.html" class="nav-link" data-i18n="nav.inicio">Inicio</a>
-      <a href="info.html" class="nav-link" data-i18n="nav.proceso">Proceso</a>
-      <a href="niveles.html" class="nav-link" data-i18n="nav.niveles">Niveles</a>
-      <a href="asignaturas.html" class="nav-link" data-i18n="nav.asignaturas">Asignaturas</a>
-      <a href="perfiles.html" class="nav-link" data-i18n="nav.perfiles">Perfiles</a>
-      <a href="accesibilidad.html" class="nav-link nav-link-active" data-i18n="nav.accesibilidad">Accesibilidad</a>
-      <a href="acerca.html" class="nav-link" data-i18n="nav.acerca">Acerca de</a>
-    </nav>
-    
-  
-  <div class="accessibility-toolbar" aria-label="Controles de accesibilidad">
-      <button class="access-btn" data-action="home" data-home="../index.html" title="Ir al inicio">🏠</button>
-      <button class="access-btn" data-action="narrator" title="Leer el contenido de la página">🗣️</button>
-      <button class="access-btn" data-action="toggle-theme" title="Cambiar tema claro/oscuro">🌓</button>
-      <button class="access-btn" data-action="font-inc" title="Aumentar tamaño de letra">A+</button>
-      <button class="access-btn" data-action="font-dec" title="Disminuir tamaño de letra">A−</button>
-      <button class="access-btn" data-action="lang" title="Cambiar idioma ES/EN/FR">🌐</button>
-      <button class="access-btn" data-action="guide" title="Mostrar guía paso a paso">🧠</button>
-      <button class="access-btn" data-action="search" title="Buscar en esta página">🔍</button>
-    </div>
-  </header>
-
-  <main id="main-content" class="page">
-    <header class="page-header">
-      <p class="page-kicker">Diseño universal para el aprendizaje</p>
-      <h1>Herramientas de accesibilidad integradas en PEVE</h1>
-      <p class="page-lead">
+<header class="topbar">
+<div class="topbar-left">
+<div class="logo-circle">📚</div>
+<div class="brand-text">
+<span class="brand-name" data-i18n="c.peve_a61b37fe">PEVE</span>
+<span class="brand-subtitle" data-i18n="p.pages__accesibilidad.0001">Accesibilidad e inclusión</span>
+</div>
+</div>
+<nav class="topbar-nav">
+<a class="nav-link" data-i18n="nav.inicio" href="../index.html">Inicio</a>
+<a class="nav-link" data-i18n="nav.proceso" href="info.html">Proceso</a>
+<a class="nav-link" data-i18n="nav.niveles" href="niveles.html">Niveles</a>
+<a class="nav-link" data-i18n="nav.asignaturas" href="asignaturas.html">Asignaturas</a>
+<a class="nav-link" data-i18n="nav.perfiles" href="perfiles.html">Perfiles</a>
+<a class="nav-link nav-link-active" data-i18n="nav.accesibilidad" href="accesibilidad.html">Accesibilidad</a>
+<a class="nav-link" data-i18n="nav.acerca" href="acerca.html">Acerca de</a>
+</nav>
+<div aria-label="Controles de accesibilidad" class="accessibility-toolbar" data-i18n-aria-label="c.attr.aria-label.controles_de_accesibilidad_e1513252">
+<button class="access-btn" data-action="home" data-home="../index.html" data-i18n-title="c.attr.title.ir_al_inicio_115d499a" title="Ir al inicio">🏠</button>
+<button class="access-btn" data-action="narrator" data-i18n-title="c.attr.title.leer_el_contenido_de_la_página_b153cdac" title="Leer el contenido de la página">🗣️</button>
+<button class="access-btn" data-action="toggle-theme" data-i18n-title="c.attr.title.cambiar_tema_clarooscuro_c39e5dae" title="Cambiar tema claro/oscuro">🌓</button>
+<button class="access-btn" data-action="font-inc" data-i18n-title="c.attr.title.aumentar_tamaño_de_letra_e7bb9209" title="Aumentar tamaño de letra">A+</button>
+<button class="access-btn" data-action="font-dec" data-i18n-title="c.attr.title.disminuir_tamaño_de_letra_75a8c21b" title="Disminuir tamaño de letra">A−</button>
+<button class="access-btn" data-action="lang" data-i18n-title="c.attr.title.cambiar_idioma_esenfr_9e345c96" title="Cambiar idioma ES/EN/FR">🌐</button>
+<button class="access-btn" data-action="guide" data-i18n-title="c.attr.title.mostrar_guía_paso_a_paso_c06bf245" title="Mostrar guía paso a paso">🧠</button>
+<button class="access-btn" data-action="search" data-i18n-title="c.attr.title.buscar_en_esta_página_90fa8efb" title="Buscar en esta página">🔍</button>
+</div>
+</header>
+<main class="page" id="main-content">
+<header class="page-header">
+<p class="page-kicker" data-i18n="p.pages__accesibilidad.0002">Diseño universal para el aprendizaje</p>
+<h1 data-i18n="p.pages__accesibilidad.0003">Herramientas de accesibilidad integradas en PEVE</h1>
+<p class="page-lead" data-i18n="p.pages__accesibilidad.0004">
         La plataforma busca ser amigable para estudiantes con y sin Necesidades Educativas Especiales,
         combinando ajustes visuales, apoyos auditivos y una estructura clara.
       </p>
-    </header>
-
-    <section class="section">
-      <h2>Controles rápidos (esquina superior derecha)</h2>
-      <ul class="bullet-list">
-        <li><strong>🌓 Tema claro/oscuro:</strong> permite cambiar el contraste general según las preferencias del estudiante.</li>
-        <li><strong>A− / A+ Tamaño de letra:</strong> ajusta progresivamente el tamaño de fuente de todo el sitio.</li>
-        <li><strong>🔊 Narrador:</strong> activa una lectura automática del contenido principal de la página (cuando el navegador lo permite).</li>
-      </ul>
-      <p class="note">
+</header>
+<section class="section">
+<h2 data-i18n="p.pages__accesibilidad.0005">Controles rápidos (esquina superior derecha)</h2>
+<ul class="bullet-list">
+<li><strong data-i18n="p.pages__accesibilidad.0006">🌓 Tema claro/oscuro:</strong> permite cambiar el contraste general según las preferencias del estudiante.</li>
+<li><strong data-i18n="p.pages__accesibilidad.0007">A− / A+ Tamaño de letra:</strong> ajusta progresivamente el tamaño de fuente de todo el sitio.</li>
+<li><strong data-i18n="p.pages__accesibilidad.0008">🔊 Narrador:</strong> activa una lectura automática del contenido principal de la página (cuando el navegador lo permite).</li>
+</ul>
+<p class="note" data-i18n="p.pages__accesibilidad.0009">
         Estos ajustes se guardan localmente en el navegador del dispositivo, de modo que el estudiante
         no tenga que configurarlos cada vez.
       </p>
-    </section>
-
-    <section class="section">
-      <h2>Estrategias sugeridas para PIE / NEET</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>🌈 Simplificar la vista</h3>
-          <p>
+</section>
+<section class="section">
+<h2 data-i18n="p.pages__accesibilidad.0010">Estrategias sugeridas para PIE / NEET</h2>
+<div class="card-grid">
+<article class="card">
+<h3 data-i18n="p.pages__accesibilidad.0011">🌈 Simplificar la vista</h3>
+<p data-i18n="p.pages__accesibilidad.0012">
             Trabaja sólo con una sección del sitio a la vez (por ejemplo, una tabla de temario)
             y apóyate en resaltadores físicos, pictogramas o esquemas impresos.
           </p>
-        </article>
-        <article class="card">
-          <h3>🎧 Apoyos auditivos</h3>
-          <p>
+</article>
+<article class="card">
+<h3 data-i18n="p.pages__accesibilidad.0013">🎧 Apoyos auditivos</h3>
+<p data-i18n="p.pages__accesibilidad.0014">
             Combina el uso del narrador con lecturas guiadas del adulto. Haz pausas para verificar
             comprensión y usar ejemplos del contexto cotidiano del estudiante.
           </p>
-        </article>
-        <article class="card">
-          <h3>🧩 Fragmentar los temarios</h3>
-          <p>
+</article>
+<article class="card">
+<h3 data-i18n="p.pages__accesibilidad.0015">🧩 Fragmentar los temarios</h3>
+<p data-i18n="p.pages__accesibilidad.0016">
             Divide los temarios extensos en micro-metas semanales. Registra cada avance en el panel
             del estudiante para reforzar la sensación de logro.
           </p>
-        </article>
-      </div>
-    </section>
-  
+</article>
+</div>
+</section>
 <!-- Bloque de accesibilidad común PEVE -->
 <section class="section">
-  <article class="card accessibility-card" aria-label="Información de accesibilidad de la plataforma PEVE">
-    <h2>🧩 Accesibilidad</h2>
-    <p class="note">
+<article aria-label="Información de accesibilidad de la plataforma PEVE" class="card accessibility-card" data-i18n-aria-label="c.attr.aria-label.información_de_accesibilidad_de_la_plata_fca079ae">
+<h2 data-i18n="c.accesibilidad_fd501df9">🧩 Accesibilidad</h2>
+<p class="note" data-i18n="c.controles__inicio___lee_todo_el_contenid_573aa174">
       🛠️ Controles: 🏠 inicio · 🗣️ lee todo el contenido de la página · 🌓 alto contraste · A+ / A− tamaño de letra ·
       🌐 ES / EN / FR (traducción del sitio) · 🧠 guía paso a paso · 🔍 lupa.
     </p>
-  </article>
+</article>
 </section>
-
 </main>
-
-  <footer class="footer small">
-    <div class="footer-inner">
-      <div class="footer-text">
-        <p>© 2025 📚PEVE – Accesibilidad e inclusión.</p>
-      </div>
-    </div>
-
-
+<footer class="footer small">
 <div class="footer-inner">
-
-      <!-- <div class="footer-logo"> -->
-
- <div class="footer-bar">
-    <div class="logo"><img src="../assets/logo.svg" alt="Neotech EduLab" class="logo-img" onerror="this.style.display='none'">
-      <div><strong>© <strong>Neotech EduLab</strong>-Educación Inmersiva</div>
-      <small>🛠️Prohibida su copia y/o reproducción</small>
-    </div>
-        
-      </div>
-      <div class="footer-text">
-	<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
+<div class="footer-text">
+<p data-i18n="p.pages__accesibilidad.0017">© 2025 📚PEVE – Accesibilidad e inclusión.</p>
+</div>
+</div>
+<div class="footer-inner">
+<!-- <div class="footer-logo"> -->
+<div class="footer-bar">
+<div class="logo"><img alt="Neotech EduLab" class="logo-img" data-i18n-alt="c.attr.alt.neotech_edulab_ef78e95d" onerror="this.style.display='none'" src="../assets/logo.svg"/>
+<div><strong>© <strong data-i18n="c.neotech_edulab_985e1a35">Neotech EduLab</strong>-Educación Inmersiva</strong></div>
+<small data-i18n="c.prohibida_su_copia_yo_reproducción_d83cfd46">🛠️Prohibida su copia y/o reproducción</small>
+</div>
+</div>
+<div class="footer-text">
+<!-- <img src="../assets/img/logo-peve.svg" alt="Logo PEVE" class="logo-img" onerror="this.style.display='none'">
         <p><strong>Neotech EduLab · Educación Inmersiva</strong></p> -->
-        <p>© 2025 <strong>📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
-        <p class="footer-note">
+<p>© 2025 <strong data-i18n="c.peve_63155b10">📚PEVE</strong> – Plataforma de Exámenes de Validación de Estudios · Hecho con ❤️ y enfoque inclusivo.</p>
+<p class="footer-note" data-i18n="c.peve_es_un_recurso_pedagógico_complement_a28eeb20">
           PEVE es un recurso pedagógico complementario. La inscripción, rendición y certificación de Exámenes Libres
           depende exclusivamente del Ministerio de Educación de Chile y sus canales oficiales.
         </p>
-      </div>
-    </div>
+</div>
+</div>
+</footer>
 
-  </footer>
-
- 
-
-  <script src="../assets/js/accesibilidad.js" defer></script>
-  <script src="../assets/js/main.js" defer></script>
-</body>
+<script defer="" src="../assets/js/main.js"></script>
+<script src="../assets/js/accessibility.js"></script></body>
 </html>
